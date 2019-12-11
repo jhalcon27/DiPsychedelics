@@ -10,6 +10,19 @@ let ellipseOrigin;
 let ellipseRadius;
 let allPetals = [];
 
+class Petal {
+  constructor(index,x,y,diameter){
+    this.index = index;
+    this.x = x;
+    this.y = y;
+    this.diameter = diameter;
+  }
+
+  drawPetal(){
+    // "this" is litterally this class
+    ellipse(this.x,this.y,this.diameter)
+  }
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -18,6 +31,7 @@ function setup() {
   background.background(220);
   colorMode(HSB);//, height, height, height);
   rectMode(CENTER);
+  angleMode(DEGREES)
   offset_x = width/2;
   offset_y = height/2;
   grey = 256;
@@ -27,19 +41,26 @@ function setup() {
 }
 
 function draw() {
-  //flower_of_life();
+  flower_of_life();
 }
 
 function flower_of_life(){
-  angleMode(DEGREES);
-  // Original circle
-  ellipse(ellipseOrigin.x ,ellipseOrigin.y, ellipseRadius*2);
   fill(200,30,30,0.01);
-  // Circle 1>6
-  for (let circleCount = 0; circleCount < 6; circleCount++){
-    ellipse(ellipseOrigin.x + ellipseRadius * cos(60*circleCount), ellipseOrigin.y + ellipseRadius * sin(60*circleCount), ellipseRadius * 2);
+  let petal = new Petal(0, ellipseOrigin.x, ellipseOrigin.y, ellipseRadius * 2)
+  allPetals.push(petal)
+  for (let circleCount = 0; circleCount < 6; cicleCount++){
+    /* We're sorting xPostion, yPostion, and diameter as variables using let
+    just because it's easier to read */
+    let xPosition = ellipseOrigin.x + ellipseRadius * cos(60 * circleCount)
+    let yPosition = ellipseOrigin.y + ellipseRadius * sin(60 * circleCount)
+    let diameter = radius * 2
+
+    let petal = new Petal(circleCount, xPosition, yPosition, diameter)
+    // we save it to re array by saying allPetals.push()
+    allPetals.push(petal)
   }
-  angleMode(RADIANS);
+  // forEach is a function built into arrays
+    allPetals.forEach(petal => petal.drawPetal())
 }
 
 function getIntersection(originator, intersected, radius) {
@@ -94,13 +115,4 @@ function getIntersection(originator, intersected, radius) {
     y: y2 - ry
     }
     return intersection;
-}
-
-class Petal {
-  constructor(index,x,y,diameter){
-    this.index = index;
-    this.x = x;
-    this.y = y;
-    this.diameter = diameter;
-  }
 }
