@@ -27,35 +27,7 @@ function setup() {
 }
 
 function draw() {
-  //flower();
-  //sri_yantra();
-  flower_of_life();
-}
-
-function flower(){
-  //pattern 1
-    X = offset_x + sin(angle)*scale;
-    Y = offset_y + cos(angle)*scale;
-    background.fill(grey);
-    background.stroke(grey);
-    background.ellipse(X, Y, side, side);
-    angle += 1;
-    scale += 1/2;
-    side += 0.05;
-    grey -= 0.5;
-    if(grey<=0 || grey >=255){
-       X = 0
-       Y = 0
-       angle = 1;
-       scale = 5;
-       side = 20;
-       grey = 255;
-    }
-    image(background, 0, 0);
-}
-
-function sri_yantra(){
-  triangle(10,10,30,10,30,30);
+  //flower_of_life();
 }
 
 function flower_of_life(){
