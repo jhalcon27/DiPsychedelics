@@ -38,29 +38,30 @@ function setup() {
   //configuration for the flower of life
   ellipseOrigin = {x: windowWidth/2, y: windowHeight/2};
   ellipseRadius = 100;
+  getPetalPositions()
 }
 
 function draw() {
-  flower_of_life();
+  fill(200,30,30,0.01);
+  allPetals.forEach(petal => petal.drawPetal())
 }
 
-function flower_of_life(){
-  fill(200,30,30,0.01);
-  let petal = new Petal(0, ellipseOrigin.x, ellipseOrigin.y, ellipseRadius * 2)
-  allPetals.push(petal)
-  for (let circleCount = 0; circleCount < 6; cicleCount++){
-    /* We're sorting xPostion, yPostion, and diameter as variables using let
-    just because it's easier to read */
-    let xPosition = ellipseOrigin.x + ellipseRadius * cos(60 * circleCount)
-    let yPosition = ellipseOrigin.y + ellipseRadius * sin(60 * circleCount)
-    let diameter = radius * 2
-
-    let petal = new Petal(circleCount, xPosition, yPosition, diameter)
-    // we save it to re array by saying allPetals.push()
+function getPetalPositions(){
+  for (let petalCount = 0; petalCount < 7; petalCount++){
+    let petal
+    // origin petal at the center of the canvas
+    if(petalCount === 0){
+      petal = new Petal(petalCount, ellipseOrigin.x, ellipseOrigin.y, ellipseRadius *2)
+      // if it's the first petal move it one readius away
+    } else if (petalCount === 1){
+      petal = new Petal (petalCount, ellipseOrigin.x + ellipseRadius * cos(0), ellipseOrigin.y + ellipseRadius * sin(0), ellipseRadius *2)
+      // otherwise use our get intersection method
+    } else {
+      let intersectionCoordinates = getIntersection(allPetals[petalCount - 1], allPetals[0], ellipseRadius)
+      petal = new Petal(petalCount, intersectionCoordinates.x, intersectionCoordinates.y, ellipseRadius * 2)
+    }
     allPetals.push(petal)
   }
-  // forEach is a function built into arrays
-    allPetals.forEach(petal => petal.drawPetal())
 }
 
 function getIntersection(originator, intersected, radius) {
