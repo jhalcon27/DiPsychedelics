@@ -46,7 +46,7 @@ function setup() {
   offset_y = height/2;
   //configuration for the flower of life
   ellipseOrigin = {x: windowWidth/2, y: windowHeight/2};
-  ellipseRadius = 55;
+  ellipseRadius = 100;
   getPetalPositions()
   noLoop()
 
