@@ -6,18 +6,30 @@ let graphics;
 let ellipseOrigin;
 let ellipseRadius;
 let allPetals = [];
+let fillColorArray = [
+[50, 60, 50, 0.1],
+[100, 60, 50, 0.1],
+[150, 60, 50, 0.1],
+[200, 60, 50, 0.1],
+[250, 60, 50, 0.1],
+[300, 60, 50, 0.1]];
+let strokeColor = [100, 0, 0, 1]
 
 class Petal {
-  constructor(index,x,y,diameter){
+  constructor(index,x,y,diameter, round, fillColor, strokeColor){
     this.index = index;
     this.x = x;
     this.y = y;
     this.diameter = diameter;
     this.angle = getPetalAngle(x,y)
+    this.round = round
+    this.fillColor = fillColor
+    this.strokeColor = strokeColor
   }
 
   drawPetal(){
-    // "this" is litterally this class
+    stroke(this.strokeColor)
+    fill(this.fillColor)
     ellipse(this.x,this.y,this.diameter)
   }
 }
@@ -30,13 +42,14 @@ function setup() {
   colorMode(HSB);//, height, height, height);
   rectMode(CENTER);
   angleMode(DEGREES)
-  fill(200,30,30,0.01);
   offset_x = width/2;
   offset_y = height/2;
   //configuration for the flower of life
   ellipseOrigin = {x: windowWidth/2, y: windowHeight/2};
-  ellipseRadius = 80;
+  ellipseRadius = 55;
   getPetalPositions()
+  noLoop()
+
 }
 
 function draw() {
@@ -53,7 +66,9 @@ function getPetalPositions(){
 
     // origin petal at the center of the canvas
     if(roundCount === 0){
-      petal = new Petal(petalCount, ellipseOrigin.x, ellipseOrigin.y, ellipseRadius *2)
+      petal = new Petal(petalCount, ellipseOrigin.x, ellipseOrigin.y, ellipseRadius *2,
+        roundCount, fillColorArray[(roundCount + fillColorArray.length - 1) % fillColorArray.length],
+        strokeColor)
       allPetals.push(petal)
       petalCount++
     }
@@ -61,25 +76,26 @@ function getPetalPositions(){
     for (let i = 0; i < roundCount * 6; i++){
       if (roundCount === 1 && i === 0){
         petal = new Petal(petalCount, ellipseOrigin.x + ellipseRadius * cos(0),
-        ellipseOrigin.y + ellipseRadius * sin(0), ellipseRadius * 2)
+        ellipseOrigin.y + ellipseRadius * sin(0), ellipseRadius * 2, roundCount,
+        fillColorArray[(roundCount + fillColorArray.length - 1) % fillColorArray.length], strokeColor)
       } else {
         let intersectionCoordinates = getIntersection(allPetals[petalCount - 1],
           allPetals[firstIntersection], ellipseRadius)
         petal = new Petal(petalCount, intersectionCoordinates.x, intersectionCoordinates.y,
-          ellipseRadius * 2)
+          ellipseRadius * 2, roundCount, fillColorArray[(roundCount + fillColorArray.length - 1) % fillColorArray.length], strokeColor)
       }
       allPetals.push(petal)
       petalCount++
 
       // Check if our current petal's angle + our rounds offset is divisible by
       // 60° (the angle of our vertices)
-      let vertexIntersection = (petal.angle + offset) % 60 > 1
+      let vertexCalc = (petal.angle + offset) % 60 > 1
 
       // After 6 petals we are in our second round
       if (i === roundCount * 6 - 1){
         firstIntersection++
         // If we're intersection a vertex also increase the iterator
-      } else if(vertexIntersection){
+      } else if(vertexCalc){
         firstIntersection++
       }
     }
