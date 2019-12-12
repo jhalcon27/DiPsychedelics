@@ -1,10 +1,7 @@
 var offset;
 var angle;
 var scale;
-var X;
-var Y;
 var side;
-var grey;
 let graphics;
 let ellipseOrigin;
 let ellipseRadius;
@@ -16,6 +13,7 @@ class Petal {
     this.x = x;
     this.y = y;
     this.diameter = diameter;
+    this.angle = getPetalAngle(x,y)
   }
 
   drawPetal(){
@@ -32,35 +30,59 @@ function setup() {
   colorMode(HSB);//, height, height, height);
   rectMode(CENTER);
   angleMode(DEGREES)
+  fill(200,30,30,0.01);
   offset_x = width/2;
   offset_y = height/2;
-  grey = 256;
   //configuration for the flower of life
   ellipseOrigin = {x: windowWidth/2, y: windowHeight/2};
-  ellipseRadius = 100;
+  ellipseRadius = 80;
   getPetalPositions()
 }
 
 function draw() {
-  fill(200,30,30,0.01);
   allPetals.forEach(petal => petal.drawPetal())
 }
 
 function getPetalPositions(){
-  for (let petalCount = 0; petalCount < 7; petalCount++){
-    let petal
+  let firstIntersection = 0
+  let petalCount = 0
+  let offset, petal
+
+  for (let roundCount = 0; roundCount < 7; roundCount++){
+    offset = 360 / (roundCount * 6)
+
     // origin petal at the center of the canvas
-    if(petalCount === 0){
+    if(roundCount === 0){
       petal = new Petal(petalCount, ellipseOrigin.x, ellipseOrigin.y, ellipseRadius *2)
-      // if it's the first petal move it one readius away
-    } else if (petalCount === 1){
-      petal = new Petal (petalCount, ellipseOrigin.x + ellipseRadius * cos(0), ellipseOrigin.y + ellipseRadius * sin(0), ellipseRadius *2)
-      // otherwise use our get intersection method
-    } else {
-      let intersectionCoordinates = getIntersection(allPetals[petalCount - 1], allPetals[0], ellipseRadius)
-      petal = new Petal(petalCount, intersectionCoordinates.x, intersectionCoordinates.y, ellipseRadius * 2)
+      allPetals.push(petal)
+      petalCount++
     }
-    allPetals.push(petal)
+
+    for (let i = 0; i < roundCount * 6; i++){
+      if (roundCount === 1 && i === 0){
+        petal = new Petal(petalCount, ellipseOrigin.x + ellipseRadius * cos(0),
+        ellipseOrigin.y + ellipseRadius * sin(0), ellipseRadius * 2)
+      } else {
+        let intersectionCoordinates = getIntersection(allPetals[petalCount - 1],
+          allPetals[firstIntersection], ellipseRadius)
+        petal = new Petal(petalCount, intersectionCoordinates.x, intersectionCoordinates.y,
+          ellipseRadius * 2)
+      }
+      allPetals.push(petal)
+      petalCount++
+
+      // Check if our current petal's angle + our rounds offset is divisible by
+      // 60° (the angle of our vertices)
+      let vertexIntersection = (petal.angle + offset) % 60 > 1
+
+      // After 6 petals we are in our second round
+      if (i === roundCount * 6 - 1){
+        firstIntersection++
+        // If we're intersection a vertex also increase the iterator
+      } else if(vertexIntersection){
+        firstIntersection++
+      }
+    }
   }
 }
 
@@ -116,4 +138,18 @@ function getIntersection(originator, intersected, radius) {
     y: y2 - ry
     }
     return intersection;
+}
+
+function getPetalAngle(petalX, petalY){
+  // use atan2 to find angle in radians
+  let theta = Math.atan2(petalY - ellipseOrigin.y, petalX - ellipseOrigin.x)
+  // convert radians to degrees
+  theta *= 180 / Math.PI
+  // convert degrees to from +-180 to 0-360
+  if (theta < 0) theta = 360 + theta
+
+  theta = Math.round(theta)
+
+  // return angle data to method that called it
+  return theta
 }
