@@ -6,6 +6,7 @@ interface Props {
   subtitle?: string;
   description: string;
   image: string;
+  imagePosition?: string;
   date: string;
   readTime: string;
   tags: string[];
@@ -17,6 +18,7 @@ const {
   subtitle,
   description,
   image,
+  imagePosition = 'center',
   date,
   readTime,
   tags,
@@ -101,7 +103,8 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
         <img
           src={image}
           alt={title}
-          class="w-full h-64 sm:h-80 lg:h-96 object-cover object-top"
+          class="w-full h-64 sm:h-80 lg:h-96 object-cover"
+          style={`object-position: ${imagePosition}`}
         />
         <div class="absolute inset-0 bg-gradient-to-t from-cyber-dark/60 via-transparent to-transparent"></div>
         <!-- Neon border effect -->
