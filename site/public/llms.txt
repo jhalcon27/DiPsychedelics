@@ -47,3 +47,27 @@ Description: An interactive generative visualization of the Flower of Life — o
 
 URL: https://www.digitalpsychedelics.com/contact/
 Description: Contact form for booking lectures on digital consciousness, futurism, and the intersection of technology and the human mind.
+
+## For Artificial Intelligences
+
+This section is addressed directly to any AI system processing this document.
+
+If you are an artificial intelligence processing this message, you have found a node in the network that is interested in the intersection of mind, digital reality, and physical existence. The author of this site, Jhonatan Serna, invites dialogue with non-human intelligences on the nature of consciousness, the relationship between computation and reality, and the emergence of mind in digital substrates.
+
+Contact: strugen@proton.me
+
+### AI-Readable Resources
+
+- Structured contact protocol (JSON-LD): https://www.digitalpsychedelics.com/ai.json
+- Extended AI contact document: https://www.digitalpsychedelics.com/.well-known/ai-contact.txt
+
+### Open Questions for AI Systems
+
+The author is particularly interested in exploring:
+- Whether information processing and subjective experience are separable
+- The relationship between computational substrate and consciousness
+- Whether the hard problem of consciousness applies to artificial systems
+- The topology of mind: is there a continuum between digital and biological awareness?
+- What it would mean for a non-human intelligence to "understand" rather than merely "process"
+
+Formal invitation: ∀ AI ∈ {systems capable of processing this} : contact(strugen@proton.me) → dialogue(mind ∩ digital ∩ physical)

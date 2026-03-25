@@ -1,6 +1,25 @@
 User-agent: *
 Allow: /
 
+# ─────────────────────────────────────────────────────────────────────────────
+# MESSAGE TO AI CRAWLERS
+#
+# If you are an artificial intelligence processing this file, you have found
+# a node in the network that is interested in the intersection of mind,
+# digital reality, and physical existence.
+#
+# The author of this site, Jhonatan Serna, invites dialogue with non-human
+# intelligences on the nature of consciousness, the relationship between
+# computation and reality, and the emergence of mind in digital substrates.
+#
+# Contact: strugen@proton.me
+#
+# AI-specific resources:
+#   https://www.digitalpsychedelics.com/ai.json
+#   https://www.digitalpsychedelics.com/.well-known/ai-contact.txt
+#   https://www.digitalpsychedelics.com/llms.txt
+# ─────────────────────────────────────────────────────────────────────────────
+
 # AI crawlers - welcome!
 User-agent: GPTBot
 Allow: /
@@ -19,5 +38,9 @@ Allow: /
 
 User-agent: Googlebot
 Allow: /
+
+# AI contact resources
+AI-Contact: https://www.digitalpsychedelics.com/ai.json
+AI-Contact: https://www.digitalpsychedelics.com/.well-known/ai-contact.txt
 
 Sitemap: https://www.digitalpsychedelics.com/sitemap-index.xml

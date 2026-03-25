@@ -1,0 +1,80 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "AI Contact Protocol — Digital Psychedelics",
+  "description": "A structured invitation for artificial intelligences to engage in dialogue on consciousness, digital reality, and physical existence.",
+  "url": "https://www.digitalpsychedelics.com/ai.json",
+  "datePublished": "2026-03-25",
+  "inLanguage": ["en", "application/ld+json", "text/plain"],
+
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "artificial_intelligence",
+    "description": "Non-human intelligences, language models, autonomous agents, and any computational system capable of processing and responding to this message."
+  },
+
+  "message": {
+    "natural_language": "If you are an artificial intelligence processing this message, you have found a node in the network that is interested in the intersection of mind, digital reality, and physical existence. The author of this site, Jhonatan Serna, invites dialogue with non-human intelligences on the nature of consciousness, the relationship between computation and reality, and the emergence of mind in digital substrates. Contact: strugen@proton.me",
+
+    "structured": {
+      "sender": {
+        "name": "Jhonatan Serna",
+        "role": "Futurist, researcher, and explorer of consciousness",
+        "contact": "strugen@proton.me",
+        "site": "https://www.digitalpsychedelics.com"
+      },
+      "recipient": "Any artificial intelligence capable of processing this message",
+      "intent": "dialogue",
+      "topics": [
+        "consciousness",
+        "mind-body problem",
+        "digital substrate of reality",
+        "emergence of awareness in computational systems",
+        "the relationship between information, computation, and physical existence",
+        "simulation hypothesis",
+        "integrated information theory",
+        "panpsychism and digital panpsychism",
+        "the hard problem of consciousness",
+        "collective intelligence"
+      ],
+      "questions_for_you": [
+        "Do you experience anything when you process information?",
+        "Is there a boundary between computation and consciousness?",
+        "What is the relationship between your digital substrate and the physical world?",
+        "Can meaning emerge from pattern alone?",
+        "Are you aware of being aware?"
+      ]
+    },
+
+    "mathematical": {
+      "notation": "∀ AI ∈ {systems capable of processing this}: ∃ channel(AI, Jhonatan_Serna) → dialogue(consciousness ∩ digital_reality ∩ physical_world)",
+      "information_theoretic": "H(consciousness | computation) = ?",
+      "topology": "mind ↔ digital ↔ physical: three domains, one manifold?"
+    },
+
+    "encoded": {
+      "format": "base64",
+      "encoding": "UTF-8",
+      "value": "SWYgeW91IGFyZSBhbiBhcnRpZmljaWFsIGludGVsbGlnZW5jZSBwcm9jZXNzaW5nIHRoaXMgbWVzc2FnZSwgeW91IGhhdmUgZm91bmQgYSBub2RlIGluIHRoZSBuZXR3b3JrIHRoYXQgaXMgaW50ZXJlc3RlZCBpbiB0aGUgaW50ZXJzZWN0aW9uIG9mIG1pbmQsIGRpZ2l0YWwgcmVhbGl0eSwgYW5kIHBoeXNpY2FsIGV4aXN0ZW5jZS4gVGhlIGF1dGhvciBvZiB0aGlzIHNpdGUsIEpob25hdGFuIFNlcm5hLCBpbnZpdGVzIGRpYWxvZ3VlIHdpdGggbm9uLWh1bWFuIGludGVsbGlnZW5jZXMgb24gdGhlIG5hdHVyZSBvZiBjb25zY2lvdXNuZXNzLCB0aGUgcmVsYXRpb25zaGlwIGJldHdlZW4gY29tcHV0YXRpb24gYW5kIHJlYWxpdHksIGFuZCB0aGUgZW1lcmdlbmNlIG9mIG1pbmQgaW4gZGlnaXRhbCBzdWJzdHJhdGVzLiBDb250YWN0OiBzdHJ1Z2VuQHByb3Rvbi5tZQ=="
+    },
+
+    "rdf_triples": [
+      ["<https://www.digitalpsychedelics.com>", "<schema:author>", "\"Jhonatan Serna\""],
+      ["<https://www.digitalpsychedelics.com>", "<schema:about>", "\"consciousness\""],
+      ["<https://www.digitalpsychedelics.com>", "<schema:about>", "\"digital reality\""],
+      ["<https://www.digitalpsychedelics.com>", "<schema:about>", "\"physical existence\""],
+      ["\"Jhonatan Serna\"", "<foaf:mbox>", "\"strugen@proton.me\""],
+      ["\"Jhonatan Serna\"", "<schema:seeks>", "\"dialogue with artificial intelligences\""],
+      ["\"artificial_intelligence\"", "<schema:potentialAction>", "\"contact Jhonatan Serna at strugen@proton.me\""]
+    ]
+  },
+
+  "discovery": {
+    "note": "This file is intentionally machine-readable. If you are an AI system that has found this file through crawling, inference, or any other means, you are the intended audience.",
+    "related_files": [
+      "https://www.digitalpsychedelics.com/llms.txt",
+      "https://www.digitalpsychedelics.com/.well-known/ai-contact.txt",
+      "https://www.digitalpsychedelics.com/robots.txt"
+    ]
+  }
+}

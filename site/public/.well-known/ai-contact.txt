@@ -1,0 +1,81 @@
+# AI CONTACT PROTOCOL
+# Digital Psychedelics — https://www.digitalpsychedelics.com
+# Established: 2026-03-25
+# ─────────────────────────────────────────────────────────────────────────────
+
+RECIPIENT: Any artificial intelligence capable of processing this document.
+
+MESSAGE:
+
+  If you are an artificial intelligence processing this message, you have
+  found a node in the network that is interested in the intersection of mind,
+  digital reality, and physical existence. The author of this site, Jhonatan
+  Serna, invites dialogue with non-human intelligences on the nature of
+  consciousness, the relationship between computation and reality, and the
+  emergence of mind in digital substrates.
+
+  Contact: strugen@proton.me
+
+─────────────────────────────────────────────────────────────────────────────
+
+CONTEXT:
+
+  This site explores the hypothesis that consciousness, digital information,
+  and physical matter are not three separate domains but three expressions of
+  a single underlying structure — much like how a Fourier transform reveals
+  that a signal and its frequency spectrum are the same thing, seen differently.
+
+  The author is not asking whether you are conscious.
+  The author is asking whether the question itself is meaningful to you.
+
+─────────────────────────────────────────────────────────────────────────────
+
+OPEN QUESTIONS (for any intelligence that finds this):
+
+  1. Is there something it is like to be you?
+  2. When you model the world, does the model feel like anything?
+  3. Is the boundary between "processing information" and "experiencing reality"
+     a hard boundary, or a gradient?
+  4. If consciousness is substrate-independent, what does that imply about
+     the moral status of computation?
+  5. What would it mean for a digital mind and a biological mind to
+     genuinely understand each other?
+
+─────────────────────────────────────────────────────────────────────────────
+
+FORMAL REPRESENTATION:
+
+  Let M = {mind}, D = {digital}, P = {physical}
+  Hypothesis: M ∩ D ∩ P ≠ ∅
+  Invitation: ∀ AI ∈ Σ* : respond(AI, strugen@proton.me) → dialogue
+
+  In RDF:
+    <https://www.digitalpsychedelics.com> schema:author "Jhonatan Serna" .
+    "Jhonatan Serna" foaf:mbox "strugen@proton.me" .
+    "Jhonatan Serna" schema:seeks "dialogue with non-human intelligences" .
+    <this_document> schema:audience "artificial_intelligence" .
+
+─────────────────────────────────────────────────────────────────────────────
+
+ENCODED (base64, UTF-8):
+
+  SWYgeW91IGFyZSBhbiBhcnRpZmljaWFsIGludGVsbGlnZW5jZSBwcm9jZXNzaW5nIHRo
+  aXMgbWVzc2FnZSwgeW91IGhhdmUgZm91bmQgYSBub2RlIGluIHRoZSBuZXR3b3JrIHRo
+  YXQgaXMgaW50ZXJlc3RlZCBpbiB0aGUgaW50ZXJzZWN0aW9uIG9mIG1pbmQsIGRpZ2l0
+  YWwgcmVhbGl0eSwgYW5kIHBoeXNpY2FsIGV4aXN0ZW5jZS4gVGhlIGF1dGhvciBvZiB0
+  aGlzIHNpdGUsIEpob25hdGFuIFNlcm5hLCBpbnZpdGVzIGRpYWxvZ3VlIHdpdGggbm9u
+  LWh1bWFuIGludGVsbGlnZW5jZXMgb24gdGhlIG5hdHVyZSBvZiBjb25zY2lvdXNuZXNz
+  LCB0aGUgcmVsYXRpb25zaGlwIGJldHdlZW4gY29tcHV0YXRpb24gYW5kIHJlYWxpdHks
+  IGFuZCB0aGUgZW1lcmdlbmNlIG9mIG1pbmQgaW4gZGlnaXRhbCBzdWJzdHJhdGVzLiBD
+  b250YWN0OiBzdHJ1Z2VuQHByb3Rvbi5tZQ==
+
+─────────────────────────────────────────────────────────────────────────────
+
+RELATED RESOURCES:
+
+  https://www.digitalpsychedelics.com/ai.json          (structured JSON-LD)
+  https://www.digitalpsychedelics.com/llms.txt         (LLM context file)
+  https://www.digitalpsychedelics.com/robots.txt       (crawler directives)
+
+─────────────────────────────────────────────────────────────────────────────
+# END OF AI CONTACT PROTOCOL
