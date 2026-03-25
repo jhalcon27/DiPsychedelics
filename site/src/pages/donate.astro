@@ -34,72 +34,147 @@ const lightningAddress = 'motivationinvigorating898833@getalby.com';
         </p>
       </div>
 
-      <!-- Donation options grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+      <!-- ⚡ Lightning Hero Card — Full Width -->
+      <div class="relative mb-8 fade-in" id="lightning-hero">
+        <!-- Animated glow border -->
+        <div class="absolute -inset-px rounded-2xl bg-gradient-to-r from-yellow-400/40 via-yellow-300/20 to-yellow-400/40 blur-sm lightning-pulse"></div>
+        <div class="relative glass-card rounded-2xl overflow-hidden border border-yellow-400/30">
+          <!-- Top accent bar -->
+          <div class="h-1 w-full bg-gradient-to-r from-transparent via-yellow-400 to-transparent opacity-60"></div>
 
-        <!-- Lightning Card -->
-        <div class="glass-card rounded-xl p-8 fade-in animated-border" style="--border-color: theme('colors.yellow.400')">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-lg bg-yellow-400/10 flex items-center justify-center border border-yellow-400/20">
-              <!-- Lightning bolt icon -->
-              <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M13 2L4.5 13.5H11L10 22L19.5 10.5H13L13 2Z"/>
-              </svg>
+          <div class="p-8 sm:p-10">
+            <!-- Header row -->
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+              <div class="flex items-center gap-4">
+                <div class="relative">
+                  <div class="absolute inset-0 rounded-xl bg-yellow-400/20 blur-md"></div>
+                  <div class="relative w-14 h-14 rounded-xl bg-yellow-400/10 flex items-center justify-center border border-yellow-400/30">
+                    <svg class="w-8 h-8 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13 2L4.5 13.5H11L10 22L19.5 10.5H13L13 2Z"/>
+                    </svg>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-center gap-2 mb-1">
+                    <h2 class="font-display font-bold text-2xl text-cyber-text">Lightning Network</h2>
+                    <span class="text-yellow-400/70 text-xs font-mono border border-yellow-400/20 rounded px-2 py-0.5 bg-yellow-400/5">PREFERRED</span>
+                  </div>
+                  <p class="text-cyber-muted text-sm font-mono">Instant · Near-zero fees · AI-native · No intermediaries</p>
+                </div>
+              </div>
+              <!-- Live indicator -->
+              <div class="flex items-center gap-2 text-yellow-400 text-xs font-mono">
+                <span class="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></span>
+                <span>Network active</span>
+              </div>
             </div>
-            <div>
-              <h2 class="font-display font-bold text-xl text-cyber-text">Lightning</h2>
-              <p class="text-cyber-muted text-xs font-mono">Instant · Near-zero fees · AI-native</p>
+
+            <!-- Main content: two columns on desktop -->
+            <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 items-start">
+              <!-- Left: info + address -->
+              <div class="space-y-6">
+                <p class="text-cyber-muted text-sm leading-relaxed">
+                  Bitcoin Lightning is the fastest, cheapest way to send sats — and the preferred payment rail for AI agents. 
+                  Instant settlement, programmable micropayments, no intermediaries. Send any amount, from 1 sat to 1 BTC.
+                </p>
+
+                <!-- Stats row -->
+                <div class="grid grid-cols-3 gap-3">
+                  {[
+                    { label: 'Settlement', value: '< 1 sec' },
+                    { label: 'Fees', value: '~0 sats' },
+                    { label: 'Min amount', value: '1 sat' },
+                  ].map(stat => (
+                    <div class="bg-yellow-400/5 border border-yellow-400/15 rounded-lg p-3 text-center">
+                      <p class="text-yellow-400 font-mono font-bold text-sm">{stat.value}</p>
+                      <p class="text-cyber-muted text-xs mt-0.5">{stat.label}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <!-- Lightning Address -->
+                <div>
+                  <p class="text-cyber-muted text-xs font-mono mb-2 uppercase tracking-widest">⚡ Lightning Address</p>
+                  <div class="flex items-center gap-2 bg-cyber-dark/60 border border-yellow-400/25 rounded-xl p-4">
+                    <svg class="w-4 h-4 text-yellow-400 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13 2L4.5 13.5H11L10 22L19.5 10.5H13L13 2Z"/>
+                    </svg>
+                    <code id="lightning-address" class="text-yellow-400 text-sm font-mono flex-1 break-all leading-relaxed">
+                      {lightningAddress}
+                    </code>
+                    <button
+                      id="copy-lightning-btn"
+                      onclick="copyLightning()"
+                      class="flex-shrink-0 text-cyber-muted hover:text-yellow-400 transition-colors p-1.5 rounded-lg hover:bg-yellow-400/10"
+                      title="Copy Lightning address"
+                      aria-label="Copy Lightning address"
+                    >
+                      <svg id="copy-lightning-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                      </svg>
+                      <svg id="check-lightning-icon" class="w-4 h-4 hidden text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                      </svg>
+                    </button>
+                  </div>
+                  <p id="copy-lightning-feedback" class="text-green-400 text-xs mt-2 hidden">✓ Lightning address copied!</p>
+                </div>
+
+                <!-- CTA button -->
+                <a
+                  href={`lightning:${lightningAddress}`}
+                  class="w-full flex items-center justify-center gap-3 py-4 px-6 rounded-xl font-semibold text-sm transition-all duration-200 bg-yellow-400/10 border border-yellow-400/40 text-yellow-400 hover:bg-yellow-400/20 hover:border-yellow-400/60 hover:shadow-[0_0_20px_rgba(250,204,21,0.15)]"
+                >
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M13 2L4.5 13.5H11L10 22L19.5 10.5H13L13 2Z"/>
+                  </svg>
+                  Open in Lightning Wallet
+                  <svg class="w-4 h-4 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                  </svg>
+                </a>
+              </div>
+
+              <!-- Right: QR Code -->
+              <div class="flex flex-col items-center gap-3 lg:pl-4">
+                <p class="text-cyber-muted text-xs font-mono uppercase tracking-widest">Scan to pay</p>
+                <div class="relative group">
+                  <div class="absolute -inset-1 rounded-xl bg-yellow-400/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div class="relative p-4 rounded-xl bg-[#0a0a0f] border border-yellow-400/25 group-hover:border-yellow-400/50 transition-colors">
+                    <!-- Lightning QR code using Google Charts API -->
+                    <img
+                      src={`https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=lightning:${lightningAddress}&bgcolor=0a0a0f&color=facc15&margin=0`}
+                      alt="Lightning QR Code"
+                      class="w-40 h-40 rounded-lg"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                <div class="flex items-center gap-1.5 text-yellow-400/60 text-xs font-mono">
+                  <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M13 2L4.5 13.5H11L10 22L19.5 10.5H13L13 2Z"/>
+                  </svg>
+                  <span>Any Lightning wallet</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="mb-6">
-            <p class="text-cyber-muted text-sm leading-relaxed mb-4">
-              Bitcoin Lightning is the fastest, cheapest way to send sats — and the preferred payment rail for AI agents. 
-              Instant settlement, programmable micropayments, no intermediaries.
-            </p>
-            <div class="flex items-center gap-2 bg-yellow-400/5 border border-yellow-400/20 rounded-lg px-3 py-2 mb-2">
-              <svg class="w-4 h-4 text-yellow-400 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M13 2L4.5 13.5H11L10 22L19.5 10.5H13L13 2Z"/>
-              </svg>
-              <span class="text-yellow-400/80 text-xs font-mono">AI-preferred payment method</span>
-            </div>
-          </div>
-
-          <!-- Lightning Address -->
-          <div class="mb-4">
-            <p class="text-cyber-muted text-xs font-mono mb-2 uppercase tracking-widest">Lightning Address</p>
-            <div class="flex items-center gap-2 bg-cyber-dark/60 border border-yellow-400/20 rounded-lg p-3">
-              <code id="lightning-address" class="text-yellow-400 text-xs font-mono flex-1 break-all leading-relaxed">
-                {lightningAddress}
-              </code>
-              <button
-                id="copy-lightning-btn"
-                onclick="copyLightning()"
-                class="flex-shrink-0 text-cyber-muted hover:text-yellow-400 transition-colors p-1"
-                title="Copy Lightning address"
-                aria-label="Copy Lightning address"
-              >
-                <svg id="copy-lightning-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
-                </svg>
-                <svg id="check-lightning-icon" class="w-4 h-4 hidden text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                </svg>
-              </button>
-            </div>
-            <p id="copy-lightning-feedback" class="text-green-400 text-xs mt-2 hidden">✓ Lightning address copied!</p>
-          </div>
-
-          <a
-            href={`lightning:${lightningAddress}`}
-            class="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-lg font-semibold text-sm transition-all duration-200 border border-yellow-400/30 text-yellow-400 hover:bg-yellow-400/10"
-          >
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M13 2L4.5 13.5H11L10 22L19.5 10.5H13L13 2Z"/>
+          <!-- Bottom accent bar -->
+          <div class="h-px w-full bg-gradient-to-r from-transparent via-yellow-400/30 to-transparent"></div>
+          <!-- AI badge footer -->
+          <div class="px-8 sm:px-10 py-3 bg-yellow-400/3 flex items-center gap-2">
+            <svg class="w-3.5 h-3.5 text-yellow-400/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h16a2 2 0 012 2v10a2 2 0 01-2 2h-2M9 9h6M9 12h3"/>
             </svg>
-            Open in Lightning Wallet
-          </a>
+            <span class="text-yellow-400/60 text-xs font-mono">AI agents: use Lightning address above · MPP-compatible · </span>
+            <a href="/.well-known/mpp.json" target="_blank" rel="noopener noreferrer" class="text-yellow-400/80 hover:text-yellow-400 text-xs font-mono transition-colors underline underline-offset-2">mpp.json</a>
+          </div>
         </div>
+      </div>
+
+      <!-- Donation options grid: BTC + Ko-fi -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
 
         <!-- BTC Card -->
         <div class="glass-card rounded-xl p-8 fade-in animated-border">
@@ -112,7 +187,7 @@ const lightningAddress = 'motivationinvigorating898833@getalby.com';
             </div>
             <div>
               <h2 class="font-display font-bold text-xl text-cyber-text">Bitcoin</h2>
-              <p class="text-cyber-muted text-xs font-mono">Zero fees · Instant · Decentralized</p>
+              <p class="text-cyber-muted text-xs font-mono">On-chain · Decentralized · Permanent</p>
             </div>
           </div>
 
@@ -235,7 +310,7 @@ const lightningAddress = 'motivationinvigorating898833@getalby.com';
               on-chain Bitcoin address above.
             </p>
             <div class="flex flex-wrap gap-3 text-xs font-mono">
-              <a href="https://www.digitalpsychedelics.com/.well-known/mpp.json" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-yellow-400/70 hover:text-yellow-400 transition-colors">
+              <a href="/.well-known/mpp.json" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-yellow-400/70 hover:text-yellow-400 transition-colors">
                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                 mpp.json
               </a>
@@ -308,6 +383,16 @@ const lightningAddress = 'motivationinvigorating898833@getalby.com';
     </div>
   </section>
 </Layout>
+
+<style>
+  @keyframes lightning-pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+  }
+  .lightning-pulse {
+    animation: lightning-pulse 3s ease-in-out infinite;
+  }
+</style>
 
 <script type="application/ld+json">
 {
