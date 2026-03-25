@@ -1,0 +1,217 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const btcAddress = 'bc1qtszvlsf3p8va3dglptev59t6vjlvg62mxg9g6x';
+---
+
+<Layout
+  title="Support Digital Psychedelics | Donate"
+  description="Support Digital Psychedelics — help keep independent thought leadership on consciousness, technology, and the future of human experience alive."
+>
+  <!-- Hero -->
+  <section class="relative py-24 overflow-hidden">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-cyber-cyan opacity-5 blur-3xl"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-cyber-purple opacity-5 blur-3xl"></div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <!-- Header -->
+      <div class="text-center mb-16 fade-in">
+        <div class="flex items-center justify-center gap-3 mb-6">
+          <span class="cyber-tag">Support</span>
+          <span class="text-cyber-muted text-xs font-mono">// fuel the signal</span>
+        </div>
+        <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6">
+          <span class="gradient-text">Support the</span><br/>
+          <span class="text-cyber-text">Signal</span>
+        </h1>
+        <p class="text-cyber-muted text-lg leading-relaxed max-w-2xl mx-auto">
+          Digital Psychedelics is an independent, ad-free platform. If these explorations into 
+          consciousness, technology, and the nature of reality resonate with you — consider 
+          contributing to keep the signal alive.
+        </p>
+      </div>
+
+      <!-- Donation options grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+
+        <!-- BTC Card -->
+        <div class="glass-card rounded-xl p-8 fade-in animated-border">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-lg bg-cyber-cyan/10 flex items-center justify-center border border-cyber-cyan/20">
+              <!-- Bitcoin icon -->
+              <svg class="w-6 h-6 text-cyber-cyan" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.548v-.002zm-6.35-4.613c.24-1.59-.974-2.45-2.64-3.03l.54-2.153-1.315-.33-.525 2.107c-.345-.087-.705-.167-1.064-.25l.526-2.127-1.32-.33-.54 2.165c-.285-.067-.565-.132-.84-.2l-1.815-.45-.35 1.407s.975.225.955.236c.535.136.63.486.615.766l-1.477 5.92c-.075.166-.24.406-.614.314.015.02-.96-.24-.96-.24l-.66 1.51 1.71.426.93.242-.54 2.19 1.32.327.54-2.17c.36.1.705.19 1.05.273l-.51 2.154 1.32.33.545-2.19c2.24.427 3.93.257 4.64-1.774.57-1.637-.03-2.58-1.217-3.196.854-.193 1.5-.76 1.68-1.93h.01zm-3.01 4.22c-.404 1.64-3.157.75-4.05.53l.72-2.9c.896.23 3.757.67 3.33 2.37zm.41-4.24c-.37 1.49-2.662.735-3.405.55l.654-2.64c.744.18 3.137.524 2.75 2.084v.006z"/>
+              </svg>
+            </div>
+            <div>
+              <h2 class="font-display font-bold text-xl text-cyber-text">Bitcoin</h2>
+              <p class="text-cyber-muted text-xs font-mono">Zero fees · Instant · Decentralized</p>
+            </div>
+          </div>
+
+          <!-- QR Code -->
+          <div class="flex justify-center mb-6">
+            <div class="p-3 rounded-lg bg-[#0a0a0f] border border-cyber-cyan/20">
+              <img
+                src="/images/btc-qr.svg"
+                alt="Bitcoin QR Code"
+                class="w-40 h-40"
+              />
+            </div>
+          </div>
+
+          <!-- Address -->
+          <div class="mb-4">
+            <p class="text-cyber-muted text-xs font-mono mb-2 uppercase tracking-widest">Wallet Address</p>
+            <div class="flex items-center gap-2 bg-cyber-dark/60 border border-cyber-border rounded-lg p-3">
+              <code id="btc-address" class="text-cyber-cyan text-xs font-mono flex-1 break-all leading-relaxed">
+                {btcAddress}
+              </code>
+              <button
+                id="copy-btn"
+                onclick="copyBTC()"
+                class="flex-shrink-0 text-cyber-muted hover:text-cyber-cyan transition-colors p-1"
+                title="Copy address"
+                aria-label="Copy BTC address"
+              >
+                <svg id="copy-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                </svg>
+                <svg id="check-icon" class="w-4 h-4 hidden text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+              </button>
+            </div>
+            <p id="copy-feedback" class="text-green-400 text-xs mt-2 hidden">✓ Address copied to clipboard!</p>
+          </div>
+
+          <p class="text-cyber-muted text-xs leading-relaxed">
+            Scan the QR code or copy the address above into your Bitcoin wallet. Any amount is deeply appreciated.
+          </p>
+        </div>
+
+        <!-- Card / Ko-fi Card -->
+        <div class="glass-card rounded-xl p-8 fade-in" style="transition-delay: 0.1s">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-lg bg-cyber-purple/10 flex items-center justify-center border border-cyber-purple/20">
+              <svg class="w-6 h-6 text-cyber-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+              </svg>
+            </div>
+            <div>
+              <h2 class="font-display font-bold text-xl text-cyber-text">Card / Ko-fi</h2>
+              <p class="text-cyber-muted text-xs font-mono">Credit card · PayPal · One-time or recurring</p>
+            </div>
+          </div>
+
+          <div class="space-y-4 mb-6">
+            <p class="text-cyber-muted text-sm leading-relaxed">
+              Prefer to donate with a credit card or PayPal? Ko-fi lets you support with a one-time 
+              contribution or a monthly subscription — with the lowest fees of any platform (0% Ko-fi fee, 
+              only standard payment processing applies).
+            </p>
+
+            <!-- Suggested amounts -->
+            <div>
+              <p class="text-cyber-muted text-xs font-mono uppercase tracking-widest mb-3">Suggested amounts</p>
+              <div class="grid grid-cols-3 gap-2">
+                {['$3', '$5', '$10'].map(amount => (
+                  <div class="border border-cyber-border rounded-lg p-2 text-center text-cyber-muted text-sm font-mono hover:border-cyber-purple/50 hover:text-cyber-purple transition-colors cursor-default">
+                    {amount}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <!-- Ko-fi button -->
+          <a
+            href="https://ko-fi.com/digitalpsychedelics"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full flex items-center justify-center gap-3 py-3 px-6 rounded-lg font-semibold text-sm transition-all duration-200 bg-[#FF5E5B] hover:bg-[#ff4744] text-white"
+          >
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723c-.604 0-.679.798-.679.798s-.082 7.324-.022 11.822c.164 2.424 2.586 2.672 2.586 2.672s8.267-.023 11.966-.049c2.438-.426 2.683-2.566 2.658-3.734 4.352.24 7.422-2.831 6.649-6.916zm-11.062 3.511c-1.246 1.453-4.011 3.976-4.011 3.976s-.121.119-.31.023c-.076-.057-.108-.09-.108-.09-.443-.441-3.368-3.049-4.034-3.954-.709-.965-1.041-2.7-.091-3.71.951-1.01 3.005-1.086 4.363.407 0 0 1.565-1.782 3.468-.963 1.904.82 1.832 2.011 1.832 2.011.12.68-.219 1.598-.109 2.29zm9.262.046c-.189 1.17-1.245 2.042-2.554 2.042h-.217l.075-.138c.07-.127.135-.263.194-.405.059-.142.111-.292.155-.449.044-.157.08-.32.107-.489.027-.169.044-.343.05-.52.006-.177.002-.357-.012-.538-.014-.181-.038-.362-.072-.541-.034-.179-.078-.356-.131-.529-.053-.173-.115-.342-.185-.505-.07-.163-.148-.32-.233-.469-.085-.149-.177-.291-.275-.424-.098-.133-.202-.258-.311-.374-.109-.116-.223-.223-.341-.32-.118-.097-.24-.184-.366-.261-.126-.077-.255-.143-.387-.198-.132-.055-.267-.099-.404-.131-.137-.032-.276-.052-.416-.059-.14-.007-.281-.002-.421.015-.14.017-.279.046-.415.087-.136.041-.269.093-.397.156-.128.063-.251.136-.368.219-.117.083-.228.175-.332.276-.104.101-.2.21-.288.326-.088.116-.168.238-.239.366-.071.128-.133.261-.185.399-.052.138-.094.28-.126.425-.032.145-.053.293-.063.443-.01.15-.009.301.003.452.012.151.035.301.069.449.034.148.079.294.134.436.055.142.12.28.194.412.074.132.157.258.248.377.091.119.19.231.296.335.106.104.219.2.338.287.119.087.244.165.374.233.13.068.265.126.403.173.138.047.279.083.422.107.143.024.288.036.433.036h.217c1.309 0 2.365-.872 2.554-2.042.189-1.17-.567-2.042-1.876-2.042h-.217c-.145 0-.29.012-.433.036-.143.024-.284.06-.422.107-.138.047-.273.105-.403.173-.13.068-.255.146-.374.233-.119.087-.232.183-.338.287-.106.104-.205.216-.296.335-.091.119-.174.245-.248.377-.074.132-.139.27-.194.412-.055.142-.1.288-.134.436-.034.148-.057.298-.069.449-.012.151-.013.302-.003.452.01.15.031.298.063.443.032.145.074.287.126.425.052.138.114.271.185.399.071.128.151.25.239.366.088.116.184.225.288.326.104.101.215.193.332.276.117.083.24.156.368.219.128.063.261.115.397.156.136.041.275.07.415.087.14.017.281.022.421.015.14-.007.279-.027.416-.059.137-.032.272-.076.404-.131.132-.055.261-.121.387-.198.126-.077.248-.164.366-.261.118-.097.232-.204.341-.32.109-.116.213-.241.311-.374.098-.133.19-.275.275-.424.085-.149.163-.306.233-.469.07-.163.132-.332.185-.505.053-.173.097-.35.131-.529.034-.179.058-.36.072-.541.014-.181.018-.361.012-.538-.006-.177-.023-.351-.05-.52-.027-.169-.063-.332-.107-.489-.044-.157-.096-.307-.155-.449-.059-.142-.124-.278-.194-.405l-.075-.138h.217c1.309 0 2.065.872 1.876 2.042z"/>
+            </svg>
+            Support on Ko-fi
+          </a>
+
+          <p class="text-cyber-muted text-xs mt-4 text-center">
+            Ko-fi charges 0% platform fee. Only standard payment processing fees apply.
+          </p>
+        </div>
+      </div>
+
+      <!-- Why support section -->
+      <div class="glass-card rounded-xl p-8 fade-in" style="transition-delay: 0.2s">
+        <h3 class="font-display font-bold text-xl text-cyber-text mb-4">
+          Why <span class="gradient-text">Support?</span>
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+          <div>
+            <div class="w-10 h-10 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/20 flex items-center justify-center mx-auto mb-3">
+              <svg class="w-5 h-5 text-cyber-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
+              </svg>
+            </div>
+            <h4 class="text-cyber-text font-semibold text-sm mb-1">Ad-Free Forever</h4>
+            <p class="text-cyber-muted text-xs leading-relaxed">No ads, no tracking, no sponsored content. Your support keeps it that way.</p>
+          </div>
+          <div>
+            <div class="w-10 h-10 rounded-lg bg-cyber-purple/10 border border-cyber-purple/20 flex items-center justify-center mx-auto mb-3">
+              <svg class="w-5 h-5 text-cyber-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+              </svg>
+            </div>
+            <h4 class="text-cyber-text font-semibold text-sm mb-1">More Articles</h4>
+            <p class="text-cyber-muted text-xs leading-relaxed">Contributions fund research, writing time, and new explorations into digital consciousness.</p>
+          </div>
+          <div>
+            <div class="w-10 h-10 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/20 flex items-center justify-center mx-auto mb-3">
+              <svg class="w-5 h-5 text-cyber-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <h4 class="text-cyber-text font-semibold text-sm mb-1">Open & Independent</h4>
+            <p class="text-cyber-muted text-xs leading-relaxed">Staying independent means the ideas stay pure — no corporate agenda, just exploration.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thank you note -->
+      <div class="text-center mt-12 fade-in" style="transition-delay: 0.3s">
+        <p class="text-cyber-muted text-sm leading-relaxed max-w-lg mx-auto">
+          Every contribution — no matter the size — is a signal that this work matters. 
+          Thank you for being part of the network. 🙏
+        </p>
+        <a href="/" class="inline-flex items-center gap-2 text-cyber-cyan text-sm font-medium mt-6 hover:gap-3 transition-all group">
+          <svg class="w-4 h-4 rotate-180 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+          Back to Digital Psychedelics
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  function copyBTC() {
+    const address = document.getElementById('btc-address')?.textContent?.trim();
+    if (!address) return;
+    navigator.clipboard.writeText(address).then(() => {
+      document.getElementById('copy-icon')?.classList.add('hidden');
+      document.getElementById('check-icon')?.classList.remove('hidden');
+      document.getElementById('copy-feedback')?.classList.remove('hidden');
+      setTimeout(() => {
+        document.getElementById('copy-icon')?.classList.remove('hidden');
+        document.getElementById('check-icon')?.classList.add('hidden');
+        document.getElementById('copy-feedback')?.classList.add('hidden');
+      }, 2500);
+    });
+  }
+  (window as any).copyBTC = copyBTC;
+</script>
