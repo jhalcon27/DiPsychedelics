@@ -1,0 +1,283 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Contact — Book a Lecture"
+  description="Get in touch with Jhonatan Strugen to book a lecture on digital consciousness, futurism, and the intersection of technology and the human mind."
+>
+  <!-- Hero -->
+  <section class="relative pt-12 pb-8 overflow-hidden">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-1/4 left-1/3 w-96 h-96 rounded-full bg-cyber-cyan opacity-5 blur-3xl"></div>
+      <div class="absolute bottom-1/4 right-1/3 w-96 h-96 rounded-full bg-cyber-purple opacity-5 blur-3xl"></div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-cyber-muted text-sm mb-8 font-mono">
+        <a href="/" class="hover:text-cyber-cyan transition-colors">Home</a>
+        <span>/</span>
+        <span class="text-cyber-text">Contact</span>
+      </nav>
+
+      <div class="max-w-2xl">
+        <span class="cyber-tag mb-4 inline-block">Get in Touch</span>
+        <h1 class="font-display font-bold text-4xl sm:text-5xl text-cyber-text leading-tight mb-4">
+          Let's <span class="gradient-text">Connect</span>
+        </h1>
+        <p class="text-cyber-muted text-xl leading-relaxed">
+          Interested in booking a lecture on digital consciousness, futurism, or the intersection 
+          of technology and the human mind? I'd love to hear from you.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-12">
+
+        <!-- Contact Form -->
+        <div class="fade-in">
+          <div class="glass-card rounded-xl p-8">
+            <h2 class="font-display font-bold text-2xl text-cyber-text mb-2">Send a Message</h2>
+            <p class="text-cyber-muted text-sm mb-8">Fill out the form below and I'll get back to you within 48 hours.</p>
+
+            <form
+              id="contact-form"
+              action="https://formspree.io/f/YOUR_FORM_ID"
+              method="POST"
+              class="space-y-5"
+            >
+              <!-- Name -->
+              <div>
+                <label for="name" class="block text-cyber-muted text-xs font-mono uppercase tracking-wider mb-2">
+                  Full Name <span class="text-cyber-cyan">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  placeholder="Your full name"
+                  class="cyber-input"
+                />
+              </div>
+
+              <!-- Email -->
+              <div>
+                <label for="email" class="block text-cyber-muted text-xs font-mono uppercase tracking-wider mb-2">
+                  Email Address <span class="text-cyber-cyan">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="your@email.com"
+                  class="cyber-input"
+                />
+              </div>
+
+              <!-- Phone -->
+              <div>
+                <label for="phone" class="block text-cyber-muted text-xs font-mono uppercase tracking-wider mb-2">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="+1 (555) 000-0000"
+                  class="cyber-input"
+                />
+              </div>
+
+              <!-- Subject -->
+              <div>
+                <label for="subject" class="block text-cyber-muted text-xs font-mono uppercase tracking-wider mb-2">
+                  Subject <span class="text-cyber-cyan">*</span>
+                </label>
+                <select
+                  id="subject"
+                  name="subject"
+                  required
+                  class="cyber-input"
+                >
+                  <option value="" disabled selected style="background: #0a0a0f;">Select a topic...</option>
+                  <option value="lecture-booking" style="background: #0a0a0f;">Book a Lecture</option>
+                  <option value="workshop" style="background: #0a0a0f;">Workshop / Event</option>
+                  <option value="collaboration" style="background: #0a0a0f;">Collaboration</option>
+                  <option value="media" style="background: #0a0a0f;">Media / Press</option>
+                  <option value="other" style="background: #0a0a0f;">Other</option>
+                </select>
+              </div>
+
+              <!-- Message -->
+              <div>
+                <label for="message" class="block text-cyber-muted text-xs font-mono uppercase tracking-wider mb-2">
+                  Message <span class="text-cyber-cyan">*</span>
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  rows="5"
+                  placeholder="Tell me about your event, audience, and what you're looking for..."
+                  class="cyber-input resize-none"
+                ></textarea>
+              </div>
+
+              <!-- Hidden honeypot for spam -->
+              <input type="text" name="_gotcha" style="display:none" />
+
+              <!-- Submit -->
+              <button
+                type="submit"
+                id="submit-btn"
+                class="btn-cyber btn-cyber-filled w-full justify-center"
+              >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                </svg>
+                Send Message
+              </button>
+
+              <!-- Success/Error messages -->
+              <div id="form-success" class="hidden p-4 rounded-lg border border-green-500/30 bg-green-500/10 text-green-400 text-sm">
+                ✓ Message sent successfully! I'll get back to you within 48 hours.
+              </div>
+              <div id="form-error" class="hidden p-4 rounded-lg border border-red-500/30 bg-red-500/10 text-red-400 text-sm">
+                ✗ Something went wrong. Please try again or email me directly.
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Sidebar info -->
+        <div class="space-y-6 fade-in" style="transition-delay: 0.2s">
+          <!-- Profile card -->
+          <div class="glass-card rounded-xl p-6">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-cyber-cyan/30">
+                <img
+                  src="/images/profile_pic.jpg"
+                  alt="Jhonatan Strugen"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h3 class="font-display font-bold text-cyber-text">Jhonatan Strugen</h3>
+                <p class="text-cyber-muted text-sm">Futurist & Digital Consciousness Explorer</p>
+              </div>
+            </div>
+            <p class="text-cyber-muted text-sm leading-relaxed">
+              Speaker, writer, and explorer of the intersection between technology, consciousness, 
+              and the future of human experience.
+            </p>
+          </div>
+
+          <!-- Direct contact -->
+          <div class="glass-card rounded-xl p-6">
+            <h3 class="text-cyber-text font-semibold text-sm uppercase tracking-widest mb-4">Direct Contact</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="mailto:strugen.info@gmail.com"
+                  class="flex items-center gap-3 text-cyber-muted hover:text-cyber-cyan transition-colors group"
+                >
+                  <div class="w-8 h-8 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/20 flex items-center justify-center group-hover:border-cyber-cyan/40 transition-colors">
+                    <svg class="w-4 h-4 text-cyber-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-xs text-cyber-muted font-mono uppercase tracking-wider">Email</p>
+                    <p class="text-sm">strugen.info@gmail.com</p>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- What to expect -->
+          <div class="glass-card rounded-xl p-6">
+            <h3 class="text-cyber-text font-semibold text-sm uppercase tracking-widest mb-4">Lecture Topics</h3>
+            <ul class="space-y-2">
+              {[
+                'Digital Consciousness & AI',
+                'The Future of Human Experience',
+                'Sacred Geometry & Reality',
+                'Psychedelics & Technology',
+                'Collective Intelligence',
+                'The Simulation Hypothesis',
+              ].map(topic => (
+                <li class="flex items-center gap-2 text-cyber-muted text-sm">
+                  <span class="w-1.5 h-1.5 rounded-full bg-cyber-cyan flex-shrink-0"></span>
+                  {topic}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Response time -->
+          <div class="glass-card rounded-xl p-6 border border-cyber-cyan/10">
+            <div class="flex items-center gap-3">
+              <span class="w-2 h-2 rounded-full bg-cyber-cyan pulse-glow"></span>
+              <div>
+                <p class="text-cyber-text text-sm font-medium">Typical response time</p>
+                <p class="text-cyber-muted text-xs">Within 48 hours</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('submit-btn');
+  const successMsg = document.getElementById('form-success');
+  const errorMsg = document.getElementById('form-error');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if (!submitBtn) return;
+
+    // Show loading state
+    submitBtn.innerHTML = '<div class="cyber-spinner"></div> Sending...';
+    submitBtn.setAttribute('disabled', 'true');
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' },
+      });
+
+      if (response.ok) {
+        form.reset();
+        successMsg?.classList.remove('hidden');
+        errorMsg?.classList.add('hidden');
+        submitBtn.innerHTML = '✓ Sent!';
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch {
+      errorMsg?.classList.remove('hidden');
+      successMsg?.classList.add('hidden');
+      submitBtn.innerHTML = `
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+        </svg>
+        Send Message
+      `;
+      submitBtn.removeAttribute('disabled');
+    }
+  });
+</script>

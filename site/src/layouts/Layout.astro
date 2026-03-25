@@ -1,0 +1,258 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  type?: string;
+  canonicalURL?: string;
+  article?: {
+    publishedTime?: string;
+    author?: string;
+    tags?: string[];
+  };
+}
+
+const {
+  title,
+  description = 'Digital Psychedelics — Exploring the convergence of technology, consciousness, and the future of human experience.',
+  image = '/og-default.jpg',
+  type = 'website',
+  canonicalURL = Astro.url.href,
+  article,
+} = Astro.props;
+
+const siteURL = 'https://www.digitalpsychedelics.com';
+const fullTitle = title.includes('Digital Psychedelics') ? title : `${title} | Digital Psychedelics`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
+    <meta name="description" content={description} />
+    <meta name="author" content="Jhonatan Strugen" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteURL}${image}`} />
+    <meta property="og:site_name" content="Digital Psychedelics" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={fullTitle} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={`${siteURL}${image}`} />
+
+    <!-- Article specific -->
+    {article?.publishedTime && <meta property="article:published_time" content={article.publishedTime} />}
+    {article?.author && <meta property="article:author" content={article.author} />}
+    {article?.tags?.map(tag => <meta property="article:tag" content={tag} />)}
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": type === 'article' ? "Article" : "WebSite",
+      "name": fullTitle,
+      "description": description,
+      "url": canonicalURL,
+      "publisher": {
+        "@type": "Person",
+        "name": "Jhonatan Strugen",
+        "url": siteURL
+      },
+      ...(type === 'article' && article ? {
+        "author": {
+          "@type": "Person",
+          "name": article.author || "Jhonatan Strugen"
+        },
+        "datePublished": article.publishedTime,
+        "image": `${siteURL}${image}`
+      } : {})
+    })} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body class="grid-bg min-h-screen">
+    <!-- Scan line effect -->
+    <div class="scanline"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar-blur fixed top-0 left-0 right-0 z-50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <!-- Logo -->
+          <a href="/" class="flex items-center gap-2 group">
+            <div class="w-8 h-8 relative">
+              <div class="absolute inset-0 rounded-full bg-gradient-to-br from-cyber-cyan to-cyber-purple opacity-20 group-hover:opacity-40 transition-opacity"></div>
+              <svg viewBox="0 0 32 32" class="w-8 h-8" fill="none">
+                <circle cx="16" cy="16" r="6" stroke="#00f0ff" stroke-width="1.5" opacity="0.8"/>
+                <circle cx="16" cy="10" r="6" stroke="#00f0ff" stroke-width="1" opacity="0.4"/>
+                <circle cx="21.2" cy="13" r="6" stroke="#b44aff" stroke-width="1" opacity="0.4"/>
+                <circle cx="21.2" cy="19" r="6" stroke="#b44aff" stroke-width="1" opacity="0.3"/>
+                <circle cx="16" cy="22" r="6" stroke="#00f0ff" stroke-width="1" opacity="0.3"/>
+                <circle cx="10.8" cy="19" r="6" stroke="#00f0ff" stroke-width="1" opacity="0.3"/>
+                <circle cx="10.8" cy="13" r="6" stroke="#b44aff" stroke-width="1" opacity="0.3"/>
+              </svg>
+            </div>
+            <span class="font-display font-bold text-lg gradient-text hidden sm:block">Digital Psychedelics</span>
+          </a>
+
+          <!-- Desktop Nav -->
+          <div class="hidden md:flex items-center gap-8">
+            <a href="/#featured" class="text-cyber-muted hover:text-cyber-cyan transition-colors text-sm font-medium tracking-wide">Blog</a>
+            <a href="/how-the-world-is-made" class="text-cyber-muted hover:text-cyber-cyan transition-colors text-sm font-medium tracking-wide">Sacred Geometry</a>
+            <a href="/#about" class="text-cyber-muted hover:text-cyber-cyan transition-colors text-sm font-medium tracking-wide">About</a>
+            <a href="/contact" class="btn-cyber text-xs py-2 px-4">Contact</a>
+          </div>
+
+          <!-- Mobile menu button -->
+          <button id="mobile-menu-btn" class="md:hidden text-cyber-muted hover:text-cyber-cyan transition-colors p-2" aria-label="Toggle menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+              <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Nav -->
+        <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-cyber-border mt-2 pt-4">
+          <div class="flex flex-col gap-4">
+            <a href="/#featured" class="text-cyber-muted hover:text-cyber-cyan transition-colors text-sm font-medium">Blog</a>
+            <a href="/how-the-world-is-made" class="text-cyber-muted hover:text-cyber-cyan transition-colors text-sm font-medium">Sacred Geometry</a>
+            <a href="/#about" class="text-cyber-muted hover:text-cyber-cyan transition-colors text-sm font-medium">About</a>
+            <a href="/contact" class="text-cyber-muted hover:text-cyber-cyan transition-colors text-sm font-medium">Contact</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <main class="pt-16">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-cyber-border mt-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <!-- Brand -->
+          <div>
+            <a href="/" class="flex items-center gap-2 mb-4">
+              <span class="font-display font-bold text-lg gradient-text">Digital Psychedelics</span>
+            </a>
+            <p class="text-cyber-muted text-sm leading-relaxed">
+              Exploring the convergence of technology, consciousness, and the future of human experience.
+            </p>
+          </div>
+
+          <!-- Links -->
+          <div>
+            <h3 class="text-cyber-text font-semibold text-sm uppercase tracking-widest mb-4">Explore</h3>
+            <ul class="space-y-2">
+              <li><a href="/#featured" class="text-cyber-muted hover:text-cyber-cyan transition-colors text-sm">Articles</a></li>
+              <li><a href="/how-the-world-is-made" class="text-cyber-muted hover:text-cyber-cyan transition-colors text-sm">Sacred Geometry</a></li>
+              <li><a href="/#about" class="text-cyber-muted hover:text-cyber-cyan transition-colors text-sm">About</a></li>
+              <li><a href="/contact" class="text-cyber-muted hover:text-cyber-cyan transition-colors text-sm">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div>
+            <h3 class="text-cyber-text font-semibold text-sm uppercase tracking-widest mb-4">Connect</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="mailto:strugen.info@gmail.com" class="text-cyber-muted hover:text-cyber-cyan transition-colors text-sm flex items-center gap-2">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
+                  strugen.info@gmail.com
+                </a>
+              </li>
+              <li>
+                <a href="/contact" class="text-cyber-muted hover:text-cyber-cyan transition-colors text-sm flex items-center gap-2">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                  </svg>
+                  Book a Lecture
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section-divider mb-6"></div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p class="text-cyber-muted text-xs">
+            &copy; {new Date().getFullYear()} Digital Psychedelics. All rights reserved.
+          </p>
+          <div class="flex items-center gap-1 text-cyber-muted text-xs">
+            <span class="w-2 h-2 rounded-full bg-cyber-cyan pulse-glow inline-block"></span>
+            <span>Exploring digital consciousness since 2023</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Mobile menu script -->
+    <script>
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+      const closeIcon = document.getElementById('close-icon');
+
+      btn?.addEventListener('click', () => {
+        const isOpen = !menu?.classList.contains('hidden');
+        menu?.classList.toggle('hidden');
+        menuIcon?.classList.toggle('hidden', !isOpen);
+        closeIcon?.classList.toggle('hidden', isOpen);
+      });
+
+      // Close mobile menu on link click
+      menu?.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.add('hidden');
+          menuIcon?.classList.remove('hidden');
+          closeIcon?.classList.add('hidden');
+        });
+      });
+    </script>
+
+    <!-- Scroll animation observer -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      );
+
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+  </body>
+</html>

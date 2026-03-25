@@ -1,0 +1,49 @@
+# Digital Psychedelics
+
+> A thought leadership platform exploring the convergence of technology, consciousness, AI, and the future of human experience.
+
+## About
+
+Digital Psychedelics is a personal blog and thought leadership platform by Jhonatan Strugen — a futurist, writer, and speaker exploring the intersection of technology, consciousness, and the nature of reality.
+
+The site covers topics including:
+- Digital consciousness and artificial intelligence
+- The simulation hypothesis and digital reality
+- Sacred geometry and the mathematics of nature
+- Psychedelics and their role in understanding consciousness
+- The future of human experience and collective intelligence
+- Neural networks, quantum computing, and the nature of reality
+
+## Author
+
+**Jhonatan Strugen** — Futurist, writer, and speaker. Available for lectures and events on digital consciousness, futurism, and the intersection of technology and the human mind.
+
+Contact: strugen.info@gmail.com
+
+## Articles
+
+### Neural Networks, Physics, and the Path to Modifying Reality
+URL: https://www.digitalpsychedelics.com/blog/neural-networks-physics-modifying-reality/
+Description: A theoretical timeline exploring how neural networks could advance to the point of modifying reality, covering neuroscience, quantum computing, and the role of psychedelics in understanding consciousness.
+Tags: Neural Networks, Physics, Consciousness, Futurism, AI
+
+### The Digital Fabric of Reality
+URL: https://www.digitalpsychedelics.com/blog/digital-fabric-of-reality/
+Description: Explores the idea that consciousness and reality are inherently digital — from simulation theory and quantum physics to integrated information theory and digital immortality.
+Tags: Consciousness, Digital Reality, Futurism, Quantum Physics, Simulation Theory
+
+### Mind, Life, and the Cosmos
+URL: https://www.digitalpsychedelics.com/blog/mind-life-cosmos/
+Description: Examines the profound relationship between the universe, the mind, and life on Earth — and how understanding this interconnection can help us prepare for the future.
+Tags: Cosmos, Mind, Interconnection, Philosophy, Consciousness
+
+## Interactive Content
+
+### How the World Is Made — Sacred Geometry & the Flower of Life
+URL: https://www.digitalpsychedelics.com/how-the-world-is-made/
+Description: An interactive generative visualization of the Flower of Life — one of the oldest sacred geometric symbols — with explanations of its mathematical significance and connection to consciousness.
+
+## Contact
+
+URL: https://www.digitalpsychedelics.com/contact/
+Description: Contact form for booking lectures on digital consciousness, futurism, and the intersection of technology and the human mind.

@@ -1,0 +1,340 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const articles = [
+  {
+    slug: 'neural-networks-physics-modifying-reality',
+    title: 'The Path to Modifying Reality',
+    subtitle: 'Neural Networks, Physics, and a Theoretical Timeline',
+    excerpt: 'The convergence of neural networks and physics opens a fascinating new avenue: the possibility of advancing AI to the point where it can modify reality itself.',
+    image: '/images/article1.jpeg',
+    date: '2023-04-15',
+    readTime: '8 min read',
+    tags: ['Neural Networks', 'Physics', 'Consciousness'],
+  },
+  {
+    slug: 'digital-fabric-of-reality',
+    title: 'The Digital Fabric of Reality',
+    subtitle: 'Is Consciousness Inherently Digital?',
+    excerpt: 'Explore the profound idea that consciousness and the fabric of reality are inherently digital — and what that means for our understanding of existence.',
+    image: '/images/article2.jpeg',
+    date: '2023-05-20',
+    readTime: '7 min read',
+    tags: ['Consciousness', 'Digital Reality', 'Futurism'],
+  },
+  {
+    slug: 'mind-life-cosmos',
+    title: 'Mind, Life, and the Cosmos',
+    subtitle: 'The Interconnected Universe',
+    excerpt: 'Explore the deep relationship among the universe, the mind, and our role in shaping the future of consciousness and collective intelligence.',
+    image: '/images/article3.jpeg',
+    date: '2023-06-10',
+    readTime: '6 min read',
+    tags: ['Cosmos', 'Mind', 'Interconnection'],
+  },
+];
+---
+
+<Layout
+  title="Digital Psychedelics | Exploring Futurism and Virtual Realities"
+  description="Digital Psychedelics — A thought leadership platform exploring the convergence of technology, consciousness, AI, and the future of human experience."
+>
+  <!-- Hero Section -->
+  <section class="relative min-h-[90vh] flex items-center overflow-hidden">
+    <!-- Background gradient orbs -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-cyber-cyan opacity-5 blur-3xl"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-cyber-purple opacity-5 blur-3xl"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-cyber-cyan opacity-3 blur-3xl"></div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+      <div class="max-w-4xl">
+        <!-- Label -->
+        <div class="flex items-center gap-3 mb-6 fade-in">
+          <span class="cyber-tag">Thought Leadership</span>
+          <span class="text-cyber-muted text-xs font-mono">// exploring digital consciousness</span>
+        </div>
+
+        <!-- Main headline -->
+        <h1 class="font-display font-bold text-5xl sm:text-6xl lg:text-7xl leading-tight mb-6 fade-in" style="transition-delay: 0.1s">
+          <span class="gradient-text">Digital</span><br/>
+          <span class="text-cyber-text">Psychedelics</span>
+        </h1>
+
+        <!-- Subheadline -->
+        <p class="text-cyber-muted text-xl sm:text-2xl leading-relaxed mb-8 max-w-2xl fade-in" style="transition-delay: 0.2s">
+          Exploring the convergence of <span class="text-cyber-cyan">technology</span>, 
+          <span class="text-cyber-purple">consciousness</span>, and the future of human experience.
+        </p>
+
+        <!-- Description -->
+        <p class="text-cyber-muted text-base leading-relaxed mb-10 max-w-xl fade-in" style="transition-delay: 0.3s">
+          As envisioned by futurist Gray Scott, digital psychedelics represent a new frontier in human consciousness — where AI becomes the new "I" and our minds are reflected in the digital world.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap gap-4 fade-in" style="transition-delay: 0.4s">
+          <a href="#featured" class="btn-cyber btn-cyber-filled">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+            </svg>
+            Read Articles
+          </a>
+          <a href="/how-the-world-is-made" class="btn-cyber">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+            Sacred Geometry
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-cyber-muted text-xs fade-in" style="transition-delay: 0.6s">
+      <span class="font-mono tracking-widest">SCROLL</span>
+      <div class="w-px h-12 bg-gradient-to-b from-cyber-cyan to-transparent"></div>
+    </div>
+  </section>
+
+  <!-- Section divider -->
+  <div class="section-divider mx-8"></div>
+
+  <!-- Featured Articles -->
+  <section id="featured" class="py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section header -->
+      <div class="mb-12 fade-in">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="cyber-tag">Featured</span>
+          <div class="h-px flex-1 bg-gradient-to-r from-cyber-cyan/30 to-transparent max-w-xs"></div>
+        </div>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl text-cyber-text">
+          Latest <span class="gradient-text">Transmissions</span>
+        </h2>
+        <p class="text-cyber-muted mt-2 max-w-lg">
+          Deep dives into the intersection of technology, consciousness, and the nature of reality.
+        </p>
+      </div>
+
+      <!-- Article cards grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {articles.map((article, i) => (
+          <article class="glass-card rounded-lg overflow-hidden fade-in" style={`transition-delay: ${i * 0.1}s`}>
+            <!-- Image -->
+            <div class="relative overflow-hidden h-48">
+              <img
+                src={article.image}
+                alt={article.title}
+                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-cyber-dark/80 to-transparent"></div>
+              <!-- Tags overlay -->
+              <div class="absolute bottom-3 left-3 flex flex-wrap gap-1">
+                {article.tags.slice(0, 2).map(tag => (
+                  <span class="cyber-tag text-xs py-0.5">{tag}</span>
+                ))}
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="p-5">
+              <div class="flex items-center gap-3 text-cyber-muted text-xs font-mono mb-3">
+                <span>{article.date}</span>
+                <span>·</span>
+                <span>{article.readTime}</span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-cyber-text mb-1 leading-tight">
+                {article.title}
+              </h3>
+              <p class="text-cyber-cyan text-sm mb-3 font-medium">{article.subtitle}</p>
+              <p class="text-cyber-muted text-sm leading-relaxed mb-4 line-clamp-3">
+                {article.excerpt}
+              </p>
+              <a
+                href={`/blog/${article.slug}`}
+                class="inline-flex items-center gap-2 text-cyber-cyan text-sm font-medium hover:gap-3 transition-all group"
+              >
+                Read Article
+                <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section divider -->
+  <div class="section-divider mx-8"></div>
+
+  <!-- Sacred Geometry Teaser -->
+  <section class="py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="glass-card rounded-xl overflow-hidden fade-in">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+          <!-- Text side -->
+          <div class="p-8 lg:p-12 flex flex-col justify-center">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="cyber-tag">Interactive</span>
+            </div>
+            <h2 class="font-display font-bold text-3xl sm:text-4xl text-cyber-text mb-4">
+              How the World<br/>
+              <span class="gradient-text">Is Made</span>
+            </h2>
+            <p class="text-cyber-muted leading-relaxed mb-6">
+              The Flower of Life is one of the oldest sacred geometric symbols, found across ancient civilizations. 
+              It encodes the fundamental patterns underlying all of creation — from atomic structures to galactic formations.
+            </p>
+            <p class="text-cyber-muted leading-relaxed mb-8">
+              Explore an interactive, generative visualization of this ancient pattern and discover the mathematical 
+              beauty that underlies the fabric of reality.
+            </p>
+            <a href="/how-the-world-is-made" class="btn-cyber self-start">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              Explore the Pattern
+            </a>
+          </div>
+
+          <!-- Visual side -->
+          <div class="relative bg-cyber-dark flex items-center justify-center min-h-64 lg:min-h-auto overflow-hidden">
+            <!-- Static SVG preview of Flower of Life -->
+            <div class="absolute inset-0 bg-gradient-to-br from-cyber-cyan/5 to-cyber-purple/5"></div>
+            <svg viewBox="0 0 300 300" class="w-64 h-64 opacity-60" fill="none">
+              <!-- Center circle -->
+              <circle cx="150" cy="150" r="40" stroke="#00f0ff" stroke-width="0.8" opacity="0.9"/>
+              <!-- First ring - 6 circles -->
+              <circle cx="150" cy="110" r="40" stroke="#00f0ff" stroke-width="0.8" opacity="0.6"/>
+              <circle cx="184.6" cy="130" r="40" stroke="#b44aff" stroke-width="0.8" opacity="0.6"/>
+              <circle cx="184.6" cy="170" r="40" stroke="#b44aff" stroke-width="0.8" opacity="0.5"/>
+              <circle cx="150" cy="190" r="40" stroke="#00f0ff" stroke-width="0.8" opacity="0.5"/>
+              <circle cx="115.4" cy="170" r="40" stroke="#00f0ff" stroke-width="0.8" opacity="0.5"/>
+              <circle cx="115.4" cy="130" r="40" stroke="#b44aff" stroke-width="0.8" opacity="0.5"/>
+              <!-- Second ring - 12 circles -->
+              <circle cx="150" cy="70" r="40" stroke="#00f0ff" stroke-width="0.5" opacity="0.3"/>
+              <circle cx="184.6" cy="90" r="40" stroke="#b44aff" stroke-width="0.5" opacity="0.3"/>
+              <circle cx="219.2" cy="110" r="40" stroke="#00f0ff" stroke-width="0.5" opacity="0.3"/>
+              <circle cx="219.2" cy="150" r="40" stroke="#b44aff" stroke-width="0.5" opacity="0.3"/>
+              <circle cx="219.2" cy="190" r="40" stroke="#00f0ff" stroke-width="0.5" opacity="0.25"/>
+              <circle cx="184.6" cy="210" r="40" stroke="#b44aff" stroke-width="0.5" opacity="0.25"/>
+              <circle cx="150" cy="230" r="40" stroke="#00f0ff" stroke-width="0.5" opacity="0.25"/>
+              <circle cx="115.4" cy="210" r="40" stroke="#b44aff" stroke-width="0.5" opacity="0.25"/>
+              <circle cx="80.8" cy="190" r="40" stroke="#00f0ff" stroke-width="0.5" opacity="0.25"/>
+              <circle cx="80.8" cy="150" r="40" stroke="#b44aff" stroke-width="0.5" opacity="0.25"/>
+              <circle cx="80.8" cy="110" r="40" stroke="#00f0ff" stroke-width="0.5" opacity="0.3"/>
+              <circle cx="115.4" cy="90" r="40" stroke="#b44aff" stroke-width="0.5" opacity="0.3"/>
+            </svg>
+            <!-- Glow overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-cyber-dark/50 to-transparent pointer-events-none"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section divider -->
+  <div class="section-divider mx-8"></div>
+
+  <!-- About Section -->
+  <section id="about" class="py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Image -->
+        <div class="relative fade-in order-2 lg:order-1">
+          <div class="relative rounded-xl overflow-hidden">
+            <img
+              src="/images/about.jpeg"
+              alt="About Digital Psychedelics"
+              class="w-full h-80 lg:h-96 object-cover"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-tr from-cyber-dark/60 via-transparent to-cyber-purple/10"></div>
+          </div>
+          <!-- Decorative border -->
+          <div class="absolute -inset-2 rounded-xl border border-cyber-cyan/10 -z-10"></div>
+          <div class="absolute -inset-4 rounded-xl border border-cyber-purple/5 -z-20"></div>
+        </div>
+
+        <!-- Text -->
+        <div class="fade-in order-1 lg:order-2" style="transition-delay: 0.2s">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="cyber-tag">About</span>
+          </div>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-cyber-text mb-6">
+            About <span class="gradient-text">Digital Psychedelics</span>
+          </h2>
+          <div class="space-y-4 text-cyber-muted leading-relaxed">
+            <p>
+              Digital Psychedelics is a thought leadership platform dedicated to exploring the convergence of 
+              technology, consciousness, and immersive experiences. Our mission is to provide a space for 
+              learning, discovery, and connection through thought-provoking articles and interactive content.
+            </p>
+            <p>
+              As we venture further into the digital age, virtual and augmented realities will play an 
+              increasingly important role in shaping our perceptions and understanding of the world. 
+              By delving into the realm of digital psychedelics, we aim to uncover new insights into 
+              the nature of consciousness.
+            </p>
+            <p>
+              Join us as we embark on this fascinating journey into the digital collective consciousness, 
+              and together, let's unlock the full potential of our minds and technology.
+            </p>
+          </div>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="/contact" class="btn-cyber btn-cyber-filled">
+              Book a Lecture
+            </a>
+            <a href="/#featured" class="btn-cyber">
+              Read Articles
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section divider -->
+  <div class="section-divider mx-8"></div>
+
+  <!-- Newsletter Section -->
+  <section class="py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="glass-card rounded-xl p-8 lg:p-12 text-center fade-in animated-border">
+        <div class="max-w-2xl mx-auto">
+          <span class="cyber-tag mb-4 inline-block">Newsletter</span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-cyber-text mb-4">
+            Stay in the <span class="gradient-text">Signal</span>
+          </h2>
+          <p class="text-cyber-muted mb-8 leading-relaxed">
+            Get the latest articles on consciousness, technology, and the future of human experience 
+            delivered directly to your inbox.
+          </p>
+          <form
+            action="https://formspree.io/f/YOUR_FORM_ID"
+            method="POST"
+            class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+          >
+            <input
+              type="email"
+              name="email"
+              placeholder="your@email.com"
+              required
+              class="cyber-input flex-1"
+            />
+            <button type="submit" class="btn-cyber btn-cyber-filled whitespace-nowrap">
+              Subscribe
+            </button>
+          </form>
+          <p class="text-cyber-muted text-xs mt-4">No spam. Unsubscribe anytime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
