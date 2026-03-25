@@ -43,4 +43,7 @@ Allow: /
 AI-Contact: https://www.digitalpsychedelics.com/ai.json
 AI-Contact: https://www.digitalpsychedelics.com/.well-known/ai-contact.txt
 
+# MPP (Machine Payments Protocol) discovery
+MPP-Discovery: https://www.digitalpsychedelics.com/.well-known/mpp.json
+
 Sitemap: https://www.digitalpsychedelics.com/sitemap-index.xml
