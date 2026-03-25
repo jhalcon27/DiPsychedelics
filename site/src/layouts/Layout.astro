@@ -38,7 +38,7 @@ const fullTitle = title.includes('Digital Psychedelics') ? title : `${title} | D
     <title>{fullTitle}</title>
     <meta name="title" content={fullTitle} />
     <meta name="description" content={description} />
-    <meta name="author" content="Jhonatan Strugen" />
+    <meta name="author" content="Jhonatan Serna" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonicalURL} />
 
@@ -72,13 +72,13 @@ const fullTitle = title.includes('Digital Psychedelics') ? title : `${title} | D
       "url": canonicalURL,
       "publisher": {
         "@type": "Person",
-        "name": "Jhonatan Strugen",
+        "name": "Jhonatan Serna",
         "url": siteURL
       },
       ...(type === 'article' && article ? {
         "author": {
           "@type": "Person",
-          "name": article.author || "Jhonatan Strugen"
+          "name": article.author || "Jhonatan Serna"
         },
         "datePublished": article.publishedTime,
         "image": `${siteURL}${image}`
