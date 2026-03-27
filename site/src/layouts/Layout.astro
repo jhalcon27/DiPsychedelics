@@ -40,6 +40,7 @@ const fullTitle = title.includes('Digital Psychedelics') ? title : `${title} | D
     <meta name="description" content={description} />
     <meta name="author" content="Jhonatan Serna" />
     <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="digital consciousness, futurism, psychedelics, consciousness, physics, AI, sacred geometry, simulation hypothesis, Jhonatan Serna, digital psychedelics, technology and mind, quantum physics, neural networks, reality" />
     <link rel="canonical" href={canonicalURL} />
 
     <!-- Open Graph / Facebook -->
@@ -64,26 +65,68 @@ const fullTitle = title.includes('Digital Psychedelics') ? title : `${title} | D
     {article?.tags?.map(tag => <meta property="article:tag" content={tag} />)}
 
     <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": type === 'article' ? "Article" : "WebSite",
-      "name": fullTitle,
-      "description": description,
-      "url": canonicalURL,
-      "publisher": {
-        "@type": "Person",
-        "name": "Jhonatan Serna",
-        "url": siteURL
-      },
-      ...(type === 'article' && article ? {
+    <script type="application/ld+json" set:html={JSON.stringify(
+      type === 'article' && article ? {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": fullTitle,
+        "description": description,
+        "url": canonicalURL,
+        "image": `${siteURL}${image}`,
+        "datePublished": article.publishedTime,
         "author": {
           "@type": "Person",
-          "name": article.author || "Jhonatan Serna"
+          "name": article.author || "Jhonatan Serna",
+          "url": siteURL
         },
-        "datePublished": article.publishedTime,
-        "image": `${siteURL}${image}`
-      } : {})
-    })} />
+        "publisher": {
+          "@type": "Person",
+          "name": "Jhonatan Serna",
+          "url": siteURL
+        }
+      } : {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": `${siteURL}/#website`,
+            "name": "Digital Psychedelics",
+            "url": siteURL,
+            "description": "An independent, ad-free platform exploring consciousness, technology, and the nature of reality.",
+            "publisher": { "@id": `${siteURL}/#person` },
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": { "@type": "EntryPoint", "urlTemplate": `${siteURL}/?s={search_term_string}` },
+              "query-input": "required name=search_term_string"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": `${siteURL}/#person`,
+            "name": "Jhonatan Serna",
+            "url": siteURL,
+            "email": "strugen@proton.me",
+            "description": "Physicist turned banker, obsessed with the concept of existence itself. Exploring physics, consciousness, and the nature of reality.",
+            "jobTitle": "Author & Thought Leader",
+            "knowsAbout": ["consciousness", "physics", "futurism", "digital reality", "sacred geometry", "AI", "psychedelics"],
+            "sameAs": [
+              "https://x.com/strugen_eth",
+              "https://instagram.com/strugen",
+              "https://app.ens.domains/strugen.eth"
+            ]
+          },
+          {
+            "@type": "WebPage",
+            "@id": `${canonicalURL}#webpage`,
+            "url": canonicalURL,
+            "name": fullTitle,
+            "description": description,
+            "isPartOf": { "@id": `${siteURL}/#website` },
+            "about": { "@id": `${siteURL}/#person` }
+          }
+        ]
+      }
+    )} />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -193,11 +236,19 @@ const fullTitle = title.includes('Digital Psychedelics') ? title : `${title} | D
                 </a>
               </li>
               <li>
+                <a href="https://instagram.com/strugen" target="_blank" rel="noopener noreferrer" class="text-cyber-muted hover:text-cyber-cyan transition-colors text-sm flex items-center gap-2">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  </svg>
+                  @strugen
+                </a>
+              </li>
+              <li>
                 <a href="/contact" class="text-cyber-muted hover:text-cyber-cyan transition-colors text-sm flex items-center gap-2">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
                   </svg>
-                  Book a Lecture
+                  Get in Touch
                 </a>
               </li>
             </ul>

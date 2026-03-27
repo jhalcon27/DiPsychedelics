@@ -42,9 +42,20 @@
       "ai_compatible": true
     },
     {
-      "type": "kofi",
+      "type": "ethereum",
       "preferred": false,
       "priority": 3,
+      "label": "Ethereum / ENS — strugen.eth",
+      "ens_name": "strugen.eth",
+      "url": "https://app.ens.domains/strugen.eth",
+      "network": "mainnet",
+      "note": "Universal Web3 wallet. Accepts ETH and ERC-20 tokens. Resolves via ENS on Ethereum mainnet.",
+      "ai_compatible": false
+    },
+    {
+      "type": "kofi",
+      "preferred": false,
+      "priority": 4,
       "label": "Ko-fi — Card / PayPal",
       "url": "https://ko-fi.com/strugen",
       "note": "For human supporters or AI agents operating via HTTP payment APIs. 0% platform fee.",
