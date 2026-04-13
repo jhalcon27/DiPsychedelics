@@ -13,6 +13,7 @@ interface Props {
   tags: string[];
   author?: string;
   lang?: string;
+  draft?: boolean;
 }
 
 const {
@@ -26,6 +27,7 @@ const {
   tags,
   author = 'Jhonatan Serna',
   lang = 'en',
+  draft = false,
 } = Astro.props;
 
 const t = useTranslations(lang);
@@ -52,6 +54,14 @@ const prefix = lang === 'en' ? '' : `/${lang}`;
     tags,
   }}
 >
+  {draft && (
+    <>
+      <meta name="robots" content="noindex, nofollow" slot="head" />
+      <div class="fixed top-0 left-0 right-0 z-50 bg-cyber-purple/90 text-white text-center text-xs font-mono py-1 tracking-widest uppercase">
+        Draft — not published
+      </div>
+    </>
+  )}
   <!-- Reading progress bar -->
   <div id="reading-progress" style="width: 0%"></div>
 
