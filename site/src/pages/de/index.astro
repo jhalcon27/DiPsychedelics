@@ -1,0 +1,450 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const articles = [
+  {
+    slug: 'neural-networks-physics-modifying-reality',
+    title: 'Der Weg zur Modifikation der Wirklichkeit',
+    subtitle: 'Neuronale Netze, Physik und ein theoretischer Zeitplan',
+    excerpt: 'Die Konvergenz von neuronalen Netzen und Physik eröffnet eine faszinierende neue Perspektive: die Möglichkeit, KI so weit zu entwickeln, dass sie die Wirklichkeit selbst verändern kann.',
+    image: '/images/neural-networks.webp',
+    imagePosition: 'center',
+    date: '2025-06-15',
+    readTime: '12 Min. Lesezeit',
+    tags: ['Neuronale Netze', 'Physik', 'Bewusstsein'],
+  },
+  {
+    slug: 'digital-fabric-of-reality',
+    title: 'Das digitale Gewebe der Wirklichkeit',
+    subtitle: 'Ist Bewusstsein von Grund auf digital?',
+    excerpt: 'Erkunde die tiefgründige Idee, dass Bewusstsein und das Gefüge der Wirklichkeit fundamental digital sind, und was das für unser Verständnis der Existenz bedeutet.',
+    image: '/images/fabric-of-reality.jpeg',
+    imagePosition: 'center',
+    date: '2023-05-20',
+    readTime: '7 Min. Lesezeit',
+    tags: ['Bewusstsein', 'Digitale Wirklichkeit', 'Futurismus'],
+  },
+  {
+    slug: 'mind-life-cosmos',
+    title: 'Geist, Leben und der Kosmos',
+    subtitle: 'Das verflochtene Universum',
+    excerpt: 'Erkunde die tiefe Beziehung zwischen dem Universum, dem Geist und unserer Rolle bei der Gestaltung der Zukunft des Bewusstseins und der kollektiven Intelligenz.',
+    image: '/images/mind-life-cosmos.webp',
+    imagePosition: 'top',
+    date: '2023-06-10',
+    readTime: '6 Min. Lesezeit',
+    tags: ['Kosmos', 'Geist', 'Vernetzung'],
+  },
+];
+---
+
+<Layout
+  title="Digital Psychedelics | Futurismus und virtuelle Wirklichkeiten erkunden"
+  description="Digital Psychedelics, ein persönliches Blog von Jhonatan Serna, Physiker und Banker, der Physik, Bewusstsein und die Natur der Existenz erforscht."
+  lang="de"
+>
+  <!-- Hero Section -->
+  <section class="relative min-h-[90vh] flex items-center overflow-hidden">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-cyber-cyan opacity-5 blur-3xl"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-cyber-purple opacity-5 blur-3xl"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-cyber-cyan opacity-3 blur-3xl"></div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+      <div class="max-w-4xl">
+        <div class="flex items-center gap-3 mb-6 fade-in">
+          <span class="cyber-tag">Vordenken</span>
+          <span class="text-cyber-muted text-xs font-mono">// Erkundung des digitalen Bewusstseins</span>
+        </div>
+
+        <h1 class="font-display font-bold text-5xl sm:text-6xl lg:text-7xl leading-tight mb-6 fade-in" style="transition-delay: 0.1s">
+          <span class="gradient-text">Digital</span><br/>
+          <span class="text-cyber-text">Psychedelics</span>
+        </h1>
+
+        <p class="text-cyber-muted text-xl sm:text-2xl leading-relaxed mb-8 max-w-2xl fade-in" style="transition-delay: 0.2s">
+          Die Konvergenz von <span class="text-cyber-cyan">Technologie</span>,
+          <span class="text-cyber-purple">Bewusstsein</span> und der Zukunft menschlicher Erfahrung erkunden.
+        </p>
+
+        <p class="text-cyber-muted text-base leading-relaxed mb-10 max-w-xl fade-in" style="transition-delay: 0.3s">
+          Ein persönliches Blog von Jhonatan Serna, Physiker und Banker, besessen vom Begriff der Existenz selbst. Physik, Bewusstsein und die Frage nach dem Sein.
+        </p>
+
+        <div class="flex flex-wrap gap-4 fade-in" style="transition-delay: 0.4s">
+          <a href="#featured" class="btn-cyber btn-cyber-filled">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+            </svg>
+            Artikel lesen
+          </a>
+          <a href="/de/how-the-world-is-made" class="btn-cyber">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+            Heilige Geometrie
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2 text-cyber-muted text-xs fade-in" style="transition-delay: 0.6s">
+      <span class="font-mono tracking-widest">SCROLLEN</span>
+      <div class="w-px h-12 bg-gradient-to-b from-cyber-cyan to-transparent"></div>
+    </div>
+  </section>
+
+  <div class="section-divider mx-8"></div>
+
+  <!-- Featured Articles -->
+  <section id="featured" class="py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 fade-in">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="cyber-tag">Aktuell</span>
+          <div class="h-px flex-1 bg-gradient-to-r from-cyber-cyan/30 to-transparent max-w-xs"></div>
+        </div>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl text-cyber-text">
+          Neueste <span class="gradient-text">Transmissionen</span>
+        </h2>
+        <p class="text-cyber-muted mt-2 max-w-lg">
+          Tiefe Einblicke in die Schnittstelle von Technologie, Bewusstsein und der Natur der Wirklichkeit.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {articles.map((article, i) => (
+          <article class="glass-card rounded-lg overflow-hidden fade-in" style={`transition-delay: ${i * 0.1}s`}>
+            <div class="relative overflow-hidden h-48">
+              <img
+                src={article.image}
+                alt={article.title}
+                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                style={`object-position: ${article.imagePosition}`}
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-cyber-dark/80 to-transparent"></div>
+              <div class="absolute bottom-3 left-3 flex flex-wrap gap-1">
+                {article.tags.slice(0, 2).map(tag => (
+                  <span class="cyber-tag text-xs py-0.5">{tag}</span>
+                ))}
+              </div>
+            </div>
+
+            <div class="p-5">
+              <div class="flex items-center gap-3 text-cyber-muted text-xs font-mono mb-3">
+                <span>{article.readTime}</span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-cyber-text mb-1 leading-tight">
+                {article.title}
+              </h3>
+              <p class="text-cyber-cyan text-sm mb-3 font-medium">{article.subtitle}</p>
+              <p class="text-cyber-muted text-sm leading-relaxed mb-4 line-clamp-3">
+                {article.excerpt}
+              </p>
+              <a
+                href={`/de/blog/${article.slug}`}
+                class="inline-flex items-center gap-2 text-cyber-cyan text-sm font-medium hover:gap-3 transition-all group"
+              >
+                Artikel lesen
+                <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider mx-8"></div>
+
+  <!-- Sacred Geometry Teaser -->
+  <section class="py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="glass-card rounded-xl overflow-hidden fade-in">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+          <div class="p-8 lg:p-12 flex flex-col justify-center">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="cyber-tag">Interaktiv</span>
+            </div>
+            <h2 class="font-display font-bold text-3xl sm:text-4xl text-cyber-text mb-4">
+              Wie die Welt<br/>
+              <span class="gradient-text">gemacht ist</span>
+            </h2>
+            <p class="text-cyber-muted leading-relaxed mb-6">
+              Die Blume des Lebens ist ein geometrisches Muster, das in antiken Stätten in Ägypten, Indien, China und dem Mittelmeerraum gefunden wurde. Es besteht aus sich überlappenden Kreisen, die mit sechszähliger Symmetrie angeordnet sind und mehrere andere bedeutende geometrische Formen enthält.
+            </p>
+            <p class="text-cyber-muted leading-relaxed mb-8">
+              Erkunde eine interaktive, generative Visualisierung dieses Musters und der darin codierten mathematischen Beziehungen, einschließlich des goldenen Schnitts und der fünf platonischen Körper.
+            </p>
+            <a href="/de/how-the-world-is-made" class="btn-cyber self-start">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              Muster erkunden
+            </a>
+          </div>
+
+          <div class="relative bg-cyber-dark flex items-center justify-center min-h-64 lg:min-h-auto overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-cyber-cyan/5 to-cyber-purple/5"></div>
+            <svg viewBox="0 0 300 300" class="w-64 h-64 opacity-60" fill="none">
+              <circle cx="150" cy="150" r="40" stroke="#00f0ff" stroke-width="0.8" opacity="0.9"/>
+              <circle cx="150" cy="110" r="40" stroke="#00f0ff" stroke-width="0.8" opacity="0.6"/>
+              <circle cx="184.6" cy="130" r="40" stroke="#b44aff" stroke-width="0.8" opacity="0.6"/>
+              <circle cx="184.6" cy="170" r="40" stroke="#b44aff" stroke-width="0.8" opacity="0.5"/>
+              <circle cx="150" cy="190" r="40" stroke="#00f0ff" stroke-width="0.8" opacity="0.5"/>
+              <circle cx="115.4" cy="170" r="40" stroke="#00f0ff" stroke-width="0.8" opacity="0.5"/>
+              <circle cx="115.4" cy="130" r="40" stroke="#b44aff" stroke-width="0.8" opacity="0.5"/>
+              <circle cx="150" cy="70" r="40" stroke="#00f0ff" stroke-width="0.5" opacity="0.3"/>
+              <circle cx="184.6" cy="90" r="40" stroke="#b44aff" stroke-width="0.5" opacity="0.3"/>
+              <circle cx="219.2" cy="110" r="40" stroke="#00f0ff" stroke-width="0.5" opacity="0.3"/>
+              <circle cx="219.2" cy="150" r="40" stroke="#b44aff" stroke-width="0.5" opacity="0.3"/>
+              <circle cx="219.2" cy="190" r="40" stroke="#00f0ff" stroke-width="0.5" opacity="0.25"/>
+              <circle cx="184.6" cy="210" r="40" stroke="#b44aff" stroke-width="0.5" opacity="0.25"/>
+              <circle cx="150" cy="230" r="40" stroke="#00f0ff" stroke-width="0.5" opacity="0.25"/>
+              <circle cx="115.4" cy="210" r="40" stroke="#b44aff" stroke-width="0.5" opacity="0.25"/>
+              <circle cx="80.8" cy="190" r="40" stroke="#00f0ff" stroke-width="0.5" opacity="0.25"/>
+              <circle cx="80.8" cy="150" r="40" stroke="#b44aff" stroke-width="0.5" opacity="0.25"/>
+              <circle cx="80.8" cy="110" r="40" stroke="#00f0ff" stroke-width="0.5" opacity="0.3"/>
+              <circle cx="115.4" cy="90" r="40" stroke="#b44aff" stroke-width="0.5" opacity="0.3"/>
+            </svg>
+            <div class="absolute inset-0 bg-gradient-to-t from-cyber-dark/50 to-transparent pointer-events-none"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider mx-8"></div>
+
+  <!-- About Section -->
+  <section id="about" class="py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="relative fade-in order-2 lg:order-1">
+          <div class="relative rounded-xl overflow-hidden">
+            <img
+              src="/images/about.jpeg"
+              alt="Über Digital Psychedelics"
+              class="w-full h-80 lg:h-96 object-cover"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-tr from-cyber-dark/60 via-transparent to-cyber-purple/10"></div>
+          </div>
+          <div class="absolute -inset-2 rounded-xl border border-cyber-cyan/10 -z-10"></div>
+          <div class="absolute -inset-4 rounded-xl border border-cyber-purple/5 -z-20"></div>
+        </div>
+
+        <div class="fade-in order-1 lg:order-2" style="transition-delay: 0.2s">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="cyber-tag">Über</span>
+          </div>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-cyber-text mb-6">
+            Über <span class="gradient-text">Digital Psychedelics</span>
+          </h2>
+          <div class="space-y-4 text-cyber-muted leading-relaxed">
+            <p>
+              Digital Psychedelics ist ein persönliches Blog von Jhonatan Serna, einem Physiker und Banker, der vom Begriff der Existenz selbst besessen ist. Die Website erkundet die Schnittstelle von Physik, Bewusstsein und Technologie durch Artikel und interaktive Inhalte.
+            </p>
+            <p>
+              Die Fragen hier sind uralt: Was ist Bewusstsein? Was ist die Beziehung zwischen Geist und Materie? Was bedeutet es zu existieren? Die Werkzeuge, sie zu untersuchen, sind neu: Neurowissenschaften, Informationstheorie, KI und Quantenphysik.
+            </p>
+            <p>
+              Keine endgültigen Antworten, nur ehrliche Erkundung. Wenn diese Fragen auch dich nachts wachhalten, bist du hier richtig.
+            </p>
+          </div>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="/de/contact" class="btn-cyber btn-cyber-filled">
+              Kontakt aufnehmen
+            </a>
+            <a href="#featured" class="btn-cyber">
+              Artikel lesen
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider mx-8"></div>
+
+  <!-- Support Section -->
+  <section class="py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="glass-card rounded-xl overflow-hidden fade-in animated-border">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+          <div class="p-8 lg:p-12 flex flex-col justify-center">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="cyber-tag">Unterstützung</span>
+              <span class="text-cyber-muted text-xs font-mono">// das Signal befeuern</span>
+            </div>
+            <h2 class="font-display font-bold text-3xl sm:text-4xl text-cyber-text mb-4">
+              Das Signal<br/>
+              <span class="gradient-text">unterstützen</span>
+            </h2>
+            <p class="text-cyber-muted leading-relaxed mb-4">
+              Digital Psychedelics ist unabhängig und werbefrei. Wenn diese Erkundungen von Bewusstsein und Technologie bei dir ankommen, erwäge, zum Erhalt des Signals beizutragen.
+            </p>
+            <div class="mb-6">
+              <p class="text-cyber-muted text-xs font-mono uppercase tracking-widest mb-2">Bitcoin-Wallet</p>
+              <div class="flex items-center gap-2 bg-cyber-dark/60 border border-cyber-border rounded-lg p-3">
+                <code id="home-btc-address" class="text-cyber-cyan text-xs font-mono flex-1 break-all leading-relaxed">bc1qtszvlsf3p8va3dglptev59t6vjlvg62mxg9g6x</code>
+                <button onclick="homeCopyBTC()" class="flex-shrink-0 text-cyber-muted hover:text-cyber-cyan transition-colors p-1" title="BTC-Adresse kopieren" aria-label="BTC-Adresse kopieren">
+                  <svg id="home-copy-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                  </svg>
+                  <svg id="home-check-icon" class="w-4 h-4 hidden text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </button>
+              </div>
+              <p id="home-copy-feedback" class="text-green-400 text-xs mt-1 hidden">✓ Kopiert!</p>
+            </div>
+            <div class="flex flex-wrap gap-3 mb-6">
+              <a href="/de/donate" class="btn-cyber btn-cyber-filled">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.548v-.002zm-6.35-4.613c.24-1.59-.974-2.45-2.64-3.03l.54-2.153-1.315-.33-.525 2.107c-.345-.087-.705-.167-1.064-.25l.526-2.127-1.32-.33-.54 2.165c-.285-.067-.565-.132-.84-.2l-1.815-.45-.35 1.407s.975.225.955.236c.535.136.63.486.615.766l-1.477 5.92c-.075.166-.24.406-.614.314.015.02-.96-.24-.96-.24l-.66 1.51 1.71.426.93.242-.54 2.19 1.32.327.54-2.17c.36.1.705.19 1.05.273l-.51 2.154 1.32.33.545-2.19c2.24.427 3.93.257 4.64-1.774.57-1.637-.03-2.58-1.217-3.196.854-.193 1.5-.76 1.68-1.93h.01zm-3.01 4.22c-.404 1.64-3.157.75-4.05.53l.72-2.9c.896.23 3.757.67 3.33 2.37zm.41-4.24c-.37 1.49-2.662.735-3.405.55l.654-2.64c.744.18 3.137.524 2.75 2.084v.006z"/>
+                </svg>
+                BTC spenden
+              </a>
+              <a href="https://ko-fi.com/strugen" target="_blank" rel="noopener noreferrer" class="btn-cyber">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                </svg>
+                Karte / Ko-fi
+              </a>
+            </div>
+            <div class="space-y-2">
+              <p class="text-cyber-muted text-xs font-mono uppercase tracking-widest mb-3">Weitere Unterstützungsmöglichkeiten</p>
+              <div class="flex items-center gap-3 bg-cyber-dark/40 border border-yellow-400/15 rounded-lg px-3 py-2">
+                <svg class="w-4 h-4 text-yellow-400 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M13 2L4.5 13.5H11L10 22L19.5 10.5H13L13 2Z"/>
+                </svg>
+                <div class="flex-1 min-w-0">
+                  <p class="text-yellow-400 text-xs font-mono font-medium">Lightning</p>
+                  <p class="text-cyber-muted text-xs font-mono truncate">motivationinvigorating898833@getalby.com</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 bg-cyber-dark/40 border border-indigo-500/15 rounded-lg px-3 py-2">
+                <svg class="w-4 h-4 text-indigo-400 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M11.944 17.97L4.58 13.62 11.943 24l7.37-10.38-7.372 4.35h.003zM12.056 0L4.69 12.223l7.365 4.354 7.365-4.35L12.056 0z"/>
+                </svg>
+                <div class="flex-1 min-w-0">
+                  <p class="text-indigo-400 text-xs font-mono font-medium">Ethereum / ENS</p>
+                  <p class="text-cyber-muted text-xs font-mono">strugen.eth</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative bg-cyber-dark flex flex-col items-center justify-center min-h-64 lg:min-h-auto overflow-hidden p-8 gap-4">
+            <div class="absolute inset-0 bg-gradient-to-br from-cyber-cyan/5 to-cyber-purple/5"></div>
+            <p class="text-cyber-muted text-xs font-mono uppercase tracking-widest relative z-10">QR-Code scannen zum BTC spenden</p>
+            <div class="p-3 rounded-xl bg-[#0a0a0f] border border-cyber-cyan/20 relative z-10">
+              <img src="/images/btc-qr.svg" alt="Bitcoin-Spendencode" class="w-44 h-44" loading="lazy" />
+            </div>
+            <p class="text-cyber-muted text-xs font-mono relative z-10 text-center max-w-[180px] leading-relaxed">
+              Jeder Betrag hilft, diese Plattform unabhängig zu halten
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider mx-8"></div>
+
+  <!-- Newsletter -->
+  <section class="py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="glass-card rounded-xl p-8 lg:p-12 text-center fade-in animated-border">
+        <div class="max-w-2xl mx-auto">
+          <span class="cyber-tag mb-4 inline-block">Newsletter</span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-cyber-text mb-4">
+            Im <span class="gradient-text">Signal</span> bleiben
+          </h2>
+          <p class="text-cyber-muted mb-8 leading-relaxed">
+            Die neuesten Artikel über Bewusstsein, Technologie und die Zukunft menschlicher Erfahrung direkt in dein Postfach.
+          </p>
+          <form
+            id="newsletter-form"
+            action="https://formspree.io/f/xnjoarel"
+            method="POST"
+            class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+          >
+            <input type="hidden" name="_subject" value="Newsletter Anmeldung — Digital Psychedelics" />
+            <input
+              type="email"
+              name="email"
+              placeholder="deine@email.com"
+              required
+              class="cyber-input flex-1"
+            />
+            <button type="submit" id="newsletter-btn" class="btn-cyber btn-cyber-filled whitespace-nowrap">
+              Abonnieren
+            </button>
+          </form>
+          <div id="newsletter-success" class="hidden mt-4 text-green-400 text-sm">✓ Abonniert! Willkommen im Signal.</div>
+          <div id="newsletter-error" class="hidden mt-4 text-red-400 text-sm">✗ Etwas ist schiefgelaufen. Bitte versuche es erneut.</div>
+          <p class="text-cyber-muted text-xs mt-4">Kein Spam. Jederzeit abmeldbar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  function homeCopyBTC() {
+    const address = document.getElementById('home-btc-address')?.textContent?.trim();
+    if (!address) return;
+    navigator.clipboard.writeText(address).then(() => {
+      document.getElementById('home-copy-icon')?.classList.add('hidden');
+      document.getElementById('home-check-icon')?.classList.remove('hidden');
+      document.getElementById('home-copy-feedback')?.classList.remove('hidden');
+      setTimeout(() => {
+        document.getElementById('home-copy-icon')?.classList.remove('hidden');
+        document.getElementById('home-check-icon')?.classList.add('hidden');
+        document.getElementById('home-copy-feedback')?.classList.add('hidden');
+      }, 2500);
+    });
+  }
+  (window as any).homeCopyBTC = homeCopyBTC;
+</script>
+
+<script>
+  const form = document.getElementById('newsletter-form') as HTMLFormElement;
+  const btn = document.getElementById('newsletter-btn') as HTMLButtonElement;
+  const successMsg = document.getElementById('newsletter-success');
+  const errorMsg = document.getElementById('newsletter-error');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!btn) return;
+    btn.disabled = true;
+    btn.textContent = 'Abonnieren...';
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+      if (response.ok) {
+        form.reset();
+        successMsg?.classList.remove('hidden');
+        errorMsg?.classList.add('hidden');
+        btn.textContent = '✓ Abonniert!';
+      } else {
+        throw new Error('failed');
+      }
+    } catch {
+      errorMsg?.classList.remove('hidden');
+      successMsg?.classList.add('hidden');
+      btn.disabled = false;
+      btn.textContent = 'Abonnieren';
+    }
+  });
+</script>

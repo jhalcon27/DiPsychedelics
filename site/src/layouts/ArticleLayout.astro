@@ -1,5 +1,6 @@
 ---
 import Layout from './Layout.astro';
+import { useTranslations, getLangCode } from '../i18n/index';
 
 interface Props {
   title: string;
@@ -11,6 +12,7 @@ interface Props {
   readTime: string;
   tags: string[];
   author?: string;
+  lang?: string;
 }
 
 const {
@@ -23,13 +25,19 @@ const {
   readTime,
   tags,
   author = 'Jhonatan Serna',
+  lang = 'en',
 } = Astro.props;
 
-const formattedDate = new Date(date).toLocaleDateString('en-US', {
+const t = useTranslations(lang);
+const langCode = getLangCode(lang);
+
+const formattedDate = new Date(date).toLocaleDateString(langCode, {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
 });
+
+const prefix = lang === 'en' ? '' : `/${lang}`;
 ---
 
 <Layout
@@ -37,6 +45,7 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
   description={description}
   image={image}
   type="article"
+  lang={lang}
   article={{
     publishedTime: date,
     author,
@@ -57,9 +66,9 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <!-- Breadcrumb -->
       <nav class="flex items-center gap-2 text-cyber-muted text-sm mb-8 font-mono">
-        <a href="/" class="hover:text-cyber-cyan transition-colors">Home</a>
+        <a href={prefix + '/'} class="hover:text-cyber-cyan transition-colors">{t.article.home}</a>
         <span>/</span>
-        <a href="/#featured" class="hover:text-cyber-cyan transition-colors">Blog</a>
+        <a href={prefix + '/#featured'} class="hover:text-cyber-cyan transition-colors">{t.article.blog}</a>
         <span>/</span>
         <span class="text-cyber-text truncate max-w-xs">{title}</span>
       </nav>
@@ -90,6 +99,12 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
         </div>
         <div class="flex items-center gap-2">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+          <span>{formattedDate}</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
           </svg>
           <span>{readTime}</span>
@@ -107,7 +122,6 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
           style={`object-position: ${imagePosition}`}
         />
         <div class="absolute inset-0 bg-gradient-to-t from-cyber-dark/60 via-transparent to-transparent"></div>
-        <!-- Neon border effect -->
         <div class="absolute inset-0 rounded-xl border border-cyber-cyan/10 pointer-events-none"></div>
       </div>
     </div>
@@ -127,24 +141,24 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
           <div class="sticky top-24 space-y-6">
             <!-- Author card -->
             <div class="glass-card rounded-lg p-5">
-              <h3 class="text-cyber-text font-semibold text-sm uppercase tracking-widest mb-4">Author</h3>
+              <h3 class="text-cyber-text font-semibold text-sm uppercase tracking-widest mb-4">{t.article.author}</h3>
               <div class="flex items-center gap-3 mb-3">
                 <div class="w-10 h-10 rounded-full overflow-hidden border border-cyber-cyan/20">
                   <img src="/images/profile_pic.jpg" alt={author} class="w-full h-full object-cover" />
                 </div>
                 <div>
                   <p class="text-cyber-text text-sm font-medium">{author}</p>
-                  <p class="text-cyber-muted text-xs">Corporate Futurist</p>
+                  <p class="text-cyber-muted text-xs">{t.article.futuristRole}</p>
                 </div>
               </div>
-              <a href="/contact" class="btn-cyber text-xs py-2 px-3 w-full justify-center mt-3">
-                Get in Touch
+              <a href={prefix + '/contact'} class="btn-cyber text-xs py-2 px-3 w-full justify-center mt-3">
+                {t.article.getInTouch}
               </a>
             </div>
 
             <!-- Tags -->
             <div class="glass-card rounded-lg p-5">
-              <h3 class="text-cyber-text font-semibold text-sm uppercase tracking-widest mb-4">Topics</h3>
+              <h3 class="text-cyber-text font-semibold text-sm uppercase tracking-widest mb-4">{t.article.topics}</h3>
               <div class="flex flex-wrap gap-2">
                 {tags.map(tag => (
                   <span class="cyber-tag">{tag}</span>
@@ -154,7 +168,7 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
 
             <!-- Share -->
             <div class="glass-card rounded-lg p-5">
-              <h3 class="text-cyber-text font-semibold text-sm uppercase tracking-widest mb-4">Share</h3>
+              <h3 class="text-cyber-text font-semibold text-sm uppercase tracking-widest mb-4">{t.article.share}</h3>
               <div class="flex gap-3">
                 <a
                   href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(Astro.url.href)}`}
@@ -162,7 +176,7 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
                   rel="noopener noreferrer"
                   class="flex-1 btn-cyber text-xs py-2 px-3 justify-center"
                 >
-                  Twitter
+                  {t.article.twitter}
                 </a>
                 <a
                   href="https://instagram.com/strugen"
@@ -170,7 +184,7 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
                   rel="noopener noreferrer"
                   class="flex-1 btn-cyber text-xs py-2 px-3 justify-center"
                 >
-                  Instagram
+                  {t.article.instagram}
                 </a>
               </div>
             </div>
@@ -184,11 +198,11 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
   <section class="pb-16">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="section-divider mb-8"></div>
-      <a href="/#featured" class="inline-flex items-center gap-2 text-cyber-cyan hover:gap-3 transition-all group">
+      <a href={prefix + '/#featured'} class="inline-flex items-center gap-2 text-cyber-cyan hover:gap-3 transition-all group">
         <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"/>
         </svg>
-        Back to all articles
+        {t.article.backToAll}
       </a>
     </div>
   </section>
