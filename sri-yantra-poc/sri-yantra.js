@@ -751,6 +751,10 @@
     const speedValue  = document.getElementById('speed-value');
     const themeLabel  = document.getElementById('theme-label');
 
+    // Initialise UI to match defaults
+    if (themeLabel) themeLabel.textContent = yantra.theme.name;
+    if (playBtn) { playBtn.textContent = 'Pause'; playBtn.classList.add('active'); }
+
     playBtn?.addEventListener('click', () => {
       if (yantra.animating) {
         yantra.stopAutoPlay();
