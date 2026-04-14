@@ -264,10 +264,10 @@
       this.themeIndex = 1;
       this.theme = THEMES[1];
       this.triangles = buildTriangles();
-      this.currentStep = 0;
+      this.currentStep = -1;
       this.totalSteps = this.triangles.length + 3; // 9 triangles + bindu + petals + bhupura
       this.animating = false;
-      this.breathing = true;
+      this.breathing = false;
       this.breathingRaf = null;
       this.stepTimeout = null;
       this.speed = 800;
