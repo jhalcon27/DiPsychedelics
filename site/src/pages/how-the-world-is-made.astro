@@ -3,8 +3,8 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout
-  title="How the World Is Made | Sacred Geometry & the Flower of Life"
-  description="Explore the Flower of Life, one of the oldest known geometric patterns, through an interactive generative visualization. Discover the mathematical relationships it encodes."
+  title="How the World Is Made | Sacred Geometry — Flower of Life & Sri Yantra"
+  description="Explore two of humanity's most profound sacred geometry symbols through interactive visualizations: the Flower of Life and the Sri Yantra. Discover the mathematical relationships they encode."
 >
   <!-- Hero -->
   <section class="relative pt-12 pb-8 overflow-hidden">
@@ -28,16 +28,52 @@ import Layout from '../layouts/Layout.astro';
           <span class="gradient-text">Is Made</span>
         </h1>
         <p class="text-cyber-muted text-xl leading-relaxed">
-          The Flower of Life is one of the oldest known geometric patterns in human history,
-          found across ancient cultures on multiple continents. This is an interactive exploration of its structure.
+          Two of humanity's most profound geometric symbols, the Flower of Life and the Sri Yantra,
+          each encode deep mathematical truths about the structure of reality. Explore them interactively.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Interactive Canvas Section -->
-  <section class="py-8">
+  <!-- Tab Navigation -->
+  <div class="sticky top-0 z-30 bg-cyber-dark/90 backdrop-blur border-b border-cyber-border">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex gap-0">
+        <a
+          href="#flower-of-life"
+          id="tab-flower"
+          class="sacred-tab active-tab px-5 py-3 text-sm font-mono border-b-2 transition-all duration-200"
+        >
+          ✦ Flower of Life
+        </a>
+        <a
+          href="#sri-yantra"
+          id="tab-yantra"
+          class="sacred-tab px-5 py-3 text-sm font-mono border-b-2 transition-all duration-200"
+        >
+          ◈ Sri Yantra
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SECTION 1 — FLOWER OF LIFE
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section id="flower-of-life" class="py-8 scroll-mt-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Section heading -->
+      <div class="mb-6">
+        <h2 class="font-display font-bold text-2xl sm:text-3xl text-cyber-text">
+          The Flower of Life
+        </h2>
+        <p class="text-cyber-muted mt-2 max-w-2xl">
+          One of the oldest known geometric patterns in human history, found across ancient cultures
+          on multiple continents. An interactive exploration of its structure.
+        </p>
+      </div>
+
       <!-- Canvas container -->
       <div class="glass-card rounded-xl overflow-hidden fade-in">
         <div class="flex items-center justify-between px-6 py-3 border-b border-cyber-border">
@@ -65,76 +101,44 @@ import Layout from '../layouts/Layout.astro';
         <div class="flex flex-wrap items-center gap-4 justify-center">
           <div class="flex items-center gap-3">
             <label class="text-cyber-muted text-xs font-mono uppercase tracking-wider">Rings</label>
-            <input
-              type="range"
-              id="rings-slider"
-              min="1"
-              max="7"
-              value="4"
-              class="w-24 accent-cyber-cyan"
-            />
+            <input type="range" id="rings-slider" min="1" max="7" value="4" class="w-24 accent-cyber-cyan" />
             <span id="rings-value" class="text-cyber-cyan text-xs font-mono w-4">4</span>
           </div>
           <div class="flex items-center gap-3">
             <label class="text-cyber-muted text-xs font-mono uppercase tracking-wider">Size</label>
-            <input
-              type="range"
-              id="size-slider"
-              min="20"
-              max="80"
-              value="45"
-              class="w-24 accent-cyber-cyan"
-            />
+            <input type="range" id="size-slider" min="20" max="80" value="45" class="w-24 accent-cyber-cyan" />
             <span id="size-value" class="text-cyber-cyan text-xs font-mono w-8">45</span>
           </div>
           <div class="flex items-center gap-3">
             <label class="text-cyber-muted text-xs font-mono uppercase tracking-wider">Animate</label>
-            <button
-              id="animate-btn"
-              class="btn-cyber text-xs py-1.5 px-3"
-            >
-              Start
-            </button>
+            <button id="animate-btn" class="btn-cyber text-xs py-1.5 px-3">Start</button>
           </div>
           <div class="flex items-center gap-3">
             <label class="text-cyber-muted text-xs font-mono uppercase tracking-wider">Theme</label>
-            <button
-              id="theme-btn"
-              class="btn-cyber text-xs py-1.5 px-3"
-            >
-              Cycle
-            </button>
+            <button id="fol-theme-btn" class="btn-cyber text-xs py-1.5 px-3">Cycle</button>
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Section divider -->
-  <div class="section-divider mx-8 my-8"></div>
-
-  <!-- Explanation Section -->
-  <section class="py-12">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        <!-- Left column -->
+      <!-- Explanation -->
+      <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div class="space-y-8">
           <div class="fade-in">
             <div class="flex items-center gap-3 mb-4">
               <div class="w-8 h-8 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center">
                 <span class="text-cyber-cyan text-sm font-mono font-bold">01</span>
               </div>
-              <h2 class="font-display font-bold text-xl text-cyber-text">The Ancient Symbol</h2>
+              <h3 class="font-display font-bold text-xl text-cyber-text">The Ancient Symbol</h3>
             </div>
             <p class="text-cyber-muted leading-relaxed">
-              The Flower of Life is a geometric figure composed of multiple evenly-spaced, overlapping 
-              circles arranged in a flower-like pattern with six-fold symmetry. It has been found in 
-              ancient Egypt, China, India, Israel, and across the Mediterranean, appearing independently 
+              The Flower of Life is a geometric figure composed of multiple evenly-spaced, overlapping
+              circles arranged in a flower-like pattern with six-fold symmetry. It has been found in
+              ancient Egypt, China, India, Israel, and across the Mediterranean, appearing independently
               across cultures that had no known contact with each other.
             </p>
             <p class="text-cyber-muted leading-relaxed mt-3">
-              The oldest known depictions are found in the Temple of Osiris at Abydos, Egypt, dating 
-              back at least 6,000 years. These were not painted but appear to have been burned or 
+              The oldest known depictions are found in the Temple of Osiris at Abydos, Egypt, dating
+              back at least 6,000 years. These were not painted but appear to have been burned or
               etched into the granite, indicating they were treated with particular care.
             </p>
           </div>
@@ -144,40 +148,39 @@ import Layout from '../layouts/Layout.astro';
               <div class="w-8 h-8 rounded-full bg-cyber-purple/10 border border-cyber-purple/30 flex items-center justify-center">
                 <span class="text-cyber-purple text-sm font-mono font-bold">02</span>
               </div>
-              <h2 class="font-display font-bold text-xl text-cyber-text">Sacred Mathematics</h2>
+              <h3 class="font-display font-bold text-xl text-cyber-text">Sacred Mathematics</h3>
             </div>
             <p class="text-cyber-muted leading-relaxed">
-              Within the Flower of Life, one can find the Fruit of Life: 13 circles that form the 
-              basis of Metatron's Cube, which contains all five Platonic Solids (the 
-              tetrahedron, cube, octahedron, dodecahedron, and icosahedron). Ancient Greek philosophers 
+              Within the Flower of Life, one can find the Fruit of Life: 13 circles that form the
+              basis of Metatron's Cube, which contains all five Platonic Solids (the
+              tetrahedron, cube, octahedron, dodecahedron, and icosahedron). Ancient Greek philosophers
               proposed these solids as models for the fundamental elements of matter.
             </p>
             <p class="text-cyber-muted leading-relaxed mt-3">
-              The pattern also encodes the golden ratio (φ ≈ 1.618), the Fibonacci sequence, and 
-              mathematical relationships that recur throughout nature, from the spiral of a 
+              The pattern also encodes the golden ratio (φ ≈ 1.618), the Fibonacci sequence, and
+              mathematical relationships that recur throughout nature, from the spiral of a
               nautilus shell to the arrangement of seeds in a sunflower.
             </p>
           </div>
         </div>
 
-        <!-- Right column -->
         <div class="space-y-8">
           <div class="fade-in" style="transition-delay: 0.2s">
             <div class="flex items-center gap-3 mb-4">
               <div class="w-8 h-8 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center">
                 <span class="text-cyber-cyan text-sm font-mono font-bold">03</span>
               </div>
-              <h2 class="font-display font-bold text-xl text-cyber-text">The Digital Connection</h2>
+              <h3 class="font-display font-bold text-xl text-cyber-text">The Digital Connection</h3>
             </div>
             <p class="text-cyber-muted leading-relaxed">
-              From a digital consciousness perspective, the Flower of Life is fascinating because it 
-              demonstrates how infinite complexity can emerge from a single, simple rule: draw a circle, 
+              From a digital consciousness perspective, the Flower of Life is fascinating because it
+              demonstrates how infinite complexity can emerge from a single, simple rule: draw a circle,
               then draw another circle of the same size centered on the edge of the first.
             </p>
             <p class="text-cyber-muted leading-relaxed mt-3">
-              This is precisely how cellular automata and fractal algorithms work: simple rules 
-              iterated repeatedly to produce extraordinary complexity. Whether the universe operates 
-              on similar principles is an open question in physics, but the structural parallel 
+              This is precisely how cellular automata and fractal algorithms work: simple rules
+              iterated repeatedly to produce extraordinary complexity. Whether the universe operates
+              on similar principles is an open question in physics, but the structural parallel
               is worth examining.
             </p>
           </div>
@@ -187,19 +190,183 @@ import Layout from '../layouts/Layout.astro';
               <div class="w-8 h-8 rounded-full bg-cyber-purple/10 border border-cyber-purple/30 flex items-center justify-center">
                 <span class="text-cyber-purple text-sm font-mono font-bold">04</span>
               </div>
-              <h2 class="font-display font-bold text-xl text-cyber-text">Consciousness & Pattern</h2>
+              <h3 class="font-display font-bold text-xl text-cyber-text">Consciousness & Pattern</h3>
             </div>
             <p class="text-cyber-muted leading-relaxed">
-              People who have experienced altered states of consciousness, through meditation, 
-              breathwork, or psychedelics, frequently report seeing geometric patterns similar to 
-              the Flower of Life. This is a documented phenomenological observation, though its 
+              People who have experienced altered states of consciousness, through meditation,
+              breathwork, or psychedelics, frequently report seeing geometric patterns similar to
+              the Flower of Life. This is a documented phenomenological observation, though its
               interpretation remains an open question.
             </p>
             <p class="text-cyber-muted leading-relaxed mt-3">
-              One hypothesis is that these patterns reflect the brain's own visual processing 
-              architecture made visible. Another is that they point to something more fundamental 
-              about how the nervous system models structure. Either way, the recurrence of this 
+              One hypothesis is that these patterns reflect the brain's own visual processing
+              architecture made visible. Another is that they point to something more fundamental
+              about how the nervous system models structure. Either way, the recurrence of this
               specific geometry across both ancient art and altered states is worth taking seriously.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section divider -->
+  <div class="section-divider mx-8 my-8"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SECTION 2 — SRI YANTRA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section id="sri-yantra" class="py-8 scroll-mt-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Section heading -->
+      <div class="mb-6">
+        <h2 class="font-display font-bold text-2xl sm:text-3xl text-cyber-text">
+          The Sri Yantra
+        </h2>
+        <p class="text-cyber-muted mt-2 max-w-2xl">
+          Nine interlocking triangles that create 43 smaller triangles through pure geometric
+          intersection, all emerging from a single point. Watch it construct itself, step by step.
+        </p>
+      </div>
+
+      <!-- Canvas card -->
+      <div class="glass-card rounded-xl overflow-hidden fade-in">
+        <div class="flex items-center justify-between px-6 py-3 border-b border-cyber-border">
+          <div class="flex items-center gap-2">
+            <div class="w-3 h-3 rounded-full bg-red-500/60"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500/60"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500/60"></div>
+          </div>
+          <span class="text-cyber-muted text-xs font-mono">sri-yantra.js — interactive construction</span>
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-cyber-cyan pulse-glow"></span>
+            <span class="text-cyber-muted text-xs font-mono">live</span>
+            <span id="qa-status" class="text-xs font-mono opacity-60 ml-2"></span>
+          </div>
+        </div>
+
+        <!-- SVG canvas -->
+        <div id="yantra-container" class="w-full bg-cyber-dark flex items-center justify-center" style="min-height: 420px;"></div>
+
+        <!-- Step info -->
+        <div class="yantra-step-info px-6 py-4 border-t border-cyber-border" style="min-height:5rem;">
+          <div class="flex items-center justify-between mb-1">
+            <span id="step-title" class="text-cyber-cyan text-sm font-mono font-semibold tracking-wide">Initializing…</span>
+            <span id="step-progress" class="text-cyber-muted text-xs font-mono">— / 12</span>
+          </div>
+          <p id="step-desc" class="text-cyber-muted text-sm leading-relaxed">The Sri Yantra emerges from a single point, the bindu.</p>
+          <div class="mt-3 h-0.5 bg-cyber-border rounded overflow-hidden">
+            <div id="progress-bar" class="h-full rounded transition-all duration-400" style="width:0%;background:linear-gradient(90deg,#00f0ff,#b44aff);"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="mt-4 glass-card rounded-xl p-4 fade-in">
+        <div class="flex flex-wrap items-center gap-4 justify-center">
+          <div class="flex items-center gap-2">
+            <label class="text-cyber-muted text-xs font-mono uppercase tracking-wider">Build</label>
+            <button id="play-btn"   class="btn-cyber text-xs py-1.5 px-3">Auto-Build</button>
+            <button id="step-btn"   class="btn-cyber text-xs py-1.5 px-3">Step →</button>
+            <button id="reset-btn"  class="btn-cyber text-xs py-1.5 px-3">Reset</button>
+          </div>
+          <div class="flex items-center gap-3">
+            <label class="text-cyber-muted text-xs font-mono uppercase tracking-wider">Speed</label>
+            <input type="range" id="speed-slider" min="1" max="100" value="50" class="w-24 accent-cyber-cyan" />
+            <span id="speed-value" class="text-cyber-cyan text-xs font-mono w-4">50</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <label class="text-cyber-muted text-xs font-mono uppercase tracking-wider">Breathe</label>
+            <button id="breathe-btn" class="btn-cyber text-xs py-1.5 px-3">Breathe</button>
+          </div>
+          <div class="flex items-center gap-2">
+            <label class="text-cyber-muted text-xs font-mono uppercase tracking-wider">Theme</label>
+            <button id="yantra-theme-btn" class="btn-cyber text-xs py-1.5 px-3">Cycle</button>
+            <span id="theme-label" class="text-cyber-cyan text-xs font-mono" style="min-width:3.5rem;">Cyber</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Explanation -->
+      <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div class="space-y-8">
+          <div class="fade-in">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center">
+                <span class="text-cyber-cyan text-sm font-mono font-bold">01</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-cyber-text">The Nine Triangles</h3>
+            </div>
+            <p class="text-cyber-muted leading-relaxed">
+              The Sri Yantra is constructed from exactly 9 interlocking triangles, 4 pointing upward
+              (representing Shiva, the masculine principle) and 5 pointing downward (Shakti, the feminine
+              principle). Their intersections create 43 smaller triangles, each with specific symbolic meaning.
+            </p>
+            <p class="text-cyber-muted leading-relaxed mt-3">
+              The construction is mathematically precise: each triangle's vertices must lie exactly on the
+              circumscribed circles, and the intersections must align perfectly. This is why the Sri Yantra
+              is considered one of the most geometrically complex sacred symbols ever devised.
+            </p>
+          </div>
+
+          <div class="fade-in" style="transition-delay: 0.1s">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 rounded-full bg-cyber-purple/10 border border-cyber-purple/30 flex items-center justify-center">
+                <span class="text-cyber-purple text-sm font-mono font-bold">02</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-cyber-text">The Bindu, Point of Origin</h3>
+            </div>
+            <p class="text-cyber-muted leading-relaxed">
+              At the center of the Sri Yantra is the <em>bindu</em>, a single point representing the
+              undifferentiated source of all creation. In tantric cosmology, the entire universe unfolds
+              from this point, just as the entire yantra unfolds from it geometrically.
+            </p>
+            <p class="text-cyber-muted leading-relaxed mt-3">
+              This mirrors a fundamental principle in physics: the Big Bang as a singularity from which
+              all structure emerged. The Sri Yantra encodes this cosmological intuition in pure geometry,
+              thousands of years before modern cosmology.
+            </p>
+          </div>
+        </div>
+
+        <div class="space-y-8">
+          <div class="fade-in" style="transition-delay: 0.2s">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center">
+                <span class="text-cyber-cyan text-sm font-mono font-bold">03</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-cyber-text">Complexity from Simplicity</h3>
+            </div>
+            <p class="text-cyber-muted leading-relaxed">
+              The Sri Yantra demonstrates the same principle as the Flower of Life and cellular automata:
+              extraordinary complexity emerging from simple, iterated rules. Nine triangles, drawn in
+              sequence, create a structure of 43 sub-triangles through nothing but geometric intersection.
+            </p>
+            <p class="text-cyber-muted leading-relaxed mt-3">
+              From a digital consciousness perspective, this is a visual proof that information density
+              can be compressed into minimal rules, the same principle underlying neural networks,
+              fractal geometry, and the structure of spacetime itself.
+            </p>
+          </div>
+
+          <div class="fade-in" style="transition-delay: 0.3s">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 rounded-full bg-cyber-purple/10 border border-cyber-purple/30 flex items-center justify-center">
+                <span class="text-cyber-purple text-sm font-mono font-bold">04</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-cyber-text">The Lotus & the Bhupura</h3>
+            </div>
+            <p class="text-cyber-muted leading-relaxed">
+              Surrounding the triangles are two rings of lotus petals (8 inner, 16 outer), representing
+              the unfolding of creation into the manifest world. The outermost element, the
+              <em>bhupura</em> (earth-square), marks the boundary between the sacred geometry and
+              ordinary space, with four gates in the cardinal directions.
+            </p>
+            <p class="text-cyber-muted leading-relaxed mt-3">
+              The complete structure encodes a cosmological map: from the undifferentiated bindu,
+              through the dynamic interplay of masculine and feminine principles, to the lotus of
+              manifestation, to the earthly plane, a complete model of reality in geometric form.
             </p>
           </div>
         </div>
@@ -226,11 +393,91 @@ import Layout from '../layouts/Layout.astro';
   </section>
 </Layout>
 
-<!-- p5.js from CDN -->
+<!-- ── Scoped styles for Sri Yantra elements ─────────────────────────────── -->
+<style>
+  /* Tab navigation */
+  .sacred-tab {
+    color: theme('colors.cyber-muted', #8888aa);
+    border-color: transparent;
+    text-decoration: none;
+  }
+  .sacred-tab:hover {
+    color: theme('colors.cyber-cyan', #00f0ff);
+    border-color: rgba(0, 240, 255, 0.3);
+  }
+  .sacred-tab.active-tab {
+    color: #00f0ff;
+    border-color: #00f0ff;
+  }
+
+  /* SVG transition helpers */
+  :global(svg .triangle),
+  :global(svg .circle),
+  :global(svg .petal),
+  :global(svg .bhupura),
+  :global(svg #bindu-group) {
+    transition: opacity 0.6s ease;
+  }
+
+  /* Yantra container sizing */
+  #yantra-container {
+    padding: 0.5rem 0;
+  }
+
+  /* Progress bar transition */
+  #progress-bar {
+    transition: width 0.4s ease;
+  }
+</style>
+
+<!-- ── p5.js (Flower of Life) ─────────────────────────────────────────────── -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
 
+<!-- ── Sri Yantra engine ──────────────────────────────────────────────────── -->
+<script src="/sri-yantra.js" is:inline></script>
+
+<!-- ── Tab active-state tracking ─────────────────────────────────────────── -->
 <script>
-  // Wait for p5 to load
+  (function () {
+    const tabFlower = document.getElementById('tab-flower');
+    const tabYantra = document.getElementById('tab-yantra');
+    const secFlower = document.getElementById('flower-of-life');
+    const secYantra = document.getElementById('sri-yantra');
+
+    function setActive(tab: HTMLElement) {
+      [tabFlower, tabYantra].forEach(t => t?.classList.remove('active-tab'));
+      tab.classList.add('active-tab');
+    }
+
+    // Smooth scroll + set active on click
+    tabFlower?.addEventListener('click', (e) => {
+      e.preventDefault();
+      secFlower?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setActive(tabFlower);
+    });
+    tabYantra?.addEventListener('click', (e) => {
+      e.preventDefault();
+      secYantra?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setActive(tabYantra);
+    });
+
+    // Update active tab on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (entry.target.id === 'flower-of-life' && tabFlower) setActive(tabFlower);
+          if (entry.target.id === 'sri-yantra'    && tabYantra) setActive(tabYantra);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    if (secFlower) observer.observe(secFlower);
+    if (secYantra) observer.observe(secYantra);
+  })();
+</script>
+
+<!-- ── Flower of Life sketch ──────────────────────────────────────────────── -->
+<script>
   window.addEventListener('load', () => {
     const container = document.getElementById('flower-canvas-container');
     const loadingIndicator = document.getElementById('loading-indicator');
@@ -239,11 +486,10 @@ import Layout from '../layouts/Layout.astro';
     const sizeSlider = document.getElementById('size-slider') as HTMLInputElement;
     const sizeValue = document.getElementById('size-value');
     const animateBtn = document.getElementById('animate-btn');
-    const themeBtn = document.getElementById('theme-btn');
+    const themeBtn = document.getElementById('fol-theme-btn');
 
     if (!container || typeof (window as any).p5 === 'undefined') return;
 
-    // Remove loading indicator
     loadingIndicator?.remove();
 
     let isAnimating = false;
@@ -283,15 +529,10 @@ import Layout from '../layouts/Layout.astro';
         const theme = themes[currentTheme];
         p.background(p.color(theme.bg));
 
-        // Draw subtle grid
         p.stroke(0, 0, 100, 0.03);
         p.strokeWeight(0.5);
-        for (let x = 0; x < canvasWidth; x += 30) {
-          p.line(x, 0, x, canvasHeight);
-        }
-        for (let y = 0; y < canvasHeight; y += 30) {
-          p.line(0, y, canvasWidth, y);
-        }
+        for (let x = 0; x < canvasWidth; x += 30) p.line(x, 0, x, canvasHeight);
+        for (let y = 0; y < canvasHeight; y += 30) p.line(0, y, canvasWidth, y);
 
         if (isAnimating) {
           animationAngle += 0.3;
@@ -300,30 +541,24 @@ import Layout from '../layouts/Layout.astro';
           p.translate(-ellipseOrigin.x, -ellipseOrigin.y);
         }
 
-        // Draw petals
-        allPetals.forEach((petal, idx) => {
-          const theme = themes[currentTheme];
-          const progress = idx / allPetals.length;
-          const hue = progress * 60; // subtle hue shift
-
+        allPetals.forEach((petal) => {
+          const t = themes[currentTheme];
           if (petal.round % 2 === 0) {
-            p.stroke(p.color(theme.primary + '66'));
-            p.fill(p.color(theme.primary + '08'));
+            p.stroke(p.color(t.primary + '66'));
+            p.fill(p.color(t.primary + '08'));
           } else {
-            p.stroke(p.color(theme.secondary + '66'));
-            p.fill(p.color(theme.secondary + '08'));
+            p.stroke(p.color(t.secondary + '66'));
+            p.fill(p.color(t.secondary + '08'));
           }
-
           p.strokeWeight(0.8);
           p.ellipse(petal.x, petal.y, petal.diameter);
         });
 
-        // Draw center glow
         p.noStroke();
-        const theme2 = themes[currentTheme];
-        p.fill(p.color(theme2.primary + '15'));
+        const t2 = themes[currentTheme];
+        p.fill(p.color(t2.primary + '15'));
         p.ellipse(ellipseOrigin.x, ellipseOrigin.y, ellipseRadius * 2.5);
-        p.fill(p.color(theme2.primary + '08'));
+        p.fill(p.color(t2.primary + '08'));
         p.ellipse(ellipseOrigin.x, ellipseOrigin.y, ellipseRadius * 4);
       };
 
@@ -336,21 +571,13 @@ import Layout from '../layouts/Layout.astro';
           const offset = roundCount > 0 ? 360 / (roundCount * 6) : 0;
 
           if (roundCount === 0) {
-            allPetals.push({
-              index: petalCount,
-              x: ellipseOrigin.x,
-              y: ellipseOrigin.y,
-              diameter: ellipseRadius * 2,
-              round: roundCount,
-              angle: 0,
-            });
+            allPetals.push({ index: petalCount, x: ellipseOrigin.x, y: ellipseOrigin.y, diameter: ellipseRadius * 2, round: roundCount, angle: 0 });
             petalCount++;
             continue;
           }
 
           for (let i = 0; i < roundCount * 6; i++) {
             let x, y;
-
             if (roundCount === 1 && i === 0) {
               x = ellipseOrigin.x + ellipseRadius * p.cos(0);
               y = ellipseOrigin.y + ellipseRadius * p.sin(0);
@@ -364,73 +591,51 @@ import Layout from '../layouts/Layout.astro';
             }
 
             const angle = getPetalAngle(x, y);
-            allPetals.push({
-              index: petalCount,
-              x,
-              y,
-              diameter: ellipseRadius * 2,
-              round: roundCount,
-              angle,
-            });
+            allPetals.push({ index: petalCount, x, y, diameter: ellipseRadius * 2, round: roundCount, angle });
             petalCount++;
 
             const vertexCalc = (angle + offset) % 60 > 1;
-            if (i === roundCount * 6 - 1) {
-              firstIntersection++;
-            } else if (vertexCalc) {
-              firstIntersection++;
-            }
+            if (i === roundCount * 6 - 1) firstIntersection++;
+            else if (vertexCalc) firstIntersection++;
           }
         }
       }
 
       function getIntersection(a: any, b: any, r: number) {
-        const dx = b.x - a.x;
-        const dy = b.y - a.y;
+        const dx = b.x - a.x, dy = b.y - a.y;
         const d = Math.hypot(dx, dy);
         if (d > r * 2 || d < Math.abs(0)) return null;
         const aa = (r * r - r * r + d * d) / (2 * d);
-        const x2 = a.x + (dx * aa) / d;
-        const y2 = a.y + (dy * aa) / d;
+        const x2 = a.x + (dx * aa) / d, y2 = a.y + (dy * aa) / d;
         const h = Math.sqrt(Math.max(0, r * r - aa * aa));
-        const rx = -dy * (h / d);
-        const ry = dx * (h / d);
+        const rx = -dy * (h / d), ry = dx * (h / d);
         return { x: x2 - rx, y: y2 - ry };
       }
 
       function getPetalAngle(px: number, py: number) {
-        let theta = Math.atan2(py - ellipseOrigin.y, px - ellipseOrigin.x);
-        theta *= 180 / Math.PI;
+        let theta = Math.atan2(py - ellipseOrigin.y, px - ellipseOrigin.x) * 180 / Math.PI;
         if (theta < 0) theta = 360 + theta;
         return Math.round(theta);
       }
 
-      // Expose rebuild function
       (window as any).rebuildFlower = (rings: number, size: number) => {
-        maxRings = rings;
-        ellipseRadius = size;
+        maxRings = rings; ellipseRadius = size;
         buildPetals();
         if (!isAnimating) p.redraw();
       };
 
       (window as any).toggleAnimation = () => {
         isAnimating = !isAnimating;
-        if (isAnimating) {
-          p.loop();
-        } else {
-          animationAngle = 0;
-          p.noLoop();
-          p.redraw();
-        }
+        if (isAnimating) { p.loop(); }
+        else { animationAngle = 0; p.noLoop(); p.redraw(); }
         return isAnimating;
       };
 
-      (window as any).cycleTheme = () => {
+      (window as any).cycleFolTheme = () => {
         currentTheme = (currentTheme + 1) % themes.length;
         if (!isAnimating) p.redraw();
       };
 
-      // Handle resize
       window.addEventListener('resize', () => {
         canvasWidth = container!.offsetWidth;
         canvasHeight = Math.min(canvasWidth * 0.7, 550);
@@ -443,7 +648,6 @@ import Layout from '../layouts/Layout.astro';
 
     new (window as any).p5(sketch);
 
-    // Controls
     ringsSlider?.addEventListener('input', () => {
       const val = parseInt(ringsSlider.value);
       if (ringsValue) ringsValue.textContent = String(val);
@@ -457,14 +661,27 @@ import Layout from '../layouts/Layout.astro';
     });
 
     animateBtn?.addEventListener('click', () => {
-      const isNowAnimating = (window as any).toggleAnimation?.();
-      if (animateBtn) {
-        animateBtn.textContent = isNowAnimating ? 'Stop' : 'Start';
-      }
+      const on = (window as any).toggleAnimation?.();
+      if (animateBtn) animateBtn.textContent = on ? 'Stop' : 'Start';
     });
 
     themeBtn?.addEventListener('click', () => {
-      (window as any).cycleTheme?.();
+      (window as any).cycleFolTheme?.();
+    });
+  });
+</script>
+
+<!-- ── Sri Yantra controls wiring ─────────────────────────────────────────── -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // SriYantra is initialised by sri-yantra.js on DOMContentLoaded.
+    // We need to wire up the theme button (id changed to avoid clash with FoL).
+    const yantraThemeBtn = document.getElementById('yantra-theme-btn');
+    const themeLabel     = document.getElementById('theme-label');
+
+    yantraThemeBtn?.addEventListener('click', () => {
+      const name = (window as any)._yantra?.cycleTheme?.();
+      if (themeLabel && name) themeLabel.textContent = name;
     });
   });
 </script>
