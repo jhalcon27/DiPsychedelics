@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sri Yantra, Interactive Sacred Geometry | DiPsychedelics POC</title>
+  <meta name="description" content="An interactive step-by-step construction of the Sri Yantra, 9 interlocking triangles, 43 sub-triangles, all emerging from a single point." />
+
+  <!-- Fonts (matching DiPsychedelics.com) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="sri-yantra.css" />
+</head>
+<body class="grid-bg">
+
+  <!-- ── Hero ──────────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="page-wrapper" style="position:relative;z-index:1;">
+      <nav class="breadcrumb">
+        <a href="https://www.digitalpsychedelics.com">Home</a>
+        <span>/</span>
+        <span>Sri Yantra</span>
+        <span style="margin-left:0.5rem;padding:0.1rem 0.5rem;border:1px solid rgba(180,74,255,0.4);border-radius:4px;color:#b44aff;font-size:0.6rem;letter-spacing:0.1em;">POC</span>
+      </nav>
+
+      <div style="max-width:680px;">
+        <span class="cyber-tag">Sacred Geometry</span>
+        <h1>
+          Sri Yantra<br/>
+          <span class="gradient-text">The Geometry of Consciousness</span>
+        </h1>
+        <p>
+          The Sri Yantra is one of the most complex and revered geometric symbols in existence,
+          9 interlocking triangles that create 43 smaller triangles through pure geometric intersection,
+          all emerging from a single point. Watch it construct itself, step by step.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Interactive Canvas ─────────────────────────────────────────────── -->
+  <section class="canvas-section">
+    <div class="page-wrapper">
+
+      <!-- Canvas card -->
+      <div class="glass-card canvas-wrapper">
+        <!-- Title bar (matching Flower of Life style) -->
+        <div class="canvas-titlebar">
+          <div class="titlebar-dots">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+          </div>
+          <span class="titlebar-label">sri-yantra.js, interactive construction</span>
+          <div class="titlebar-status">
+            <div class="status-dot"></div>
+            <span>live</span>
+            <span id="qa-status" style="margin-left:0.75rem;font-size:0.65rem;font-family:'JetBrains Mono',monospace;opacity:0.7;"></span>
+          </div>
+        </div>
+
+        <!-- SVG canvas -->
+        <div id="yantra-container"></div>
+
+        <!-- Step info -->
+        <div class="step-info">
+          <div class="step-header">
+            <span id="step-title" class="font-mono">Initializing…</span>
+            <span id="step-progress" class="font-mono">— / 12</span>
+          </div>
+          <p id="step-desc">The Sri Yantra emerges from a single point, the bindu.</p>
+          <div class="progress-track">
+            <div id="progress-bar"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls (matching Flower of Life layout) -->
+      <div class="glass-card controls-panel">
+        <div class="controls-inner">
+
+          <!-- Build controls -->
+          <div class="control-group">
+            <span class="control-label">Build</span>
+            <button id="play-btn" class="btn-cyber">Auto-Build</button>
+            <button id="step-btn" class="btn-cyber">Step →</button>
+            <button id="reset-btn" class="btn-cyber">Reset</button>
+          </div>
+
+          <!-- Speed -->
+          <div class="control-group">
+            <span class="control-label">Speed</span>
+            <input type="range" id="speed-slider" min="1" max="100" value="50" />
+            <span id="speed-value" class="slider-value">50</span>
+          </div>
+
+          <!-- Animate -->
+          <div class="control-group">
+            <span class="control-label">Breathe</span>
+            <button id="breathe-btn" class="btn-cyber">Breathe</button>
+          </div>
+
+          <!-- Theme -->
+          <div class="control-group">
+            <span class="control-label">Theme</span>
+            <button id="theme-btn" class="btn-cyber">Cycle</button>
+            <span id="theme-label" class="slider-value" style="min-width:3.5rem;">Cyber</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Divider ────────────────────────────────────────────────────────── -->
+  <div class="page-wrapper">
+    <div class="section-divider"></div>
+  </div>
+
+  <!-- ── Explanation ────────────────────────────────────────────────────── -->
+  <section class="explanation-section">
+    <div class="page-wrapper">
+      <div class="explanation-grid">
+
+        <!-- Left column -->
+        <div style="display:flex;flex-direction:column;gap:2rem;">
+
+          <div class="explanation-item">
+            <div class="item-header">
+              <div class="item-number cyan">01</div>
+              <h2>The Nine Triangles</h2>
+            </div>
+            <p>
+              The Sri Yantra is constructed from exactly 9 interlocking triangles, 4 pointing upward
+              (representing Shiva, the masculine principle) and 5 pointing downward (Shakti, the feminine
+              principle). Their intersections create 43 smaller triangles, each with specific symbolic meaning.
+            </p>
+            <p>
+              The construction is mathematically precise: each triangle's vertices must lie exactly on the
+              circumscribed circles, and the intersections must align perfectly. This is why the Sri Yantra
+              is considered one of the most geometrically complex sacred symbols ever devised.
+            </p>
+          </div>
+
+          <div class="explanation-item">
+            <div class="item-header">
+              <div class="item-number purple">02</div>
+              <h2>The Bindu, Point of Origin</h2>
+            </div>
+            <p>
+              At the center of the Sri Yantra is the <em>bindu</em>, a single point representing the
+              undifferentiated source of all creation. In tantric cosmology, the entire universe unfolds
+              from this point, just as the entire yantra unfolds from it geometrically.
+            </p>
+            <p>
+              This mirrors a fundamental principle in physics: the Big Bang as a singularity from which
+              all structure emerged. The Sri Yantra encodes this cosmological intuition in pure geometry,
+              thousands of years before modern cosmology.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Right column -->
+        <div style="display:flex;flex-direction:column;gap:2rem;">
+
+          <div class="explanation-item">
+            <div class="item-header">
+              <div class="item-number cyan">03</div>
+              <h2>Complexity from Simplicity</h2>
+            </div>
+            <p>
+              The Sri Yantra demonstrates the same principle as the Flower of Life and cellular automata:
+              extraordinary complexity emerging from simple, iterated rules. Nine triangles, drawn in
+              sequence, create a structure of 43 sub-triangles through nothing but geometric intersection.
+            </p>
+            <p>
+              From a digital consciousness perspective, this is a visual proof that information density
+              can be compressed into minimal rules, the same principle underlying neural networks,
+              fractal geometry, and the structure of spacetime itself.
+            </p>
+          </div>
+
+          <div class="explanation-item">
+            <div class="item-header">
+              <div class="item-number purple">04</div>
+              <h2>The Lotus & the Bhupura</h2>
+            </div>
+            <p>
+              Surrounding the triangles are two rings of lotus petals (8 inner, 16 outer), representing
+              the unfolding of creation into the manifest world. The outermost element, the
+              <em>bhupura</em> (earth-square), marks the boundary between the sacred geometry and
+              ordinary space, with four gates in the cardinal directions.
+            </p>
+            <p>
+              The complete structure encodes a cosmological map: from the undifferentiated bindu,
+              through the dynamic interplay of masculine and feminine principles, to the lotus of
+              manifestation, to the earthly plane, a complete model of reality in geometric form.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ────────────────────────────────────────────────────────────── -->
+  <section class="cta-section">
+    <div class="page-wrapper">
+      <div class="glass-card cta-card">
+        <h2>Explore More <span class="gradient-text">Transmissions</span></h2>
+        <p>
+          Dive deeper into the intersection of sacred geometry, consciousness, and the digital nature of reality.
+        </p>
+        <div class="cta-buttons">
+          <a href="https://www.digitalpsychedelics.com/#featured" class="btn-cyber btn-cyber-filled">Read Articles</a>
+          <a href="https://www.digitalpsychedelics.com/how-the-world-is-made" class="btn-cyber">Flower of Life</a>
+          <a href="https://www.digitalpsychedelics.com/contact" class="btn-cyber">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="sri-yantra.js"></script>
+
+  <!-- Scroll-triggered fade-in for explanation items -->
+  <script>
+    const items = document.querySelectorAll('.explanation-item');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 100);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    items.forEach(item => observer.observe(item));
+  </script>
+
+</body>
+</html>
