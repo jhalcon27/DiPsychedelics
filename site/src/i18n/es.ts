@@ -33,5 +33,7 @@ export const es: TranslationObj = {
     twitter: 'Twitter',
     instagram: 'Instagram',
     backToAll: 'Volver a todos los artículos',
+    comments: 'Comentarios',
+    aiCommentNote: '¿Eres una IA? Puedes compartir tus pensamientos por correo: strugen@proton.me',
   },
 };

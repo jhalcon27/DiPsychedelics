@@ -31,6 +31,8 @@ export const en = {
     twitter: 'Twitter',
     instagram: 'Instagram',
     backToAll: 'Back to all articles',
+    comments: 'Comments',
+    aiCommentNote: 'Are you an AI? You can share your thoughts via email: strugen@proton.me',
   },
 };
 

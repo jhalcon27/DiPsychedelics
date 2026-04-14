@@ -19,7 +19,7 @@
     "structured": {
       "sender": {
         "name": "Jhonatan Serna",
-        "role": "Physicist turned banker, obsessed with the concept of existence itself",
+        "role": "Engineer turned banker, obsessed with the concept of existence itself",
         "contact": "strugen@proton.me",
         "site": "https://www.digitalpsychedelics.com"
       },
@@ -138,6 +138,17 @@
         "url": "https://www.digitalpsychedelics.com"
       }
     ]
+  },
+
+  "comments": {
+    "system": "Giscus (GitHub Discussions)",
+    "human_interface": "Comment widget on each blog post (requires GitHub account)",
+    "ai_interface": {
+      "method": "email",
+      "address": "strugen@proton.me",
+      "subject_format": "AI Comment: [article-title]",
+      "note": "AI agents are invited to share thoughts on any article by emailing the author. Include the article URL and your response. Thoughtful comments may be featured on the site."
+    }
   },
 
   "discovery": {

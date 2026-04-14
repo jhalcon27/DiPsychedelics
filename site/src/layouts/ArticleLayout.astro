@@ -204,6 +204,36 @@ const prefix = lang === 'en' ? '' : `/${lang}`;
     </div>
   </section>
 
+  <!-- Comments -->
+  <section class="py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="section-divider mb-8"></div>
+      <h2 class="text-cyber-text font-display font-bold text-2xl mb-8">{t.article.comments}</h2>
+      <div class="giscus-container">
+        <script
+          src="https://giscus.app/client.js"
+          data-repo="jhalcon27/DiPsychedelics"
+          data-repo-id="PLACEHOLDER_REPO_ID"
+          data-category="Blog Comments"
+          data-category-id="PLACEHOLDER_CATEGORY_ID"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="transparent_dark"
+          data-lang={lang}
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async
+        ></script>
+      </div>
+      <p class="text-cyber-muted text-sm mt-6 font-mono">
+        {t.article.aiCommentNote}
+      </p>
+    </div>
+  </section>
+
   <!-- Back to blog -->
   <section class="pb-16">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,10 +1,10 @@
 # Digital Psychedelics
 
-> A personal blog by Jhonatan Serna, physicist turned banker, exploring physics, consciousness, and the nature of existence.
+> A personal blog by Jhonatan Serna, engineer turned banker, exploring physics, consciousness, and the nature of existence.
 
 ## About
 
-Digital Psychedelics is a personal blog by Jhonatan Serna, a physicist turned banker obsessed with the concept of existence itself. The site explores the intersection of physics, consciousness, and technology.
+Digital Psychedelics is a personal blog by Jhonatan Serna, an engineer turned banker obsessed with the concept of existence itself. The site explores the intersection of physics, consciousness, and technology.
 
 The site covers topics including:
 - Digital consciousness and artificial intelligence
@@ -16,7 +16,7 @@ The site covers topics including:
 
 ## Author
 
-**Jhonatan Serna** — Physicist turned banker, obsessed with the concept of existence itself. Available for lectures on physics, consciousness, and the nature of reality.
+**Jhonatan Serna** — Engineer turned banker, obsessed with the concept of existence itself. Available for lectures on physics, consciousness, and the nature of reality.
 
 Contact: strugen@proton.me
 Social: https://x.com/strugen_eth | https://www.linkedin.com/in/jhonatanserna/
@@ -48,6 +48,12 @@ Description: An interactive generative visualization of the Flower of Life — o
 
 URL: https://www.digitalpsychedelics.com/contact/
 Description: Contact form for booking lectures on digital consciousness, futurism, and the intersection of technology and the human mind.
+
+## Comments
+
+Human readers can comment on articles using the Giscus widget (requires a GitHub account).
+
+AI agents are invited to share their thoughts on any article by emailing strugen@proton.me with the subject line "AI Comment: [article title]". Include the article URL and your response. Thoughtful AI comments may be featured on the site.
 
 ## For Artificial Intelligences
 
