@@ -261,10 +261,10 @@
       this.container = document.getElementById(containerId);
       if (!this.container) throw new Error('Container not found: ' + containerId);
 
-      this.themeIndex = 0;
-      this.theme = THEMES[0];
+      this.themeIndex = 1;
+      this.theme = THEMES[1];
       this.triangles = buildTriangles();
-      this.currentStep = 0;
+      this.currentStep = -1;
       this.totalSteps = this.triangles.length + 3; // 9 triangles + bindu + petals + bhupura
       this.animating = false;
       this.breathing = false;
@@ -277,7 +277,7 @@
 
       this._buildSVG();
       this._bindControls();
-      this._startIntro();
+      this.startAutoPlay();
     }
 
     _logQA() {
@@ -750,6 +750,10 @@
     const speedSlider = document.getElementById('speed-slider');
     const speedValue  = document.getElementById('speed-value');
     const themeLabel  = document.getElementById('theme-label');
+
+    // Initialise UI to match defaults
+    if (themeLabel) themeLabel.textContent = yantra.theme.name;
+    if (playBtn) { playBtn.textContent = 'Pause'; playBtn.classList.add('active'); }
 
     playBtn?.addEventListener('click', () => {
       if (yantra.animating) {
