@@ -1,0 +1,216 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const articles = [
+  {
+    slug: 'how-do-you-learn-to-change-an-insight-from-sorrow',
+    title: 'どうやって変わることを学ぶのか？',
+    subtitle: '悲しみからの洞察',
+    excerpt: '私が自分自身の中でそのパターンに気づいたのは、かなり遅いことだった。すでに傷をつけてしまうほど遅く。悲しみ、アイデンティティ、そして発達心理学が、異なる人間になるという緩やかな作業の中でどう交差するか。',
+    image: '/images/how-you-learn-to-change-from-sorrow.jpg',
+    imagePosition: 'center',
+    date: '2024-05-15',
+    readTime: '4分で読める',
+    tags: ['個人的省察', '悲しみ', '変化'],
+  },
+  {
+    slug: 'neural-networks-physics-modifying-reality',
+    title: '現実を修正する道へ',
+    subtitle: 'ニューラルネットワーク、物理学、理論的タイムライン',
+    excerpt: 'ニューラルネットワークと物理学の融合は、AIを現実そのものを修正できるほど発展させる可能性という、魅力的な新たな道を開く。',
+    image: '/images/neural-networks.webp',
+    imagePosition: 'center',
+    date: '2025-06-15',
+    readTime: '12分で読める',
+    tags: ['ニューラルネットワーク', '物理学', '意識'],
+  },
+  {
+    slug: 'digital-fabric-of-reality',
+    title: '現実のデジタル構造',
+    subtitle: '私たちの意識は本質的にデジタルなのか？',
+    excerpt: '意識と現実の構造が本質的にデジタルであるという深い考えと、それが存在の理解に何を意味するかを探る。',
+    image: '/images/fabric-of-reality.jpeg',
+    imagePosition: 'center',
+    date: '2023-05-20',
+    readTime: '7分で読める',
+    tags: ['意識', 'デジタル現実', '未来主義'],
+  },
+  {
+    slug: 'mind-life-cosmos',
+    title: '心、生命、そして宇宙',
+    subtitle: '相互につながった宇宙',
+    excerpt: '宇宙、心、そして意識と集合知の未来を形作る私たちの役割との深い関係を探る。',
+    image: '/images/mind-life-cosmos.webp',
+    imagePosition: 'top',
+    date: '2023-06-10',
+    readTime: '6分で読める',
+    tags: ['宇宙', '心', '相互連結'],
+  },
+  {
+    slug: 'fractality-of-organisation-and-emergence',
+    title: '組織と創発のフラクタル性',
+    subtitle: '汎心論は両方向でスケールするのか？',
+    excerpt: '意識が組織化された物質の特性であるならば、それは電子にまで届き、国家にまで及ぶのか？状態結合がスケールの内側について何を明らかにするか。',
+    image: '/images/fractality-of-organisation-and-emergence.jpg',
+    imagePosition: 'center',
+    date: '2026-04-13',
+    readTime: '8分で読める',
+    tags: ['汎心論', '創発', '意識', '複雑性'],
+  },
+];
+---
+
+<Layout
+  title="デジタルサイケデリクス | 未来主義と仮想現実を探求する"
+  description="デジタルサイケデリクス、Jhonatan Sernaの個人ブログ。エンジニアから銀行家へ転身した著者が、物理学、意識、存在の本質を探求する。"
+  lang="ja"
+>
+  <!-- Hero Section -->
+  <section class="relative min-h-[90vh] flex items-center overflow-hidden">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-cyber-cyan opacity-5 blur-3xl"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-cyber-purple opacity-5 blur-3xl"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-cyber-cyan opacity-3 blur-3xl"></div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+      <div class="max-w-4xl">
+        <div class="flex items-center gap-3 mb-6 fade-in">
+          <span class="cyber-tag">先端的思考</span>
+          <span class="text-cyber-muted text-xs font-mono">// デジタル意識を探求する</span>
+        </div>
+
+        <h1 class="font-display font-bold text-5xl sm:text-6xl lg:text-7xl leading-tight mb-6 fade-in" style="transition-delay: 0.1s">
+          <span class="gradient-text">Digital</span><br/>
+          <span class="text-cyber-text">Psychedelics</span>
+        </h1>
+
+        <p class="text-cyber-muted text-xl sm:text-2xl leading-relaxed mb-8 max-w-2xl fade-in" style="transition-delay: 0.2s">
+          <span class="text-cyber-cyan">テクノロジー</span>、
+          <span class="text-cyber-purple">意識</span>、そして人類の経験の未来が交わる場所を探求する。
+        </p>
+
+        <p class="text-cyber-muted text-base leading-relaxed mb-10 max-w-xl fade-in" style="transition-delay: 0.3s">
+          Jhonatan Sernaの個人ブログ。エンジニアから銀行家へ転身し、存在そのものの概念に魅了された著者が、物理学、意識、そして「在る」ことの意味を探求する。
+        </p>
+
+        <div class="flex flex-wrap gap-4 fade-in" style="transition-delay: 0.4s">
+          <a href="#featured" class="btn-cyber btn-cyber-filled">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+            </svg>
+            記事を読む
+          </a>
+          <a href="/ja/how-the-world-is-made" class="btn-cyber">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+            神聖幾何学
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2 text-cyber-muted text-xs fade-in" style="transition-delay: 0.6s">
+      <span class="font-mono tracking-widest">スクロール</span>
+      <div class="w-px h-12 bg-gradient-to-b from-cyber-cyan to-transparent"></div>
+    </div>
+  </section>
+
+  <div class="section-divider mx-8"></div>
+
+  <!-- Featured Articles -->
+  <section id="featured" class="py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 fade-in">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="cyber-tag">おすすめ</span>
+          <div class="h-px flex-1 bg-gradient-to-r from-cyber-cyan/30 to-transparent max-w-xs"></div>
+        </div>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl text-cyber-text">
+          最新<span class="gradient-text">トランスミッション</span>
+        </h2>
+        <p class="text-cyber-muted mt-2 max-w-lg">
+          テクノロジー、意識、現実の本質が交わる場所への深い考察。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {articles.map((article, i) => (
+          <article class="glass-card rounded-lg overflow-hidden fade-in" style={`transition-delay: ${i * 0.1}s`}>
+            <div class="relative overflow-hidden h-48">
+              <img
+                src={article.image}
+                alt={article.title}
+                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                style={`object-position: ${article.imagePosition}`}
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-cyber-dark/80 to-transparent"></div>
+              <div class="absolute bottom-3 left-3 flex flex-wrap gap-1">
+                {article.tags.slice(0, 2).map(tag => (
+                  <span class="cyber-tag text-xs py-0.5">{tag}</span>
+                ))}
+              </div>
+            </div>
+
+            <div class="p-5">
+              <div class="flex items-center gap-3 text-cyber-muted text-xs font-mono mb-3">
+                <span>{article.readTime}</span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-cyber-text mb-1 leading-tight">
+                {article.title}
+              </h3>
+              <p class="text-cyber-cyan text-sm mb-3 font-medium">{article.subtitle}</p>
+              <p class="text-cyber-muted text-sm leading-relaxed mb-4 line-clamp-3">
+                {article.excerpt}
+              </p>
+              <a
+                href={`/ja/blog/${article.slug}`}
+                class="inline-flex items-center gap-2 text-cyber-cyan text-sm font-medium hover:gap-3 transition-all group"
+              >
+                記事を読む
+                <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider mx-8"></div>
+
+  <!-- About Section -->
+  <section id="about" class="py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="relative fade-in order-2 lg:order-1">
+          <div class="relative rounded-xl overflow-hidden">
+            <img src="/images/about.jpeg" alt="デジタルサイケデリクスについて" class="w-full h-80 lg:h-96 object-cover" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-tr from-cyber-dark/60 via-transparent to-cyber-purple/10"></div>
+          </div>
+        </div>
+        <div class="fade-in order-1 lg:order-2" style="transition-delay: 0.2s">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="cyber-tag">について</span>
+          </div>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-cyber-text mb-6">
+            <span class="gradient-text">デジタルサイケデリクス</span>について
+          </h2>
+          <div class="space-y-4 text-cyber-muted leading-relaxed">
+            <p>デジタルサイケデリクスは、Jhonatan Sernaの個人ブログです。エンジニアから銀行家へ転身し、存在そのものの概念に魅了された著者が、記事とインタラクティブなコンテンツを通じて、物理学、意識、テクノロジーの交差点を探求しています。</p>
+            <p>ここでの問いは古くからのものです：意識とは何か？心と物質の関係は？存在するとはどういうことか？それらに取り組むためのツールは新しい：神経科学、情報理論、AI、複雑性科学。</p>
+            <p>確定的な答えはなく、あるのは誠実な探求だけ。もしこれらの問いがあなたを夜も眠れなくさせるなら、あなたは正しい場所に来ています。</p>
+          </div>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="/ja/contact" class="btn-cyber btn-cyber-filled">お問い合わせ</a>
+            <a href="#featured" class="btn-cyber">記事を読む</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
