@@ -16,11 +16,12 @@ if (!basePath.startsWith('/')) basePath = '/' + basePath;
 const enHref = basePath;
 const deHref = '/de' + (basePath === '/' ? '' : basePath);
 const esHref = '/es' + (basePath === '/' ? '' : basePath);
+const frHref = '/fr' + (basePath === '/' ? '' : basePath);
 const zhHref = '/zh' + (basePath === '/' ? '' : basePath);
 const jaHref = '/ja' + (basePath === '/' ? '' : basePath);
 
-const labels: Record<string, string> = { en: 'EN', de: 'DE', es: 'ES', zh: '中文', ja: '日本語' };
-const hrefs: Record<string, string> = { en: enHref, de: deHref, es: esHref, zh: zhHref, ja: jaHref };
+const labels: Record<string, string> = { en: 'EN', de: 'DE', es: 'ES', fr: 'FR', zh: '中文', ja: '日本語' };
+const hrefs: Record<string, string> = { en: enHref, de: deHref, es: esHref, fr: frHref, zh: zhHref, ja: jaHref };
 ---
 
 <div class="lang-switcher relative" id="lang-switcher">
@@ -41,7 +42,7 @@ const hrefs: Record<string, string> = { en: enHref, de: deHref, es: esHref, zh: 
     id="lang-dropdown"
     class="hidden absolute right-0 top-full mt-1 z-50 glass-card rounded-lg border border-cyber-border shadow-lg overflow-hidden min-w-[120px]"
   >
-    {(['en', 'de', 'es', 'zh', 'ja'] as const).map((loc) => (
+    {(['en', 'de', 'es', 'fr', 'zh', 'ja'] as const).map((loc) => (
       <a
         href={hrefs[loc]}
         class={`flex items-center gap-2 px-3 py-2 text-sm font-mono transition-colors hover:bg-cyber-cyan/10 hover:text-cyber-cyan ${lang === loc ? 'text-cyber-cyan bg-cyber-cyan/5' : 'text-cyber-muted'}`}

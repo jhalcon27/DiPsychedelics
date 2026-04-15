@@ -45,6 +45,7 @@ if (!basePath.startsWith('/')) basePath = '/' + basePath;
 const enURL = `${siteURL}${basePath}`;
 const deURL = `${siteURL}/de${basePath === '/' ? '' : basePath}`;
 const esURL = `${siteURL}/es${basePath === '/' ? '' : basePath}`;
+const frURL = `${siteURL}/fr${basePath === '/' ? '' : basePath}`;
 const zhURL = `${siteURL}/zh${basePath === '/' ? '' : basePath}`;
 const jaURL = `${siteURL}/ja${basePath === '/' ? '' : basePath}`;
 
@@ -72,6 +73,7 @@ const prefix = lang === 'en' ? '' : `/${lang}`;
     <link rel="alternate" hreflang="en" href={enURL} />
     <link rel="alternate" hreflang="de" href={deURL} />
     <link rel="alternate" hreflang="es" href={esURL} />
+    <link rel="alternate" hreflang="fr" href={frURL} />
     <link rel="alternate" hreflang="zh" href={zhURL} />
     <link rel="alternate" hreflang="ja" href={jaURL} />
     <link rel="alternate" hreflang="x-default" href={enURL} />
