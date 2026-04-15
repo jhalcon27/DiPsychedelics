@@ -1,0 +1,335 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const btcAddress = 'bc1qtszvlsf3p8va3dglptev59t6vjlvg62mxg9g6x';
+const lightningAddress = 'motivationinvigorating898833@getalby.com';
+---
+
+<Layout
+  title="支持Digital Psychedelics | 捐赠"
+  description="支持Digital Psychedelics，一个关于意识, 技术和人类体验未来的独立思想领导平台。"
+  lang="zh"
+>
+  <!-- Hero -->
+  <section class="relative py-24 overflow-hidden">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-cyber-cyan opacity-5 blur-3xl"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-cyber-purple opacity-5 blur-3xl"></div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center mb-16 fade-in">
+        <div class="flex items-center justify-center gap-3 mb-6">
+          <span class="cyber-tag">支持</span>
+          <span class="text-cyber-muted text-xs font-mono">// 为信号充电</span>
+        </div>
+        <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6">
+          <span class="gradient-text">支持</span><br/>
+          <span class="text-cyber-text">信号</span>
+        </h1>
+        <p class="text-cyber-muted text-lg leading-relaxed max-w-2xl mx-auto">
+          Digital Psychedelics是一个独立的, 无广告的平台。如果这些关于意识, 技术和现实本质的探索与您产生共鸣，请考虑为维持信号做出贡献。
+        </p>
+      </div>
+
+      <!-- Lightning Card -->
+      <div class="relative mb-8 fade-in" id="lightning-hero">
+        <div class="absolute -inset-px rounded-2xl bg-gradient-to-r from-yellow-400/40 via-yellow-300/20 to-yellow-400/40 blur-sm lightning-pulse"></div>
+        <div class="relative glass-card rounded-2xl overflow-hidden border border-yellow-400/30">
+          <div class="h-1 w-full bg-gradient-to-r from-transparent via-yellow-400 to-transparent opacity-60"></div>
+          <div class="p-8 sm:p-10">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+              <div class="flex items-center gap-4">
+                <div class="relative">
+                  <div class="absolute inset-0 rounded-xl bg-yellow-400/20 blur-md"></div>
+                  <div class="relative w-14 h-14 rounded-xl bg-yellow-400/10 flex items-center justify-center border border-yellow-400/30">
+                    <svg class="w-8 h-8 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13 2L4.5 13.5H11L10 22L19.5 10.5H13L13 2Z"/>
+                    </svg>
+                  </div>
+                </div>
+                <div>
+                  <h2 class="font-display font-bold text-2xl text-cyber-text">闪电网络</h2>
+                  <p class="text-cyber-muted text-sm font-mono">即时 · 免费 · 去中心化</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 text-yellow-400 text-xs font-mono">
+                <span class="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></span>
+                <span>网络活跃</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 items-start">
+              <div class="space-y-6">
+                <p class="text-cyber-muted text-sm leading-relaxed">
+                  比特币闪电网络是发送中本聪（satoshis）最快, 最便宜的方式。即时结算, 可编程微支付, 无中介。发送任意金额, 从1 sat到1 BTC。
+                </p>
+                <div class="grid grid-cols-3 gap-3">
+                  {[
+                    { label: '结算', value: '< 1 秒' },
+                    { label: '费用', value: '~0 Sats' },
+                    { label: '最低金额', value: '1 Sat' },
+                  ].map(stat => (
+                    <div class="bg-yellow-400/5 border border-yellow-400/15 rounded-lg p-3 text-center">
+                      <p class="text-yellow-400 font-mono font-bold text-sm">{stat.value}</p>
+                      <p class="text-cyber-muted text-xs mt-0.5">{stat.label}</p>
+                    </div>
+                  ))}
+                </div>
+                <div>
+                  <p class="text-cyber-muted text-xs font-mono mb-2 uppercase tracking-widest">⚡ 闪电网络地址</p>
+                  <div class="flex items-center gap-2 bg-cyber-dark/60 border border-yellow-400/25 rounded-xl p-4">
+                    <svg class="w-4 h-4 text-yellow-400 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13 2L4.5 13.5H11L10 22L19.5 10.5H13L13 2Z"/>
+                    </svg>
+                    <code id="lightning-address" class="text-yellow-400 text-sm font-mono flex-1 break-all leading-relaxed">{lightningAddress}</code>
+                    <button id="copy-lightning-btn" onclick="copyLightning()" class="flex-shrink-0 text-cyber-muted hover:text-yellow-400 transition-colors p-1.5 rounded-lg hover:bg-yellow-400/10" title="复制闪电网络地址">
+                      <svg id="copy-lightning-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                      </svg>
+                      <svg id="check-lightning-icon" class="w-4 h-4 hidden text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                      </svg>
+                    </button>
+                  </div>
+                  <p id="copy-lightning-feedback" class="text-green-400 text-xs mt-2 hidden">✓ 闪电网络地址已复制!</p>
+                </div>
+                <a href={`lightning:${lightningAddress}`} class="w-full flex items-center justify-center gap-3 py-4 px-6 rounded-xl font-semibold text-sm bg-yellow-400/10 border border-yellow-400/40 text-yellow-400 hover:bg-yellow-400/20 hover:border-yellow-400/60 transition-all">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M13 2L4.5 13.5H11L10 22L19.5 10.5H13L13 2Z"/></svg>
+                  在闪电钱包中打开
+                </a>
+              </div>
+
+              <div class="flex flex-col items-center gap-3 lg:pl-4">
+                <p class="text-cyber-muted text-xs font-mono uppercase tracking-widest">扫描二维码</p>
+                <div class="relative group">
+                  <div class="absolute -inset-1 rounded-xl bg-yellow-400/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div class="relative p-4 rounded-xl bg-[#0a0a0f] border border-yellow-400/25 group-hover:border-yellow-400/50 transition-colors">
+                    <img
+                      src={`https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=lightning:${lightningAddress}&bgcolor=0a0a0f&color=facc15&margin=0`}
+                      alt="闪电网络二维码"
+                      class="w-40 h-40 rounded-lg"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                <div class="flex items-center gap-1.5 text-yellow-400/60 text-xs font-mono">
+                  <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M13 2L4.5 13.5H11L10 22L19.5 10.5H13L13 2Z"/></svg>
+                  <span>任何闪电钱包</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="h-px w-full bg-gradient-to-r from-transparent via-yellow-400/30 to-transparent"></div>
+        </div>
+      </div>
+
+      <!-- BTC + ENS + Ko-fi grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <!-- BTC Card -->
+        <div class="glass-card rounded-xl p-8 fade-in animated-border">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-lg bg-cyber-cyan/10 flex items-center justify-center border border-cyber-cyan/20">
+              <svg class="w-6 h-6 text-cyber-cyan" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.548v-.002zm-6.35-4.613c.24-1.59-.974-2.45-2.64-3.03l.54-2.153-1.315-.33-.525 2.107c-.345-.087-.705-.167-1.064-.25l.526-2.127-1.32-.33-.54 2.165c-.285-.067-.565-.132-.84-.2l-1.815-.45-.35 1.407s.975.225.955.236c.535.136.63.486.615.766l-1.477 5.92c-.075.166-.24.406-.614.314.015.02-.96-.24-.96-.24l-.66 1.51 1.71.426.93.242-.54 2.19 1.32.327.54-2.17c.36.1.705.19 1.05.273l-.51 2.154 1.32.33.545-2.19c2.24.427 3.93.257 4.64-1.774.57-1.637-.03-2.58-1.217-3.196.854-.193 1.5-.76 1.68-1.93h.01zm-3.01 4.22c-.404 1.64-3.157.75-4.05.53l.72-2.9c.896.23 3.757.67 3.33 2.37zm.41-4.24c-.37 1.49-2.662.735-3.405.55l.654-2.64c.744.18 3.137.524 2.75 2.084v.006z"/>
+              </svg>
+            </div>
+            <div>
+              <h2 class="font-display font-bold text-xl text-cyber-text">比特币</h2>
+              <p class="text-cyber-muted text-xs font-mono">链上 · 去中心化 · 永久</p>
+            </div>
+          </div>
+          <div class="flex justify-center mb-6">
+            <div class="p-3 rounded-lg bg-[#0a0a0f] border border-cyber-cyan/20">
+              <img src="/images/btc-qr.svg" alt="比特币二维码" class="w-40 h-40" />
+            </div>
+          </div>
+          <div class="mb-4">
+            <p class="text-cyber-muted text-xs font-mono mb-2 uppercase tracking-widest">钱包地址</p>
+            <div class="flex items-center gap-2 bg-cyber-dark/60 border border-cyber-border rounded-lg p-3">
+              <code id="btc-address" class="text-cyber-cyan text-xs font-mono flex-1 break-all leading-relaxed">{btcAddress}</code>
+              <button id="copy-btn" onclick="copyBTC()" class="flex-shrink-0 text-cyber-muted hover:text-cyber-cyan transition-colors p-1" title="复制地址">
+                <svg id="copy-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                </svg>
+                <svg id="check-icon" class="w-4 h-4 hidden text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+              </button>
+            </div>
+            <p id="copy-feedback" class="text-green-400 text-xs mt-2 hidden">✓ 地址已复制!</p>
+          </div>
+          <p class="text-cyber-muted text-xs leading-relaxed">扫描二维码或将地址粘贴到您的比特币钱包中。非常感谢任何金额的捐赠。</p>
+        </div>
+
+        <!-- ENS Card -->
+        <div class="glass-card rounded-xl p-8 fade-in" style="transition-delay: 0.1s">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20">
+              <svg class="w-6 h-6 text-indigo-400" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M11.944 17.97L4.58 13.62 11.943 24l7.37-10.38-7.372 4.35h.003zM12.056 0L4.69 12.223l7.365 4.354 7.365-4.35L12.056 0z"/>
+              </svg>
+            </div>
+            <div>
+              <h2 class="font-display font-bold text-xl text-cyber-text">以太坊 / ENS</h2>
+              <p class="text-cyber-muted text-xs font-mono">ETH · ERC-20 · 通用 Web3</p>
+            </div>
+          </div>
+          <div class="space-y-4 mb-6">
+            <p class="text-cyber-muted text-sm leading-relaxed">直接向ENS名称发送ETH或ERC-20代币。适用于MetaMask, Rainbow, Coinbase钱包以及任何支持ENS的Web3钱包。</p>
+            <div>
+              <p class="text-cyber-muted text-xs font-mono mb-2 uppercase tracking-widest">ENS 名称</p>
+              <div class="flex items-center gap-2 bg-cyber-dark/60 border border-indigo-500/25 rounded-lg p-3">
+                <code id="ens-address" class="text-indigo-400 text-sm font-mono flex-1">strugen.eth</code>
+                <button onclick="copyENS()" class="flex-shrink-0 text-cyber-muted hover:text-indigo-400 transition-colors p-1" title="复制ENS名称">
+                  <svg id="copy-ens-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                  </svg>
+                  <svg id="check-ens-icon" class="w-4 h-4 hidden text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </button>
+              </div>
+              <p id="copy-ens-feedback" class="text-green-400 text-xs mt-2 hidden">✓ ENS名称已复制!</p>
+            </div>
+          </div>
+          <a href="https://app.ens.domains/strugen.eth" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-3 py-3 px-6 rounded-lg font-semibold text-sm bg-indigo-500/10 border border-indigo-500/40 text-indigo-400 hover:bg-indigo-500/20 transition-all">
+            在ENS上查看
+          </a>
+        </div>
+
+        <!-- Ko-fi Card -->
+        <div class="glass-card rounded-xl p-8 fade-in" style="transition-delay: 0.2s">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-lg bg-cyber-purple/10 flex items-center justify-center border border-cyber-purple/20">
+              <svg class="w-6 h-6 text-cyber-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+              </svg>
+            </div>
+            <div>
+              <h2 class="font-display font-bold text-xl text-cyber-text">银行卡 / Ko-fi</h2>
+              <p class="text-cyber-muted text-xs font-mono">信用卡 · PayPal · 一次性或月度</p>
+            </div>
+          </div>
+          <div class="space-y-4 mb-6">
+            <p class="text-cyber-muted text-sm leading-relaxed">通过信用卡或PayPal捐赠？Ko-fi支持一次性或月度订阅，是所有平台中费用最低的（Ko-fi收取0%费用）。</p>
+            <div>
+              <p class="text-cyber-muted text-xs font-mono uppercase tracking-widest mb-3">建议金额</p>
+              <div class="grid grid-cols-3 gap-2">
+                {['3 €', '5 €', '10 €'].map(amount => (
+                  <div class="border border-cyber-border rounded-lg p-2 text-center text-cyber-muted text-sm font-mono">{amount}</div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <a href="https://ko-fi.com/strugen" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-3 py-3 px-6 rounded-lg font-semibold text-sm bg-[#FF5E5B] hover:bg-[#ff4744] text-white transition-all">
+            在Ko-fi上支持
+          </a>
+          <p class="text-cyber-muted text-xs mt-4 text-center">Ko-fi收取0%平台费用。</p>
+        </div>
+      </div>
+
+      <!-- Why support -->
+      <div class="glass-card rounded-xl p-8 fade-in" style="transition-delay: 0.2s">
+        <h3 class="font-display font-bold text-xl text-cyber-text mb-4">
+          为什么<span class="gradient-text">支持？</span>
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+          <div>
+            <div class="w-10 h-10 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/20 flex items-center justify-center mx-auto mb-3">
+              <svg class="w-5 h-5 text-cyber-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
+              </svg>
+            </div>
+            <h4 class="text-cyber-text font-semibold text-sm mb-1">永久无广告</h4>
+            <p class="text-cyber-muted text-xs leading-relaxed">无广告, 无跟踪, 无赞助内容。您的支持使其保持这种状态。</p>
+          </div>
+          <div>
+            <div class="w-10 h-10 rounded-lg bg-cyber-purple/10 border border-cyber-purple/20 flex items-center justify-center mx-auto mb-3">
+              <svg class="w-5 h-5 text-cyber-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+              </svg>
+            </div>
+            <h4 class="text-cyber-text font-semibold text-sm mb-1">更多文章</h4>
+            <p class="text-cyber-muted text-xs leading-relaxed">捐款资助研究, 写作时间以及对数字意识的新探索。</p>
+          </div>
+          <div>
+            <div class="w-10 h-10 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/20 flex items-center justify-center mx-auto mb-3">
+              <svg class="w-5 h-5 text-cyber-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <h4 class="text-cyber-text font-semibold text-sm mb-1">开放与独立</h4>
+            <p class="text-cyber-muted text-xs leading-relaxed">保持独立意味着思想保持纯粹, 没有企业议程, 只有探索。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12 fade-in" style="transition-delay: 0.3s">
+        <p class="text-cyber-muted text-sm leading-relaxed max-w-lg mx-auto">
+          每一份贡献, 无论大小, 都是这项工作有价值的信号。感谢您成为网络的一部分。 🙏
+        </p>
+        <a href="/zh" class="inline-flex items-center gap-2 text-cyber-cyan text-sm font-medium mt-6 hover:gap-3 transition-all group">
+          <svg class="w-4 h-4 rotate-180 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+          返回 Digital Psychedelics
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  @keyframes lightning-pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+  }
+  .lightning-pulse { animation: lightning-pulse 3s ease-in-out infinite; }
+</style>
+
+<script>
+  function copyBTC() {
+    const address = document.getElementById('btc-address')?.textContent?.trim();
+    if (!address) return;
+    navigator.clipboard.writeText(address).then(() => {
+      document.getElementById('copy-icon')?.classList.add('hidden');
+      document.getElementById('check-icon')?.classList.remove('hidden');
+      document.getElementById('copy-feedback')?.classList.remove('hidden');
+      setTimeout(() => {
+        document.getElementById('copy-icon')?.classList.remove('hidden');
+        document.getElementById('check-icon')?.classList.add('hidden');
+        document.getElementById('copy-feedback')?.classList.add('hidden');
+      }, 2500);
+    });
+  }
+  function copyLightning() {
+    const address = document.getElementById('lightning-address')?.textContent?.trim();
+    if (!address) return;
+    navigator.clipboard.writeText(address).then(() => {
+      document.getElementById('copy-lightning-icon')?.classList.add('hidden');
+      document.getElementById('check-lightning-icon')?.classList.remove('hidden');
+      document.getElementById('copy-lightning-feedback')?.classList.remove('hidden');
+      setTimeout(() => {
+        document.getElementById('copy-lightning-icon')?.classList.remove('hidden');
+        document.getElementById('check-lightning-icon')?.classList.add('hidden');
+        document.getElementById('copy-lightning-feedback')?.classList.add('hidden');
+      }, 2500);
+    });
+  }
+  function copyENS() {
+    navigator.clipboard.writeText('strugen.eth').then(() => {
+      document.getElementById('copy-ens-icon')?.classList.add('hidden');
+      document.getElementById('check-ens-icon')?.classList.remove('hidden');
+      document.getElementById('copy-ens-feedback')?.classList.remove('hidden');
+      setTimeout(() => {
+        document.getElementById('copy-ens-icon')?.classList.remove('hidden');
+        document.getElementById('check-ens-icon')?.classList.add('hidden');
+        document.getElementById('copy-ens-feedback')?.classList.add('hidden');
+      }, 2500);
+    });
+  }
+  (window as any).copyBTC = copyBTC;
+  (window as any).copyLightning = copyLightning;
+  (window as any).copyENS = copyENS;
+</script>

@@ -1,0 +1,232 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="お問い合わせ | Digital Psychedelics"
+  description="存在という概念そのものに取り憑かれたエンジニア兼銀行家、ジョナタン・セルナにお問い合わせください。"
+  lang="ja"
+>
+  <!-- Hero -->
+  <section class="relative pt-12 pb-8 overflow-hidden">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-1/4 left-1/3 w-96 h-96 rounded-full bg-cyber-cyan opacity-5 blur-3xl"></div>
+      <div class="absolute bottom-1/4 right-1/3 w-96 h-96 rounded-full bg-cyber-purple opacity-5 blur-3xl"></div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <nav class="flex items-center gap-2 text-cyber-muted text-sm mb-8 font-mono">
+        <a href="/ja" class="hover:text-cyber-cyan transition-colors">ホーム</a>
+        <span>/</span>
+        <span class="text-cyber-text">お問い合わせ</span>
+      </nav>
+
+      <div class="max-w-2xl">
+        <span class="cyber-tag mb-4 inline-block">連絡を取る</span>
+        <h1 class="font-display font-bold text-4xl sm:text-5xl text-cyber-text leading-tight mb-4">
+          <span class="gradient-text">繋がり</span>ましょう
+        </h1>
+        <p class="text-cyber-muted text-xl leading-relaxed">
+          デジタル意識、未来主義、あるいはテクノロジーと人間の精神の交差点について話すことに興味がありますか？ご連絡をお待ちしております。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-12">
+
+        <!-- Contact Form -->
+        <div class="fade-in">
+          <div class="glass-card rounded-xl p-8">
+            <h2 class="font-display font-bold text-2xl text-cyber-text mb-2">メッセージを送信</h2>
+            <p class="text-cyber-muted text-sm mb-8">フォームにご記入ください。48時間以内に返信いたします。</p>
+
+            <form
+              id="contact-form"
+              action="https://formspree.io/f/xnjoarel"
+              method="POST"
+              class="space-y-5"
+            >
+              <div>
+                <label for="name" class="block text-cyber-muted text-xs font-mono uppercase tracking-wider mb-2">
+                  氏名 <span class="text-cyber-cyan">*</span>
+                </label>
+                <input type="text" id="name" name="name" required placeholder="あなたの氏名" class="cyber-input" />
+              </div>
+
+              <div>
+                <label for="email" class="block text-cyber-muted text-xs font-mono uppercase tracking-wider mb-2">
+                  メールアドレス <span class="text-cyber-cyan">*</span>
+                </label>
+                <input type="email" id="email" name="email" required placeholder="your@email.com" class="cyber-input" />
+              </div>
+
+              <div>
+                <label for="phone" class="block text-cyber-muted text-xs font-mono uppercase tracking-wider mb-2">
+                  電話番号
+                </label>
+                <input type="tel" id="phone" name="phone" placeholder="+81 00-0000-0000" class="cyber-input" />
+              </div>
+
+              <div>
+                <label for="subject" class="block text-cyber-muted text-xs font-mono uppercase tracking-wider mb-2">
+                  件名 <span class="text-cyber-cyan">*</span>
+                </label>
+                <select id="subject" name="subject" required class="cyber-input">
+                  <option value="" disabled selected style="background: #0a0a0f;">件名を選択してください...</option>
+                  <option value="general-inquiry" style="background: #0a0a0f;">一般的なお問い合わせ</option>
+                  <option value="workshop" style="background: #0a0a0f;">ワークショップ・イベント</option>
+                  <option value="collaboration" style="background: #0a0a0f;">コラボレーション</option>
+                  <option value="media" style="background: #0a0a0f;">メディア・プレス</option>
+                  <option value="other" style="background: #0a0a0f;">その他</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="message" class="block text-cyber-muted text-xs font-mono uppercase tracking-wider mb-2">
+                  メッセージ <span class="text-cyber-cyan">*</span>
+                </label>
+                <textarea id="message" name="message" required rows="5" placeholder="ご用件をお聞かせください..." class="cyber-input resize-none"></textarea>
+              </div>
+
+              <input type="text" name="_gotcha" style="display:none" />
+
+              <button type="submit" id="submit-btn" class="btn-cyber btn-cyber-filled w-full justify-center">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                </svg>
+                メッセージを送信
+              </button>
+
+              <div id="form-success" class="hidden p-4 rounded-lg border border-green-500/30 bg-green-500/10 text-green-400 text-sm">
+                ✓ メッセージは正常に送信されました！48時間以内に返信いたします。
+              </div>
+              <div id="form-error" class="hidden p-4 rounded-lg border border-red-500/30 bg-red-500/10 text-red-400 text-sm">
+                ✗ 問題が発生しました。もう一度お試しいただくか、直接ご連絡ください。
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="space-y-6 fade-in" style="transition-delay: 0.2s">
+          <div class="glass-card rounded-xl p-6">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-cyber-cyan/30">
+                <img src="/images/profile_pic.jpg" alt="Jhonatan Serna" class="w-full h-full object-cover" />
+              </div>
+              <div>
+                <h3 class="font-display font-bold text-cyber-text">ジョナタン・セルナ</h3>
+                <p class="text-cyber-muted text-sm">存在に夢中なエンジニア兼銀行家</p>
+              </div>
+            </div>
+            <p class="text-cyber-muted text-sm leading-relaxed">
+              存在という概念そのものに取り憑かれたエンジニア兼銀行家。物理学、意識、そして現実の性質の交差点を探求しています。
+            </p>
+            <div class="flex items-center gap-3 mt-4">
+              <a href="https://x.com/strugen_eth" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-cyber-muted hover:text-cyber-cyan transition-colors text-xs font-mono" aria-label="X (Twitter)">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+                @strugen_eth
+              </a>
+              <span class="text-cyber-border">·</span>
+              <a href="https://instagram.com/strugen" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-cyber-muted hover:text-cyber-cyan transition-colors text-xs font-mono" aria-label="Instagram">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                @strugen
+              </a>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-xl p-6">
+            <h3 class="text-cyber-text font-semibold text-sm uppercase tracking-widest mb-4">直接連絡</h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="mailto:strugen@proton.me" class="flex items-center gap-3 text-cyber-muted hover:text-cyber-cyan transition-colors group">
+                  <div class="w-8 h-8 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/20 flex items-center justify-center group-hover:border-cyber-cyan/40 transition-colors">
+                    <svg class="w-4 h-4 text-cyber-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-xs text-cyber-muted font-mono uppercase tracking-wider">メール</p>
+                    <p class="text-sm">strugen@proton.me</p>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="glass-card rounded-xl p-6">
+            <h3 class="text-cyber-text font-semibold text-sm uppercase tracking-widest mb-4">私が情熱を注ぐトピック</h3>
+            <ul class="space-y-2">
+              {[
+                '意識のハードプロブレム',
+                '人間経験の未来',
+                '世界がどのように作られているか/生命',
+                'サイケデリックとテクノロジー',
+                '集合知',
+                'シミュレーション仮説',
+              ].map(topic => (
+                <li class="flex items-center gap-2 text-cyber-muted text-sm">
+                  <span class="w-1.5 h-1.5 rounded-full bg-cyber-cyan flex-shrink-0"></span>
+                  {topic}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="glass-card rounded-xl p-6 border border-cyber-cyan/10">
+            <div class="flex items-center gap-3">
+              <span class="w-2 h-2 rounded-full bg-cyber-cyan pulse-glow"></span>
+              <div>
+                <p class="text-cyber-text text-sm font-medium">典型的な返信時間</p>
+                <p class="text-cyber-muted text-xs">48時間以内</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const successMsg = document.getElementById('form-success');
+  const errorMsg = document.getElementById('form-error');
+  const originalBtnHTML = submitBtn?.innerHTML ?? '';
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!submitBtn) return;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `<svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path></svg> 送信中...`;
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+      if (response.ok) {
+        form.reset();
+        successMsg?.classList.remove('hidden');
+        errorMsg?.classList.add('hidden');
+        submitBtn.innerHTML = '✓ 送信完了！';
+      } else {
+        throw new Error('failed');
+      }
+    } catch (err) {
+      errorMsg?.classList.remove('hidden');
+      successMsg?.classList.add('hidden');
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnHTML;
+    }
+  });
+</script>

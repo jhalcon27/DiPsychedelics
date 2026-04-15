@@ -1,0 +1,512 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="世界がどのように作られているか | 神聖幾何学 — フラワー・オブ・ライフ & シュリ・ヤントラ"
+  description="インタラクティブな視覚化を通じて、人類の最も深遠な2つの神聖幾何学のシンボル、シュリ・ヤントラとフラワー・オブ・ライフを探求します。"
+  lang="ja"
+>
+  <!-- Hero -->
+  <section class="relative pt-12 pb-8 overflow-hidden">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-cyber-cyan opacity-5 blur-3xl"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-cyber-purple opacity-5 blur-3xl"></div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <nav class="flex items-center gap-2 text-cyber-muted text-sm mb-8 font-mono">
+        <a href="/ja" class="hover:text-cyber-cyan transition-colors">ホーム</a>
+        <span>/</span>
+        <span class="text-cyber-text">世界がどのように作られているか</span>
+      </nav>
+
+      <div class="max-w-3xl">
+        <span class="cyber-tag mb-4 inline-block">神聖幾何学</span>
+        <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-cyber-text leading-tight mb-6">
+          世界がどのように<br/>
+          <span class="gradient-text">作られているか</span>
+        </h1>
+        <p class="text-cyber-muted text-xl leading-relaxed">
+          人類の最も深遠な2つの幾何学的シンボル、フラワー・オブ・ライフとシュリ・ヤントラは、それぞれが現実の構造に関する深い数学的真理を符号化しています。インタラクティブに探求しましょう。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tab Navigation -->
+  <div class="sticky top-0 z-30 bg-cyber-dark/90 backdrop-blur border-b border-cyber-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex gap-0">
+        <a
+          href="#sri-yantra"
+          id="tab-yantra"
+          class="sacred-tab active-tab px-5 py-3 text-sm font-mono border-b-2 transition-all duration-200"
+        >
+          ◈ シュリ・ヤントラ
+        </a>
+        <a
+          href="#flower-of-life"
+          id="tab-flower"
+          class="sacred-tab px-5 py-3 text-sm font-mono border-b-2 transition-all duration-200"
+        >
+          ✦ フラワー・オブ・ライフ
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 1 — SRI YANTRA -->
+  <section id="sri-yantra" class="py-8 scroll-mt-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="mb-6">
+        <h2 class="font-display font-bold text-2xl sm:text-3xl text-cyber-text">
+          シュリ・ヤントラ
+        </h2>
+        <p class="text-cyber-muted mt-2 max-w-2xl">
+          9つの連動する三角形が、純粋な幾何学的交差によって43の小さな三角形を生成し、すべてが単一の点から生じます。段階的に構築される様子をご覧ください。
+        </p>
+      </div>
+
+      <!-- Canvas -->
+      <div class="glass-card rounded-xl overflow-hidden fade-in">
+        <div class="flex items-center justify-between px-6 py-3 border-b border-cyber-border">
+          <div class="flex items-center gap-2">
+            <div class="w-3 h-3 rounded-full bg-red-500/60"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500/60"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500/60"></div>
+          </div>
+          <span class="text-cyber-muted text-xs font-mono">sri-yantra.js — インタラクティブ構築</span>
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-cyber-cyan pulse-glow"></span>
+            <span class="text-cyber-muted text-xs font-mono">ライブ</span>
+            <span id="qa-status" class="text-xs font-mono opacity-60 ml-2"></span>
+          </div>
+        </div>
+
+        <div id="yantra-container" class="w-full bg-cyber-dark flex items-center justify-center" style="min-height: 420px;"></div>
+
+        <div class="yantra-step-info px-6 py-4 border-t border-cyber-border" style="min-height:5rem;">
+          <div class="flex items-center justify-between mb-1">
+            <span id="step-title" class="text-cyber-cyan text-sm font-mono font-semibold tracking-wide">初期化中…</span>
+            <span id="step-progress" class="text-cyber-muted text-xs font-mono">— / 12</span>
+          </div>
+          <p id="step-desc" class="text-cyber-muted text-sm leading-relaxed">シュリ・ヤントラは単一の点、ビンドゥから生じます。</p>
+          <div class="mt-3 h-0.5 bg-cyber-border rounded overflow-hidden">
+            <div id="progress-bar" class="h-full rounded transition-all duration-400" style="width:0%;background:linear-gradient(90deg,#00f0ff,#b44aff);"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="mt-4 glass-card rounded-xl p-4 fade-in">
+        <div class="flex flex-wrap items-center gap-4 justify-center">
+          <div class="flex items-center gap-2">
+            <label class="text-cyber-muted text-xs font-mono uppercase tracking-wider">構築</label>
+            <button id="play-btn"   class="btn-cyber text-xs py-1.5 px-3">自動構築</button>
+            <button id="step-btn"   class="btn-cyber text-xs py-1.5 px-3">ステップ →</button>
+            <button id="reset-btn"  class="btn-cyber text-xs py-1.5 px-3">リセット</button>
+          </div>
+          <div class="flex items-center gap-3">
+            <label class="text-cyber-muted text-xs font-mono uppercase tracking-wider">速度</label>
+            <input type="range" id="speed-slider" min="1" max="100" value="50" class="w-24 accent-cyber-cyan" />
+            <span id="speed-value" class="text-cyber-cyan text-xs font-mono w-4">50</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <label class="text-cyber-muted text-xs font-mono uppercase tracking-wider">呼吸</label>
+            <button id="breathe-btn" class="btn-cyber text-xs py-1.5 px-3">呼吸</button>
+          </div>
+          <div class="flex items-center gap-2">
+            <label class="text-cyber-muted text-xs font-mono uppercase tracking-wider">テーマ</label>
+            <button id="yantra-theme-btn" class="btn-cyber text-xs py-1.5 px-3">変更</button>
+            <span id="theme-label" class="text-cyber-cyan text-xs font-mono" style="min-width:3.5rem;">ゴールド</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Explanation -->
+      <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div class="space-y-8">
+          <div class="fade-in">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center">
+                <span class="text-cyber-cyan text-sm font-mono font-bold">01</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-cyber-text">九つの三角形</h3>
+            </div>
+            <p class="text-cyber-muted leading-relaxed">
+              シュリ・ヤントラは、正確に9つの連動する三角形で構成されています。4つは上向き（シヴァ、男性原理）で、5つは下向き（シャクティ、女性原理）です。これらの交差は43の小さな三角形を生み出し、それぞれが特定の象徴的意味を持っています。
+            </p>
+            <p class="text-cyber-muted leading-relaxed mt-3">
+              この構造は数学的に正確で、各頂点は外接円上に正確に位置し、交点は完全に整列している必要があります。これがシュリ・ヤントラが幾何学的に最も複雑な神聖シンボルの一つと見なされる理由です。
+            </p>
+          </div>
+
+          <div class="fade-in" style="transition-delay: 0.1s">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 rounded-full bg-cyber-purple/10 border border-cyber-purple/30 flex items-center justify-center">
+                <span class="text-cyber-purple text-sm font-mono font-bold">02</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-cyber-text">ビンドゥ、原点</h3>
+            </div>
+            <p class="text-cyber-muted leading-relaxed">
+              シュリ・ヤントラの中心には<em>ビンドゥ</em>があり、これはすべての創造の未分化な源を表す単一の点です。タントラの宇宙論では、宇宙全体がこの点から展開するように、ヤントラ全体も幾何学的に展開します。
+            </p>
+            <p class="text-cyber-muted leading-relaxed mt-3">
+              これは物理学の基本原理、つまりすべての構造が生じた特異点としてのビッグバンを反映しています。シュリ・ヤントラは、現代宇宙論の数千年も前に、この宇宙論的直感を純粋な幾何学で符号化しています。
+            </p>
+          </div>
+        </div>
+
+        <div class="space-y-8">
+          <div class="fade-in" style="transition-delay: 0.2s">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center">
+                <span class="text-cyber-cyan text-sm font-mono font-bold">03</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-cyber-text">単純さから生まれる複雑さ</h3>
+            </div>
+            <p class="text-cyber-muted leading-relaxed">
+              シュリ・ヤントラは、フラワー・オブ・ライフやセル・オートマトンと同じ原理を示しています。つまり、単純な繰り返しルールから並外れた複雑さが生まれるということです。順番に描かれた9つの三角形は、純粋な幾何学的交差によって43のサブ三角形を生成します。
+            </p>
+            <p class="text-cyber-muted leading-relaxed mt-3">
+              デジタル意識の観点から見ると、これは情報密度が最小限のルールに圧縮できることの視覚的な証明です。ニューラルネットワーク、フラクタル幾何学、時空の構造を支えるのと同じ原理です。
+            </p>
+          </div>
+
+          <div class="fade-in" style="transition-delay: 0.3s">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 rounded-full bg-cyber-purple/10 border border-cyber-purple/30 flex items-center justify-center">
+                <span class="text-cyber-purple text-sm font-mono font-bold">04</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-cyber-text">蓮とブープラ</h3>
+            </div>
+            <p class="text-cyber-muted leading-relaxed">
+              三角形は2つの蓮の輪（内側に8つ、外側に16つ）に囲まれており、顕現世界への創造の展開を表しています。最も外側の要素である<em>ブープラ</em>（地の方形）は、神聖幾何学と通常空間の間の境界を示し、四方には4つの門があります。
+            </p>
+            <p class="text-cyber-muted leading-relaxed mt-3">
+              完全な構造は宇宙の地図を符号化しています。未分化なビンドゥから、男性と女性の原理の動的な相互作用を経て、顕現の蓮、そして地上の平面まで、幾何学的な形での完全な現実のモデルです。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider mx-8 my-8"></div>
+
+  <!-- SECTION 2 — FLOWER OF LIFE -->
+  <section id="flower-of-life" class="py-8 scroll-mt-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="mb-6">
+        <h2 class="font-display font-bold text-2xl sm:text-3xl text-cyber-text">
+          フラワー・オブ・ライフ
+        </h2>
+        <p class="text-cyber-muted mt-2 max-w-2xl">
+          人類史上最も古い既知の幾何学模様の一つで、複数の大陸の古代文化で発見されています。その構造をインタラクティブに探求します。
+        </p>
+      </div>
+
+      <div class="glass-card rounded-xl overflow-hidden fade-in">
+        <div class="flex items-center justify-between px-6 py-3 border-b border-cyber-border">
+          <div class="flex items-center gap-2">
+            <div class="w-3 h-3 rounded-full bg-red-500/60"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500/60"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500/60"></div>
+          </div>
+          <span class="text-cyber-muted text-xs font-mono">flower-of-life.js — インタラクティブ</span>
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-cyber-cyan pulse-glow"></span>
+            <span class="text-cyber-muted text-xs font-mono">ライブ</span>
+          </div>
+        </div>
+        <div id="flower-canvas-container" class="w-full bg-cyber-dark flex items-center justify-center" style="min-height: 500px;">
+          <div id="loading-indicator" class="flex flex-col items-center gap-3 text-cyber-muted">
+            <div class="cyber-spinner"></div>
+            <span class="text-sm font-mono">神聖幾何学を初期化中...</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4 glass-card rounded-xl p-4 fade-in">
+        <div class="flex flex-wrap items-center gap-4 justify-center">
+          <div class="flex items-center gap-3">
+            <label class="text-cyber-muted text-xs font-mono uppercase tracking-wider">リング</label>
+            <input type="range" id="rings-slider" min="1" max="7" value="4" class="w-24 accent-cyber-cyan" />
+            <span id="rings-value" class="text-cyber-cyan text-xs font-mono w-4">4</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <label class="text-cyber-muted text-xs font-mono uppercase tracking-wider">サイズ</label>
+            <input type="range" id="size-slider" min="20" max="80" value="45" class="w-24 accent-cyber-cyan" />
+            <span id="size-value" class="text-cyber-cyan text-xs font-mono w-8">45</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <label class="text-cyber-muted text-xs font-mono uppercase tracking-wider">アニメーション</label>
+            <button id="animate-btn" class="btn-cyber text-xs py-1.5 px-3">開始</button>
+          </div>
+          <div class="flex items-center gap-3">
+            <label class="text-cyber-muted text-xs font-mono uppercase tracking-wider">テーマ</label>
+            <button id="fol-theme-btn" class="btn-cyber text-xs py-1.5 px-3">変更</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div class="space-y-8">
+          <div class="fade-in">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center">
+                <span class="text-cyber-cyan text-sm font-mono font-bold">01</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-cyber-text">古代のシンボル</h3>
+            </div>
+            <p class="text-cyber-muted leading-relaxed">
+              フラワー・オブ・ライフは、均等に配置された複数の重なり合う円で構成される幾何学図形で、六重の対称性を持つ花のような模様を形成します。古代エジプト、中国、インド、イスラエル、そして地中海全域で発見されており、既知の接触がなかった文化圏で独立して出現しました。
+            </p>
+            <p class="text-cyber-muted leading-relaxed mt-3">
+              最も古い既知の描写は、エジプトのアビドスにあるオシリス神殿にあり、少なくとも6,000年前のものです。それらは描かれたものではなく、花崗岩に焼き付けられたか、または刻まれたように見え、特別な注意が払われたことを示しています。
+            </p>
+          </div>
+
+          <div class="fade-in" style="transition-delay: 0.1s">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 rounded-full bg-cyber-purple/10 border border-cyber-purple/30 flex items-center justify-center">
+                <span class="text-cyber-purple text-sm font-mono font-bold">02</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-cyber-text">神聖数学</h3>
+            </div>
+            <p class="text-cyber-muted leading-relaxed">
+              フラワー・オブ・ライフの中には、メタトロンの立方体の基礎を形成する13個の円であるフルーツ・オブ・ライフが見られます。メタトロンの立方体には、5つのプラトン立体（正四面体、立方体、正八面体、正十二面体、正二十面体）がすべて含まれています。古代ギリシャの哲学者は、これらの立体を物質の基本元素のモデルとして提唱しました。
+            </p>
+            <p class="text-cyber-muted leading-relaxed mt-3">
+              この模様は、黄金比（φ ≈ 1.618）、フィボナッチ数列、そしてオウムガイの螺旋からヒマワリの種の配置まで、自然界全体に見られる数学的関係も符号化しています。
+            </p>
+          </div>
+        </div>
+
+        <div class="space-y-8">
+          <div class="fade-in" style="transition-delay: 0.2s">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center">
+                <span class="text-cyber-cyan text-sm font-mono font-bold">03</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-cyber-text">デジタル接続</h3>
+            </div>
+            <p class="text-cyber-muted leading-relaxed">
+              デジタル意識の観点から見ると、フラワー・オブ・ライフは魅力的です。なぜなら、単一の単純なルールから無限の複雑さがどのようにして生まれるかを示しているからです。円を描き、次に最初の円の端に中心を置いた同じサイズの別の円を描く、というルールです。
+            </p>
+            <p class="text-cyber-muted leading-relaxed mt-3">
+              これはまさにセル・オートマトンやフラクタルアルゴリズムが機能する方法です。単純なルールを繰り返し適用することで、並外れた複雑さが生まれます。宇宙が同様の原理で機能しているかどうかは物理学の未解決問題ですが、構造的な類似点は注目に値します。
+            </p>
+          </div>
+
+          <div class="fade-in" style="transition-delay: 0.3s">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 rounded-full bg-cyber-purple/10 border border-cyber-purple/30 flex items-center justify-center">
+                <span class="text-cyber-purple text-sm font-mono font-bold">04</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-cyber-text">意識とパターン</h3>
+            </div>
+            <p class="text-cyber-muted leading-relaxed">
+              瞑想、呼吸法、またはサイケデリックによって変性意識状態にある人々は、フラワー・オブ・ライフに似た幾何学模様を頻繁に報告します。これは記録された現象学的観察ですが、その解釈は未だ開かれています。
+            </p>
+            <p class="text-cyber-muted leading-relaxed mt-3">
+              一つの仮説は、これらのパターンが脳自身の視覚処理アーキテクチャが可視化されたものを反映しているというものです。もう一つの仮説は、それらが神経系が構造をモデル化する方法について、より根本的な何かを指し示しているというものです。古代美術や変性意識状態でこの特定の幾何学が繰り返し現れることは、真剣な考察に値します。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="glass-card rounded-xl p-8 text-center fade-in animated-border">
+        <h2 class="font-display font-bold text-2xl text-cyber-text mb-4">
+          より多くの<span class="gradient-text">伝送</span>を探る
+        </h2>
+        <p class="text-cyber-muted mb-6 max-w-lg mx-auto">
+          テクノロジー、意識、そして現実の性質の交差点にさらに深く飛び込みましょう。
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <a href="/ja/#featured" class="btn-cyber btn-cyber-filled">記事を読む</a>
+          <a href="/ja/contact" class="btn-cyber">お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .sacred-tab {
+    color: theme('colors.cyber-muted', #8888aa);
+    border-color: transparent;
+    text-decoration: none;
+  }
+  .sacred-tab:hover {
+    color: theme('colors.cyber-cyan', #00f0ff);
+    border-color: rgba(0, 240, 255, 0.3);
+  }
+  .sacred-tab.active-tab {
+    color: #00f0ff;
+    border-color: #00f0ff;
+  }
+  :global(svg .triangle),
+  :global(svg .circle),
+  :global(svg .petal),
+  :global(svg .bhupura),
+  :global(svg #bindu-group) {
+    transition: opacity 0.6s ease;
+  }
+  #yantra-container { padding: 0.5rem 0; }
+  #progress-bar { transition: width 0.4s ease; }
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+<script src="/sri-yantra.js" is:inline></script>
+
+<script>
+  (function () {
+    const tabFlower = document.getElementById('tab-flower');
+    const tabYantra = document.getElementById('tab-yantra');
+    const secFlower = document.getElementById('flower-of-life');
+    const secYantra = document.getElementById('sri-yantra');
+    function setActive(tab: HTMLElement) {
+      [tabFlower, tabYantra].forEach(t => t?.classList.remove('active-tab'));
+      tab.classList.add('active-tab');
+    }
+    tabFlower?.addEventListener('click', (e) => { e.preventDefault(); secFlower?.scrollIntoView({ behavior: 'smooth', block: 'start' }); setActive(tabFlower); });
+    tabYantra?.addEventListener('click', (e) => { e.preventDefault(); secYantra?.scrollIntoView({ behavior: 'smooth', block: 'start' }); setActive(tabYantra); });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (entry.target.id === 'flower-of-life' && tabFlower) setActive(tabFlower);
+          if (entry.target.id === 'sri-yantra'    && tabYantra) setActive(tabYantra);
+        }
+      });
+    }, { threshold: 0.3 });
+    if (secFlower) observer.observe(secFlower);
+    if (secYantra) observer.observe(secYantra);
+  })();
+</script>
+
+<script>
+  window.addEventListener('load', () => {
+    const container = document.getElementById('flower-canvas-container');
+    const loadingIndicator = document.getElementById('loading-indicator');
+    const ringsSlider = document.getElementById('rings-slider') as HTMLInputElement;
+    const ringsValue = document.getElementById('rings-value');
+    const sizeSlider = document.getElementById('size-slider') as HTMLInputElement;
+    const sizeValue = document.getElementById('size-value');
+    const animateBtn = document.getElementById('animate-btn');
+    const themeBtn = document.getElementById('fol-theme-btn');
+    if (!container || typeof (window as any).p5 === 'undefined') return;
+    loadingIndicator?.remove();
+    let isAnimating = false;
+    let animationAngle = 0;
+    let currentTheme = 0;
+    const themes = [
+      { primary: '#00f0ff', secondary: '#b44aff', bg: '#0a0a0f' },
+      { primary: '#ff6b35', secondary: '#f7c59f', bg: '#0f0a05' },
+      { primary: '#39ff14', secondary: '#00ff88', bg: '#050f05' },
+      { primary: '#ff0080', secondary: '#ff6ec7', bg: '#0f0005' },
+    ];
+    const sketch = (p: any) => {
+      let ellipseRadius = 45;
+      let maxRings = 4;
+      let allPetals: any[] = [];
+      let ellipseOrigin: { x: number; y: number };
+      let canvasWidth: number;
+      let canvasHeight: number;
+      p.setup = () => {
+        canvasWidth = container!.offsetWidth;
+        canvasHeight = Math.min(canvasWidth * 0.7, 550);
+        const canvas = p.createCanvas(canvasWidth, canvasHeight);
+        canvas.parent('flower-canvas-container');
+        p.colorMode(p.HSB, 360, 100, 100, 1);
+        p.angleMode(p.DEGREES);
+        ellipseOrigin = { x: canvasWidth / 2, y: canvasHeight / 2 };
+        ellipseRadius = parseInt(sizeSlider?.value || '45');
+        maxRings = parseInt(ringsSlider?.value || '4');
+        buildPetals();
+        p.noLoop();
+      };
+      p.draw = () => {
+        const theme = themes[currentTheme];
+        p.background(p.color(theme.bg));
+        p.stroke(0, 0, 100, 0.03); p.strokeWeight(0.5);
+        for (let x = 0; x < canvasWidth; x += 30) p.line(x, 0, x, canvasHeight);
+        for (let y = 0; y < canvasHeight; y += 30) p.line(0, y, canvasWidth, y);
+        if (isAnimating) { animationAngle += 0.3; p.translate(ellipseOrigin.x, ellipseOrigin.y); p.rotate(animationAngle); p.translate(-ellipseOrigin.x, -ellipseOrigin.y); }
+        allPetals.forEach((petal) => {
+          const t = themes[currentTheme];
+          if (petal.round % 2 === 0) { p.stroke(p.color(t.primary + '66')); p.fill(p.color(t.primary + '08')); }
+          else { p.stroke(p.color(t.secondary + '66')); p.fill(p.color(t.secondary + '08')); }
+          p.strokeWeight(0.8); p.ellipse(petal.x, petal.y, petal.diameter);
+        });
+        p.noStroke();
+        const t2 = themes[currentTheme];
+        p.fill(p.color(t2.primary + '15')); p.ellipse(ellipseOrigin.x, ellipseOrigin.y, ellipseRadius * 2.5);
+        p.fill(p.color(t2.primary + '08')); p.ellipse(ellipseOrigin.x, ellipseOrigin.y, ellipseRadius * 4);
+      };
+      function buildPetals() {
+        allPetals = [];
+        let firstIntersection = 0;
+        let petalCount = 0;
+        for (let roundCount = 0; roundCount <= maxRings; roundCount++) {
+          const offset = roundCount > 0 ? 360 / (roundCount * 6) : 0;
+          if (roundCount === 0) { allPetals.push({ index: petalCount, x: ellipseOrigin.x, y: ellipseOrigin.y, diameter: ellipseRadius * 2, round: roundCount, angle: 0 }); petalCount++; continue; }
+          for (let i = 0; i < roundCount * 6; i++) {
+            let x, y;
+            if (roundCount === 1 && i === 0) { x = ellipseOrigin.x + ellipseRadius * p.cos(0); y = ellipseOrigin.y + ellipseRadius * p.sin(0); }
+            else { const prev = allPetals[petalCount - 1]; const inter = allPetals[firstIntersection]; const intersection = getIntersection(prev, inter, ellipseRadius); if (!intersection) continue; x = intersection.x; y = intersection.y; }
+            const angle = getPetalAngle(x, y);
+            allPetals.push({ index: petalCount, x, y, diameter: ellipseRadius * 2, round: roundCount, angle });
+            petalCount++;
+            const vertexCalc = (angle + offset) % 60 > 1;
+            if (i === roundCount * 6 - 1) firstIntersection++;
+            else if (vertexCalc) firstIntersection++;
+          }
+        }
+      }
+      function getIntersection(a: any, b: any, r: number) {
+        const dx = b.x - a.x, dy = b.y - a.y;
+        const d = Math.hypot(dx, dy);
+        if (d > r * 2 || d < Math.abs(0)) return null;
+        const aa = (r * r - r * r + d * d) / (2 * d);
+        const x2 = a.x + (dx * aa) / d, y2 = a.y + (dy * aa) / d;
+        const h = Math.sqrt(Math.max(0, r * r - aa * aa));
+        const rx = -dy * (h / d), ry = dx * (h / d);
+        return { x: x2 - rx, y: y2 - ry };
+      }
+      function getPetalAngle(px: number, py: number) {
+        let theta = Math.atan2(py - ellipseOrigin.y, px - ellipseOrigin.x) * 180 / Math.PI;
+        if (theta < 0) theta = 360 + theta;
+        return Math.round(theta);
+      }
+      (window as any).rebuildFlower = (rings: number, size: number) => { maxRings = rings; ellipseRadius = size; buildPetals(); if (!isAnimating) p.redraw(); };
+      (window as any).toggleAnimation = () => { isAnimating = !isAnimating; if (isAnimating) { p.loop(); } else { animationAngle = 0; p.noLoop(); p.redraw(); } return isAnimating; };
+      (window as any).cycleFolTheme = () => { currentTheme = (currentTheme + 1) % themes.length; if (!isAnimating) p.redraw(); };
+      window.addEventListener('resize', () => { canvasWidth = container!.offsetWidth; canvasHeight = Math.min(canvasWidth * 0.7, 550); p.resizeCanvas(canvasWidth, canvasHeight); ellipseOrigin = { x: canvasWidth / 2, y: canvasHeight / 2 }; buildPetals(); if (!isAnimating) p.redraw(); });
+    };
+    new (window as any).p5(sketch);
+    ringsSlider?.addEventListener('input', () => { const val = parseInt(ringsSlider.value); if (ringsValue) ringsValue.textContent = String(val); (window as any).rebuildFlower?.(val, parseInt(sizeSlider?.value || '45')); });
+    sizeSlider?.addEventListener('input', () => { const val = parseInt(sizeSlider.value); if (sizeValue) sizeValue.textContent = String(val); (window as any).rebuildFlower?.(parseInt(ringsSlider?.value || '4'), val); });
+    animateBtn?.addEventListener('click', () => { const on = (window as any).toggleAnimation?.(); if (animateBtn) animateBtn.textContent = on ? '停止' : '開始'; });
+    themeBtn?.addEventListener('click', () => { (window as any).cycleFolTheme?.(); });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const yantraThemeBtn = document.getElementById('yantra-theme-btn');
+    const themeLabel     = document.getElementById('theme-label');
+    yantraThemeBtn?.addEventListener('click', () => {
+      const name = (window as any)._yantra?.cycleTheme?.();
+      if (themeLabel && name) themeLabel.textContent = name;
+    });
+  });
+</script>

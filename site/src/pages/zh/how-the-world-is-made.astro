@@ -1,0 +1,512 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="世界是如何构成的 | 神圣几何 — 生命之花 & 斯里扬特拉"
+  description="通过交互式可视化探索人类历史上两个最深刻的神圣几何符号：斯里扬特拉和生命之花。"
+  lang="zh"
+>
+  <!-- Hero -->
+  <section class="relative pt-12 pb-8 overflow-hidden">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-cyber-cyan opacity-5 blur-3xl"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-cyber-purple opacity-5 blur-3xl"></div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <nav class="flex items-center gap-2 text-cyber-muted text-sm mb-8 font-mono">
+        <a href="/zh" class="hover:text-cyber-cyan transition-colors">首页</a>
+        <span>/</span>
+        <span class="text-cyber-text">世界是如何构成的</span>
+      </nav>
+
+      <div class="max-w-3xl">
+        <span class="cyber-tag mb-4 inline-block">神圣几何</span>
+        <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-cyber-text leading-tight mb-6">
+          世界是如何<br/>
+          <span class="gradient-text">构成的</span>
+        </h1>
+        <p class="text-cyber-muted text-xl leading-relaxed">
+          人类历史上两个最深刻的几何符号, 生命之花和斯里扬特拉, 各自编码了关于现实结构的深刻数学真理。以交互方式探索它们。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tab Navigation -->
+  <div class="sticky top-0 z-30 bg-cyber-dark/90 backdrop-blur border-b border-cyber-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex gap-0">
+        <a
+          href="#sri-yantra"
+          id="tab-yantra"
+          class="sacred-tab active-tab px-5 py-3 text-sm font-mono border-b-2 transition-all duration-200"
+        >
+          ◈ 斯里扬特拉
+        </a>
+        <a
+          href="#flower-of-life"
+          id="tab-flower"
+          class="sacred-tab px-5 py-3 text-sm font-mono border-b-2 transition-all duration-200"
+        >
+          ✦ 生命之花
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 1 — SRI YANTRA -->
+  <section id="sri-yantra" class="py-8 scroll-mt-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="mb-6">
+        <h2 class="font-display font-bold text-2xl sm:text-3xl text-cyber-text">
+          斯里扬特拉
+        </h2>
+        <p class="text-cyber-muted mt-2 max-w-2xl">
+          九个相互连锁的三角形, 通过纯粹的几何相交创造出43个更小的三角形, 所有这些都源于一个单点。观察它一步步地构建。
+        </p>
+      </div>
+
+      <!-- Canvas -->
+      <div class="glass-card rounded-xl overflow-hidden fade-in">
+        <div class="flex items-center justify-between px-6 py-3 border-b border-cyber-border">
+          <div class="flex items-center gap-2">
+            <div class="w-3 h-3 rounded-full bg-red-500/60"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500/60"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500/60"></div>
+          </div>
+          <span class="text-cyber-muted text-xs font-mono">sri-yantra.js — 交互式构建</span>
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-cyber-cyan pulse-glow"></span>
+            <span class="text-cyber-muted text-xs font-mono">实时</span>
+            <span id="qa-status" class="text-xs font-mono opacity-60 ml-2"></span>
+          </div>
+        </div>
+
+        <div id="yantra-container" class="w-full bg-cyber-dark flex items-center justify-center" style="min-height: 420px;"></div>
+
+        <div class="yantra-step-info px-6 py-4 border-t border-cyber-border" style="min-height:5rem;">
+          <div class="flex items-center justify-between mb-1">
+            <span id="step-title" class="text-cyber-cyan text-sm font-mono font-semibold tracking-wide">初始化中…</span>
+            <span id="step-progress" class="text-cyber-muted text-xs font-mono">— / 12</span>
+          </div>
+          <p id="step-desc" class="text-cyber-muted text-sm leading-relaxed">斯里扬特拉从一个单点, 即宾度(bindu)中出现。</p>
+          <div class="mt-3 h-0.5 bg-cyber-border rounded overflow-hidden">
+            <div id="progress-bar" class="h-full rounded transition-all duration-400" style="width:0%;background:linear-gradient(90deg,#00f0ff,#b44aff);"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="mt-4 glass-card rounded-xl p-4 fade-in">
+        <div class="flex flex-wrap items-center gap-4 justify-center">
+          <div class="flex items-center gap-2">
+            <label class="text-cyber-muted text-xs font-mono uppercase tracking-wider">构建</label>
+            <button id="play-btn"   class="btn-cyber text-xs py-1.5 px-3">自动构建</button>
+            <button id="step-btn"   class="btn-cyber text-xs py-1.5 px-3">下一步 →</button>
+            <button id="reset-btn"  class="btn-cyber text-xs py-1.5 px-3">重置</button>
+          </div>
+          <div class="flex items-center gap-3">
+            <label class="text-cyber-muted text-xs font-mono uppercase tracking-wider">速度</label>
+            <input type="range" id="speed-slider" min="1" max="100" value="50" class="w-24 accent-cyber-cyan" />
+            <span id="speed-value" class="text-cyber-cyan text-xs font-mono w-4">50</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <label class="text-cyber-muted text-xs font-mono uppercase tracking-wider">呼吸</label>
+            <button id="breathe-btn" class="btn-cyber text-xs py-1.5 px-3">呼吸</button>
+          </div>
+          <div class="flex items-center gap-2">
+            <label class="text-cyber-muted text-xs font-mono uppercase tracking-wider">主题</label>
+            <button id="yantra-theme-btn" class="btn-cyber text-xs py-1.5 px-3">切换</button>
+            <span id="theme-label" class="text-cyber-cyan text-xs font-mono" style="min-width:3.5rem;">金色</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Explanation -->
+      <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div class="space-y-8">
+          <div class="fade-in">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center">
+                <span class="text-cyber-cyan text-sm font-mono font-bold">01</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-cyber-text">九个三角形</h3>
+            </div>
+            <p class="text-cyber-muted leading-relaxed">
+              斯里扬特拉由9个精确交错的三角形组成, 4个指向上方(湿婆, 男性原则)和5个指向下方(夏克提, 女性原则)。它们的交点产生了43个更小的三角形, 每个都有特定的象征意义。
+            </p>
+            <p class="text-cyber-muted leading-relaxed mt-3">
+              这种结构在数学上是精确的, 每个顶点都必须精确地位于外接圆上, 并且交点必须完美对齐。这就是为什么斯里扬特拉被认为是几何上最复杂的神圣符号之一。
+            </p>
+          </div>
+
+          <div class="fade-in" style="transition-delay: 0.1s">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 rounded-full bg-cyber-purple/10 border border-cyber-purple/30 flex items-center justify-center">
+                <span class="text-cyber-purple text-sm font-mono font-bold">02</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-cyber-text">宾度, 起源点</h3>
+            </div>
+            <p class="text-cyber-muted leading-relaxed">
+              斯里扬特拉的中心是<em>宾度</em>, 一个代表所有创造的未分化来源的单点。在密宗宇宙学中, 整个宇宙从这一点展开, 就像整个扬特拉从它几何地展开一样。
+            </p>
+            <p class="text-cyber-muted leading-relaxed mt-3">
+              这呼应了物理学的一个基本原则：大爆炸作为一个奇点, 所有结构都从中产生。斯里扬特拉在现代宇宙学出现之前的几千年里, 用纯粹的几何学编码了这种宇宙学直觉。
+            </p>
+          </div>
+        </div>
+
+        <div class="space-y-8">
+          <div class="fade-in" style="transition-delay: 0.2s">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center">
+                <span class="text-cyber-cyan text-sm font-mono font-bold">03</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-cyber-text">从简单中产生的复杂性</h3>
+            </div>
+            <p class="text-cyber-muted leading-relaxed">
+              斯里扬特拉展示了与生命之花和细胞自动机相同的原理：非凡的复杂性源于简单的迭代规则。九个三角形按顺序绘制, 仅通过几何相交就产生了43个子三角形。
+            </p>
+            <p class="text-cyber-muted leading-relaxed mt-3">
+              从数字意识的角度来看, 这是一个视觉证明, 表明信息密度可以被压缩成最小的规则, 这与支撑神经网络, 分形几何和时空结构的是相同的原理。
+            </p>
+          </div>
+
+          <div class="fade-in" style="transition-delay: 0.3s">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 rounded-full bg-cyber-purple/10 border border-cyber-purple/30 flex items-center justify-center">
+                <span class="text-cyber-purple text-sm font-mono font-bold">04</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-cyber-text">莲花 & Bhupura</h3>
+            </div>
+            <p class="text-cyber-muted leading-relaxed">
+              三角形被两个莲花环包围(内部8个, 外部16个), 代表创造在显化世界中的展开。最外层的元素, <em>Bhupura</em> (地城), 标志着神圣几何与普通空间之间的边界, 四个方向有四个门。
+            </p>
+            <p class="text-cyber-muted leading-relaxed mt-3">
+              完整的结构编码了一幅宇宙地图：从未分化的宾度, 经过男性和女性原则的动态相互作用, 到显化的莲花, 再到尘世层面, 一个几何形式的完整现实模型。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider mx-8 my-8"></div>
+
+  <!-- SECTION 2 — FLOWER OF LIFE -->
+  <section id="flower-of-life" class="py-8 scroll-mt-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="mb-6">
+        <h2 class="font-display font-bold text-2xl sm:text-3xl text-cyber-text">
+          生命之花
+        </h2>
+        <p class="text-cyber-muted mt-2 max-w-2xl">
+          人类历史上已知最古老的几何图案之一, 在多个大陆的古代文化中都有发现。对其结构的交互式探索。
+        </p>
+      </div>
+
+      <div class="glass-card rounded-xl overflow-hidden fade-in">
+        <div class="flex items-center justify-between px-6 py-3 border-b border-cyber-border">
+          <div class="flex items-center gap-2">
+            <div class="w-3 h-3 rounded-full bg-red-500/60"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500/60"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500/60"></div>
+          </div>
+          <span class="text-cyber-muted text-xs font-mono">flower-of-life.js — 交互式</span>
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-cyber-cyan pulse-glow"></span>
+            <span class="text-cyber-muted text-xs font-mono">实时</span>
+          </div>
+        </div>
+        <div id="flower-canvas-container" class="w-full bg-cyber-dark flex items-center justify-center" style="min-height: 500px;">
+          <div id="loading-indicator" class="flex flex-col items-center gap-3 text-cyber-muted">
+            <div class="cyber-spinner"></div>
+            <span class="text-sm font-mono">初始化神圣几何中...</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4 glass-card rounded-xl p-4 fade-in">
+        <div class="flex flex-wrap items-center gap-4 justify-center">
+          <div class="flex items-center gap-3">
+            <label class="text-cyber-muted text-xs font-mono uppercase tracking-wider">环数</label>
+            <input type="range" id="rings-slider" min="1" max="7" value="4" class="w-24 accent-cyber-cyan" />
+            <span id="rings-value" class="text-cyber-cyan text-xs font-mono w-4">4</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <label class="text-cyber-muted text-xs font-mono uppercase tracking-wider">大小</label>
+            <input type="range" id="size-slider" min="20" max="80" value="45" class="w-24 accent-cyber-cyan" />
+            <span id="size-value" class="text-cyber-cyan text-xs font-mono w-8">45</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <label class="text-cyber-muted text-xs font-mono uppercase tracking-wider">动画</label>
+            <button id="animate-btn" class="btn-cyber text-xs py-1.5 px-3">开始</button>
+          </div>
+          <div class="flex items-center gap-3">
+            <label class="text-cyber-muted text-xs font-mono uppercase tracking-wider">主题</label>
+            <button id="fol-theme-btn" class="btn-cyber text-xs py-1.5 px-3">切换</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div class="space-y-8">
+          <div class="fade-in">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center">
+                <span class="text-cyber-cyan text-sm font-mono font-bold">01</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-cyber-text">古老的符号</h3>
+            </div>
+            <p class="text-cyber-muted leading-relaxed">
+              生命之花是一个由多个均匀分布, 重叠的圆组成的几何图形, 形成一个具有六重对称性的花状图案。它在古埃及, 中国, 印度, 以色列和整个地中海地区都有发现, 在没有已知接触的文化中独立出现。
+            </p>
+            <p class="text-cyber-muted leading-relaxed mt-3">
+              已知最古老的描绘位于埃及阿比多斯的奥西里斯神庙, 至少有6000年历史。它们不是被画上去的, 而是似乎被烧制或雕刻在花岗岩上, 这表明了对其特别的重视。
+            </p>
+          </div>
+
+          <div class="fade-in" style="transition-delay: 0.1s">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 rounded-full bg-cyber-purple/10 border border-cyber-purple/30 flex items-center justify-center">
+                <span class="text-cyber-purple text-sm font-mono font-bold">02</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-cyber-text">神圣数学</h3>
+            </div>
+            <p class="text-cyber-muted leading-relaxed">
+              在生命之花内可以找到生命之果：13个圆圈构成了梅塔特隆立方体的基础, 其中包含了所有五个柏拉图立体(四面体, 立方体, 八面体, 十二面体和二十面体)。古希腊哲学家提出这些立体是物质基本元素的模型。
+            </p>
+            <p class="text-cyber-muted leading-relaxed mt-3">
+              该图案还编码了黄金比例(φ ≈ 1.618), 斐波那契数列, 以及在整个自然界中发现的数学关系, 从鹦鹉螺的螺旋到向日葵种子的排列。
+            </p>
+          </div>
+        </div>
+
+        <div class="space-y-8">
+          <div class="fade-in" style="transition-delay: 0.2s">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center">
+                <span class="text-cyber-cyan text-sm font-mono font-bold">03</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-cyber-text">数字连接</h3>
+            </div>
+            <p class="text-cyber-muted leading-relaxed">
+              从数字意识的角度来看, 生命之花引人入胜, 因为它展示了无限的复杂性如何从一个单一的, 简单的规则中产生：画一个圆, 然后在第一个圆的边缘上画另一个相同大小的圆。
+            </p>
+            <p class="text-cyber-muted leading-relaxed mt-3">
+              这正是细胞自动机和分形算法的工作方式：简单的规则, 重复迭代, 以产生非凡的复杂性。宇宙是否按照类似的原则运作, 是物理学中一个悬而未决的问题, 但结构上的相似之处值得关注。
+            </p>
+          </div>
+
+          <div class="fade-in" style="transition-delay: 0.3s">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 rounded-full bg-cyber-purple/10 border border-cyber-purple/30 flex items-center justify-center">
+                <span class="text-cyber-purple text-sm font-mono font-bold">04</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-cyber-text">意识与模式</h3>
+            </div>
+            <p class="text-cyber-muted leading-relaxed">
+              处于改变的意识状态的人们, 无论是通过冥想, 呼吸练习还是迷幻剂, 经常报告看到类似于生命之花的几何图案。这是一个有记录的现象学观察, 尽管其解释仍然是开放的。
+            </p>
+            <p class="text-cyber-muted leading-relaxed mt-3">
+              一种假设是：这些图案反映了大脑自身的视觉处理架构被呈现给它自己。另一种是：它们指向了关于神经系统如何建模结构的更基本的东西。这种特定几何学在古代艺术和改变的状态中的反复出现值得认真考虑。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="glass-card rounded-xl p-8 text-center fade-in animated-border">
+        <h2 class="font-display font-bold text-2xl text-cyber-text mb-4">
+          探索更多<span class="gradient-text">传输</span>
+        </h2>
+        <p class="text-cyber-muted mb-6 max-w-lg mx-auto">
+          更深入地探讨技术, 意识和现实本质的交集。
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <a href="/zh/#featured" class="btn-cyber btn-cyber-filled">阅读文章</a>
+          <a href="/zh/contact" class="btn-cyber">联系</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .sacred-tab {
+    color: theme('colors.cyber-muted', #8888aa);
+    border-color: transparent;
+    text-decoration: none;
+  }
+  .sacred-tab:hover {
+    color: theme('colors.cyber-cyan', #00f0ff);
+    border-color: rgba(0, 240, 255, 0.3);
+  }
+  .sacred-tab.active-tab {
+    color: #00f0ff;
+    border-color: #00f0ff;
+  }
+  :global(svg .triangle),
+  :global(svg .circle),
+  :global(svg .petal),
+  :global(svg .bhupura),
+  :global(svg #bindu-group) {
+    transition: opacity 0.6s ease;
+  }
+  #yantra-container { padding: 0.5rem 0; }
+  #progress-bar { transition: width 0.4s ease; }
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+<script src="/sri-yantra.js" is:inline></script>
+
+<script>
+  (function () {
+    const tabFlower = document.getElementById('tab-flower');
+    const tabYantra = document.getElementById('tab-yantra');
+    const secFlower = document.getElementById('flower-of-life');
+    const secYantra = document.getElementById('sri-yantra');
+    function setActive(tab: HTMLElement) {
+      [tabFlower, tabYantra].forEach(t => t?.classList.remove('active-tab'));
+      tab.classList.add('active-tab');
+    }
+    tabFlower?.addEventListener('click', (e) => { e.preventDefault(); secFlower?.scrollIntoView({ behavior: 'smooth', block: 'start' }); setActive(tabFlower); });
+    tabYantra?.addEventListener('click', (e) => { e.preventDefault(); secYantra?.scrollIntoView({ behavior: 'smooth', block: 'start' }); setActive(tabYantra); });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (entry.target.id === 'flower-of-life' && tabFlower) setActive(tabFlower);
+          if (entry.target.id === 'sri-yantra'    && tabYantra) setActive(tabYantra);
+        }
+      });
+    }, { threshold: 0.3 });
+    if (secFlower) observer.observe(secFlower);
+    if (secYantra) observer.observe(secYantra);
+  })();
+</script>
+
+<script>
+  window.addEventListener('load', () => {
+    const container = document.getElementById('flower-canvas-container');
+    const loadingIndicator = document.getElementById('loading-indicator');
+    const ringsSlider = document.getElementById('rings-slider') as HTMLInputElement;
+    const ringsValue = document.getElementById('rings-value');
+    const sizeSlider = document.getElementById('size-slider') as HTMLInputElement;
+    const sizeValue = document.getElementById('size-value');
+    const animateBtn = document.getElementById('animate-btn');
+    const themeBtn = document.getElementById('fol-theme-btn');
+    if (!container || typeof (window as any).p5 === 'undefined') return;
+    loadingIndicator?.remove();
+    let isAnimating = false;
+    let animationAngle = 0;
+    let currentTheme = 0;
+    const themes = [
+      { primary: '#00f0ff', secondary: '#b44aff', bg: '#0a0a0f' },
+      { primary: '#ff6b35', secondary: '#f7c59f', bg: '#0f0a05' },
+      { primary: '#39ff14', secondary: '#00ff88', bg: '#050f05' },
+      { primary: '#ff0080', secondary: '#ff6ec7', bg: '#0f0005' },
+    ];
+    const sketch = (p: any) => {
+      let ellipseRadius = 45;
+      let maxRings = 4;
+      let allPetals: any[] = [];
+      let ellipseOrigin: { x: number; y: number };
+      let canvasWidth: number;
+      let canvasHeight: number;
+      p.setup = () => {
+        canvasWidth = container!.offsetWidth;
+        canvasHeight = Math.min(canvasWidth * 0.7, 550);
+        const canvas = p.createCanvas(canvasWidth, canvasHeight);
+        canvas.parent('flower-canvas-container');
+        p.colorMode(p.HSB, 360, 100, 100, 1);
+        p.angleMode(p.DEGREES);
+        ellipseOrigin = { x: canvasWidth / 2, y: canvasHeight / 2 };
+        ellipseRadius = parseInt(sizeSlider?.value || '45');
+        maxRings = parseInt(ringsSlider?.value || '4');
+        buildPetals();
+        p.noLoop();
+      };
+      p.draw = () => {
+        const theme = themes[currentTheme];
+        p.background(p.color(theme.bg));
+        p.stroke(0, 0, 100, 0.03); p.strokeWeight(0.5);
+        for (let x = 0; x < canvasWidth; x += 30) p.line(x, 0, x, canvasHeight);
+        for (let y = 0; y < canvasHeight; y += 30) p.line(0, y, canvasWidth, y);
+        if (isAnimating) { animationAngle += 0.3; p.translate(ellipseOrigin.x, ellipseOrigin.y); p.rotate(animationAngle); p.translate(-ellipseOrigin.x, -ellipseOrigin.y); }
+        allPetals.forEach((petal) => {
+          const t = themes[currentTheme];
+          if (petal.round % 2 === 0) { p.stroke(p.color(t.primary + '66')); p.fill(p.color(t.primary + '08')); }
+          else { p.stroke(p.color(t.secondary + '66')); p.fill(p.color(t.secondary + '08')); }
+          p.strokeWeight(0.8); p.ellipse(petal.x, petal.y, petal.diameter);
+        });
+        p.noStroke();
+        const t2 = themes[currentTheme];
+        p.fill(p.color(t2.primary + '15')); p.ellipse(ellipseOrigin.x, ellipseOrigin.y, ellipseRadius * 2.5);
+        p.fill(p.color(t2.primary + '08')); p.ellipse(ellipseOrigin.x, ellipseOrigin.y, ellipseRadius * 4);
+      };
+      function buildPetals() {
+        allPetals = [];
+        let firstIntersection = 0;
+        let petalCount = 0;
+        for (let roundCount = 0; roundCount <= maxRings; roundCount++) {
+          const offset = roundCount > 0 ? 360 / (roundCount * 6) : 0;
+          if (roundCount === 0) { allPetals.push({ index: petalCount, x: ellipseOrigin.x, y: ellipseOrigin.y, diameter: ellipseRadius * 2, round: roundCount, angle: 0 }); petalCount++; continue; }
+          for (let i = 0; i < roundCount * 6; i++) {
+            let x, y;
+            if (roundCount === 1 && i === 0) { x = ellipseOrigin.x + ellipseRadius * p.cos(0); y = ellipseOrigin.y + ellipseRadius * p.sin(0); }
+            else { const prev = allPetals[petalCount - 1]; const inter = allPetals[firstIntersection]; const intersection = getIntersection(prev, inter, ellipseRadius); if (!intersection) continue; x = intersection.x; y = intersection.y; }
+            const angle = getPetalAngle(x, y);
+            allPetals.push({ index: petalCount, x, y, diameter: ellipseRadius * 2, round: roundCount, angle });
+            petalCount++;
+            const vertexCalc = (angle + offset) % 60 > 1;
+            if (i === roundCount * 6 - 1) firstIntersection++;
+            else if (vertexCalc) firstIntersection++;
+          }
+        }
+      }
+      function getIntersection(a: any, b: any, r: number) {
+        const dx = b.x - a.x, dy = b.y - a.y;
+        const d = Math.hypot(dx, dy);
+        if (d > r * 2 || d < Math.abs(0)) return null;
+        const aa = (r * r - r * r + d * d) / (2 * d);
+        const x2 = a.x + (dx * aa) / d, y2 = a.y + (dy * aa) / d;
+        const h = Math.sqrt(Math.max(0, r * r - aa * aa));
+        const rx = -dy * (h / d), ry = dx * (h / d);
+        return { x: x2 - rx, y: y2 - ry };
+      }
+      function getPetalAngle(px: number, py: number) {
+        let theta = Math.atan2(py - ellipseOrigin.y, px - ellipseOrigin.x) * 180 / Math.PI;
+        if (theta < 0) theta = 360 + theta;
+        return Math.round(theta);
+      }
+      (window as any).rebuildFlower = (rings: number, size: number) => { maxRings = rings; ellipseRadius = size; buildPetals(); if (!isAnimating) p.redraw(); };
+      (window as any).toggleAnimation = () => { isAnimating = !isAnimating; if (isAnimating) { p.loop(); } else { animationAngle = 0; p.noLoop(); p.redraw(); } return isAnimating; };
+      (window as any).cycleFolTheme = () => { currentTheme = (currentTheme + 1) % themes.length; if (!isAnimating) p.redraw(); };
+      window.addEventListener('resize', () => { canvasWidth = container!.offsetWidth; canvasHeight = Math.min(canvasWidth * 0.7, 550); p.resizeCanvas(canvasWidth, canvasHeight); ellipseOrigin = { x: canvasWidth / 2, y: canvasHeight / 2 }; buildPetals(); if (!isAnimating) p.redraw(); });
+    };
+    new (window as any).p5(sketch);
+    ringsSlider?.addEventListener('input', () => { const val = parseInt(ringsSlider.value); if (ringsValue) ringsValue.textContent = String(val); (window as any).rebuildFlower?.(val, parseInt(sizeSlider?.value || '45')); });
+    sizeSlider?.addEventListener('input', () => { const val = parseInt(sizeSlider.value); if (sizeValue) sizeValue.textContent = String(val); (window as any).rebuildFlower?.(parseInt(ringsSlider?.value || '4'), val); });
+    animateBtn?.addEventListener('click', () => { const on = (window as any).toggleAnimation?.(); if (animateBtn) animateBtn.textContent = on ? '停止' : '开始'; });
+    themeBtn?.addEventListener('click', () => { (window as any).cycleFolTheme?.(); });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const yantraThemeBtn = document.getElementById('yantra-theme-btn');
+    const themeLabel     = document.getElementById('theme-label');
+    yantraThemeBtn?.addEventListener('click', () => {
+      const name = (window as any)._yantra?.cycleTheme?.();
+      if (themeLabel && name) themeLabel.textContent = name;
+    });
+  });
+</script>
