@@ -39,8 +39,7 @@ const hrefs: Record<string, string> = { en: enHref, de: deHref, es: esHref, zh: 
 
   <div
     id="lang-dropdown"
-    class="hidden absolute right-0 top-full mt-1 z-[9999] glass-card rounded-lg border border-cyber-border shadow-lg overflow-hidden min-w-[120px]"
-    style="position: absolute;"
+    class="hidden absolute right-0 top-full mt-1 z-50 glass-card rounded-lg border border-cyber-border shadow-lg overflow-hidden min-w-[120px]"
   >
     {(['en', 'de', 'es', 'zh', 'ja'] as const).map((loc) => (
       <a
@@ -59,30 +58,17 @@ const hrefs: Record<string, string> = { en: enHref, de: deHref, es: esHref, zh: 
   const dropdown = document.getElementById('lang-dropdown');
 
   if (btn && dropdown) {
-    let ignoreNextClose = false;
-
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
-      ignoreNextClose = true;
       const isOpen = !dropdown.classList.contains('hidden');
       dropdown.classList.toggle('hidden');
       btn.setAttribute('aria-expanded', String(!isOpen));
     });
 
-    // Close when clicking/tapping outside
     document.addEventListener('click', () => {
-      if (ignoreNextClose) { ignoreNextClose = false; return; }
       dropdown.classList.add('hidden');
       btn.setAttribute('aria-expanded', 'false');
     });
-
-    // Also handle touch outside on mobile
-    document.addEventListener('touchstart', (e) => {
-      if (!btn.contains(e.target as Node) && !dropdown.contains(e.target as Node)) {
-        dropdown.classList.add('hidden');
-        btn.setAttribute('aria-expanded', 'false');
-      }
-    }, { passive: true });
 
     // Prevent clicks inside dropdown from closing it
     dropdown.addEventListener('click', (e) => e.stopPropagation());
