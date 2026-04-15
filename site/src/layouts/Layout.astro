@@ -35,15 +35,18 @@ const ogLocale = getOgLocale(lang);
 
 // Compute hreflang alternate URLs
 let basePath = Astro.url.pathname;
-if (basePath.startsWith('/de/')) basePath = basePath.slice(3);
-else if (basePath === '/de' || basePath === '/de/') basePath = '/';
-else if (basePath.startsWith('/es/')) basePath = basePath.slice(3);
-else if (basePath === '/es' || basePath === '/es/') basePath = '/';
+const stripLocales = ['de', 'es', 'zh', 'ja'];
+for (const loc of stripLocales) {
+  if (basePath.startsWith(`/${loc}/`)) { basePath = basePath.slice(loc.length + 1); break; }
+  if (basePath === `/${loc}` || basePath === `/${loc}/`) { basePath = '/'; break; }
+}
 if (!basePath.startsWith('/')) basePath = '/' + basePath;
 
 const enURL = `${siteURL}${basePath}`;
 const deURL = `${siteURL}/de${basePath === '/' ? '' : basePath}`;
 const esURL = `${siteURL}/es${basePath === '/' ? '' : basePath}`;
+const zhURL = `${siteURL}/zh${basePath === '/' ? '' : basePath}`;
+const jaURL = `${siteURL}/ja${basePath === '/' ? '' : basePath}`;
 
 // Locale-aware link prefix for nav/footer
 const prefix = lang === 'en' ? '' : `/${lang}`;
@@ -69,6 +72,8 @@ const prefix = lang === 'en' ? '' : `/${lang}`;
     <link rel="alternate" hreflang="en" href={enURL} />
     <link rel="alternate" hreflang="de" href={deURL} />
     <link rel="alternate" hreflang="es" href={esURL} />
+    <link rel="alternate" hreflang="zh" href={zhURL} />
+    <link rel="alternate" hreflang="ja" href={jaURL} />
     <link rel="alternate" hreflang="x-default" href={enURL} />
 
     <!-- Open Graph / Facebook -->
