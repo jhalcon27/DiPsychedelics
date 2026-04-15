@@ -58,19 +58,21 @@ const hrefs: Record<string, string> = { en: enHref, de: deHref, es: esHref, zh: 
   const dropdown = document.getElementById('lang-dropdown');
 
   if (btn && dropdown) {
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
+    let skipClose = false;
+
+    btn.addEventListener('click', () => {
+      skipClose = true;
       const isOpen = !dropdown.classList.contains('hidden');
       dropdown.classList.toggle('hidden');
       btn.setAttribute('aria-expanded', String(!isOpen));
     });
 
     document.addEventListener('click', () => {
+      if (skipClose) { skipClose = false; return; }
       dropdown.classList.add('hidden');
       btn.setAttribute('aria-expanded', 'false');
     });
 
-    // Prevent clicks inside dropdown from closing it
     dropdown.addEventListener('click', (e) => e.stopPropagation());
   }
 </script>
