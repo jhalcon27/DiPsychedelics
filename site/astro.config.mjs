@@ -12,7 +12,7 @@ export default defineConfig({
   integrations: [sitemap()],
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'de', 'es'],
+    locales: ['en', 'de', 'es', 'zh', 'ja'],
     routing: { prefixDefaultLocale: false }
   }
 });
