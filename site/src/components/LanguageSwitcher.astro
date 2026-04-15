@@ -6,7 +6,7 @@ const { lang = 'en' } = Astro.props;
 
 // Compute base path by stripping locale prefix
 let basePath = Astro.url.pathname;
-const locales = ['de', 'es', 'zh', 'ja'];
+const locales = ['de', 'es', 'fr', 'zh', 'ja'];
 for (const loc of locales) {
   if (basePath.startsWith(`/${loc}/`)) { basePath = basePath.slice(loc.length + 1); break; }
   if (basePath === `/${loc}` || basePath === `/${loc}/`) { basePath = '/'; break; }
@@ -59,21 +59,29 @@ const hrefs: Record<string, string> = { en: enHref, de: deHref, es: esHref, fr: 
   const dropdown = document.getElementById('lang-dropdown');
 
   if (btn && dropdown) {
-    let skipClose = false;
+    function toggleDropdown(open) {
+      if (open) {
+        dropdown.classList.remove('hidden');
+        btn.setAttribute('aria-expanded', 'true');
+      } else {
+        dropdown.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    }
 
-    btn.addEventListener('click', () => {
-      skipClose = true;
-      const isOpen = !dropdown.classList.contains('hidden');
-      dropdown.classList.toggle('hidden');
-      btn.setAttribute('aria-expanded', String(!isOpen));
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation(); // Stop propagation to prevent document's click listener from immediately closing
+      toggleDropdown(dropdown.classList.contains('hidden')); // Toggle based on current state
     });
 
-    document.addEventListener('click', () => {
-      if (skipClose) { skipClose = false; return; }
-      dropdown.classList.add('hidden');
-      btn.setAttribute('aria-expanded', 'false');
+    // Close when clicking/tapping outside both the button and dropdown
+    document.addEventListener('click', (e) => {
+      if (!btn.contains(e.target as Node) && !dropdown.contains(e.target as Node)) {
+        toggleDropdown(false); // Close if click is outside both button and dropdown
+      }
     });
 
+    // Prevent clicks inside dropdown from closing it (important for mobile)
     dropdown.addEventListener('click', (e) => e.stopPropagation());
   }
 </script>
