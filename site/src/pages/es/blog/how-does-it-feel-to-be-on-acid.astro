@@ -1,158 +1,157 @@
 ---
-import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 ---
 <ArticleLayout
-  title="What is it like to be on acid?"
-  subtitle="A vector model of conscious states"
-  description="A framework for mapping altered states of consciousness using three axes: alertness, engagement, and neural entropy. Each substance is a vector. Psychedelics push into territory ordinary waking life never reaches."
+  title="¿Cómo se siente estar bajo los efectos del ácido?"
+  subtitle="Un modelo vectorial de los estados de consciencia"
+  description="Un marco para mapear estados alterados de consciencia usando tres ejes: alerta, compromiso y entropía neuronal. Cada sustancia es un vector. Los psicodélicos empujan hacia territorios que la vida cotidiana nunca alcanza."
   image="/images/what-is-it-like-to-be-on-acid.jpg"
   date="2026-04-16"
-  readTime="14 min read"
-  tags={['Consciousness', 'Psychedelics', 'LSD', 'Philosophy of Mind', 'Phenomenology']}
+  readTime="14 min de lectura"
+  tags={['Consciencia', 'Psicodélicos', 'LSD', 'Filosofía de la mente', 'Fenomenología']}
+  lang="es"
   draft={false}
 >
 
-<p>Every friend who finds out I have taken psychedelics asks the same question: what does it feel like? I have told the story many times, in many versions, and at some point I got tired of reaching for the same approximations. So I started mapping it instead.</p>
+<p>Cada amigo que se entera de que he tomado psicodélicos hace la misma pregunta: ¿cómo se siente? He contado la historia muchas veces, en muchas versiones, y en algún momento me cansé de buscar las mismas aproximaciones. Así que empecé a mapearlo.</p>
 
-<p>You already have a working model of altered states in your head. You know what coffee does at 7am: sharper, faster, more present. You know what a beer does on a Friday evening: edges soften, urgency drops, thinking slows to something more pleasant. You know the difference between lying half-asleep and properly falling under. And if you have had a vivid dream, you know that "asleep" is not the same as "absent", the mind can be intensely active while the body is completely still.</p>
+<p>Ya tienes un modelo funcional de los estados alterados en tu cabeza. Sabes lo que hace el café a las 7 de la mañana: más agudo, más rápido, más presente. Sabes lo que hace una cerveza un viernes por la noche: los bordes se suavizan, la urgencia cae, el pensamiento se ralentiza hacia algo más agradable. Conoces la diferencia entre estar medio dormido y caer profundamente dormido. Y si has tenido un sueño vívido, sabes que "dormido" no es lo mismo que "ausente"; la mente puede ser intensamente activa mientras el cuerpo está completamente inmóvil.</p>
 
-<p>These feelings can be described as positions in a space defined by variables of our awareness. Once you start mapping them, the structure becomes clear, and it becomes possible to ask: where exactly does a psychedelic (taken within legal frameworks) sit in that space? And why does it feel like nothing else?</p>
+<p>Estos sentimientos pueden describirse como posiciones en un espacio definido por variables de nuestra consciencia. Una vez que comienzas a mapearlos, la estructura se vuelve clara y es posible preguntar: ¿dónde se sitúa exactamente un psicodélico (tomado dentro de marcos legales) en ese espacio? ¿Y por qué no se siente como nada más?</p>
 
-<p>What follows is a framework. The neuroscience supports it. The goal is a coordinate system precise enough to place every conscious state, including the ones that resist description, into a shared map.</p>
+<p>Lo que sigue es un marco de trabajo. La neurociencia lo respalda. El objetivo es un sistema de coordenadas lo suficientemente preciso como para colocar cada estado de consciencia, incluidos los que resisten la descripción, en un mapa compartido.</p>
 
-<h2>Two axes you already understand</h2>
+<h2>Dos ejes que ya entiendes</h2>
 
-<p>Start with the most basic dimension: how awake you are. Call it <strong>Alertness</strong>, running from fully sedated at one end to maximally alert at the other. Deep sleep is near one extreme. A strong coffee at 6am is near the other. Anesthesia goes further still.</p>
+<p>Comienza con la dimensión más básica: qué tan despierto estás. Llámalo <strong>Alerta</strong>, que va desde totalmente sedado en un extremo hasta la máxima alerta en el otro. El sueño profundo está cerca de un extremo. Un café fuerte a las 6 de la mañana está cerca del otro. La anestesia va aún más lejos.</p>
 
-<p>The second axis is <strong>Engagement</strong>: how much your mind is actively oriented toward anything. You can be technically awake but mentally absent, scrolling without seeing, present in body but nowhere in particular. That is low engagement. <a href="https://en.wikipedia.org/wiki/Flow_(psychology)" target="_blank" rel="noopener">Flow states</a>, vivid dreams, intense conversations, all sit at the high end.</p>
+<p>El segundo eje es el <strong>Compromiso</strong>: cuánto está tu mente orientada activamente hacia algo. Puedes estar técnicamente despierto pero mentalmente ausente, desplazándote por la pantalla sin ver, presente en cuerpo pero en ninguna parte en particular. Eso es un bajo compromiso. Los <a href="https://en.wikipedia.org/wiki/Flow_(psychology)" target="_blank" rel="noopener">estados de flujo</a>, los sueños vívidos, las conversaciones intensas, todos se sitúan en el extremo alto.</p>
 
-<p>Together, these two axes give you a 2D map. The substances you already know land in predictable places. Coffee pushes you up and to the right. Alcohol pulls you down and left. A sleeping pill takes you further down still. The graphic below shows a few of these, plotted as vectors from baseline. The direction of each arrow is the direction the substance moves you. The length is roughly how far.</p>
+<p>Juntos, estos dos ejes te dan un mapa 2D. Las sustancias que ya conoces aterrizan en lugares predecibles. El café te empuja hacia arriba y hacia la derecha. El alcohol te tira hacia abajo y hacia la izquierda. Una pastilla para dormir te lleva aún más abajo. El gráfico a continuación muestra algunos de estos, trazados como vectores desde la base. La dirección de cada flecha es la dirección hacia la que la sustancia te mueve. La longitud es aproximadamente cuánto.</p>
 
 <div class="viz-container glass-card" id="viz2d-container">
-  <div class="viz-title">2D State Space: Alertness × Engagement</div>
+  <div class="viz-title">Espacio de estado 2D: Alerta × Compromiso</div>
   <svg id="viz2d" width="100%" viewBox="0 0 500 400" style="display:block;"></svg>
-  <div class="viz-caption">Each arrow shows the direction a substance tends to move your conscious state from baseline. These effects are highly variable depending on dose, set, and setting, and differ significantly from person to person. Treat the vectors as indicative, not prescriptive.</div>
+  <div class="viz-caption">Cada flecha muestra la dirección en la que una sustancia tiende a mover tu estado de consciencia desde la base. Estos efectos son altamente variables según la dosis, el entorno y la situación, y difieren significativamente de persona a persona. Trata los vectores como indicativos, no prescriptivos.</div>
 </div>
 
-<h2>Why two dimensions are not enough</h2>
+<h2>Por qué dos dimensiones no son suficientes</h2>
 
-<p>The 2D map breaks down at a specific point. A focused flow state and a panic attack both land in the high-alertness, high-engagement quadrant. They feel nothing alike. An MDMA peak and a deep meditation sit in roughly the same region too. The map cannot tell them apart. Something is missing.</p>
+<p>El mapa 2D se rompe en un punto específico. Un estado de flujo enfocado y un ataque de pánico aterrizan en el cuadrante de alta alerta y alto compromiso. No se sienten nada parecido. Un pico de MDMA y una meditación profunda también se sitúan en la misma región. El mapa no puede distinguirlos. Falta algo.</p>
 
-<p>The missing dimension is the one that measures how the brain is organizing itself at a given moment. Not whether you are awake or engaged, but what the underlying structure of your experience is. Is your thinking ordered, linear, self-consistent? Or is it fragmenting, looping, dissolving into noise?</p>
+<p>La dimensión que falta es la que mide cómo el cerebro se está organizando en un momento dado. No si estás despierto o comprometido, sino cuál es la estructura subyacente de tu experiencia. ¿Es tu pensamiento ordenado, lineal, autoconsistente? ¿O se está fragmentando, repitiendo en bucles, disolviendo en ruido?</p>
 
-<p>Think of it this way. At one end of this axis sits the depressed brain: rigid, stuck, running the same loops over and over, unable to generate new patterns or escape its own predictions. The world narrows. Nothing surprises. This is not low arousal or low engagement, it is a brain that has lost flexibility. At the other end sits something like acute psychosis: too much signal, too little structure, the filters gone, everything equally loud and equally meaningful. Psychedelics push toward that end deliberately, at lower intensity, with the sedative dose removed.</p>
+<p>Piénsalo de esta manera. En un extremo de este eje se sitúa el cerebro deprimido: rígido, atascado, repitiendo los mismos bucles una y otra vez, incapaz de generar nuevos patrones o escapar de sus propias predicciones. El mundo se estrecha. Nada sorprende. Esto no es baja excitación o bajo compromiso, es un cerebro que ha perdido flexibilidad. En el otro extremo se sitúa algo como la psicosis aguda: demasiada señal, poca estructura, los filtros desaparecidos, todo igualmente fuerte e igualmente significativo. Los psicodélicos empujan hacia ese extremo deliberadamente, a menor intensidad, con la dosis sedante eliminada.</p>
 
-<p>Robin Carhart-Harris formalized this as the <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3909994/" target="_blank" rel="noopener">Entropic Brain hypothesis (2014)</a>, extended in the <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6588209/" target="_blank" rel="noopener">REBUS model (2019)</a>. The claim is measurable: <a href="https://www.nature.com/articles/srep46421" target="_blank" rel="noopener">psychedelics increase neural entropy as seen on EEG and fMRI</a>. The brain's top-down predictive models loosen. More signal gets through from below.</p>
+<p>Robin Carhart-Harris formalizó esto como la <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3909994/" target="_blank" rel="noopener">hipótesis del Cerebro Entrópico (2014)</a>, extendida en el <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6588209/" target="_blank" rel="noopener">modelo REBUS (2019)</a>. La afirmación es medible: <a href="https://www.nature.com/articles/srep46421" target="_blank" rel="noopener">los psicodélicos aumentan la entropía neuronal según se observa en EEG y fMRI</a>. Los modelos predictivos de arriba hacia abajo del cerebro se aflojan. Entra más señal desde abajo.</p>
 
-<p>Call this axis <strong>Entropy</strong>, running from Rigid (depressed brain) to Entropic (psychotic or psychedelic brain). Ordinary waking life sits near the middle. Meditation, interestingly, moves toward order through deliberate cultivation, not suppression. That makes it structurally different from depression even if both score low on entropy.</p>
+<p>Llama a este eje <strong>Entropía</strong>, que va de Rígido (cerebro deprimido) a Entrópico (cerebro psicótico o psicodélico). La vida cotidiana despierta se sitúa cerca del medio. La meditación, curiosamente, se mueve hacia el orden mediante el cultivo deliberado, no la supresión. Eso la hace estructuralmente diferente de la depresión, incluso si ambas obtienen una puntuación baja en entropía.</p>
 
 <div class="viz-container glass-card" id="entropy-axis-container">
-  <div class="viz-title">The Entropy Axis</div>
+  <div class="viz-title">El Eje de Entropía</div>
   <canvas id="entropy-axis-canvas" style="width:100%;display:block;"></canvas>
-  <div class="viz-caption">From the rigid depressed brain to the entropic psychedelic brain. The same axis explains both ends.</div>
+  <div class="viz-caption">Desde el cerebro deprimido rígido hasta el cerebro psicodélico entrópico. El mismo eje explica ambos extremos.</div>
 </div>
 
-<h2>The full 3D space</h2>
+<h2>El espacio 3D completo</h2>
 
-<p>With three axes, every substance becomes a vector with three components: (Alertness, Engagement, Entropy). The origin point (0, 0, 0) is baseline sobriety — alert enough for ordinary life, engaged with the world at a normal level, brain activity neither especially rigid nor especially chaotic. The direction of each vector tells you what a substance does. The length tells you how much.</p>
+<p>Con tres ejes, cada sustancia se convierte en un vector con tres componentes: (Alerta, Compromiso, Entropía). El punto de origen (0, 0, 0) es la sobriedad base: lo suficientemente alerta para la vida ordinaria, comprometido con el mundo a un nivel normal, con una actividad cerebral ni especialmente rígida ni especialmente caótica. La dirección de cada vector te dice lo que hace una sustancia. La longitud te dice cuánto.</p>
 
+<h2>Una sustancia a la vez</h2>
 
-
-<h2>One substance at a time</h2>
-
-<p>Let me walk through each vector explicitly, with a small visualization for each.</p>
+<p>Déjame recorrer cada vector explícitamente, con una pequeña visualización para cada uno.</p>
 
 <div class="substance-grid">
 
   <div class="substance-card glass-card">
-    <div class="substance-header" style="color:#ffe066">Coffee / Caffeine</div>
+    <div class="substance-header" style="color:#ffe066">Café / Cafeína</div>
     <canvas class="substance-canvas" data-vec="0.4,0.95,0.05" data-color="#ffe066"></canvas>
-    <div class="substance-desc">Strong alertness, mild engagement boost, negligible entropy effect. <a href="https://www.jneurosci.org/content/31/27/10067" target="_blank" rel="noopener">Adenosine antagonism lifts the brake on arousal.</a> Nothing strange happens to the structure of experience — it just runs faster.</div>
+    <div class="substance-desc">Fuerte alerta, leve aumento de compromiso, efecto de entropía despreciable. <a href="https://www.jneurosci.org/content/31/27/10067" target="_blank" rel="noopener">El antagonismo de la adenosina quita el freno a la excitación.</a> No sucede nada extraño en la estructura de la experiencia; simplemente corre más rápido.</div>
   </div>
 
   <div class="substance-card glass-card">
-    <div class="substance-header" style="color:#c8f0c8">Nicotine</div>
+    <div class="substance-header" style="color:#c8f0c8">Nicotina</div>
     <canvas class="substance-canvas" data-vec="0.5,0.4,0.0" data-color="#c8f0c8"></canvas>
-    <div class="substance-desc">Similar to caffeine but milder and shorter. Moderate alertness, mild engagement. Entropy essentially unchanged. Primarily a cholinergic and dopaminergic effect on attention circuits.</div>
+    <div class="substance-desc">Similar a la cafeína pero más leve y corta. Alerta moderada, compromiso leve. Entropía esencialmente sin cambios. Principalmente un efecto colinérgico y dopaminérgico en los circuitos de atención.</div>
   </div>
 
   <div class="substance-card glass-card">
     <div class="substance-header" style="color:#aaddff">Alcohol</div>
     <canvas class="substance-canvas" data-vec="-0.6,-0.5,0.15" data-color="#aaddff"></canvas>
-    <div class="substance-desc">GABA-ergic sedation. Alertness and engagement both drop. A small entropy increase at low doses (loosened inhibition) then suppression as dose increases. The vector points down and inward.</div>
+    <div class="substance-desc">Sedación GABA-érgica. La alerta y el compromiso caen. Un pequeño aumento de entropía a dosis bajas (inhibición relajada) y luego supresión a medida que aumenta la dosis. El vector apunta hacia abajo y hacia adentro.</div>
   </div>
 
   <div class="substance-card glass-card">
     <div class="substance-header" style="color:#88ff88">Cannabis</div>
     <canvas class="substance-canvas" data-vec="-0.1,-0.2,0.6" data-color="#88ff88"></canvas>
-    <div class="substance-desc">Variable alertness, mild disengagement, notable entropy increase. The <a href="https://www.frontiersin.org/articles/10.3389/fnbeh.2021.722796/full" target="_blank" rel="noopener">CB1 agonism loosens associative constraints</a>, producing the characteristic pattern-finding, paranoia, and unusual connections. The entropy component dominates.</div>
+    <div class="substance-desc">Alerta variable, descompromiso leve, aumento notable de la entropía. El <a href="https://www.frontiersin.org/articles/10.3389/fnbeh.2021.722796/full" target="_blank" rel="noopener">agonismo de CB1 afloja las restricciones asociativas</a>, produciendo el patrón característico de búsqueda de patrones, paranoia y conexiones inusuales. El componente de entropía domina.</div>
   </div>
 
   <div class="substance-card glass-card">
     <div class="substance-header" style="color:#ff88cc">MDMA</div>
     <canvas class="substance-canvas" data-vec="0.7,0.9,0.3" data-color="#ff88cc"></canvas>
-    <div class="substance-desc">High alertness, very high engagement, moderate entropy. The <a href="https://www.nature.com/articles/s41386-020-00803-8" target="_blank" rel="noopener">serotonin and dopamine flood</a> produces intense pro-social engagement. The entropy is present but structured, which is why MDMA feels warm and connected rather than destabilizing.</div>
+    <div class="substance-desc">Alta alerta, compromiso muy alto, entropía moderada. La <a href="https://www.nature.com/articles/s41386-020-00803-8" target="_blank" rel="noopener">inundación de serotonina y dopamina</a> produce un intenso compromiso prosocial. La entropía está presente pero estructurada, por lo que el MDMA se siente cálido y conectado en lugar de desestabilizador.</div>
   </div>
 
   <div class="substance-card glass-card">
-    <div class="substance-header" style="color:#cc88ff">Ketamine</div>
+    <div class="substance-header" style="color:#cc88ff">Ketamina</div>
     <canvas class="substance-canvas" data-vec="-0.5,-0.7,0.5" data-color="#cc88ff"></canvas>
-    <div class="substance-desc"><a href="https://www.nature.com/articles/s41467-020-20190-4" target="_blank" rel="noopener">NMDA antagonism produces dissociation</a>: alertness and engagement both drop sharply while entropy increases. You are detached from the world but internally the signal is chaotic. The k-hole is the extreme of this vector.</div>
+    <div class="substance-desc"><a href="https://www.nature.com/articles/s41467-020-20190-4" target="_blank" rel="noopener">El antagonismo de NMDA produce disociación</a>: la alerta y el compromiso caen bruscamente mientras la entropía aumenta. Estás separado del mundo pero internamente la señal es caótica. El agujero k (k-hole) es el extremo de este vector.</div>
   </div>
 
   <div class="substance-card glass-card">
-    <div class="substance-header" style="color:#ffffff">Deep Meditation (Jhana)</div>
+    <div class="substance-header" style="color:#ffffff">Meditación Profunda (Jhana)</div>
     <canvas class="substance-canvas" data-vec="0.6,0.7,-0.8" data-color="#ffffff"></canvas>
-    <div class="substance-desc">High alertness, high engagement, strongly negative entropy — the most ordered state the brain can voluntarily produce. This is the opposite pole from psychedelics on the entropy axis, achieved through <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6893234/" target="_blank" rel="noopener">sustained top-down regulation</a>, not chemical suppression.</div>
+    <div class="substance-desc">Alta alerta, alto compromiso, entropía fuertemente negativa: el estado más ordenado que el cerebro puede producir voluntariamente. Este es el polo opuesto de los psicodélicos en el eje de la entropía, logrado mediante una <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6893234/" target="_blank" rel="noopener">regulación sostenida de arriba hacia abajo</a>, no por supresión química.</div>
   </div>
 
   <div class="substance-card glass-card">
-    <div class="substance-header" style="color:#666699">Depression</div>
+    <div class="substance-header" style="color:#666699">Depresión</div>
     <canvas class="substance-canvas" data-vec="-0.1,-0.6,-0.9" data-color="#666699"></canvas>
-    <div class="substance-desc">Variable alertness, low engagement, extreme rigidity. The brain trapped in its own predictive loops, unable to update. This is the clinical significance of the entropy axis: depression and psychedelics are opposites on it, which partly explains <a href="https://www.nejm.org/doi/full/10.1056/NEJMoa2206443" target="_blank" rel="noopener">why psilocybin therapy works</a>.</div>
+    <div class="substance-desc">Alerta variable, compromiso bajo, rigidez extrema. El cerebro atrapado en sus propios bucles predictivos, incapaz de actualizarse. Este es el significado clínico del eje de entropía: la depresión y los psicodélicos son opuestos en él, lo que explica en parte <a href="https://www.nejm.org/doi/full/10.1056/NEJMoa2206443" target="_blank" rel="noopener">por qué funciona la terapia con psilocibina</a>.</div>
   </div>
 
   <div class="substance-card glass-card">
-    <div class="substance-header" style="color:#ff4444">LSD / Psilocybin</div>
+    <div class="substance-header" style="color:#ff4444">LSD / Psilocibina</div>
     <canvas class="substance-canvas" data-vec="0.85,0.8,0.95" data-color="#ff4444"></canvas>
-    <div class="substance-desc">Maximum entropy, high alertness, high engagement. The vector points into a region of state-space that no other substance and no ordinary mental state reaches. Fully awake, fully engaged, and the structure of experience itself destabilized. This is the combination that produces everything described below.</div>
+    <div class="substance-desc">Máxima entropía, alta alerta, alto compromiso. El vector apunta a una región del espacio de estados a la que ninguna otra sustancia ni estado mental ordinario llega. Totalmente despierto, totalmente comprometido, y la estructura misma de la experiencia desestabilizada. Esta es la combinación que produce todo lo descrito a continuación.</div>
   </div>
 
 </div>
 
-<h2>What it actually feels like</h2>
+<h2>Cómo se siente realmente</h2>
 
-<p>The vector description tells you where you end up. It does not capture the experience of moving there, or what it is like to inhabit that coordinate. What follows is based on personal experience with psychedelics taken in controlled settings.</p>
+<p>La descripción vectorial te dice dónde terminas. No captura la experiencia de moverse allí, o cómo es habitar esa coordenada. Lo que sigue se basa en la experiencia personal con psicodélicos tomados en entornos controlados.</p>
 
-<p><strong>Time distortion.</strong> The engagement axis turns recursive. You become engaged with your own engagement. Each moment of attention contains metadata about attention itself. A minute can feel architecturally complex, layered, far longer than a minute. This is not necessarily time slowing (unless you are under tons of gravity or traveling very fast), it is time gaining texture. We actually do not know yet. Experiences with time loops are a thing, and there may be another biochemical mechanism to experience time at play. The axes bleed into each other.</p>
+<p><strong>Distorsión temporal.</strong> El eje de compromiso se vuelve recursivo. Te vuelves comprometido con tu propio compromiso. Cada momento de atención contiene metadatos sobre la atención misma. Un minuto puede sentirse arquitectónicamente complejo, estratificado, mucho más largo que un minuto. Esto no es necesariamente que el tiempo se ralentice (a menos que estés bajo toneladas de gravedad o viajando muy rápido), es que el tiempo gana textura. En realidad, aún no lo sabemos. Las experiencias con bucles temporales son reales, y puede haber otro mecanismo bioquímico para experimentar el tiempo en juego. Los ejes se mezclan entre sí.</p>
 
-<p><strong>Ego dissolution.</strong> The stable sense of a located self, the thing that normally provides fixed coordinates in the space, begins to dissolve. You are no longer a point with a position. The boundary between subject and object softens, then disappears. What remains is experience without an experiencer. Some people find this terrifying. Others find it revelatory. It depends on where you started.</p>
+<p><strong>Disolución del ego.</strong> El sentido estable de un yo ubicado, lo que normalmente proporciona coordenadas fijas en el espacio, comienza a disolverse. Ya no eres un punto con una posición. El límite entre sujeto y objeto se suaviza, luego desaparece. Lo que queda es la experiencia sin un experimentador. Algunas personas encuentran esto aterrador. Otros lo encuentran revelador. Depende de dónde empezaste.</p>
 
-<p><strong>Geometric visuals and synesthesia.</strong> When the entropy axis peaks, the brain's perceptual filters relax. The visual cortex generates structure from noise. Fractals, geometric patterns, color overlays on surfaces that do not have them. Simultaneously, the separations between sensory modalities weaken: sounds acquire visual qualities, emotions have spatial textures, music becomes architecture. The axes bleed into each other.</p>
+<p><strong>Visuales geométricos y sinestesia.</strong> Cuando el eje de entropía alcanza su pico, los filtros perceptivos del cerebro se relajan. La corteza visual genera estructura a partir del ruido. Fractales, patrones geométricos, superposiciones de colores en superficies que no los tienen. Simultáneamente, las separaciones entre las modalidades sensoriales se debilitan: los sonidos adquieren cualidades visuales, las emociones tienen texturas espaciales, la música se convierte en arquitectura. Los ejes se mezclan entre sí.</p>
 
-<p><strong>The trajectory.</strong> The experience is not static. It traces a path through the 3D space over twelve hours. The visualization below shows this arc.</p>
+<p><strong>La trayectoria.</strong> La experiencia no es estática. Traza un camino a través del espacio 3D durante doce horas. La visualización a continuación muestra este arco.</p>
 
 <div class="viz-container glass-card" id="traj-container">
-  <div class="viz-title">LSD Trajectory Through State Space (T+0 to T+12h)</div>
+  <div class="viz-title">Trayectoria del LSD a través del Espacio de Estados (T+0 a T+12h)</div>
   <canvas id="traj-canvas" style="width:100%;display:block;"></canvas>
-  <div class="viz-caption">The path from baseline through come-up, peak, plateau, and comedown. Drag to rotate.</div>
+  <div class="viz-caption">El camino desde la base a través de la subida, el pico, la meseta y la bajada. Arrastra para rotar.</div>
 </div>
 
-<h2>This framework is not complete</h2>
+<h2>Este marco no está completo</h2>
 
-<p>Three axes is a starting point. The space of conscious experience almost certainly has more dimensions than this. Valence (how good or bad an experience feels) is not captured here, for instance. Nor is the geometry of visual experience, the degree of self-referential thinking, or the sense of meaning and significance that psychedelics often amplify without necessarily moving alertness or engagement much.</p>
+<p>Tres ejes son un punto de partida. El espacio de la experiencia consciente casi con certeza tiene más dimensiones que esta. La valencia (qué tan buena o mala se siente una experiencia) no se captura aquí, por ejemplo. Tampoco la geometría de la experiencia visual, el grado de pensamiento autorreferencial, o el sentido de significado y trascendencia que los psicodélicos a menudo amplifican sin necesariamente mover mucho la alerta o el compromiso.</p>
 
-<p>The <a href="https://www.qualiaresearchinstitute.org/" target="_blank" rel="noopener">Qualia Research Institute</a> has developed a more comprehensive framework for mapping conscious states, including parameters like symmetry of experience, valence, and what they call the "geometry of qualia." Their work is worth exploring if you want to go deeper. A useful starting point is Andrés Gómez Emilsson's writing on <a href="https://qualiacomputing.com/2020/12/17/the-symmetry-theory-of-valence-2020-presentation/" target="_blank" rel="noopener">the symmetry theory of valence</a>, which tries to explain why some states feel good and others do not in terms of the mathematical structure of neural patterns.</p>
+<p>El <a href="https://www.qualiaresearchinstitute.org/" target="_blank" rel="noopener">Qualia Research Institute</a> ha desarrollado un marco más integral para mapear estados conscientes, que incluye parámetros como la simetría de la experiencia, la valencia y lo que llaman la "geometría de los qualia". Vale la pena explorar su trabajo si deseas profundizar. Un punto de partida útil es el escrito de Andrés Gómez Emilsson sobre <a href="https://qualiacomputing.com/2020/12/17/the-symmetry-theory-of-valence-2020-presentation/" target="_blank" rel="noopener">la teoría de la simetría de la valencia</a>, que intenta explicar por qué algunos estados se sienten bien y otros no en términos de la estructura matemática de los patrones neuronales.</p>
 
-<p>The three-axis model here trades completeness for clarity. It is designed to answer one specific question: why does a psychedelic feel so categorically different from everything else you have experienced? The entropy axis does most of that work.</p>
+<p>El modelo de tres ejes aquí intercambia exhaustividad por claridad. Está diseñado para responder a una pregunta específica: ¿por qué un psicodélico se siente tan categóricamente diferente de todo lo demás que has experimentado? El eje de entropía hace la mayor parte de ese trabajo.</p>
 
-<h2>Why this framework matters</h2>
+<h2>Por qué importa este marco</h2>
 
-<p>Depression and high-dose psychedelics are opposites on the entropy axis. That single observation does a lot of explanatory work: it suggests why psilocybin-assisted therapy produces remission in treatment-resistant depression, why a single session can break patterns that years of talk therapy could not, and why the effect sometimes persists for months. You are not just changing the content of thought. You are changing the regime the brain operates in.</p>
+<p>La depresión y los psicodélicos en dosis altas son opuestos en el eje de la entropía. Esa simple observación hace mucho trabajo explicativo: sugiere por qué la terapia asistida por psilocibina produce remisión en la depresión resistente al tratamiento, por qué una sola sesión puede romper patrones que años de terapia de conversación no pudieron, y por qué el efecto a veces persiste durante meses. No solo estás cambiando el contenido del pensamiento. Estás cambiando el régimen en el que opera el cerebro.</p>
 
-<p>The vector framing also has a practical use: vectors add. Coffee plus cannabis shifts you along multiple axes simultaneously. The alertness from caffeine partially counteracts the disengagement from THC, while the entropy from cannabis remains. This is not just intuition, it is a structural prediction the framework makes, and it matches what people who combine them report.</p>
+<p>El encuadre vectorial también tiene un uso práctico: los vectores se suman. El café más el cannabis te desplaza a lo largo de múltiples ejes simultáneamente. La alerta de la cafeína contrarresta parcialmente el descompromiso del THC, mientras que la entropía del cannabis permanece. Esto no es solo intuición, es una predicción estructural que el marco hace, y coincide con lo que reportan las personas que los combinan.</p>
 
-<p>Building this cartography is not a philosophical luxury. For psychedelic therapy, for understanding what suffering actually is at a structural level, for the long-term question of what kinds of consciousness are possible in artificial systems, having a coordinate system matters. The territory does not change. But a map helps you navigate it, and helps you explain to someone else what you found there.</p>
+<p>Construir esta cartografía no es un lujo filosófico. Para la terapia psicodélica, para entender qué es realmente el sufrimiento a nivel estructural, para la pregunta a largo plazo de qué tipos de consciencia son posibles en sistemas artificiales, tener un sistema de coordenadas es importante. El territorio no cambia. Pero un mapa te ayuda a navegarlo y te ayuda a explicarle a alguien más lo que encontraste allí.</p>
 
 <style>
   .viz-container {
@@ -282,9 +281,9 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
     const scale = 140;
 
     const substances = [
-      { label: 'Coffee',   alert:  0.80, engage:  0.40, color: '#ffe066' },
-      { label: 'Nicotine', alert:  0.50, engage:  0.40, color: '#c8f0c8' },
-      { label: 'Alcohol (depending on dose)',  alert: -0.60, engage: -0.50, color: '#aaddff' },
+      { label: 'Café',   alert:  0.80, engage:  0.40, color: '#ffe066' },
+      { label: 'Nicotina', alert:  0.50, engage:  0.40, color: '#c8f0c8' },
+      { label: 'Alcohol (según dosis)',  alert: -0.60, engage: -0.50, color: '#aaddff' },
     ];
 
     let html = `
@@ -300,10 +299,10 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       <polygon points="${W-20},${cy} ${W-28},${cy-5} ${W-28},${cy+5}" fill="rgba(255,255,255,0.85)"/>
       <polygon points="${cx},20 ${cx-5},28 ${cx+5},28" fill="rgba(255,255,255,0.85)"/>
       <!-- axis labels -->
-      <text x="${W-22}" y="${cy-9}" font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="end">Engaged →</text>
-      <text x="22"     y="${cy-9}" font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="start">← Disengaged</text>
-      <text x="${cx}"  y="16"      font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="middle">↑ Alert</text>
-      <text x="${cx}"  y="${H-4}"  font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="middle">↓ Sedated</text>
+      <text x="${W-22}" y="${cy-9}" font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="end">Comprometido →</text>
+      <text x="22"     y="${cy-9}" font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="start">← Descomprometido</text>
+      <text x="${cx}"  y="16"      font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="middle">↑ Alerta</text>
+      <text x="${cx}"  y="${H-4}"  font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="middle">↓ Sedado</text>
     `;
 
     substances.forEach((s, i) => {
@@ -411,9 +410,9 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       // Draw positive axes only
       const axisCol = 'rgba(255,255,255,0.85)';
       const axDefs = [
-        { v: [1,0,0], label: 'Engage →' },
-        { v: [0,1,0], label: 'Alert ↑'  },
-        { v: [0,0,1], label: 'Entropy →'},
+        { v: [1,0,0], label: 'Comprometer →' },
+        { v: [0,1,0], label: 'Alerta ↑'  },
+        { v: [0,0,1], label: 'Entropía →'},
       ];
       axDefs.forEach(ax => {
         const o = project3D(0,0,0, focalCx, focalCy, scale*1.6, rx, ry);
@@ -619,7 +618,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
         [0,1,0], [0,-1,0],
         [0,0,1], [0,0,-1],
       ];
-      const axLabels = ['Engage', null, 'Alert', null, 'Entropy', null];
+      const axLabels = ['Compromiso', null, 'Alerta', null, 'Entropía', null];
       axes.forEach((v, i) => {
         const o = proj(0,0,0);
         const e = proj(v[0]*1.1, v[1]*1.1, v[2]*1.1);
@@ -724,10 +723,10 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
     // All four labels above or below, well spaced
     const states = [
-      { x: 0.08, label: 'Depression', sub: 'rigid, stuck',    color: '#7777aa', above: true  },
-      { x: 0.50, label: 'Sober',      sub: 'baseline',        color: 'rgba(255,255,255,0.85)', above: false },
-      { x: 0.78, label: 'LSD',        sub: 'high entropy',    color: '#ff8844', above: true  },
-      { x: 1.00, label: 'Psychosis',  sub: 'no filter',       color: '#ff4444', above: false },
+      { x: 0.08, label: 'Depresión', sub: 'rígido, estancado',    color: '#7777aa', above: true  },
+      { x: 0.50, label: 'Sobrio',      sub: 'base',        color: 'rgba(255,255,255,0.85)', above: false },
+      { x: 0.78, label: 'LSD',        sub: 'alta entropía',    color: '#ff8844', above: true  },
+      { x: 1.00, label: 'Psicosis',  sub: 'sin filtros',       color: '#ff4444', above: false },
     ];
 
     const fontSize = W < 400 ? 9 : 10;
@@ -760,8 +759,8 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
     // End labels — only if enough space
     if (W >= 320) {
       ctx.font = `${fontSize-1}px monospace`; ctx.fillStyle = 'rgba(255,255,255,0.4)';
-      ctx.textAlign = 'left';  ctx.fillText('← Rigid', pad, H - 4);
-      ctx.textAlign = 'right'; ctx.fillText('Entropic →', W - pad, H - 4);
+      ctx.textAlign = 'left';  ctx.fillText('← Rígido', pad, H - 4);
+      ctx.textAlign = 'right'; ctx.fillText('Entrópico →', W - pad, H - 4);
     }
   }
 
@@ -770,15 +769,15 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
   function initTrajectory() {
     // [alert, engage, entropy, label]
     const points = [
-      [0.0,  0.0,  0.0,  'T+0 Sober'],
-      [0.2,  0.3,  0.6,  'T+1h Come-up'],
+      [0.0,  0.0,  0.0,  'T+0 Sobrio'],
+      [0.2,  0.3,  0.6,  'T+1h Subida'],
       [0.45, 0.6,  0.9,  'T+2h'],
-      [0.60, 0.80, 0.95, 'T+3h Peak'],
-      [0.55, 0.70, 0.93, 'T+5h Plateau'],
+      [0.60, 0.80, 0.95, 'T+3h Pico'],
+      [0.55, 0.70, 0.93, 'T+5h Meseta'],
       [0.45, 0.55, 0.85, 'T+6h'],
-      [0.30, 0.40, 0.50, 'T+8h Comedown'],
+      [0.30, 0.40, 0.50, 'T+8h Bajada'],
       [0.15, 0.25, 0.25, 'T+10h'],
-      [0.01, 0.05, 0.05, 'T+12h Sober'],
+      [0.01, 0.05, 0.05, 'T+12h Sobrio'],
     ];
     const el = document.getElementById('traj-container');
     const W = el ? el.offsetWidth - 48 : 600;

@@ -1,0 +1,611 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+---
+<ArticleLayout
+  title="服用迷幻药是什么感觉？"
+  subtitle="意识状态的向量模型"
+  description="一个利用三个轴（警觉度、参与度和神经熵）来映射改变意识状态的框架。每种物质都是一个向量。迷幻药将意识推向了普通清醒生活从未触及的领域。"
+  image="/images/what-is-it-like-to-be-on-acid.jpg"
+  date="2026-04-16"
+  readTime="14 分钟阅读"
+  tags={['意识', '迷幻药', 'LSD', '心灵哲学', '现象学']}
+  draft={false}
+  lang="zh"
+>
+
+<p>每一个发现我服用过迷幻药的朋友都会问同一个问题：那是什么感觉？我讲过很多次，有很多版本，但在某个时刻，我厌倦了寻找同样的近似词。于是我开始绘制它的地图。</p>
+
+<p>你的脑海中已经有了一个关于改变状态的工作模型。你知道早上7点喝咖啡是什么感觉：更敏锐、更快、更专注。你知道周五晚上喝啤酒是什么感觉：棱角变得柔和，紧迫感下降，思维慢下来，变得更愉悦。你知道半梦半醒和真正进入梦境的区别。如果你做过栩栩如生的梦，你就知道“睡着”并不等于“不在”，身体完全静止时，思维可以极其活跃。</p>
+
+<p>这些感觉可以描述为由我们的意识变量所定义的空间中的位置。一旦你开始绘制它们，结构就会变得清晰，这时就可以问：迷幻药（在法律框架内服用）在那个空间中究竟处于什么位置？为什么它感觉起来与众不同？</p>
+
+<p>下面是一个框架。神经科学支持它。目标是建立一个足够精确的坐标系统，将每一种意识状态，包括那些难以描述的状态，都放置到一个共享的地图中。</p>
+
+<h2>你已经理解的两个轴</h2>
+
+<p>从最基本的维度开始：你有多清醒。称之为<strong>警觉度（Alertness）</strong>，从一端的完全镇静到另一端的最大警觉。深睡接近一端。早上6点的强咖啡接近另一端。麻醉则更进一步。</p>
+
+<p>第二个轴是<strong>参与度（Engagement）</strong>：你的思维在多大程度上主动指向任何事物。你可以技术上清醒但精神上不在，无意识地滚动屏幕，身体在这里但心思在别处。这就是低参与度。 <a href="https://en.wikipedia.org/wiki/Flow_(psychology)" target="_blank" rel="noopener">心流状态（Flow states）</a>、生动的梦境、激烈的对话，都处于高的一端。</p>
+
+<p>这两个轴共同构成了一张二维地图。你已经熟悉的物质落在可预测的地方。咖啡把你向上向右推。酒精把你向下拉向左拉。安眠药把你拉得更低。下图显示了其中的几个，绘制为从基准线出发的向量。每个箭头的方向是物质推动你的方向。长度大致是程度。</p>
+
+<div class="viz-container glass-card" id="viz2d-container">
+  <div class="viz-title">二维状态空间：警觉度 × 参与度</div>
+  <svg id="viz2d" width="100%" viewBox="0 0 500 400" style="display:block;"></svg>
+  <div class="viz-caption">每个箭头显示了物质倾向于将你的意识状态从基准线移动的方向。这些影响高度依赖于剂量、身心状态和环境，并且在不同人之间有显著差异。请将这些向量视为指示性的，而非规范性的。</div>
+</div>
+
+<h2>为什么两个维度不够用</h2>
+
+<p>二维地图在特定点上失效了。专注的心流状态和恐慌发作都落在高警觉、高参与的象限。它们感觉完全不像。MDMA峰值和深度冥想也大致坐在同一个区域。地图无法区分它们。缺少了什么。</p>
+
+<p>缺失的维度是衡量大脑在特定时刻如何自我组织的维度。不是你是否清醒或参与，而是你体验的潜在结构是什么。你的思维是有序、线性、自洽的吗？还是在碎片化、循环、溶解为噪音？</p>
+
+<p>换个角度想。这个轴的一端是抑郁的大脑：僵化、受困、一遍又一遍地运行相同的循环，无法产生新的模式或逃离自己的预测。世界变窄了。没有什么能带来惊喜。这不是低觉醒或低参与，而是一个失去了灵活性的思维。另一端是类似急性精神病的症状：过多的信号，过少的结构，过滤器消失了，一切都同样响亮且同样有意义。迷幻药会刻意向那一端推动，在较低强度下，去除了镇静的剂量。</p>
+
+<p>Robin Carhart-Harris将其正式化为 <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3909994/" target="_blank" rel="noopener">熵脑假说 (2014)</a>，并在 <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6588209/" target="_blank" rel="noopener">REBUS 模型 (2019)</a> 中进行了扩展。该主张是可测量的：<a href="https://www.nature.com/articles/srep46421" target="_blank" rel="noopener">迷幻药增加了 EEG 和 fMRI 上观察到的神经熵</a>。大脑的自上而下的预测模型放松了。更多的信号从下方通过。</p>
+
+<p>称这个轴为<strong>熵（Entropy）</strong>，从僵化（抑郁大脑）到熵增（精神病或迷幻大脑）。普通清醒生活处于中间附近。有趣的是，冥想通过刻意的培养而不是抑制向有序移动。这使得它在结构上与抑郁不同，即使两者在熵上的得分都很低。</p>
+
+<div class="viz-container glass-card" id="entropy-axis-container">
+  <div class="viz-title">熵轴</div>
+  <canvas id="entropy-axis-canvas" style="width:100%;display:block;"></canvas>
+  <div class="viz-caption">从僵化的抑郁大脑到熵增的迷幻大脑。同一个轴解释了这两端。</div>
+</div>
+
+<h2>完整的三维空间</h2>
+
+<p>有了三个轴，每种物质都成为一个具有三个分量的向量：（警觉度，参与度，熵）。原点（0, 0, 0）是基准清醒状态——警觉到足以应对普通生活，与世界的参与度处于正常水平，大脑活动既不特别僵化也不特别混乱。每个向量的方向告诉你物质的作用。长度告诉你程度。</p>
+
+
+
+<h2>一次一种物质</h2>
+
+<p>让我逐一遍历每个向量，并为每一个提供一个小的可视化。</p>
+
+<div class="substance-grid">
+
+  <div class="substance-card glass-card">
+    <div class="substance-header" style="color:#ffe066">咖啡 / 咖啡因</div>
+    <canvas class="substance-canvas" data-vec="0.4,0.95,0.05" data-color="#ffe066"></canvas>
+    <div class="substance-desc">强烈的警觉，轻度的参与度提升，熵效应可忽略不计。<a href="https://www.jneurosci.org/content/31/27/10067" target="_blank" rel="noopener">腺苷拮抗作用解除了对觉醒的抑制。</a> 体验的结构没有发生奇怪的变化——它只是运行得更快了。</div>
+  </div>
+
+  <div class="substance-card glass-card">
+    <div class="substance-header" style="color:#c8f0c8">尼古丁</div>
+    <canvas class="substance-canvas" data-vec="0.5,0.4,0.0" data-color="#c8f0c8"></canvas>
+    <div class="substance-desc">类似于咖啡因，但更温和、更短。中度警觉，轻度参与。熵基本不变。主要是对注意电路的胆碱能和多巴胺能影响。</div>
+  </div>
+
+  <div class="substance-card glass-card">
+    <div class="substance-header" style="color:#aaddff">酒精</div>
+    <canvas class="substance-canvas" data-vec="-0.6,-0.5,0.15" data-color="#aaddff"></canvas>
+    <div class="substance-desc">GABA 能镇静。警觉度和参与度都下降。低剂量时有轻微的熵增加（抑制松弛），随着剂量增加则受到抑制。向量指向下方和内侧。</div>
+  </div>
+
+  <div class="substance-card glass-card">
+    <div class="substance-header" style="color:#88ff88">大麻</div>
+    <canvas class="substance-canvas" data-vec="-0.1,-0.2,0.6" data-color="#88ff88"></canvas>
+    <div class="substance-desc">可变的警觉，轻度的脱离，显著的熵增加。<a href="https://www.frontiersin.org/articles/10.3389/fnbeh.2021.722796/full" target="_blank" rel="noopener">CB1 激动作用放松了联想约束</a>，产生特征性的模式识别、偏执和不寻常的联系。熵分量占主导地位。</div>
+  </div>
+
+  <div class="substance-card glass-card">
+    <div class="substance-header" style="color:#ff88cc">MDMA</div>
+    <canvas class="substance-canvas" data-vec="0.7,0.9,0.3" data-color="#ff88cc"></canvas>
+    <div class="substance-desc">高警觉，极高参与，中等熵。<a href="https://www.nature.com/articles/s41386-020-00803-8" target="_blank" rel="noopener">血清素和多巴胺的涌入</a>产生强烈的亲社会参与。熵存在但有结构，这就是为什么 MDMA 感觉温暖和联系，而不是不稳定。</div>
+  </div>
+
+  <div class="substance-card glass-card">
+    <div class="substance-header" style="color:#cc88ff">氯胺酮</div>
+    <canvas class="substance-canvas" data-vec="-0.5,-0.7,0.5" data-color="#cc88ff"></canvas>
+    <div class="substance-desc"><a href="https://www.nature.com/articles/s41467-020-20190-4" target="_blank" rel="noopener">NMDA 拮抗作用产生解离</a>：警觉度和参与度都急剧下降，同时熵增加。你与世界脱离，但在内部信号是混乱的。K 洞是这个向量的极端。</div>
+  </div>
+
+  <div class="substance-card glass-card">
+    <div class="substance-header" style="color:#ffffff">深度冥想 (禅那)</div>
+    <canvas class="substance-canvas" data-vec="0.6,0.7,-0.8" data-color="#ffffff"></canvas>
+    <div class="substance-desc">高警觉，高参与，强负熵——大脑能主动产生的最有序的状态。这是迷幻药在熵轴上的相反极点，通过<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6893234/" target="_blank" rel="noopener">持续的自上而下调节</a>而非化学抑制实现。</div>
+  </div>
+
+  <div class="substance-card glass-card">
+    <div class="substance-header" style="color:#666699">抑郁</div>
+    <canvas class="substance-canvas" data-vec="-0.1,-0.6,-0.9" data-color="#666699"></canvas>
+    <div class="substance-desc">可变的警觉，低参与，极端僵化。大脑困在自己的预测循环中，无法更新。这就是熵轴的临床意义：抑郁和迷幻药在轴上是相反的，这在一定程度上解释了<a href="https://www.nejm.org/doi/full/10.1056/NEJMoa2206443" target="_blank" rel="noopener">为什么裸盖菇素治疗有效</a>。</div>
+  </div>
+
+  <div class="substance-card glass-card">
+    <div class="substance-header" style="color:#ff4444">LSD / 裸盖菇素</div>
+    <canvas class="substance-canvas" data-vec="0.85,0.8,0.95" data-color="#ff4444"></canvas>
+    <div class="substance-desc">最大熵，高警觉，高参与。向量指向其他任何物质和普通精神状态都无法触及的状态空间区域。完全清醒，完全投入，体验的结构本身不稳定。这种组合产生了下面描述的一切。</div>
+  </div>
+
+</div>
+
+<h2>这到底是什么感觉</h2>
+
+<p>向量描述告诉你最终会在哪里。它没有捕捉到到达那里的体验过程，或者居住在该坐标是什么感觉。以下内容基于在受控环境下服用迷幻药的个人体验。</p>
+
+<p><strong>时间扭曲。</strong> 参与度轴变得递归。你开始参与你自己的参与。每一刻的注意力都包含关于注意力本身的元数据。一分钟在建筑上可以感觉很复杂、分层，远超过一分钟。这并不一定是时间变慢（除非你在巨大的引力下或高速行驶），而是时间获得了质感。我们实际上还不知道。时间循环的体验是一种现象，可能还有另一种生化机制在起作用。这些轴互相渗透。</p>
+
+<p><strong>自我溶解。</strong> 稳定的自我定位感，那个通常在空间中提供固定坐标的东西，开始溶解。你不再是一个有位置的点。主体和客体之间的界限变得柔和，然后消失。剩下的是没有体验者的体验。有些人觉得这很可怕。另一些人觉得这是启示性的。这取决于你从哪里开始。</p>
+
+<p><strong>几何视觉和通感。</strong> 当熵轴达到顶峰时，大脑的知觉过滤器放松。视觉皮层从噪音中产生结构。分形、几何图案、本来没有颜色的表面的颜色叠加。同时，感官模态之间的分离减弱：声音获得视觉特质，情绪具有空间质感，音乐变成建筑。这些轴互相渗透。</p>
+
+<p><strong>轨迹。</strong> 体验不是静态的。它在十二小时内追踪了三维空间中的一条路径。下图显示了这个弧线。</p>
+
+<div class="viz-container glass-card" id="traj-container">
+  <div class="viz-title">LSD 在状态空间中的轨迹 (T+0 到 T+12h)</div>
+  <canvas id="traj-canvas" style="width:100%;display:block;"></canvas>
+  <div class="viz-caption">从基准线经过起效、峰值、平台期和消退期的路径。拖动以旋转。</div>
+</div>
+
+<h2>这个框架并不完整</h2>
+
+<p>三个轴是一个起点。意识体验的空间几乎肯定有比这更多的维度。例如，效价（体验感觉有多好或多坏）这里没有捕捉到。视觉体验的几何结构、自我参照思维的程度，或迷幻药经常放大而不一定移动警觉度或参与度的意义感，也没有捕捉到。</p>
+
+<p> <a href="https://www.qualiaresearchinstitute.org/" target="_blank" rel="noopener">Qualia Research Institute</a> 开发了一个更全面的映射意识状态的框架，包括体验对称性、效价和他们所谓的“感质几何（geometry of qualia）”等参数。如果你想深入了解，他们的工作值得探索。一个有用的起点是 Andrés Gómez Emilsson 关于 <a href="https://qualiacomputing.com/2020/12/17/the-symmetry-theory-of-valence-2020-presentation/" target="_blank" rel="noopener">效价对称性理论</a> 的文章，该理论试图根据神经模式的数学结构来解释为什么有些状态感觉良好而有些则不然。</p>
+
+<p>这里的三轴模型以完整性换取清晰度。它旨在回答一个具体问题：为什么迷幻药感觉与其他你经历过的一切完全不同？熵轴完成了大部分工作。</p>
+
+<h2>为什么这个框架很重要</h2>
+
+<p>抑郁和高剂量迷幻药在熵轴上是相反的。这一单一观察完成了大量解释工作：它暗示了为什么裸盖菇素辅助治疗可以缓解难治性抑郁症，为什么单次疗程可以打破多年谈话治疗都无法打破的模式，以及为什么这种效果有时会持续数月。你不仅在改变思维的内容。你正在改变大脑运作的体制。</p>
+
+<p>向量框架也有实际用途：向量相加。咖啡加大麻会同时在多个轴上移动你。咖啡因带来的警觉部分抵消了 THC 带来的脱离，而来自大麻的熵依然存在。这不仅仅是直觉，它是该框架做出的结构性预测，并且与报告结合使用它们的人的说法相符。</p>
+
+<p>构建这种制图并非哲学奢侈。对于迷幻药治疗，对于在结构层面理解什么是痛苦，对于人工系统中可能存在什么样的意识的长期问题，拥有坐标系统很重要。领土没有改变。但地图可以帮助你导航，并帮助你向别人解释你发现了什么。</p>
+
+<style>
+  .viz-container {
+    margin: 2.5rem 0;
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+  .viz-title {
+    font-family: monospace;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #b44aff;
+    margin-bottom: 1rem;
+  }
+  .viz-caption {
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: #8888aa;
+    margin-top: 0.75rem;
+    text-align: center;
+  }
+  .substance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  .substance-card {
+    padding: 1.25rem;
+    border-radius: 10px;
+  }
+  .substance-header {
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  .substance-canvas {
+    width: 100%;
+    height: 280px;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+  .substance-desc {
+    font-size: 0.85rem;
+    color: #aaaacc;
+    line-height: 1.5;
+  }
+</style>
+
+<script is:inline>
+(function() {
+
+  // ─── 共享辅助函数 ───────────────────────────────────────────────
+  const C = { bg: '#0a0a0f', cyan: '#00f0ff', purple: '#b44aff', muted: '#8888aa', white: '#e0e0ff' };
+
+  function project3D(x, y, z, cx, cy, scale, rx, ry) {
+    // 简单的等距投影及旋转
+    const cosRY = Math.cos(ry), sinRY = Math.sin(ry);
+    const cosRX = Math.cos(rx), sinRX = Math.sin(rx);
+    // 绕 Y 轴旋转
+    const x1 = x * cosRY - z * sinRY;
+    const z1 = x * sinRY + z * cosRY;
+    // 绕 X 轴旋转
+    const y2 = y * cosRX - z1 * sinRX;
+    const z2 = y * sinRX + z1 * cosRX;
+    return { sx: cx + x1 * scale, sy: cy - y2 * scale, depth: z2 };
+  }
+
+  function drawArrow(ctx, x1, y1, x2, y2, color, width, label) {
+    const dx = x2 - x1, dy = y2 - y1;
+    const len = Math.sqrt(dx * dx + dy * dy);
+    if (len < 1) return;
+    const ux = dx / len, uy = dy / len;
+    const headLen = Math.max(8, width * 3);
+    ctx.save();
+    ctx.strokeStyle = color;
+    ctx.fillStyle = color;
+    ctx.lineWidth = width;
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2 - ux * headLen * 0.6, y2 - uy * headLen * 0.6);
+    ctx.stroke();
+    // 箭头头部
+    ctx.beginPath();
+    ctx.moveTo(x2, y2);
+    ctx.lineTo(x2 - ux * headLen - uy * headLen * 0.4, y2 - uy * headLen + ux * headLen * 0.4);
+    ctx.lineTo(x2 - ux * headLen + uy * headLen * 0.4, y2 - uy * headLen - ux * headLen * 0.4);
+    ctx.closePath();
+    ctx.fill();
+    if (label) {
+      ctx.font = 'bold 11px monospace';
+      ctx.fillStyle = color;
+      ctx.textBaseline = 'middle';
+      const lx = x2 + ux * 8;
+      const ly = y2 + uy * 8;
+      ctx.fillText(label, lx, ly);
+    }
+    ctx.restore();
+  }
+
+  // ─── 二维可视化 ─────────────────────────────────────────────
+  function init2D() {
+    const svg = document.getElementById('viz2d');
+    if (!svg) return;
+    const W = 500, H = 400;
+    const cx = W / 2, cy = H / 2;
+    const scale = 140;
+
+    const substances = [
+      { label: '咖啡',   alert:  0.80, engage:  0.40, color: '#ffe066' },
+      { label: '尼古丁', alert:  0.50, engage:  0.40, color: '#c8f0c8' },
+      { label: '酒精 (视剂量而定)',  alert: -0.60, engage: -0.50, color: '#aaddff' },
+    ];
+
+    let html = `
+      <defs>
+        ${substances.map((s,i) => `<marker id="ah${i}" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+          <path d="M0,0 L6,3 L0,6 Z" fill="${s.color}"/>
+        </marker>`).join('')}
+      </defs>
+      <!-- 白色轴线 -->
+      <line x1="20" y1="${cy}" x2="${W-24}" y2="${cy}" stroke="rgba(255,255,255,0.85)" stroke-width="2"/>
+      <line x1="${cx}" y1="${H-20}" x2="${cx}" y2="24" stroke="rgba(255,255,255,0.85)" stroke-width="2"/>
+      <!-- 轴线箭头 -->
+      <polygon points="${W-20},${cy} ${W-28},${cy-5} ${W-28},${cy+5}" fill="rgba(255,255,255,0.85)"/>
+      <polygon points="${cx},20 ${cx-5},28 ${cx+5},28" fill="rgba(255,255,255,0.85)"/>
+      <!-- 轴标签 -->
+      <text x="${W-22}" y="${cy-9}" font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="end">参与 →</text>
+      <text x="22"     y="${cy-9}" font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="start">← 脱离</text>
+      <text x="${cx}"  y="16"      font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="middle">↑ 警觉</text>
+      <text x="${cx}"  y="${H-4}"  font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="middle">↓ 镇静</text>
+    `;
+
+    substances.forEach((s, i) => {
+      const ex = cx + s.engage * scale;
+      const ey = cy - s.alert * scale;
+      const dx = ex - cx, dy = ey - cy;
+      const len = Math.sqrt(dx*dx + dy*dy);
+      const ux = dx/len, uy = dy/len;
+      const headLen = 22;
+      const lx = ex + ux * 14, ly = ey + uy * 14;
+      html += `
+        <line x1="${cx}" y1="${cy}" x2="${ex - ux*headLen*0.5}" y2="${ey - uy*headLen*0.5}"
+              stroke="${s.color}" stroke-width="4" stroke-linecap="round"/>
+        <polygon points="${ex},${ey} ${ex - ux*headLen - uy*headLen*0.45},${ey - uy*headLen + ux*headLen*0.45} ${ex - ux*headLen + uy*headLen*0.45},${ey - uy*headLen - ux*headLen*0.45}"
+                 fill="${s.color}"/>
+        <text x="${lx}" y="${ly+4}" font-size="11" font-family="monospace" fill="${s.color}" text-anchor="${s.engage > 0 ? 'start' : 'end'}">${s.label}</text>
+      `;
+    });
+
+    svg.innerHTML = html;
+  }
+
+  // ─── 三维可视化 ─────────────────────────────────────────────
+  function make3DCanvas(canvasId, substances, trajPoints, showTraj, W, H) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+    canvas.width = W; canvas.height = H;
+    const ctx = canvas.getContext('2d');
+    let rx = 0.4, ry = 0.5;
+    let dragging = false, lastX = 0, lastY = 0;
+
+    canvas.addEventListener('mousedown', e => { dragging = true; lastX = e.clientX; lastY = e.clientY; });
+    canvas.addEventListener('touchstart', e => { dragging = true; lastX = e.touches[0].clientX; lastY = e.touches[0].clientY; });
+    window.addEventListener('mouseup', () => dragging = false);
+    window.addEventListener('touchend', () => dragging = false);
+    canvas.addEventListener('mousemove', e => {
+      if (!dragging) return;
+      ry += (e.clientX - lastX) * 0.01;
+      rx -= (e.clientY - lastY) * 0.01;
+      lastX = e.clientX; lastY = e.clientY;
+    });
+    canvas.addEventListener('touchmove', e => {
+      if (!dragging) return;
+      ry += (e.touches[0].clientX - lastX) * 0.01;
+      rx -= (e.touches[0].clientY - lastY) * 0.01;
+      lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
+      e.preventDefault();
+    }, { passive: false });
+
+    const cx = W / 2, cy = H / 2, scale = Math.min(W, H) * 0.32;
+
+    function drawScene() {
+      ctx.fillStyle = C.bg;
+      ctx.fillRect(0, 0, W, H);
+
+      const corners = [
+        [0,0,0],[1,0,0],[1,1,0],[0,1,0],
+        [0,0,1],[1,0,1],[1,1,1],[0,1,1],
+      ];
+      const edges = [
+        [0,1],[1,2],[2,3],[3,0],
+        [4,5],[5,6],[6,7],[7,4],
+        [0,4],[1,5],[2,6],[3,7],
+      ];
+
+      const focalCx = cx - scale*0.4, focalCy = cy + scale*0.4;
+
+      ctx.save();
+      ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+      ctx.lineWidth = 0.75;
+      edges.forEach(([a, b]) => {
+        const ca = corners[a], cb = corners[b];
+        const pa = project3D(ca[1], ca[0], ca[2], focalCx, focalCy, scale*1.6, rx, ry);
+        const pb = project3D(cb[1], cb[0], cb[2], focalCx, focalCy, scale*1.6, rx, ry);
+        ctx.beginPath(); ctx.moveTo(pa.sx, pa.sy); ctx.lineTo(pb.sx, pb.sy); ctx.stroke();
+      });
+      ctx.restore();
+
+      const axisCol = 'rgba(255,255,255,0.85)';
+      const axDefs = [
+        { v: [1,0,0], label: '参与 →' },
+        { v: [0,1,0], label: '警觉 ↑'  },
+        { v: [0,0,1], label: '熵 →'},
+      ];
+      axDefs.forEach(ax => {
+        const o = project3D(0,0,0, focalCx, focalCy, scale*1.6, rx, ry);
+        const e = project3D(ax.v[0]*1.1, ax.v[1]*1.1, ax.v[2]*1.1, focalCx, focalCy, scale*1.6, rx, ry);
+        ctx.save();
+        ctx.strokeStyle = axisCol; ctx.lineWidth = 2.5;
+        ctx.beginPath(); ctx.moveTo(o.sx, o.sy); ctx.lineTo(e.sx, e.sy); ctx.stroke();
+        const dx=e.sx-o.sx, dy=e.sy-o.sy, len=Math.sqrt(dx*dx+dy*dy);
+        if (len>0) {
+          const ux=dx/len,uy=dy/len,ah=10;
+          ctx.fillStyle=axisCol;
+          ctx.beginPath(); ctx.moveTo(e.sx,e.sy); ctx.lineTo(e.sx-ux*ah-uy*ah*0.4, e.sy-uy*ah+ux*ah*0.4); ctx.lineTo(e.sx-ux*ah+uy*ah*0.4, e.sy-uy*ah-ux*ah*0.4); ctx.closePath(); ctx.fill();
+        }
+        ctx.font = 'bold 12px monospace'; ctx.fillStyle = 'rgba(255,255,255,0.9)';
+        ctx.fillText(ax.label, e.sx + 8, e.sy + 4);
+        ctx.restore();
+      });
+
+      if (showTraj && trajPoints) {
+        for (let i = 0; i < trajPoints.length - 1; i++) {
+          const a = trajPoints[i], b = trajPoints[i+1];
+          const pa = project3D(a[1],a[0],a[2], focalCx, focalCy, scale*1.6, rx, ry);
+          const pb = project3D(b[1],b[0],b[2], focalCx, focalCy, scale*1.6, rx, ry);
+          const t = i / (trajPoints.length - 1);
+          ctx.save();
+          ctx.strokeStyle = `hsl(${180 + t*60}, 90%, 60%)`;
+          ctx.lineWidth = 4;
+          ctx.beginPath(); ctx.moveTo(pa.sx,pa.sy); ctx.lineTo(pb.sx,pb.sy); ctx.stroke();
+          ctx.restore();
+        }
+        trajPoints.forEach((pt, i) => {
+          const p = project3D(pt[1],pt[0],pt[2], focalCx, focalCy, scale*1.6, rx, ry);
+          ctx.fillStyle = C.purple;
+          ctx.beginPath(); ctx.arc(p.sx,p.sy,4,0,Math.PI*2); ctx.fill();
+          if (pt[3]) {
+            ctx.font = '9px monospace'; ctx.fillStyle = C.white;
+            const txt = pt[3];
+            ctx.fillText(txt, p.sx+6, p.sy-2);
+          }
+        });
+      }
+    }
+
+    function loop() { ry += 0.0004; drawScene(); requestAnimationFrame(loop); }
+    loop();
+  }
+
+  function drawSubstance3D(canvas, engage, alert, entropy, color) {
+    const W = canvas.offsetWidth || 280, H = 280;
+    canvas.width = W; canvas.height = H;
+    const ctx = canvas.getContext('2d');
+    const cx = W / 2, cy = H / 2;
+    const scale = Math.min(W, H) * 0.38;
+    const axCol = 'rgba(255,255,255,0.9)';
+    let rx = 0.42, ry = 0.55;
+    let dragging = false, lastX = 0, lastY = 0;
+
+    function proj(x, y, z) {
+      const cosRY = Math.cos(ry), sinRY = Math.sin(ry);
+      const cosRX = Math.cos(rx), sinRX = Math.sin(rx);
+      const x1 = x * cosRY - z * sinRY;
+      const z1 = x * sinRY + z * cosRY;
+      const y2 = y * cosRX - z1 * sinRX;
+      return { sx: cx + x1 * scale, sy: cy - y2 * scale };
+    }
+
+    function drawArrow3D(x1, y1, z1, x2, y2, z2, col, lw) {
+      const steps = 4;
+      const stemR = 0.02;
+      const headR = 0.08;
+      const headL = 0.15;
+      const dx = x2 - x1, dy = y2 - y1, dz = z2 - z1;
+      const len = Math.sqrt(dx*dx + dy*dy + dz*dz);
+      if (len < 0.05) return;
+      const ux = dx/len, uy = dy/len, uz = dz/len;
+      let vx = 0, vy = 1, vz = 0;
+      if (Math.abs(uy) > 0.9) { vx = 1; vy = 0; }
+      const wx = uy*vz - uz*vy, wy = uz*vx - ux*vz, wz = ux*vy - uy*vx;
+      const wlen = Math.sqrt(wx*wx + wy*wy + wz*wz);
+      const nx = wx/wlen, ny = wy/wlen, nz = wz/wlen;
+      const mx = uy*nz - uz*ny, my = uz*nx - ux*nz, mz = ux*ny - uy*nx;
+
+      const headStart = len - headL;
+      for (let i = 0; i < steps; i++) {
+        const a1 = (i / steps) * Math.PI * 2;
+        const a2 = ((i + 1) / steps) * Math.PI * 2;
+        const p1 = proj(x1 + (mx*Math.cos(a1) + nx*Math.sin(a1)) * stemR, 
+                        y1 + (my*Math.cos(a1) + ny*Math.sin(a1)) * stemR, 
+                        z1 + (mz*Math.cos(a1) + nz*Math.sin(a1)) * stemR);
+        const p2 = proj(x1 + (mx*Math.cos(a2) + nx*Math.sin(a2)) * stemR, 
+                        y1 + (my*Math.cos(a2) + ny*Math.sin(a2)) * stemR, 
+                        z1 + (mz*Math.cos(a2) + nz*Math.sin(a2)) * stemR);
+        const p3 = proj(x1 + ux*headStart + (mx*Math.cos(a2) + nx*Math.sin(a2)) * stemR, 
+                        y1 + uy*headStart + (my*Math.cos(a2) + ny*Math.sin(a2)) * stemR, 
+                        z1 + uz*headStart + (mz*Math.cos(a2) + nz*Math.sin(a2)) * stemR);
+        const p4 = proj(x1 + ux*headStart + (mx*Math.cos(a1) + nx*Math.sin(a1)) * stemR, 
+                        y1 + uy*headStart + (my*Math.cos(a1) + ny*Math.sin(a1)) * stemR, 
+                        z1 + uz*headStart + (mz*Math.cos(a1) + nz*Math.sin(a1)) * stemR);
+        const shade = 0.7 + 0.3 * Math.cos(a1 + ry);
+        ctx.fillStyle = col;
+        ctx.globalAlpha = shade;
+        ctx.beginPath(); ctx.moveTo(p1.sx, p1.sy); ctx.lineTo(p2.sx, p2.sy); ctx.lineTo(p3.sx, p3.sy); ctx.lineTo(p4.sx, p4.sy); ctx.closePath(); ctx.fill();
+        ctx.globalAlpha = 1.0;
+      }
+      const tip = proj(x2, y2, z2);
+      for (let i = 0; i < steps; i++) {
+        const a1 = (i / steps) * Math.PI * 2;
+        const a2 = ((i + 1) / steps) * Math.PI * 2;
+        const p1 = proj(x1 + ux*headStart + (mx*Math.cos(a1) + nx*Math.sin(a1)) * headR, 
+                        y1 + uy*headStart + (my*Math.cos(a1) + ny*Math.sin(a1)) * headR, 
+                        z1 + uz*headStart + (mz*Math.cos(a1) + nz*Math.sin(a1)) * headR);
+        const p2 = proj(x1 + ux*headStart + (mx*Math.cos(a2) + nx*Math.sin(a2)) * headR, 
+                        y1 + uy*headStart + (my*Math.cos(a2) + ny*Math.sin(a2)) * headR, 
+                        z1 + uz*headStart + (mz*Math.cos(a2) + nz*Math.sin(a2)) * headR);
+        const shade = 0.5 + 0.5 * Math.cos(a1 + ry);
+        ctx.fillStyle = col;
+        ctx.globalAlpha = shade;
+        ctx.beginPath(); ctx.moveTo(p1.sx, p1.sy); ctx.lineTo(p2.sx, p2.sy); ctx.lineTo(tip.sx, tip.sy); ctx.closePath(); ctx.fill();
+        ctx.globalAlpha = 1.0;
+      }
+    }
+
+    function draw() {
+      ctx.fillStyle = C.bg;
+      ctx.fillRect(0,0,W,H);
+      const axes = [ [1,0,0], [-1,0,0], [0,1,0], [0,-1,0], [0,0,1], [0,0,-1] ];
+      const axLabels = ['参与', null, '警觉', null, '熵', null];
+      axes.forEach((v, i) => {
+        const o = proj(0,0,0);
+        const e = proj(v[0]*1.1, v[1]*1.1, v[2]*1.1);
+        ctx.save();
+        ctx.strokeStyle = axCol;
+        ctx.lineWidth = 1.5;
+        if (i % 2 === 1) ctx.setLineDash([3,5]);
+        ctx.beginPath(); ctx.moveTo(o.sx,o.sy); ctx.lineTo(e.sx,e.sy); ctx.stroke();
+        ctx.setLineDash([]);
+        if (i % 2 === 0) {
+          const dx=e.sx-o.sx, dy=e.sy-o.sy, len=Math.sqrt(dx*dx+dy*dy);
+          if (len>0) {
+            const ux=dx/len, uy=dy/len, ah=7;
+            ctx.fillStyle=axCol;
+            ctx.beginPath(); ctx.moveTo(e.sx,e.sy);
+            ctx.lineTo(e.sx-ux*ah-uy*ah*0.4, e.sy-uy*ah+ux*ah*0.4);
+            ctx.lineTo(e.sx-ux*ah+uy*ah*0.4, e.sy-uy*ah-ux*ah*0.4);
+            ctx.closePath(); ctx.fill();
+          }
+          if (axLabels[i]) {
+            ctx.font = '9px monospace'; ctx.fillStyle = axCol;
+            ctx.fillText(axLabels[i], e.sx+4, e.sy+3);
+          }
+        }
+        ctx.restore();
+      });
+      drawArrow3D(0, 0, 0, engage, alert, entropy, color, 6);
+    }
+
+    draw();
+    requestAnimationFrame(function loop() { ry += 0.0004; draw(); requestAnimationFrame(loop); });
+  }
+
+  function initEntropyAxis() {
+    const canvas = document.getElementById('entropy-axis-canvas');
+    if (!canvas) return;
+    const W = canvas.offsetWidth || 500;
+    const H = W < 400 ? 260 : 200;
+    canvas.width = W; canvas.height = H;
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = C.bg;
+    ctx.fillRect(0, 0, W, H);
+    const pad = Math.max(20, W * 0.06);
+    const axisY = Math.floor(H / 2);
+    const axLen = W - pad * 2;
+    const grad = ctx.createLinearGradient(pad, 0, W - pad, 0);
+    grad.addColorStop(0,   'rgba(102,102,153,0.5)');
+    grad.addColorStop(0.45,'rgba(60,80,120,0.3)');
+    grad.addColorStop(0.55,'rgba(60,80,120,0.3)');
+    grad.addColorStop(1,   'rgba(255,68,68,0.5)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(pad, axisY - 7, axLen, 14);
+    ctx.strokeStyle = 'rgba(255,255,255,0.85)'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(pad, axisY); ctx.lineTo(W - pad, axisY); ctx.stroke();
+    const ah = 7; ctx.fillStyle = 'rgba(255,255,255,0.85)';
+    ctx.beginPath(); ctx.moveTo(W-pad,axisY); ctx.lineTo(W-pad-ah,axisY-ah/2); ctx.lineTo(W-pad-ah,axisY+ah/2); ctx.closePath(); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(pad,axisY); ctx.lineTo(pad+ah,axisY-ah/2); ctx.lineTo(pad+ah,axisY+ah/2); ctx.closePath(); ctx.fill();
+    const states = [
+      { x: 0.08, label: '抑郁', sub: '僵化，受困',    color: '#7777aa', above: true  },
+      { x: 0.50, label: '清醒',      sub: '基准状态',        color: 'rgba(255,255,255,0.85)', above: false },
+      { x: 0.78, label: 'LSD',        sub: '高熵',    color: '#ff8844', above: true  },
+      { x: 1.00, label: '精神病',  sub: '无过滤',       color: '#ff4444', above: false },
+    ];
+    states.forEach(s => {
+      const x = pad + s.x * axLen;
+      const above = s.above;
+      const spread = W < 400 ? 28 : 22;
+      ctx.strokeStyle = s.color; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(x, axisY-6); ctx.lineTo(x, axisY+6); ctx.stroke();
+      ctx.fillStyle = s.color;
+      ctx.beginPath(); ctx.arc(x, axisY, 4, 0, Math.PI*2); ctx.fill();
+      const labelY = above ? axisY - spread : axisY + spread;
+      ctx.strokeStyle = s.color; ctx.lineWidth = 0.75; ctx.setLineDash([2,3]);
+      ctx.beginPath(); ctx.moveTo(x, above ? axisY-8 : axisY+8); ctx.lineTo(x, above ? labelY+4 : labelY-4); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.font = `bold ${W < 400 ? 9 : 10}px monospace`; ctx.fillStyle = s.color; ctx.textAlign = 'center';
+      ctx.fillText(s.label, x, labelY);
+      ctx.font = `${W < 400 ? 8 : 9}px monospace`; ctx.fillStyle = 'rgba(255,255,255,0.45)';
+      ctx.fillText(s.sub, x, above ? labelY - 11 : labelY + 11);
+    });
+  }
+
+  function initTrajectory() {
+    const points = [
+      [0.0,  0.0,  0.0,  'T+0 清醒'],
+      [0.2,  0.3,  0.6,  'T+1h 起效'],
+      [0.45, 0.6,  0.9,  'T+2h'],
+      [0.60, 0.80, 0.95, 'T+3h 峰值'],
+      [0.55, 0.70, 0.93, 'T+5h 平台期'],
+      [0.45, 0.55, 0.85, 'T+6h'],
+      [0.30, 0.40, 0.50, 'T+8h 消退'],
+      [0.15, 0.25, 0.25, 'T+10h'],
+      [0.01, 0.05, 0.05, 'T+12h 清醒'],
+    ];
+    make3DCanvas('traj-canvas', null, points, true, 500, 380);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    init2D();
+    initEntropyAxis();
+    document.querySelectorAll('.substance-canvas').forEach(canvas => {
+      const raw = canvas.getAttribute('data-vec').split(',').map(Number);
+      const color = canvas.getAttribute('data-color');
+      drawSubstance3D(canvas, raw[0], raw[1], raw[2], color);
+    });
+    initTrajectory();
+  });
+})();
+</script>
+
+</ArticleLayout>

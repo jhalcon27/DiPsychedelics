@@ -1,0 +1,634 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+---
+<ArticleLayout
+  title="Qu'est-ce que ça fait d'être sous acide ?"
+  subtitle="Un modèle vectoriel des états de conscience"
+  description="Un cadre pour cartographier les états altérés de conscience en utilisant trois axes : vigilance, engagement et entropie neuronale. Chaque substance est un vecteur. Les psychédéliques poussent vers un territoire que la vie ordinaire n'atteint jamais."
+  image="/images/what-is-it-like-to-be-on-acid.jpg"
+  date="2026-04-16"
+  readTime="14 min de lecture"
+  tags={['Conscience', 'Psychédéliques', 'LSD', 'Philosophie de l\'esprit', 'Phénoménologie']}
+  draft={false}
+  lang="fr"
+>
+
+<p>Chaque ami qui découvre que j'ai pris des psychédéliques pose la même question : qu'est-ce que ça fait ? J'ai raconté l'histoire maintes fois, sous de nombreuses versions, et à un moment donné, j'en ai eu assez de chercher les mêmes approximations. J'ai donc commencé à cartographier cela à la place.</p>
+
+<p>Vous avez déjà un modèle fonctionnel des états modifiés dans votre tête. Vous savez ce que fait le café à 7h du matin : plus vif, plus rapide, plus présent. Vous savez ce que fait une bière un vendredi soir : les bords s'adoucissent, l'urgence diminue, la pensée ralentit vers quelque chose de plus agréable. Vous connaissez la différence entre être allongé à moitié endormi et tomber réellement dans le sommeil. Et si vous avez fait un rêve lucide, vous savez qu'« endormi » n'est pas synonyme d'« absent », l'esprit peut être intensément actif tandis que le corps est complètement immobile.</p>
+
+<p>Ces sentiments peuvent être décrits comme des positions dans un espace défini par les variables de notre conscience. Une fois que vous commencez à les cartographier, la structure devient claire, et il devient possible de demander : où se situe exactement un psychédélique (pris dans un cadre légal) dans cet espace ? Et pourquoi cela ne ressemble à rien d'autre ?</p>
+
+<p>Ce qui suit est un cadre de travail. Les neurosciences le soutiennent. L'objectif est un système de coordonnées suffisamment précis pour placer chaque état de conscience, y compris ceux qui résistent à la description, sur une carte partagée.</p>
+
+<h2>Deux axes que vous comprenez déjà</h2>
+
+<p>Commencez par la dimension la plus fondamentale : votre niveau d'éveil. Appelons cela la <strong>Vigilance</strong>, allant d'un état totalement sédaté à une extrémité à une vigilance maximale à l'autre. Le sommeil profond est proche d'une extrémité. Un café fort à 6h du matin est proche de l'autre. L'anesthésie va encore plus loin.</p>
+
+<p>Le deuxième axe est l'<strong>Engagement</strong> : à quel point votre esprit est activement orienté vers quelque chose. Vous pouvez être techniquement éveillé mais mentalement absent, en train de scroller sans voir, présent physiquement mais nulle part en particulier. C'est un faible engagement. Les <a href="https://en.wikipedia.org/wiki/Flow_(psychology)" target="_blank" rel="noopener">états de Flow</a>, les rêves lucides, les conversations intenses, tout cela se situe dans la partie haute.</p>
+
+<p>Ensemble, ces deux axes vous donnent une carte en 2D. Les substances que vous connaissez déjà atterrissent à des endroits prévisibles. Le café vous pousse vers le haut et vers la droite. L'alcool vous tire vers le bas et vers la gauche. Un somnifère vous emmène encore plus bas. Le graphique ci-dessous en montre quelques-unes, tracées comme des vecteurs à partir de la ligne de base. La direction de chaque flèche est la direction dans laquelle la substance vous déplace. La longueur indique approximativement la distance.</p>
+
+<div class="viz-container glass-card" id="viz2d-container">
+  <div class="viz-title">Espace d'état 2D : Vigilance × Engagement</div>
+  <svg id="viz2d" width="100%" viewBox="0 0 500 400" style="display:block;"></svg>
+  <div class="viz-caption">Chaque flèche montre la direction dans laquelle une substance a tendance à déplacer votre état de conscience par rapport à la base. Ces effets sont très variables selon la dose, le set et le setting, et diffèrent considérablement d'une personne à l'autre. Considérez les vecteurs comme indicatifs, non prescriptifs.</div>
+</div>
+
+<h2>Pourquoi deux dimensions ne suffisent pas</h2>
+
+<p>La carte 2D s'effondre en un point précis. Un état de flow concentré et une attaque de panique atterrissent tous deux dans le quadrant haute vigilance/haut engagement. Ils ne se ressemblent pas du tout. Un pic de MDMA et une méditation profonde se situent aussi approximativement dans la même région. La carte ne peut pas les distinguer. Il manque quelque chose.</p>
+
+<p>La dimension manquante est celle qui mesure comment le cerveau s'organise à un moment donné. Non pas si vous êtes éveillé ou engagé, mais quelle est la structure sous-jacente de votre expérience. Votre pensée est-elle ordonnée, linéaire, cohérente ? Ou est-elle en train de se fragmenter, de boucler, de se dissoudre dans le bruit ?</p>
+
+<p>Voyez les choses ainsi. À une extrémité de cet axe se trouve le cerveau dépressif : rigide, coincé, tournant en boucle sans fin, incapable de générer de nouveaux modèles ou d'échapper à ses propres prédictions. Le monde se rétrécit. Rien ne surprend. Ce n'est pas une faible vigilance ou un faible engagement, c'est un cerveau qui a perdu sa flexibilité. À l'autre extrémité se trouve quelque chose comme une psychose aiguë : trop de signaux, trop peu de structure, les filtres ont disparu, tout est également fort et également significatif. Les psychédéliques poussent délibérément vers cette fin, à une intensité moindre, avec la dose sédative supprimée.</p>
+
+<p>Robin Carhart-Harris a formalisé cela sous le nom d'hypothese du <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3909994/" target="_blank" rel="noopener">Cerveau Entropique (2014)</a>, étendue dans le <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6588209/" target="_blank" rel="noopener">modèle REBUS (2019)</a>. L'affirmation est mesurable : <a href="https://www.nature.com/articles/srep46421" target="_blank" rel="noopener">les psychédéliques augmentent l'entropie neuronale observée par EEG et IRMf</a>. Les modèles prédictifs descendants du cerveau se relâchent. Plus de signaux parviennent d'en bas.</p>
+
+<p>Appelons cet axe <strong>Entropie</strong>, allant de Rigide (cerveau dépressif) à Entropique (cerveau psychotique ou psychédélique). La vie ordinaire se situe près du milieu. La méditation, curieusement, se déplace vers l'ordre par une culture délibérée, et non par la suppression. Cela la rend structurellement différente de la dépression, même si les deux obtiennent un score faible en entropie.</p>
+
+<div class="viz-container glass-card" id="entropy-axis-container">
+  <div class="viz-title">L'axe de l'Entropie</div>
+  <canvas id="entropy-axis-canvas" style="width:100%;display:block;"></canvas>
+  <div class="viz-caption">Du cerveau rigide dépressif au cerveau entropique psychédélique. Le même axe explique les deux extrémités.</div>
+</div>
+
+<h2>L'espace 3D complet</h2>
+
+<p>Avec trois axes, chaque substance devient un vecteur à trois composantes : (Vigilance, Engagement, Entropie). Le point d'origine (0, 0, 0) est la sobriété de base — suffisamment vigilant pour la vie ordinaire, engagé dans le monde à un niveau normal, l'activité cérébrale n'étant ni particulièrement rigide ni particulièrement chaotique. La direction de chaque vecteur vous indique ce qu'une substance fait. La longueur indique à quel point.</p>
+
+
+
+<h2>Une substance à la fois</h2>
+
+<p>Laissez-moi parcourir chaque vecteur explicitement, avec une petite visualisation pour chacun.</p>
+
+<div class="substance-grid">
+
+  <div class="substance-card glass-card">
+    <div class="substance-header" style="color:#ffe066">Café / Caféine</div>
+    <canvas class="substance-canvas" data-vec="0.4,0.95,0.05" data-color="#ffe066"></canvas>
+    <div class="substance-desc">Forte vigilance, léger coup de pouce à l'engagement, effet d'entropie négligeable. <a href="https://www.jneurosci.org/content/31/27/10067" target="_blank" rel="noopener">L'antagonisme de l'adénosine lève le frein sur l'éveil.</a> Rien d'étrange n'arrive à la structure de l'expérience — elle tourne juste plus vite.</div>
+  </div>
+
+  <div class="substance-card glass-card">
+    <div class="substance-header" style="color:#c8f0c8">Nicotine</div>
+    <canvas class="substance-canvas" data-vec="0.5,0.4,0.0" data-color="#c8f0c8"></canvas>
+    <div class="substance-desc">Similaire à la caféine mais plus doux et plus court. Vigilance modérée, engagement léger. Entropie essentiellement inchangée. Principalement un effet cholinergique et dopaminergique sur les circuits de l'attention.</div>
+  </div>
+
+  <div class="substance-card glass-card">
+    <div class="substance-header" style="color:#aaddff">Alcool</div>
+    <canvas class="substance-canvas" data-vec="-0.6,-0.5,0.15" data-color="#aaddff"></canvas>
+    <div class="substance-desc">Sédation GABAergique. La vigilance et l'engagement diminuent tous deux. Une légère augmentation de l'entropie à faibles doses (inhibition relâchée) puis une suppression à mesure que la dose augmente. Le vecteur pointe vers le bas et vers l'intérieur.</div>
+  </div>
+
+  <div class="substance-card glass-card">
+    <div class="substance-header" style="color:#88ff88">Cannabis</div>
+    <canvas class="substance-canvas" data-vec="-0.1,-0.2,0.6" data-color="#88ff88"></canvas>
+    <div class="substance-desc">Vigilance variable, léger désengagement, augmentation notable de l'entropie. L' <a href="https://www.frontiersin.org/articles/10.3389/fnbeh.2021.722796/full" target="_blank" rel="noopener">agonisme CB1 relâche les contraintes associatives</a>, produisant la reconnaissance de motifs caractéristique, la paranoïa et des connexions inhabituelles. La composante entropique domine.</div>
+  </div>
+
+  <div class="substance-card glass-card">
+    <div class="substance-header" style="color:#ff88cc">MDMA</div>
+    <canvas class="substance-canvas" data-vec="0.7,0.9,0.3" data-color="#ff88cc"></canvas>
+    <div class="substance-desc">Forte vigilance, engagement très élevé, entropie modérée. Le <a href="https://www.nature.com/articles/s41386-020-00803-8" target="_blank" rel="noopener">raz-de-marée de sérotonine et de dopamine</a> produit un engagement pro-social intense. L'entropie est présente mais structurée, ce qui explique pourquoi la MDMA semble chaleureuse et connectée plutôt que déstabilisante.</div>
+  </div>
+
+  <div class="substance-card glass-card">
+    <div class="substance-header" style="color:#cc88ff">Kétamine</div>
+    <canvas class="substance-canvas" data-vec="-0.5,-0.7,0.5" data-color="#cc88ff"></canvas>
+    <div class="substance-desc"><a href="https://www.nature.com/articles/s41467-020-20190-4" target="_blank" rel="noopener">L'antagonisme NMDA produit une dissociation</a> : la vigilance et l'engagement chutent brutalement tandis que l'entropie augmente. Vous êtes détaché du monde mais intérieurement le signal est chaotique. Le "k-hole" est l'extrême de ce vecteur.</div>
+  </div>
+
+  <div class="substance-card glass-card">
+    <div class="substance-header" style="color:#ffffff">Méditation profonde (Jhana)</div>
+    <canvas class="substance-canvas" data-vec="0.6,0.7,-0.8" data-color="#ffffff"></canvas>
+    <div class="substance-desc">Forte vigilance, engagement élevé, entropie fortement négative — l'état le plus ordonné que le cerveau puisse produire volontairement. C'est le pôle opposé des psychédéliques sur l'axe de l'entropie, atteint par une <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6893234/" target="_blank" rel="noopener">régulation descendante soutenue</a>, et non par la suppression chimique.</div>
+  </div>
+
+  <div class="substance-card glass-card">
+    <div class="substance-header" style="color:#666699">Dépression</div>
+    <canvas class="substance-canvas" data-vec="-0.1,-0.6,-0.9" data-color="#666699"></canvas>
+    <div class="substance-desc">Vigilance variable, faible engagement, rigidité extrême. Le cerveau est piégé dans ses propres boucles prédictives, incapable de se mettre à jour. C'est la signification clinique de l'axe de l'entropie : la dépression et les psychédéliques sont des opposés sur celui-ci, ce qui explique en partie <a href="https://www.nejm.org/doi/full/10.1056/NEJMoa2206443" target="_blank" rel="noopener">pourquoi la thérapie par la psilocybine fonctionne</a>.</div>
+  </div>
+
+  <div class="substance-card glass-card">
+    <div class="substance-header" style="color:#ff4444">LSD / Psilocybine</div>
+    <canvas class="substance-canvas" data-vec="0.85,0.8,0.95" data-color="#ff4444"></canvas>
+    <div class="substance-desc">Entropie maximale, vigilance élevée, engagement élevé. Le vecteur pointe vers une région de l'espace d'état qu'aucune autre substance et aucun état mental ordinaire n'atteint. Pleinement éveillé, pleinement engagé, et la structure même de l'expérience est déstabilisée. C'est cette combinaison qui produit tout ce qui est décrit ci-dessous.</div>
+  </div>
+
+</div>
+
+<h2>À quoi cela ressemble-t-il vraiment ?</h2>
+
+<p>La description vectorielle vous indique où vous finissez. Elle ne capture pas l'expérience de s'y rendre, ni ce que c'est que d'habiter cette coordonnée. Ce qui suit est basé sur une expérience personnelle avec des psychédéliques pris dans des cadres contrôlés.</p>
+
+<p><strong>Distorsion temporelle.</strong> L'axe de l'engagement devient récursif. Vous devenez engagé par votre propre engagement. Chaque moment d'attention contient des métadonnées sur l'attention elle-même. Une minute peut sembler architecturalement complexe, stratifiée, bien plus longue qu'une minute. Il ne s'agit pas nécessairement d'un ralentissement du temps (à moins d'être sous une énorme gravité ou de voyager très vite), c'est le temps qui gagne en texture. En réalité, nous ne savons pas encore. Les expériences de boucles temporelles existent, et il pourrait y avoir un autre mécanisme biochimique d'expérience du temps à l'œuvre. Les axes se mélangent.</p>
+
+<p><strong>Dissolution de l'ego.</strong> Le sentiment stable d'un soi localisé, la chose qui fournit normalement des coordonnées fixes dans l'espace, commence à se dissoudre. Vous n'êtes plus un point avec une position. La frontière entre sujet et objet s'adoucit, puis disparaît. Ce qui reste est une expérience sans expérimentateur. Certaines personnes trouvent cela terrifiant. D'autres trouvent cela révélateur. Cela dépend de l'endroit où vous avez commencé.</p>
+
+<p><strong>Visualisations géométriques et synesthésie.</strong> Lorsque l'axe de l'entropie atteint son pic, les filtres perceptuels du cerveau se relâchent. Le cortex visuel génère de la structure à partir du bruit. Fractales, motifs géométriques, superpositions de couleurs sur des surfaces qui n'en ont pas. Simultanément, les séparations entre les modalités sensorielles s'affaiblissent : les sons acquièrent des qualités visuelles, les émotions ont des textures spatiales, la musique devient architecture. Les axes se mélangent.</p>
+
+<p><strong>La trajectoire.</strong> L'expérience n'est pas statique. Elle trace un chemin à travers l'espace 3D sur douze heures. La visualisation ci-dessous montre cet arc.</p>
+
+<div class="viz-container glass-card" id="traj-container">
+  <div class="viz-title">Trajectoire du LSD à travers l'espace d'état (T+0 à T+12h)</div>
+  <canvas id="traj-canvas" style="width:100%;display:block;"></canvas>
+  <div class="viz-caption">Le chemin depuis la base à travers la montée, le pic, le plateau et la descente. Faites glisser pour faire pivoter.</div>
+</div>
+
+<h2>Ce cadre n'est pas complet</h2>
+
+<p>Trois axes sont un point de départ. L'espace de l'expérience consciente a presque certainement plus de dimensions que cela. La valence (à quel point une expérience semble bonne ou mauvaise) n'est pas capturée ici, par exemple. Pas plus que la géométrie de l'expérience visuelle, le degré de pensée autoréférentielle, ou le sentiment de sens et de signification que les psychédéliques amplifient souvent sans nécessairement déplacer beaucoup la vigilance ou l'engagement.</p>
+
+<p>Le <a href="https://www.qualiaresearchinstitute.org/" target="_blank" rel="noopener">Qualia Research Institute</a> a développé un cadre plus complet pour cartographier les états de conscience, incluant des paramètres comme la symétrie de l'expérience, la valence et ce qu'ils appellent la « géométrie des qualia ». Leur travail vaut la peine d'être exploré si vous souhaitez aller plus loin. Un point de départ utile est l'écriture d'Andrés Gómez Emilsson sur <a href="https://qualiacomputing.com/2020/12/17/the-symmetry-theory-of-valence-2020-presentation/" target="_blank" rel="noopener">la théorie de la symétrie de la valence</a>, qui tente d'expliquer pourquoi certains états semblent bons et d'autres non en termes de structure mathématique des modèles neuronaux.</p>
+
+<p>Le modèle à trois axes ici échange la complétude contre la clarté. Il est conçu pour répondre à une question spécifique : pourquoi un psychédélique semble-t-il si catégoriquement différent de tout ce que vous avez vécu par ailleurs ? L'axe de l'entropie fait la majeure partie de ce travail.</p>
+
+<h2>Pourquoi ce cadre est important</h2>
+
+<p>La dépression et les fortes doses de psychédéliques sont des opposés sur l'axe de l'entropie. Cette simple observation fait beaucoup de travail explicatif : elle suggère pourquoi la thérapie assistée par la psilocybine produit une rémission dans la dépression résistante au traitement, pourquoi une seule session peut briser des modèles que des années de thérapie par la parole n'ont pu ébranler, et pourquoi l'effet persiste parfois pendant des mois. Vous ne changez pas seulement le contenu de la pensée. Vous changez le régime dans lequel le cerveau opère.</p>
+
+<p>La formulation vectorielle a également une utilité pratique : les vecteurs s'additionnent. Le café associé au cannabis vous déplace le long de plusieurs axes simultanément. La vigilance de la caféine contrebalance partiellement le désengagement du THC, tandis que l'entropie du cannabis demeure. Ce n'est pas juste de l'intuition, c'est une prédiction structurelle que fait le cadre, et cela correspond à ce que rapportent les gens qui les combinent.</p>
+
+<p>Construire cette cartographie n'est pas un luxe philosophique. Pour la thérapie psychédélique, pour comprendre ce qu'est réellement la souffrance à un niveau structurel, pour la question à long terme de savoir quels types de conscience sont possibles dans les systèmes artificiels, avoir un système de coordonnées est important. Le territoire ne change pas. Mais une carte vous aide à naviguer, et vous aide à expliquer à quelqu'un d'autre ce que vous y avez trouvé.</p>
+
+<style>
+  .viz-container {
+    margin: 2.5rem 0;
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+  .viz-title {
+    font-family: monospace;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #b44aff;
+    margin-bottom: 1rem;
+  }
+  .viz-caption {
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: #8888aa;
+    margin-top: 0.75rem;
+    text-align: center;
+  }
+  .substance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  .substance-card {
+    padding: 1.25rem;
+    border-radius: 10px;
+  }
+  .substance-header {
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  .substance-canvas {
+    width: 100%;
+    height: 280px;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+  .substance-desc {
+    font-size: 0.85rem;
+    color: #aaaacc;
+    line-height: 1.5;
+  }
+</style>
+
+<script is:inline>
+(function() {
+
+  // ─── Aides partagées ───────────────────────────────────────────────
+  const C = { bg: '#0a0a0f', cyan: '#00f0ff', purple: '#b44aff', muted: '#8888aa', white: '#e0e0ff' };
+
+  function project3D(x, y, z, cx, cy, scale, rx, ry) {
+    const cosRY = Math.cos(ry), sinRY = Math.sin(ry);
+    const cosRX = Math.cos(rx), sinRX = Math.sin(rx);
+    const x1 = x * cosRY - z * sinRY;
+    const z1 = x * sinRY + z * cosRY;
+    const y2 = y * cosRX - z1 * sinRX;
+    const z2 = y * sinRX + z1 * cosRX;
+    return { sx: cx + x1 * scale, sy: cy - y2 * scale, depth: z2 };
+  }
+
+  function drawArrow(ctx, x1, y1, x2, y2, color, width, label) {
+    const dx = x2 - x1, dy = y2 - y1;
+    const len = Math.sqrt(dx * dx + dy * dy);
+    if (len < 1) return;
+    const ux = dx / len, uy = dy / len;
+    const headLen = Math.max(8, width * 3);
+    ctx.save();
+    ctx.strokeStyle = color;
+    ctx.fillStyle = color;
+    ctx.lineWidth = width;
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2 - ux * headLen * 0.6, y2 - uy * headLen * 0.6);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x2, y2);
+    ctx.lineTo(x2 - ux * headLen - uy * headLen * 0.4, y2 - uy * headLen + ux * headLen * 0.4);
+    ctx.lineTo(x2 - ux * headLen + uy * headLen * 0.4, y2 - uy * headLen - ux * headLen * 0.4);
+    ctx.closePath();
+    ctx.fill();
+    if (label) {
+      ctx.font = 'bold 11px monospace';
+      ctx.fillStyle = color;
+      ctx.textBaseline = 'middle';
+      const lx = x2 + ux * 8;
+      const ly = y2 + uy * 8;
+      ctx.fillText(label, lx, ly);
+    }
+    ctx.restore();
+  }
+
+  function drawAxis2D(ctx, ox, oy, dx, dy, label, color) {
+    ctx.save();
+    ctx.strokeStyle = color || '#333355';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([4, 4]);
+    ctx.beginPath();
+    ctx.moveTo(ox - dx * 120, oy - dy * 120);
+    ctx.lineTo(ox + dx * 120, oy + dy * 120);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.font = '11px monospace';
+    ctx.fillStyle = C.muted;
+    ctx.textAlign = 'center';
+    ctx.fillText(label, ox + dx * 128, oy + dy * 128 + 4);
+    ctx.restore();
+  }
+
+  // ─── Visualisation 2D ─────────────────────────────────────────────
+  function init2D() {
+    const svg = document.getElementById('viz2d');
+    if (!svg) return;
+    const W = 500, H = 400;
+    const cx = W / 2, cy = H / 2;
+    const scale = 140;
+
+    const substances = [
+      { label: 'Café',   alert:  0.80, engage:  0.40, color: '#ffe066' },
+      { label: 'Nicotine', alert:  0.50, engage:  0.40, color: '#c8f0c8' },
+      { label: 'Alcool (selon dose)',  alert: -0.60, engage: -0.50, color: '#aaddff' },
+    ];
+
+    let html = `
+      <defs>
+        ${substances.map((s,i) => `<marker id="ah${i}" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+          <path d="M0,0 L6,3 L0,6 Z" fill="${s.color}"/>
+        </marker>`).join('')}
+      </defs>
+      <line x1="20" y1="${cy}" x2="${W-24}" y2="${cy}" stroke="rgba(255,255,255,0.85)" stroke-width="2"/>
+      <line x1="${cx}" y1="${H-20}" x2="${cx}" y2="24" stroke="rgba(255,255,255,0.85)" stroke-width="2"/>
+      <polygon points="${W-20},${cy} ${W-28},${cy-5} ${W-28},${cy+5}" fill="rgba(255,255,255,0.85)"/>
+      <polygon points="${cx},20 ${cx-5},28 ${cx+5},28" fill="rgba(255,255,255,0.85)"/>
+      <text x="${W-22}" y="${cy-9}" font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="end">Engagé →</text>
+      <text x="22"     y="${cy-9}" font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="start">← Désengagé</text>
+      <text x="${cx}"  y="16"      font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="middle">↑ Vigilant</text>
+      <text x="${cx}"  y="${H-4}"  font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="middle">↓ Sédaté</text>
+    `;
+
+    substances.forEach((s, i) => {
+      const ex = cx + s.engage * scale;
+      const ey = cy - s.alert * scale;
+      const dx = ex - cx, dy = ey - cy;
+      const len = Math.sqrt(dx*dx + dy*dy);
+      const ux = dx/len, uy = dy/len;
+      const headLen = 22;
+      const lx = ex + ux * 14, ly = ey + uy * 14;
+      html += `
+        <line x1="${cx}" y1="${cy}" x2="${ex - ux*headLen*0.5}" y2="${ey - uy*headLen*0.5}"
+              stroke="${s.color}" stroke-width="4" stroke-linecap="round"/>
+        <polygon points="${ex},${ey} ${ex - ux*headLen - uy*headLen*0.45},${ey - uy*headLen + ux*headLen*0.45} ${ex - ux*headLen + uy*headLen*0.45},${ey - uy*headLen - ux*headLen*0.45}"
+                 fill="${s.color}"/>
+        <text x="${lx}" y="${ly+4}" font-size="11" font-family="monospace" fill="${s.color}" text-anchor="${s.engage > 0 ? 'start' : 'end'}">${s.label}</text>
+      `;
+    });
+
+    svg.innerHTML = html;
+  }
+
+  // ─── Visualisation 3D ─────────────────────────────────────────────
+  function make3DCanvas(canvasId, substances, trajPoints, showTraj, W, H) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+    canvas.width = W; canvas.height = H;
+    const ctx = canvas.getContext('2d');
+    let rx = 0.4, ry = 0.5;
+    let dragging = false, lastX = 0, lastY = 0;
+
+    canvas.addEventListener('mousedown', e => { dragging = true; lastX = e.clientX; lastY = e.clientY; });
+    canvas.addEventListener('touchstart', e => { dragging = true; lastX = e.touches[0].clientX; lastY = e.touches[0].clientY; });
+    window.addEventListener('mouseup', () => dragging = false);
+    window.addEventListener('touchend', () => dragging = false);
+    canvas.addEventListener('mousemove', e => {
+      if (!dragging) return;
+      ry += (e.clientX - lastX) * 0.01;
+      rx -= (e.clientY - lastY) * 0.01;
+      lastX = e.clientX; lastY = e.clientY;
+    });
+    canvas.addEventListener('touchmove', e => {
+      if (!dragging) return;
+      ry += (e.touches[0].clientX - lastX) * 0.01;
+      rx -= (e.touches[0].clientY - lastY) * 0.01;
+      lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
+      e.preventDefault();
+    }, { passive: false });
+
+    const cx = W / 2, cy = H / 2, scale = Math.min(W, H) * 0.32;
+
+    function drawScene() {
+      ctx.fillStyle = C.bg;
+      ctx.fillRect(0, 0, W, H);
+
+      const corners = [
+        [0,0,0],[1,0,0],[1,1,0],[0,1,0],
+        [0,0,1],[1,0,1],[1,1,1],[0,1,1],
+      ];
+      const edges = [
+        [0,1],[1,2],[2,3],[3,0],
+        [4,5],[5,6],[6,7],[7,4],
+        [0,4],[1,5],[2,6],[3,7],
+      ];
+
+      const focalCx = cx - scale*0.4, focalCy = cy + scale*0.4;
+
+      ctx.save();
+      ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+      ctx.lineWidth = 0.75;
+      edges.forEach(([a, b]) => {
+        const ca = corners[a], cb = corners[b];
+        const pa = project3D(ca[1], ca[0], ca[2], focalCx, focalCy, scale*1.6, rx, ry);
+        const pb = project3D(cb[1], cb[0], cb[2], focalCx, focalCy, scale*1.6, rx, ry);
+        ctx.beginPath(); ctx.moveTo(pa.sx, pa.sy); ctx.lineTo(pb.sx, pb.sy); ctx.stroke();
+      });
+      ctx.restore();
+
+      const axisCol = 'rgba(255,255,255,0.85)';
+      const axDefs = [
+        { v: [1,0,0], label: 'Engagé →' },
+        { v: [0,1,0], label: 'Vigilant ↑'  },
+        { v: [0,0,1], label: 'Entropie →'},
+      ];
+      axDefs.forEach(ax => {
+        const o = project3D(0,0,0, focalCx, focalCy, scale*1.6, rx, ry);
+        const e = project3D(ax.v[0]*1.1, ax.v[1]*1.1, ax.v[2]*1.1, focalCx, focalCy, scale*1.6, rx, ry);
+        ctx.save();
+        ctx.strokeStyle = axisCol; ctx.lineWidth = 2.5;
+        ctx.beginPath(); ctx.moveTo(o.sx, o.sy); ctx.lineTo(e.sx, e.sy); ctx.stroke();
+        const dx=e.sx-o.sx, dy=e.sy-o.sy, len=Math.sqrt(dx*dx+dy*dy);
+        if (len>0) {
+          const ux=dx/len,uy=dy/len,ah=10;
+          ctx.fillStyle=axisCol;
+          ctx.beginPath(); ctx.moveTo(e.sx,e.sy); ctx.lineTo(e.sx-ux*ah-uy*ah*0.4, e.sy-uy*ah+ux*ah*0.4); ctx.lineTo(e.sx-ux*ah+uy*ah*0.4, e.sy-uy*ah-ux*ah*0.4); ctx.closePath(); ctx.fill();
+        }
+        ctx.font = 'bold 12px monospace'; ctx.fillStyle = 'rgba(255,255,255,0.9)';
+        ctx.fillText(ax.label, e.sx + 8, e.sy + 4);
+        ctx.restore();
+      });
+
+      if (showTraj && trajPoints) {
+        for (let i = 0; i < trajPoints.length - 1; i++) {
+          const a = trajPoints[i], b = trajPoints[i+1];
+          const pa = project3D(a[1],a[0],a[2], focalCx, focalCy, scale*1.6, rx, ry);
+          const pb = project3D(b[1],b[0],b[2], focalCx, focalCy, scale*1.6, rx, ry);
+          const t = i / (trajPoints.length - 1);
+          ctx.save();
+          ctx.strokeStyle = `hsl(${180 + t*60}, 90%, 60%)`;
+          ctx.lineWidth = 4;
+          ctx.beginPath(); ctx.moveTo(pa.sx,pa.sy); ctx.lineTo(pb.sx,pb.sy); ctx.stroke();
+          ctx.restore();
+        }
+        trajPoints.forEach((pt, i) => {
+          const p = project3D(pt[1],pt[0],pt[2], focalCx, focalCy, scale*1.6, rx, ry);
+          ctx.fillStyle = C.purple;
+          ctx.beginPath(); ctx.arc(p.sx,p.sy,4,0,Math.PI*2); ctx.fill();
+          if (pt[3]) {
+            ctx.font = '9px monospace'; ctx.fillStyle = C.white;
+            ctx.fillText(pt[3], p.sx+6, p.sy-2);
+          }
+        });
+      }
+    }
+
+    function loop() { ry += 0.0004; drawScene(); requestAnimationFrame(loop); }
+    loop();
+  }
+
+  function drawSubstance3D(canvas, engage, alert, entropy, color) {
+    const W = canvas.offsetWidth || 280, H = 280;
+    canvas.width = W; canvas.height = H;
+    const ctx = canvas.getContext('2d');
+    const cx = W / 2, cy = H / 2;
+    const scale = Math.min(W, H) * 0.38;
+    const axCol = 'rgba(255,255,255,0.9)';
+    let rx = 0.42, ry = 0.55;
+    let dragging = false, lastX = 0, lastY = 0;
+
+    function proj(x, y, z) {
+      const cosRY = Math.cos(ry), sinRY = Math.sin(ry);
+      const cosRX = Math.cos(rx), sinRX = Math.sin(rx);
+      const x1 = x * cosRY - z * sinRY;
+      const z1 = x * sinRY + z * cosRY;
+      const y2 = y * cosRX - z1 * sinRX;
+      return { sx: cx + x1 * scale, sy: cy - y2 * scale };
+    }
+
+    function drawArrow3D(x1, y1, z1, x2, y2, z2, col, lw) {
+      const steps = 4;
+      const stemR = 0.02;
+      const headR = 0.08;
+      const headL = 0.15;
+      const dx = x2 - x1, dy = y2 - y1, dz = z2 - z1;
+      const len = Math.sqrt(dx*dx + dy*dy + dz*dz);
+      if (len < 0.05) return;
+      const ux = dx/len, uy = dy/len, uz = dz/len;
+      let vx = 0, vy = 1, vz = 0;
+      if (Math.abs(uy) > 0.9) { vx = 1; vy = 0; }
+      const wx = uy*vz - uz*vy, wy = uz*vx - ux*vz, wz = ux*vy - uy*vx;
+      const wlen = Math.sqrt(wx*wx + wy*wy + wz*wz);
+      const nx = wx/wlen, ny = wy/wlen, nz = wz/wlen;
+      const mx = uy*nz - uz*ny, my = uz*nx - ux*nz, mz = ux*ny - uy*nx;
+
+      const headStart = len - headL;
+      for (let i = 0; i < steps; i++) {
+        const a1 = (i / steps) * Math.PI * 2;
+        const a2 = ((i + 1) / steps) * Math.PI * 2;
+        const p1 = proj(x1 + (mx*Math.cos(a1) + nx*Math.sin(a1)) * stemR, 
+                        y1 + (my*Math.cos(a1) + ny*Math.sin(a1)) * stemR, 
+                        z1 + (mz*Math.cos(a1) + nz*Math.sin(a1)) * stemR);
+        const p2 = proj(x1 + (mx*Math.cos(a2) + nx*Math.sin(a2)) * stemR, 
+                        y1 + (my*Math.cos(a2) + ny*Math.sin(a2)) * stemR, 
+                        z1 + (mz*Math.cos(a2) + nz*Math.sin(a2)) * stemR);
+        const p3 = proj(x1 + ux*headStart + (mx*Math.cos(a2) + nx*Math.sin(a2)) * stemR, 
+                        y1 + uy*headStart + (my*Math.cos(a2) + ny*Math.sin(a2)) * stemR, 
+                        z1 + uz*headStart + (mz*Math.cos(a2) + nz*Math.sin(a2)) * stemR);
+        const p4 = proj(x1 + ux*headStart + (mx*Math.cos(a1) + nx*Math.sin(a1)) * stemR, 
+                        y1 + uy*headStart + (my*Math.cos(a1) + ny*Math.sin(a1)) * stemR, 
+                        z1 + uz*headStart + (mz*Math.cos(a1) + nz*Math.sin(a1)) * stemR);
+        const shade = 0.7 + 0.3 * Math.cos(a1 + ry);
+        ctx.fillStyle = col;
+        ctx.globalAlpha = shade;
+        ctx.beginPath(); ctx.moveTo(p1.sx, p1.sy); ctx.lineTo(p2.sx, p2.sy); ctx.lineTo(p3.sx, p3.sy); ctx.lineTo(p4.sx, p4.sy); ctx.closePath(); ctx.fill();
+        ctx.globalAlpha = 1.0;
+      }
+      const tip = proj(x2, y2, z2);
+      for (let i = 0; i < steps; i++) {
+        const a1 = (i / steps) * Math.PI * 2;
+        const a2 = ((i + 1) / steps) * Math.PI * 2;
+        const p1 = proj(x1 + ux*headStart + (mx*Math.cos(a1) + nx*Math.sin(a1)) * headR, 
+                        y1 + uy*headStart + (my*Math.cos(a1) + ny*Math.sin(a1)) * headR, 
+                        z1 + uz*headStart + (mz*Math.cos(a1) + nz*Math.sin(a1)) * headR);
+        const p2 = proj(x1 + ux*headStart + (mx*Math.cos(a2) + nx*Math.sin(a2)) * headR, 
+                        y1 + uy*headStart + (my*Math.cos(a2) + ny*Math.sin(a2)) * headR, 
+                        z1 + uz*headStart + (mz*Math.cos(a2) + nz*Math.sin(a2)) * headR);
+        const shade = 0.5 + 0.5 * Math.cos(a1 + ry);
+        ctx.fillStyle = col;
+        ctx.globalAlpha = shade;
+        ctx.beginPath(); ctx.moveTo(p1.sx, p1.sy); ctx.lineTo(p2.sx, p2.sy); ctx.lineTo(tip.sx, tip.sy); ctx.closePath(); ctx.fill();
+        ctx.globalAlpha = 1.0;
+      }
+    }
+
+    function draw() {
+      ctx.fillStyle = C.bg;
+      ctx.fillRect(0,0,W,H);
+      const axes = [[1,0,0], [-1,0,0], [0,1,0], [0,-1,0], [0,0,1], [0,0,-1]];
+      const axLabels = ['Engagé', null, 'Vigilant', null, 'Entropie', null];
+      axes.forEach((v, i) => {
+        const o = proj(0,0,0);
+        const e = proj(v[0]*1.1, v[1]*1.1, v[2]*1.1);
+        ctx.save();
+        ctx.strokeStyle = axCol;
+        ctx.lineWidth = 1.5;
+        if (i % 2 === 1) ctx.setLineDash([3,5]);
+        ctx.beginPath(); ctx.moveTo(o.sx,o.sy); ctx.lineTo(e.sx,e.sy); ctx.stroke();
+        ctx.setLineDash([]);
+        if (i % 2 === 0) {
+          const dx=e.sx-o.sx, dy=e.sy-o.sy, len=Math.sqrt(dx*dx+dy*dy);
+          if (len>0) {
+            const ux=dx/len, uy=dy/len, ah=7;
+            ctx.fillStyle=axCol;
+            ctx.beginPath(); ctx.moveTo(e.sx,e.sy); ctx.lineTo(e.sx-ux*ah-uy*ah*0.4, e.sy-uy*ah+ux*ah*0.4); ctx.lineTo(e.sx-ux*ah+uy*ah*0.4, e.sy-uy*ah-ux*ah*0.4); ctx.closePath(); ctx.fill();
+          }
+          if (axLabels[i]) {
+            ctx.font = '9px monospace'; ctx.fillStyle = axCol;
+            ctx.fillText(axLabels[i], e.sx+4, e.sy+3);
+          }
+        }
+        ctx.restore();
+      });
+      drawArrow3D(0, 0, 0, engage, alert, entropy, color, 6);
+    }
+
+    draw();
+    requestAnimationFrame(function loop() { ry += 0.0004; draw(); requestAnimationFrame(loop); });
+  }
+
+  function initEntropyAxis() {
+    const canvas = document.getElementById('entropy-axis-canvas');
+    if (!canvas) return;
+    const W = canvas.offsetWidth || 500;
+    const H = W < 400 ? 260 : 200;
+    canvas.width = W; canvas.height = H;
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = C.bg;
+    ctx.fillRect(0, 0, W, H);
+    const pad = Math.max(20, W * 0.06);
+    const axisY = Math.floor(H / 2);
+    const axLen = W - pad * 2;
+    const grad = ctx.createLinearGradient(pad, 0, W - pad, 0);
+    grad.addColorStop(0,   'rgba(102,102,153,0.5)');
+    grad.addColorStop(0.45,'rgba(60,80,120,0.3)');
+    grad.addColorStop(0.55,'rgba(60,80,120,0.3)');
+    grad.addColorStop(1,   'rgba(255,68,68,0.5)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(pad, axisY - 7, axLen, 14);
+    ctx.strokeStyle = 'rgba(255,255,255,0.85)'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(pad, axisY); ctx.lineTo(W - pad, axisY); ctx.stroke();
+    const ah = 7; ctx.fillStyle = 'rgba(255,255,255,0.85)';
+    ctx.beginPath(); ctx.moveTo(W-pad,axisY); ctx.lineTo(W-pad-ah,axisY-ah/2); ctx.lineTo(W-pad-ah,axisY+ah/2); ctx.closePath(); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(pad,axisY); ctx.lineTo(pad+ah,axisY-ah/2); ctx.lineTo(pad+ah,axisY+ah/2); ctx.closePath(); ctx.fill();
+
+    const states = [
+      { x: 0.08, label: 'Dépression', sub: 'rigide, coincé',    color: '#7777aa', above: true  },
+      { x: 0.50, label: 'Sobre',      sub: 'base',              color: 'rgba(255,255,255,0.85)', above: false },
+      { x: 0.78, label: 'LSD',        sub: 'entropie élevée',   color: '#ff8844', above: true  },
+      { x: 1.00, label: 'Psychose',  sub: 'sans filtre',       color: '#ff4444', above: false },
+    ];
+    const fontSize = W < 400 ? 9 : 10;
+    states.forEach(s => {
+      const x = pad + s.x * axLen;
+      const above = s.above;
+      const spread = W < 400 ? 28 : 22;
+      ctx.strokeStyle = s.color; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(x, axisY-6); ctx.lineTo(x, axisY+6); ctx.stroke();
+      ctx.fillStyle = s.color;
+      ctx.beginPath(); ctx.arc(x, axisY, 4, 0, Math.PI*2); ctx.fill();
+      const labelY = above ? axisY - spread : axisY + spread;
+      ctx.strokeStyle = s.color; ctx.lineWidth = 0.75; ctx.setLineDash([2,3]);
+      ctx.beginPath(); ctx.moveTo(x, above ? axisY-8 : axisY+8); ctx.lineTo(x, above ? labelY+4 : labelY-4); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.font = `bold ${fontSize}px monospace`; ctx.fillStyle = s.color; ctx.textAlign = 'center';
+      ctx.fillText(s.label, x, labelY);
+      if (s.sub) {
+        ctx.font = `${fontSize-1}px monospace`; ctx.fillStyle = 'rgba(255,255,255,0.45)';
+        ctx.fillText(s.sub, x, above ? labelY - (fontSize+1) : labelY + (fontSize+1));
+      }
+    });
+    if (W >= 320) {
+      ctx.font = `${fontSize-1}px monospace`; ctx.fillStyle = 'rgba(255,255,255,0.4)';
+      ctx.textAlign = 'left';  ctx.fillText('← Rigide', pad, H - 4);
+      ctx.textAlign = 'right'; ctx.fillText('Entropique →', W - pad, H - 4);
+    }
+  }
+
+  function initTrajectory() {
+    const points = [
+      [0.0,  0.0,  0.0,  'T+0 Sobre'],
+      [0.2,  0.3,  0.6,  'T+1h Montée'],
+      [0.45, 0.6,  0.9,  'T+2h'],
+      [0.60, 0.80, 0.95, 'T+3h Pic'],
+      [0.55, 0.70, 0.93, 'T+5h Plateau'],
+      [0.45, 0.55, 0.85, 'T+6h'],
+      [0.30, 0.40, 0.50, 'T+8h Descente'],
+      [0.15, 0.25, 0.25, 'T+10h'],
+      [0.01, 0.05, 0.05, 'T+12h Sobre'],
+    ];
+    const el = document.getElementById('traj-container');
+    const W = el ? el.offsetWidth - 48 : 600;
+    make3DCanvas('traj-canvas', null, points, true, Math.max(W, 300), 380);
+  }
+
+  function init() {
+    init2D();
+    initEntropyAxis();
+    document.querySelectorAll('.substance-canvas').forEach(canvas => {
+      const raw = canvas.getAttribute('data-vec').split(',').map(Number);
+      const color = canvas.getAttribute('data-color');
+      drawSubstance3D(canvas, raw[0], raw[1], raw[2], color);
+    });
+    initTrajectory();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+</ArticleLayout>
