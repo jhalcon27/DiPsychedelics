@@ -592,11 +592,35 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       ctx.restore();
     }
 
+    function drawPlanes() {
+      ctx.save();
+      ctx.globalAlpha = 0.05;
+      const size = 1.0;
+      
+      // XY Plane (Z=0)
+      const xy = [proj(-size,-size,0), proj(size,-size,0), proj(size,size,0), proj(-size,size,0)];
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath(); ctx.moveTo(xy[0].sx, xy[0].sy); xy.forEach(p => ctx.lineTo(p.sx, p.sy)); ctx.closePath(); ctx.fill();
+      
+      // XZ Plane (Y=0)
+      const xz = [proj(-size,0,-size), proj(size,0,-size), proj(size,0,size), proj(-size,0,size)];
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath(); ctx.moveTo(xz[0].sx, xz[0].sy); xz.forEach(p => ctx.lineTo(p.sx, p.sy)); ctx.closePath(); ctx.fill();
+      
+      // YZ Plane (X=0)
+      const yz = [proj(0,-size,-size), proj(0,size,-size), proj(0,size,size), proj(0,-size,size)];
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath(); ctx.moveTo(yz[0].sx, yz[0].sy); yz.forEach(p => ctx.lineTo(p.sx, p.sy)); ctx.closePath(); ctx.fill();
+      
+      ctx.restore();
+    }
+
     function draw() {
       ctx.fillStyle = C.bg;
       ctx.fillRect(0,0,W,H);
 
       drawCube();
+      drawPlanes();
 
       // Full axes: positive (white solid) and negative (white dashed)
       const axes = [
