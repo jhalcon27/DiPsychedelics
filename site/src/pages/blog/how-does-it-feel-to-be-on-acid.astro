@@ -44,11 +44,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
 <p>With three axes, every substance becomes a vector with three components: (Alertness, Engagement, Entropy). The direction of the vector tells you what it does. The length tells you how much.</p>
 
-<div class="viz-container glass-card" id="viz3d-container">
-  <div class="viz-title">3D State Space: Alertness × Engagement × Entropy</div>
-  <canvas id="viz3d" style="width:100%;display:block;"></canvas>
-  <div class="viz-caption">Drag to rotate. Each arrow is a substance vector from baseline. The further from origin, the stronger the effect.</div>
-</div>
+
 
 <h2>One substance at a time</h2>
 
@@ -434,70 +430,119 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
     loop();
   }
 
-  // Per-substance mini canvases: 2D plane (Engage x Alert) + thick vector
+  // Per-substance 3D canvases: full 3D axes + one thick vector
+  function drawSubstance3D(canvas, engage, alert, entropy, color) {
+    const W = canvas.offsetWidth || 260, H = 220;
+    canvas.width = W; canvas.height = H;
+    const ctx = canvas.getContext('2d');
+    const cx = W / 2, cy = H / 2;
+    const scale = Math.min(W, H) * 0.30;
+    const axCol = 'rgba(255,255,255,0.9)';
+    let rx = 0.42, ry = 0.55;
+    let dragging = false, lastX = 0, lastY = 0;
+
+    function proj(x, y, z) {
+      const cosRY = Math.cos(ry), sinRY = Math.sin(ry);
+      const cosRX = Math.cos(rx), sinRX = Math.sin(rx);
+      const x1 = x * cosRY - z * sinRY;
+      const z1 = x * sinRY + z * cosRY;
+      const y2 = y * cosRX - z1 * sinRX;
+      return { sx: cx + x1 * scale, sy: cy - y2 * scale };
+    }
+
+    function drawArrow3D(x1,y1, x2,y2, col, lw) {
+      const dx=x2-x1, dy=y2-y1, len=Math.sqrt(dx*dx+dy*dy);
+      if (len<2) return;
+      const ux=dx/len, uy=dy/len, hl=lw*2.5+4;
+      ctx.strokeStyle=col; ctx.lineWidth=lw; ctx.lineCap='round';
+      ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2-ux*hl*0.5, y2-uy*hl*0.5); ctx.stroke();
+      ctx.fillStyle=col;
+      ctx.beginPath();
+      ctx.moveTo(x2,y2);
+      ctx.lineTo(x2-ux*hl-uy*hl*0.42, y2-uy*hl+ux*hl*0.42);
+      ctx.lineTo(x2-ux*hl+uy*hl*0.42, y2-uy*hl-ux*hl*0.42);
+      ctx.closePath(); ctx.fill();
+    }
+
+    function draw() {
+      ctx.fillStyle = C.bg;
+      ctx.fillRect(0,0,W,H);
+
+      // Full axes: positive (white solid) and negative (white dashed)
+      const axes = [
+        [1,0,0], [-1,0,0],
+        [0,1,0], [0,-1,0],
+        [0,0,1], [0,0,-1],
+      ];
+      const axLabels = ['Engage', null, 'Alert', null, 'Entropy', null];
+      axes.forEach((v, i) => {
+        const o = proj(0,0,0);
+        const e = proj(v[0]*1.1, v[1]*1.1, v[2]*1.1);
+        ctx.save();
+        ctx.strokeStyle = axCol;
+        ctx.lineWidth = 1.5;
+        if (i % 2 === 1) ctx.setLineDash([3,5]); // negative = dashed
+        ctx.beginPath(); ctx.moveTo(o.sx,o.sy); ctx.lineTo(e.sx,e.sy); ctx.stroke();
+        ctx.setLineDash([]);
+        // Arrowhead on positive axes only
+        if (i % 2 === 0) {
+          const dx=e.sx-o.sx, dy=e.sy-o.sy, len=Math.sqrt(dx*dx+dy*dy);
+          if (len>0) {
+            const ux=dx/len, uy=dy/len, ah=7;
+            ctx.fillStyle=axCol;
+            ctx.beginPath();
+            ctx.moveTo(e.sx,e.sy);
+            ctx.lineTo(e.sx-ux*ah-uy*ah*0.4, e.sy-uy*ah+ux*ah*0.4);
+            ctx.lineTo(e.sx-ux*ah+uy*ah*0.4, e.sy-uy*ah-ux*ah*0.4);
+            ctx.closePath(); ctx.fill();
+          }
+          if (axLabels[i]) {
+            ctx.font = '9px monospace'; ctx.fillStyle = axCol;
+            ctx.fillText(axLabels[i], e.sx+4, e.sy+3);
+          }
+        }
+        ctx.restore();
+      });
+
+      // Origin dot
+      const o = proj(0,0,0);
+      ctx.fillStyle='rgba(255,255,255,0.4)';
+      ctx.beginPath(); ctx.arc(o.sx,o.sy,3,0,Math.PI*2); ctx.fill();
+
+      // The substance vector — thick
+      const ep = proj(engage, alert, entropy);
+      drawArrow3D(o.sx, o.sy, ep.sx, ep.sy, color, 6);
+      ctx.fillStyle = color;
+      ctx.beginPath(); ctx.arc(ep.sx, ep.sy, 5, 0, Math.PI*2); ctx.fill();
+    }
+
+    draw();
+    ry += 0.003;
+    requestAnimationFrame(function loop() { ry += 0.003; draw(); requestAnimationFrame(loop); });
+
+    canvas.addEventListener('mousedown', e => { dragging=true; lastX=e.clientX; lastY=e.clientY; });
+    canvas.addEventListener('touchstart', e => { dragging=true; lastX=e.touches[0].clientX; lastY=e.touches[0].clientY; });
+    window.addEventListener('mouseup', () => dragging=false);
+    window.addEventListener('touchend', () => dragging=false);
+    canvas.addEventListener('mousemove', e => {
+      if(!dragging) return;
+      ry += (e.clientX-lastX)*0.012; rx -= (e.clientY-lastY)*0.012;
+      lastX=e.clientX; lastY=e.clientY;
+    });
+    canvas.addEventListener('touchmove', e => {
+      if(!dragging) return;
+      ry += (e.touches[0].clientX-lastX)*0.012; rx -= (e.touches[0].clientY-lastY)*0.012;
+      lastX=e.touches[0].clientX; lastY=e.touches[0].clientY;
+      e.preventDefault();
+    }, {passive:false});
+  }
+
   function initSubstanceCanvases() {
     document.querySelectorAll('.substance-canvas').forEach(canvas => {
       const raw = canvas.getAttribute('data-vec').split(',').map(Number);
-      // raw = [engage, alert, entropy]
       const color = canvas.getAttribute('data-color');
-      const W = canvas.offsetWidth || 260, H = 200;
-      canvas.width = W; canvas.height = H;
-      const ctx = canvas.getContext('2d');
-      const cx = W / 2, cy = H / 2;
-      const scale = Math.min(W, H) * 0.36;
-      const axCol = 'rgba(255,255,255,0.85)';
-
-      ctx.fillStyle = C.bg;
-      ctx.fillRect(0, 0, W, H);
-
-      // White axes
-      ctx.strokeStyle = axCol; ctx.lineWidth = 1.5;
-      ctx.beginPath(); ctx.moveTo(14, cy); ctx.lineTo(W-14, cy); ctx.stroke();
-      ctx.beginPath(); ctx.moveTo(cx, H-14); ctx.lineTo(cx, 14); ctx.stroke();
-
-      // Axis arrowheads
-      ctx.fillStyle = axCol;
-      const ah = 6;
-      ctx.beginPath(); ctx.moveTo(W-10,cy); ctx.lineTo(W-10-ah,cy-ah/2); ctx.lineTo(W-10-ah,cy+ah/2); ctx.closePath(); ctx.fill();
-      ctx.beginPath(); ctx.moveTo(cx,10); ctx.lineTo(cx-ah/2,10+ah); ctx.lineTo(cx+ah/2,10+ah); ctx.closePath(); ctx.fill();
-
-      // Axis labels
-      ctx.font = '9px monospace'; ctx.fillStyle = axCol;
-      ctx.textAlign = 'right'; ctx.fillText('Engage ->', W - 4, cy - 6);
-      ctx.textAlign = 'left';  ctx.fillText('<- Dis', 4, cy - 6);
-      ctx.textAlign = 'center';
-      ctx.fillText('Alert ^', cx, 10);
-      ctx.fillText('Sedate v', cx, H - 2);
-
-      // Entropy label bottom right
-      const entStr = raw[2] >= 0
-        ? 'Entropy: +' + raw[2].toFixed(2)
-        : 'Rigidity: ' + raw[2].toFixed(2);
-      ctx.font = 'bold 9px monospace';
-      ctx.fillStyle = color;
-      ctx.textAlign = 'right';
-      ctx.fillText(entStr, W - 6, H - 5);
-
-      // Thick vector arrow from origin
-      const ex = cx + raw[0] * scale;
-      const ey = cy - raw[1] * scale;
-      const dx = ex - cx, dy = ey - cy;
-      const len = Math.sqrt(dx*dx + dy*dy);
-      if (len > 3) {
-        const ux = dx/len, uy = dy/len, hlen = 14;
-        ctx.strokeStyle = color; ctx.lineWidth = 6; ctx.lineCap = 'round';
-        ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(ex - ux*hlen*0.5, ey - uy*hlen*0.5); ctx.stroke();
-        ctx.fillStyle = color;
-        ctx.beginPath();
-        ctx.moveTo(ex, ey);
-        ctx.lineTo(ex - ux*hlen - uy*hlen*0.45, ey - uy*hlen + ux*hlen*0.45);
-        ctx.lineTo(ex - ux*hlen + uy*hlen*0.45, ey - uy*hlen - ux*hlen*0.45);
-        ctx.closePath(); ctx.fill();
-      }
-
-      // Origin dot
-      ctx.fillStyle = 'rgba(255,255,255,0.4)';
-      ctx.beginPath(); ctx.arc(cx, cy, 3, 0, Math.PI*2); ctx.fill();
+      // raw = [engage, alert, entropy]
+      drawSubstance3D(canvas, raw[0], raw[1], raw[2], color);
     });
   }
   // ─── LSD Trajectory ───────────────────────────────────────────────
@@ -522,22 +567,6 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
   // ─── Init all ─────────────────────────────────────────────────────
   function init() {
     init2D();
-
-    const substances3D = [
-      { label: 'Coffee',     alert:  0.80, engage:  0.40, entropy:  0.05, color: '#ffe066' },
-      { label: 'Nicotine',   alert:  0.50, engage:  0.40, entropy:  0.00, color: '#c8f0c8' },
-      { label: 'Alcohol',    alert: -0.60, engage: -0.50, entropy:  0.15, color: '#aaddff' },
-      { label: 'Cannabis',   alert: -0.10, engage: -0.20, entropy:  0.60, color: '#88ff88' },
-      { label: 'MDMA',       alert:  0.70, engage:  0.90, entropy:  0.30, color: '#ff88cc' },
-      { label: 'Ketamine',   alert: -0.50, engage: -0.70, entropy:  0.50, color: '#cc88ff' },
-      { label: 'Meditation', alert:  0.60, engage:  0.70, entropy: -0.80, color: '#ffffff' },
-      { label: 'Depression', alert: -0.10, engage: -0.60, entropy: -0.90, color: '#666699' },
-      { label: 'LSD',        alert:  0.85, engage:  0.80, entropy:  0.95, color: '#ff4444' },
-    ];
-
-    const el3d = document.getElementById('viz3d-container');
-    const W3d = el3d ? el3d.offsetWidth - 48 : 600;
-    make3DCanvas('viz3d', substances3D, null, false, Math.max(W3d, 300), 420);
 
     initSubstanceCanvases();
     initTrajectory();
