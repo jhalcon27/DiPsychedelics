@@ -24,10 +24,9 @@ const labels: Record<string, string> = { en: 'EN', de: 'DE', es: 'ES', fr: 'FR',
 const hrefs: Record<string, string> = { en: enHref, de: deHref, es: esHref, fr: frHref, zh: zhHref, ja: jaHref };
 ---
 
-<div class="lang-switcher relative" id="lang-switcher">
+<div class="lang-switcher relative group" data-lang-switcher>
   <button
-    id="lang-btn"
-    class="flex items-center gap-1.5 text-cyber-muted hover:text-cyber-cyan transition-colors text-sm font-mono px-2 py-1 rounded border border-transparent hover:border-cyber-cyan/30"
+    class="lang-btn flex items-center gap-1.5 text-cyber-muted hover:text-cyber-cyan transition-colors text-sm font-mono px-2 py-1 rounded border border-transparent hover:border-cyber-cyan/30"
     aria-label="Select language"
     aria-expanded="false"
     aria-haspopup="true"
@@ -39,8 +38,7 @@ const hrefs: Record<string, string> = { en: enHref, de: deHref, es: esHref, fr: 
   </button>
 
   <div
-    id="lang-dropdown"
-    class="hidden absolute right-0 top-full mt-1 z-50 glass-card rounded-lg border border-cyber-border shadow-lg overflow-hidden min-w-[120px]"
+    class="lang-dropdown hidden absolute right-0 top-full mt-1 z-50 glass-card rounded-lg border border-cyber-border shadow-lg overflow-hidden min-w-[120px]"
   >
     {(['en', 'de', 'es', 'fr', 'zh', 'ja'] as const).map((loc) => (
       <a
@@ -55,33 +53,51 @@ const hrefs: Record<string, string> = { en: enHref, de: deHref, es: esHref, fr: 
 </div>
 
 <script>
-  const btn = document.getElementById('lang-btn');
-  const dropdown = document.getElementById('lang-dropdown');
+  function initLangSwitchers() {
+    const switchers = document.querySelectorAll('[data-lang-switcher]');
+    
+    switchers.forEach(switcher => {
+      const btn = switcher.querySelector('.lang-btn');
+      const dropdown = switcher.querySelector('.lang-dropdown');
 
-  if (btn && dropdown) {
-    function toggleDropdown(open) {
-      if (open) {
-        dropdown.classList.remove('hidden');
-        btn.setAttribute('aria-expanded', 'true');
-      } else {
-        dropdown.classList.add('hidden');
-        btn.setAttribute('aria-expanded', 'false');
+      if (btn && dropdown) {
+        const toggleDropdown = (open: boolean) => {
+          if (open) {
+            dropdown.classList.remove('hidden');
+            btn.setAttribute('aria-expanded', 'true');
+          } else {
+            dropdown.classList.add('hidden');
+            btn.setAttribute('aria-expanded', 'false');
+          }
+        };
+
+        const handleClick = (e: Event) => {
+          e.stopPropagation();
+          const isOpen = !dropdown.classList.contains('hidden');
+          // Close all other switchers first
+          document.querySelectorAll('.lang-dropdown').forEach(d => {
+             if (d !== dropdown) d.classList.add('hidden');
+          });
+          toggleDropdown(!isOpen);
+        };
+
+        btn.addEventListener('click', handleClick);
       }
-    }
-
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation(); // Stop propagation to prevent document's click listener from immediately closing
-      toggleDropdown(dropdown.classList.contains('hidden')); // Toggle based on current state
     });
 
-    // Close when clicking/tapping outside both the button and dropdown
+    // Global close listener
     document.addEventListener('click', (e) => {
-      if (!btn.contains(e.target as Node) && !dropdown.contains(e.target as Node)) {
-        toggleDropdown(false); // Close if click is outside both button and dropdown
+      const isInsideAny = (e.target as Element).closest('[data-lang-switcher]');
+      if (!isInsideAny) {
+        document.querySelectorAll('.lang-dropdown').forEach(d => d.classList.add('hidden'));
+        document.querySelectorAll('.lang-btn').forEach(b => b.setAttribute('aria-expanded', 'false'));
       }
     });
-
-    // Prevent clicks inside dropdown from closing it (important for mobile)
-    dropdown.addEventListener('click', (e) => e.stopPropagation());
   }
+
+  // Run on initial load
+  initLangSwitchers();
+
+  // Run on View Transitions navigation
+  document.addEventListener('astro:after-swap', initLangSwitchers);
 </script>
