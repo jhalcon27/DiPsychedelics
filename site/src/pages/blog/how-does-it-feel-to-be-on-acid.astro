@@ -12,17 +12,19 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
   draft={true}
 >
 
-<p>Everyone has an informal map of altered states. You know what coffee does, roughly. You know what a glass of wine does. You have some sense of what falling asleep feels like, and probably some memory of a particularly vivid dream. The map is vague, experiential, mostly unexamined. I want to make it precise.</p>
+<p>You already have a working model of altered states in your head. You know what a coffee does to you at 7am: sharper, faster, more present. You know what a beer does on a Friday evening: the edges soften, the urgency drops, thinking slows to something more pleasant. You know the difference between lying in bed half-asleep, still loosely aware of the room, and the moment you properly fall under. And if you have ever had a vivid dream, you know that "asleep" is not the same as "absent", the mind can be intensely active while the body is completely still.</p>
 
-<p>What follows is a framework, not a survey of the literature. The neuroscience supports it, but the framing is mine. The goal is to place every conscious state, including the ones that seem hardest to describe, into a shared coordinate system. And then to show where acid lives in that space, and why it is so far from anything else.</p>
+<p>These are not just feelings. They are positions in a space. Once you start mapping them, the structure becomes surprisingly clear, and it becomes possible to ask: where exactly does acid sit in that space? And why does it feel like nothing else?</p>
+
+<p>What follows is a framework. The neuroscience supports it, but the framing is mine. The goal is a coordinate system precise enough to place every conscious state, including the ones that resist description, into a shared map.</p>
 
 <h2>Two axes you already understand</h2>
 
-<p>Start with the most basic dimension: how awake you are. Call it <strong>Alertness</strong>, running from fully sedated at one end to maximally alert at the other. This axis alone captures a lot. Deep sleep is near one extreme. A triple espresso at 6am is near the other.</p>
+<p>Start with the most basic dimension: how awake you are. Call it <strong>Alertness</strong>, running from fully sedated at one end to maximally alert at the other. Deep sleep is near one extreme. A strong coffee at 6am is near the other. Anesthesia goes further still.</p>
 
-<p>The second axis is <strong>Engagement</strong>: how much your mind is actively oriented toward experience, toward the world, toward anything. You can be technically awake but mentally absent, scrolling without seeing, listening without hearing. That is low engagement. Flow states, intense conversations, vivid dreams, all cluster at the high end.</p>
+<p>The second axis is <strong>Engagement</strong>: how much your mind is actively oriented toward anything. You can be technically awake but mentally absent, scrolling without seeing, present in body but nowhere in particular. That is low engagement. Flow states, vivid dreams, intense conversations, all sit at the high end.</p>
 
-<p>Together, these two axes give you a 2D map. Most familiar states fall somewhere on it. The graphic below shows where a few land, plotted as vectors from the origin. A vector here means: how much does this substance pull you in each direction?</p>
+<p>Together, these two axes give you a 2D map. The substances you already know land in predictable places. Coffee pushes you up and to the right. Alcohol pulls you down and left. A sleeping pill takes you further down still. The graphic below shows a few of these, plotted as vectors from baseline. The direction of each arrow is the direction the substance moves you. The length is roughly how far.</p>
 
 <div class="viz-container glass-card" id="viz2d-container">
   <div class="viz-title">2D State Space: Alertness × Engagement</div>
@@ -32,13 +34,21 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
 <h2>Why two dimensions are not enough</h2>
 
-<p>The 2D map breaks down quickly. A flow state and a panic attack both land in the high-alertness, high-engagement quadrant. They feel nothing alike. A meditative jhana absorption and an MDMA peak are both high-engagement, high-alertness states with very different textures. Something is missing.</p>
+<p>The 2D map breaks down at a specific point. A focused flow state and a panic attack both land in the high-alertness, high-engagement quadrant. They feel nothing alike. An MDMA peak and a deep meditation sit in roughly the same region too. The map cannot tell them apart. Something is missing.</p>
 
-<p>The missing dimension is neural entropy: how much variability, unpredictability, and richness exists in the brain's activity patterns at a given moment.</p>
+<p>The missing dimension is the one that measures how the brain is organizing itself at a given moment. Not whether you are awake or engaged, but what the underlying structure of your experience is. Is your thinking ordered, linear, self-consistent? Or is it fragmenting, looping, dissolving into noise?</p>
 
-<p>Robin Carhart-Harris and colleagues formalized this in the <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3909994/" target="_blank" rel="noopener">Entropic Brain hypothesis (2014)</a> and later extended it in the <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6588209/" target="_blank" rel="noopener">REBUS model (2019)</a>. The core claim: psychedelics increase neural entropy, loosening the top-down predictive models the brain uses to constrain perception. The brain becomes more anarchic, more bottom-up, more open to signal. This is not metaphor. It is measurable with EEG and fMRI.</p>
+<p>Think of it this way. At one end of this axis sits the depressed brain: rigid, stuck, running the same loops over and over, unable to generate new patterns or escape its own predictions. The world narrows. Nothing surprises. This is not low arousal or low engagement, it is a brain that has lost flexibility. At the other end sits something like acute psychosis: too much signal, too little structure, the filters gone, everything equally loud and equally meaningful. Psychedelics push toward that end deliberately, at lower intensity, with the sedative dose removed.</p>
 
-<p>The entropy axis runs from rigid at one end to entropic at the other. Depression sits near the rigid pole: the brain locked into repetitive, constrained patterns, unable to escape its own predictions. Acute psychosis and high-dose psychedelics sit near the entropic pole: too much signal, too little structure, the models dissolving. Ordinary waking life occupies the middle ground. Deep meditation, interestingly, achieves high order through deliberate cultivation, not through suppression, which puts it in a different region than depression even though both score low on entropy.</p>
+<p>Robin Carhart-Harris formalized this as the <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3909994/" target="_blank" rel="noopener">Entropic Brain hypothesis (2014)</a>, extended in the <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6588209/" target="_blank" rel="noopener">REBUS model (2019)</a>. The claim is measurable: psychedelics increase neural entropy as seen on EEG and fMRI. The brain's top-down predictive models loosen. More signal gets through from below.</p>
+
+<p>Call this axis <strong>Entropy</strong>, running from Rigid (depressed brain) to Entropic (psychotic or psychedelic brain). Ordinary waking life sits near the middle. Meditation, interestingly, moves toward order through deliberate cultivation, not suppression. That makes it structurally different from depression even if both score low on entropy.</p>
+
+<div class="viz-container glass-card" id="entropy-axis-container">
+  <div class="viz-title">The Entropy Axis</div>
+  <canvas id="entropy-axis-canvas" style="width:100%;display:block;"></canvas>
+  <div class="viz-caption">From the rigid depressed brain to the entropic psychedelic brain. The same axis explains both ends.</div>
+</div>
 
 <h2>The full 3D space</h2>
 
@@ -262,14 +272,9 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
     const scale = 140;
 
     const substances = [
-      { label: 'Coffee',      alert:  0.80, engage:  0.40, color: '#ffe066' },
-      { label: 'Alcohol',     alert: -0.60, engage: -0.50, color: '#aaddff' },
-      { label: 'Cannabis',    alert: -0.10, engage: -0.20, color: '#88ff88' },
-      { label: 'MDMA',        alert:  0.70, engage:  0.90, color: '#ff88cc' },
-      { label: 'Ketamine',    alert: -0.50, engage: -0.70, color: '#cc88ff' },
-      { label: 'Meditation',  alert:  0.60, engage:  0.70, color: '#ffffff' },
-      { label: 'LSD',         alert:  0.85, engage:  0.80, color: '#ff4444' },
-      { label: 'Depression',  alert: -0.10, engage: -0.60, color: '#666699' },
+      { label: 'Coffee',   alert:  0.80, engage:  0.40, color: '#ffe066' },
+      { label: 'Nicotine', alert:  0.50, engage:  0.40, color: '#c8f0c8' },
+      { label: 'Alcohol',  alert: -0.60, engage: -0.50, color: '#aaddff' },
     ];
 
     let html = `
@@ -401,8 +406,8 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
         }
         trajPoints.forEach((pt, i) => {
           const p = project3D(pt[1],pt[0],pt[2],cx,cy,scale,rx,ry);
-          ctx.fillStyle = i === 2 ? '#ff4444' : C.purple;
-          ctx.beginPath(); ctx.arc(p.sx,p.sy,i===2?6:3,0,Math.PI*2); ctx.fill();
+          ctx.fillStyle = C.purple;
+          ctx.beginPath(); ctx.arc(p.sx,p.sy,3,0,Math.PI*2); ctx.fill();
           if (pt[3]) {
             ctx.font = '10px monospace'; ctx.fillStyle = C.white;
             ctx.fillText(pt[3], p.sx+6, p.sy-4);
@@ -512,8 +517,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       // The substance vector — thick
       const ep = proj(engage, alert, entropy);
       drawArrow3D(o.sx, o.sy, ep.sx, ep.sy, color, 6);
-      ctx.fillStyle = color;
-      ctx.beginPath(); ctx.arc(ep.sx, ep.sy, 5, 0, Math.PI*2); ctx.fill();
+
     }
 
     draw();
@@ -545,6 +549,99 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       drawSubstance3D(canvas, raw[0], raw[1], raw[2], color);
     });
   }
+  // ─── Entropy Axis Illustration ──────────────────────────────────────────
+  function initEntropyAxis() {
+    const canvas = document.getElementById('entropy-axis-canvas');
+    if (!canvas) return;
+    const W = canvas.offsetWidth || 600, H = 160;
+    canvas.width = W; canvas.height = H;
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = C.bg;
+    ctx.fillRect(0, 0, W, H);
+
+    const pad = 60, midY = H / 2;
+    const axisY = midY + 10;
+
+    // Gradient bar under axis
+    const grad = ctx.createLinearGradient(pad, 0, W - pad, 0);
+    grad.addColorStop(0,   'rgba(102,102,153,0.5)');   // rigid / depression blue-grey
+    grad.addColorStop(0.45,'rgba(60,80,120,0.3)');     // normal range
+    grad.addColorStop(0.55,'rgba(60,80,120,0.3)');     // normal range
+    grad.addColorStop(1,   'rgba(255,68,68,0.5)');     // entropic / psychedelic red
+    ctx.fillStyle = grad;
+    ctx.fillRect(pad, axisY - 8, W - pad * 2, 16);
+
+    // Main axis line (white)
+    ctx.strokeStyle = 'rgba(255,255,255,0.85)';
+    ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(pad, axisY); ctx.lineTo(W - pad, axisY); ctx.stroke();
+
+    // Arrowheads at both ends
+    const ah = 7;
+    ctx.fillStyle = 'rgba(255,255,255,0.85)';
+    // Right arrow
+    ctx.beginPath(); ctx.moveTo(W-pad,axisY); ctx.lineTo(W-pad-ah,axisY-ah/2); ctx.lineTo(W-pad-ah,axisY+ah/2); ctx.closePath(); ctx.fill();
+    // Left arrow
+    ctx.beginPath(); ctx.moveTo(pad,axisY); ctx.lineTo(pad+ah,axisY-ah/2); ctx.lineTo(pad+ah,axisY+ah/2); ctx.closePath(); ctx.fill();
+
+    // Tick marks and labels for key states
+    const states = [
+      { x: 0.0,  label: 'Coma',        sub: '',              color: '#666699' },
+      { x: 0.12, label: 'Depression',  sub: 'rigid loops',   color: '#7777aa' },
+      { x: 0.30, label: 'OCD',         sub: 'stuck patterns',color: '#8888bb' },
+      { x: 0.50, label: 'Normal',      sub: 'waking life',   color: 'rgba(255,255,255,0.7)' },
+      { x: 0.68, label: 'Meditation',  sub: 'ordered clarity',color: '#aaddff' },
+      { x: 0.80, label: 'Cannabis',    sub: 'loose patterns', color: '#88ff88' },
+      { x: 0.90, label: 'LSD / Psilo.', sub: 'anarchic',     color: '#ff8844' },
+      { x: 1.0,  label: 'Psychosis',   sub: 'no filter',     color: '#ff4444' },
+    ];
+
+    const axLen = W - pad * 2;
+    states.forEach(s => {
+      const x = pad + s.x * axLen;
+      const above = s.x < 0.5; // labels alternate above/below
+
+      // Tick
+      ctx.strokeStyle = s.color; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(x, axisY - 6); ctx.lineTo(x, axisY + 6); ctx.stroke();
+
+      // Dot
+      ctx.fillStyle = s.color;
+      ctx.beginPath(); ctx.arc(x, axisY, 4, 0, Math.PI*2); ctx.fill();
+
+      // Label
+      ctx.font = 'bold 10px monospace';
+      ctx.fillStyle = s.color;
+      ctx.textAlign = 'center';
+      const labelY = above ? axisY - 22 : axisY + 22;
+      ctx.fillText(s.label, x, labelY);
+
+      if (s.sub) {
+        ctx.font = '8px monospace';
+        ctx.fillStyle = 'rgba(255,255,255,0.45)';
+        ctx.fillText(s.sub, x, above ? labelY - 11 : labelY + 11);
+      }
+
+      // Connector line to dot
+      ctx.strokeStyle = s.color; ctx.lineWidth = 0.75;
+      ctx.setLineDash([2,3]);
+      ctx.beginPath();
+      ctx.moveTo(x, above ? axisY - 8 : axisY + 8);
+      ctx.lineTo(x, above ? labelY + 3 : labelY - 3);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    });
+
+    // Axis label
+    ctx.font = '10px monospace';
+    ctx.fillStyle = 'rgba(255,255,255,0.5)';
+    ctx.textAlign = 'left';
+    ctx.fillText('Rigid (low entropy)', pad, H - 6);
+    ctx.textAlign = 'right';
+    ctx.fillText('Entropic (high entropy)', W - pad, H - 6);
+  }
+
+
   // ─── LSD Trajectory ───────────────────────────────────────────────
   function initTrajectory() {
     // [alert, engage, entropy, label]
@@ -568,6 +665,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
   function init() {
     init2D();
 
+    initEntropyAxis();
     initSubstanceCanvases();
     initTrajectory();
   }
