@@ -31,7 +31,7 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 
 <div class="viz-container glass-card" id="viz2d-container">
   <div class="viz-title">Espacio de estado 2D: Alerta × Compromiso</div>
-  <svg id="viz2d" width="100%" viewBox="0 0 500 400" style="display:block;"></svg>
+  <svg id="viz2d" width="100%" viewBox="0 0 600 400" style="display:block;"></svg>
   <div class="viz-caption">Cada flecha muestra la dirección en la que una sustancia tiende a mover tu estado de consciencia desde la base. Estos efectos son altamente variables según la dosis, el entorno y la situación, y difieren significativamente de persona a persona. Trata los vectores como indicativos, no prescriptivos.</div>
 </div>
 
@@ -276,7 +276,7 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
   function init2D() {
     const svg = document.getElementById('viz2d');
     if (!svg) return;
-    const W = 500, H = 400;
+    const W = 600, H = 400;
     const cx = W / 2, cy = H / 2;
     const scale = 140;
 
@@ -293,14 +293,14 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
         </marker>`).join('')}
       </defs>
       <!-- white axes -->
-      <line x1="20" y1="${cy}" x2="${W-24}" y2="${cy}" stroke="rgba(255,255,255,0.85)" stroke-width="2"/>
+      <line x1="40" y1="${cy}" x2="${W-44}" y2="${cy}" stroke="rgba(255,255,255,0.85)" stroke-width="2"/>
       <line x1="${cx}" y1="${H-20}" x2="${cx}" y2="24" stroke="rgba(255,255,255,0.85)" stroke-width="2"/>
       <!-- axis arrowheads -->
-      <polygon points="${W-20},${cy} ${W-28},${cy-5} ${W-28},${cy+5}" fill="rgba(255,255,255,0.85)"/>
+      <polygon points="${W-40},${cy} ${W-48},${cy-5} ${W-48},${cy+5}" fill="rgba(255,255,255,0.85)"/>
       <polygon points="${cx},20 ${cx-5},28 ${cx+5},28" fill="rgba(255,255,255,0.85)"/>
       <!-- axis labels -->
-      <text x="${W-22}" y="${cy-9}" font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="end">Comprometido →</text>
-      <text x="22"     y="${cy-9}" font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="start">← Descomprometido</text>
+      <text x="${W-42}" y="${cy-9}" font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="end">Comprometido →</text>
+      <text x="42"     y="${cy-9}" font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="start">← Descomprometido</text>
       <text x="${cx}"  y="16"      font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="middle">↑ Alerta</text>
       <text x="${cx}"  y="${H-4}"  font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="middle">↓ Sedado</text>
     `;

@@ -31,7 +31,7 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 
 <div class="viz-container glass-card" id="viz2d-container">
   <div class="viz-title">二维状态空间：警觉度 × 参与度</div>
-  <svg id="viz2d" width="100%" viewBox="0 0 500 400" style="display:block;"></svg>
+  <svg id="viz2d" width="100%" viewBox="0 0 600 400" style="display:block;"></svg>
   <div class="viz-caption">每个箭头显示了物质倾向于将你的意识状态从基准线移动的方向。这些影响高度依赖于剂量、身心状态和环境，并且在不同人之间有显著差异。请将这些向量视为指示性的，而非规范性的。</div>
 </div>
 
@@ -261,7 +261,7 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
   function init2D() {
     const svg = document.getElementById('viz2d');
     if (!svg) return;
-    const W = 500, H = 400;
+    const W = 600, H = 400;
     const cx = W / 2, cy = H / 2;
     const scale = 140;
 
@@ -278,14 +278,14 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
         </marker>`).join('')}
       </defs>
       <!-- 白色轴线 -->
-      <line x1="20" y1="${cy}" x2="${W-24}" y2="${cy}" stroke="rgba(255,255,255,0.85)" stroke-width="2"/>
+      <line x1="40" y1="${cy}" x2="${W-44}" y2="${cy}" stroke="rgba(255,255,255,0.85)" stroke-width="2"/>
       <line x1="${cx}" y1="${H-20}" x2="${cx}" y2="24" stroke="rgba(255,255,255,0.85)" stroke-width="2"/>
       <!-- 轴线箭头 -->
-      <polygon points="${W-20},${cy} ${W-28},${cy-5} ${W-28},${cy+5}" fill="rgba(255,255,255,0.85)"/>
+      <polygon points="${W-40},${cy} ${W-48},${cy-5} ${W-48},${cy+5}" fill="rgba(255,255,255,0.85)"/>
       <polygon points="${cx},20 ${cx-5},28 ${cx+5},28" fill="rgba(255,255,255,0.85)"/>
       <!-- 轴标签 -->
-      <text x="${W-22}" y="${cy-9}" font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="end">参与 →</text>
-      <text x="22"     y="${cy-9}" font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="start">← 脱离</text>
+      <text x="${W-42}" y="${cy-9}" font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="end">参与 →</text>
+      <text x="42"     y="${cy-9}" font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="start">← 脱离</text>
       <text x="${cx}"  y="16"      font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="middle">↑ 警觉</text>
       <text x="${cx}"  y="${H-4}"  font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="middle">↓ 镇静</text>
     `;
