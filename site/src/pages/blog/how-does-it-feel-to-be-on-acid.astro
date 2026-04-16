@@ -383,9 +383,32 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       ctx.fillStyle = C.bg;
       ctx.fillRect(0, 0, W, H);
 
-      drawCubeLines();
+      // We are only showing the POSITIVE octant: [0, 1] on all axes
+      const corners = [
+        [0,0,0],[1,0,0],[1,1,0],[0,1,0],
+        [0,0,1],[1,0,1],[1,1,1],[0,1,1],
+      ];
+      const edges = [
+        [0,1],[1,2],[2,3],[3,0],
+        [4,5],[5,6],[6,7],[7,4],
+        [0,4],[1,5],[2,6],[3,7],
+      ];
 
-      // Draw axes — white, solid
+      // Shift the 'camera' focus slightly since we're only in one octant
+      const focalCx = cx - scale*0.4, focalCy = cy + scale*0.4;
+
+      ctx.save();
+      ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+      ctx.lineWidth = 0.75;
+      edges.forEach(([a, b]) => {
+        const ca = corners[a], cb = corners[b];
+        const pa = project3D(ca[1], ca[0], ca[2], focalCx, focalCy, scale*1.6, rx, ry);
+        const pb = project3D(cb[1], cb[0], cb[2], focalCx, focalCy, scale*1.6, rx, ry);
+        ctx.beginPath(); ctx.moveTo(pa.sx, pa.sy); ctx.lineTo(pb.sx, pb.sy); ctx.stroke();
+      });
+      ctx.restore();
+
+      // Draw positive axes only
       const axisCol = 'rgba(255,255,255,0.85)';
       const axDefs = [
         { v: [1,0,0], label: 'Engage →' },
@@ -393,76 +416,49 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
         { v: [0,0,1], label: 'Entropy →'},
       ];
       axDefs.forEach(ax => {
-        const o = project3D(0,0,0, cx, cy, scale, rx, ry);
-        const e = project3D(ax.v[0]*1.15, ax.v[1]*1.15, ax.v[2]*1.15, cx, cy, scale, rx, ry);
+        const o = project3D(0,0,0, focalCx, focalCy, scale*1.6, rx, ry);
+        const e = project3D(ax.v[0]*1.1, ax.v[1]*1.1, ax.v[2]*1.1, focalCx, focalCy, scale*1.6, rx, ry);
         ctx.save();
-        ctx.strokeStyle = axisCol; ctx.lineWidth = 2;
+        ctx.strokeStyle = axisCol; ctx.lineWidth = 2.5;
         ctx.beginPath(); ctx.moveTo(o.sx, o.sy); ctx.lineTo(e.sx, e.sy); ctx.stroke();
-        // arrowhead
         const dx=e.sx-o.sx, dy=e.sy-o.sy, len=Math.sqrt(dx*dx+dy*dy);
         if (len>0) {
-          const ux=dx/len,uy=dy/len,ah=8;
+          const ux=dx/len,uy=dy/len,ah=10;
           ctx.fillStyle=axisCol;
-          ctx.beginPath();
-          ctx.moveTo(e.sx,e.sy);
-          ctx.lineTo(e.sx-ux*ah-uy*ah*0.4, e.sy-uy*ah+ux*ah*0.4);
-          ctx.lineTo(e.sx-ux*ah+uy*ah*0.4, e.sy-uy*ah-ux*ah*0.4);
-          ctx.closePath(); ctx.fill();
+          ctx.beginPath(); ctx.moveTo(e.sx,e.sy); ctx.lineTo(e.sx-ux*ah-uy*ah*0.4, e.sy-uy*ah+ux*ah*0.4); ctx.lineTo(e.sx-ux*ah+uy*ah*0.4, e.sy-uy*ah-ux*ah*0.4); ctx.closePath(); ctx.fill();
         }
-        ctx.font = '11px monospace'; ctx.fillStyle = 'rgba(255,255,255,0.8)';
-        ctx.fillText(ax.label, e.sx + 5, e.sy + 4);
+        ctx.font = 'bold 12px monospace'; ctx.fillStyle = 'rgba(255,255,255,0.9)';
+        ctx.fillText(ax.label, e.sx + 8, e.sy + 4);
         ctx.restore();
       });
-
-      // Negative axes dashed
-      [[-1,0,0],[0,-1,0],[0,0,-1]].forEach(v => {
-        const o = project3D(0,0,0, cx,cy,scale,rx,ry);
-        const e = project3D(v[0]*0.9,v[1]*0.9,v[2]*0.9, cx,cy,scale,rx,ry);
-        ctx.save(); ctx.strokeStyle='rgba(255,255,255,0.2)'; ctx.lineWidth=1; ctx.setLineDash([2,6]);
-        ctx.beginPath(); ctx.moveTo(o.sx,o.sy); ctx.lineTo(e.sx,e.sy); ctx.stroke();
-        ctx.setLineDash([]); ctx.restore();
-      });
-
-      // Origin dot
-      const orig = project3D(0,0,0,cx,cy,scale,rx,ry);
-      ctx.fillStyle = C.muted; ctx.beginPath(); ctx.arc(orig.sx,orig.sy,3,0,Math.PI*2); ctx.fill();
 
       // Trajectory
       if (showTraj && trajPoints) {
         for (let i = 0; i < trajPoints.length - 1; i++) {
           const a = trajPoints[i], b = trajPoints[i+1];
-          const pa = project3D(a[1],a[0],a[2],cx,cy,scale,rx,ry);
-          const pb = project3D(b[1],b[0],b[2],cx,cy,scale,rx,ry);
+          const pa = project3D(a[1],a[0],a[2], focalCx, focalCy, scale*1.6, rx, ry);
+          const pb = project3D(b[1],b[0],b[2], focalCx, focalCy, scale*1.6, rx, ry);
           const t = i / (trajPoints.length - 1);
           ctx.save();
           ctx.strokeStyle = `hsl(${180 + t*60}, 90%, 60%)`;
-          ctx.lineWidth = 3;
+          ctx.lineWidth = 4;
           ctx.beginPath(); ctx.moveTo(pa.sx,pa.sy); ctx.lineTo(pb.sx,pb.sy); ctx.stroke();
           ctx.restore();
         }
         trajPoints.forEach((pt, i) => {
-          const p = project3D(pt[1],pt[0],pt[2],cx,cy,scale,rx,ry);
+          const p = project3D(pt[1],pt[0],pt[2], focalCx, focalCy, scale*1.6, rx, ry);
           ctx.fillStyle = C.purple;
-          ctx.beginPath(); ctx.arc(p.sx,p.sy,3,0,Math.PI*2); ctx.fill();
-          if (pt[3]) {
-            ctx.font = '10px monospace'; ctx.fillStyle = C.white;
-            ctx.fillText(pt[3], p.sx+6, p.sy-4);
-          }
-        });
-      }
-
-      // Substance vectors
-      if (substances) {
-        const toRender = substances.map(s => {
-          const p = project3D(s.engage, s.alert, s.entropy, cx, cy, scale, rx, ry);
-          return { s, p };
-        }).sort((a,b) => a.p.depth - b.p.depth);
-
-        toRender.forEach(({ s, p }) => {
-          const o = project3D(0,0,0,cx,cy,scale,rx,ry);
-          drawArrow(ctx, o.sx, o.sy, p.sx, p.sy, s.color, 3, s.label);
-          ctx.fillStyle = s.color;
           ctx.beginPath(); ctx.arc(p.sx,p.sy,4,0,Math.PI*2); ctx.fill();
+          if (pt[3]) {
+            ctx.font = 'bold 12px monospace'; ctx.fillStyle = C.white;
+            // Draw text with a small dark background for readability
+            const txt = pt[3];
+            const tw = ctx.measureText(txt).width;
+            ctx.fillStyle = 'rgba(0,0,0,0.6)';
+            ctx.fillRect(p.sx+8, p.sy-14, tw+4, 16);
+            ctx.fillStyle = C.white;
+            ctx.fillText(txt, p.sx+10, p.sy-2);
+          }
         });
       }
     }
