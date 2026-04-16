@@ -653,7 +653,7 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
       ctx.fillStyle='rgba(255,255,255,0.4)';
       ctx.beginPath(); ctx.arc(o.sx,o.sy,3,0,Math.PI*2); ctx.fill();
 
-      // The substance vector — thick
+      // The substance vector, thick
       drawArrow3D(0, 0, 0, engage, alert, entropy, color, 6);
 
     }
@@ -756,7 +756,7 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
       }
     });
 
-    // End labels — only if enough space
+    // End labels, only if enough space
     if (W >= 320) {
       ctx.font = `${fontSize-1}px monospace`; ctx.fillStyle = 'rgba(255,255,255,0.4)';
       ctx.textAlign = 'left';  ctx.fillText('← Rígido', pad, H - 4);

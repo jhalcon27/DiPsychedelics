@@ -54,7 +54,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
 <h2>The full 3D space</h2>
 
-<p>With three axes, every substance becomes a vector with three components: (Alertness, Engagement, Entropy). The origin point (0, 0, 0) is baseline sobriety — alert enough for ordinary life, engaged with the world at a normal level, brain activity neither especially rigid nor especially chaotic. The direction of each vector tells you what a substance does. The length tells you how much.</p>
+<p>With three axes, every substance becomes a vector with three components: (Alertness, Engagement, Entropy). The origin point (0, 0, 0) is baseline sobriety, alert enough for ordinary life, engaged with the world at a normal level, brain activity neither especially rigid nor especially chaotic. The direction of each vector tells you what a substance does. The length tells you how much.</p>
 
 
 
@@ -67,7 +67,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
   <div class="substance-card glass-card">
     <div class="substance-header" style="color:#ffe066">Coffee / Caffeine</div>
     <canvas class="substance-canvas" data-vec="0.4,0.95,0.05" data-color="#ffe066"></canvas>
-    <div class="substance-desc">Strong alertness, mild engagement boost, negligible entropy effect. <a href="https://www.jneurosci.org/content/31/27/10067" target="_blank" rel="noopener">Adenosine antagonism lifts the brake on arousal.</a> Nothing strange happens to the structure of experience — it just runs faster.</div>
+    <div class="substance-desc">Strong alertness, mild engagement boost, negligible entropy effect. <a href="https://www.jneurosci.org/content/31/27/10067" target="_blank" rel="noopener">Adenosine antagonism lifts the brake on arousal.</a> Nothing strange happens to the structure of experience, it just runs faster.</div>
   </div>
 
   <div class="substance-card glass-card">
@@ -103,7 +103,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
   <div class="substance-card glass-card">
     <div class="substance-header" style="color:#ffffff">Deep Meditation (Jhana)</div>
     <canvas class="substance-canvas" data-vec="0.6,0.7,-0.8" data-color="#ffffff"></canvas>
-    <div class="substance-desc">High alertness, high engagement, strongly negative entropy — the most ordered state the brain can voluntarily produce. This is the opposite pole from psychedelics on the entropy axis, achieved through <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6893234/" target="_blank" rel="noopener">sustained top-down regulation</a>, not chemical suppression.</div>
+    <div class="substance-desc">High alertness, high engagement, strongly negative entropy, the most ordered state the brain can voluntarily produce. This is the opposite pole from psychedelics on the entropy axis, achieved through <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6893234/" target="_blank" rel="noopener">sustained top-down regulation</a>, not chemical suppression.</div>
   </div>
 
   <div class="substance-card glass-card">
@@ -654,7 +654,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       ctx.fillStyle='rgba(255,255,255,0.4)';
       ctx.beginPath(); ctx.arc(o.sx,o.sy,3,0,Math.PI*2); ctx.fill();
 
-      // The substance vector — thick
+      // The substance vector, thick
       drawArrow3D(0, 0, 0, engage, alert, entropy, color, 6);
 
     }
@@ -757,7 +757,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       }
     });
 
-    // End labels — only if enough space
+    // End labels, only if enough space
     if (W >= 320) {
       ctx.font = `${fontSize-1}px monospace`; ctx.fillStyle = 'rgba(255,255,255,0.4)';
       ctx.textAlign = 'left';  ctx.fillText('← Rigid', pad, H - 4);

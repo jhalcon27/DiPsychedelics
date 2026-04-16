@@ -103,7 +103,7 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
   <div class="substance-card glass-card">
     <div class="substance-header" style="color:#ffffff">深い瞑想（ジャーナ）</div>
     <canvas class="substance-canvas" data-vec="0.6,0.7,-0.8" data-color="#ffffff"></canvas>
-    <div class="substance-desc">高い覚醒度、高い没入度、非常にマイナスのエントロピー — 脳が自発的に生成できる最も秩序ある状態です。これは化学的な抑制ではなく、<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6893234/" target="_blank" rel="noopener">持続的なトップダウン調整</a>によって達成され、エントロピー軸においてサイケデリックスとは正反対の極にあります。</div>
+    <div class="substance-desc">高い覚醒度、高い没入度、非常にマイナスのエントロピー, 脳が自発的に生成できる最も秩序ある状態です。これは化学的な抑制ではなく、<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6893234/" target="_blank" rel="noopener">持続的なトップダウン調整</a>によって達成され、エントロピー軸においてサイケデリックスとは正反対の極にあります。</div>
   </div>
 
   <div class="substance-card glass-card">
@@ -654,7 +654,7 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
       ctx.fillStyle='rgba(255,255,255,0.4)';
       ctx.beginPath(); ctx.arc(o.sx,o.sy,3,0,Math.PI*2); ctx.fill();
 
-      // The substance vector — thick
+      // The substance vector, thick
       drawArrow3D(0, 0, 0, engage, alert, entropy, color, 6);
 
     }
@@ -757,7 +757,7 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
       }
     });
 
-    // End labels — only if enough space
+    // End labels, only if enough space
     if (W >= 320) {
       ctx.font = `${fontSize-1}px monospace`; ctx.fillStyle = 'rgba(255,255,255,0.4)';
       ctx.textAlign = 'left';  ctx.fillText('← 硬直', pad, H - 4);
