@@ -494,30 +494,22 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
     function drawArrow3D(x1,y1, x2,y2, col, lw) {
       const dx=x2-x1, dy=y2-y1, len=Math.sqrt(dx*dx+dy*dy);
       if (len<2) return;
-      const ux=dx/len, uy=dy/len, hl=lw*2.5+4;
-      // Shadow pass (offset, dark, thicker)
+      const ux=dx/len, uy=dy/len, hl=lw*1.8+3;
+      // Shadow pass
       ctx.save();
-      ctx.strokeStyle='rgba(0,0,0,0.45)'; ctx.lineWidth=lw+4; ctx.lineCap='round';
-      ctx.beginPath(); ctx.moveTo(x1+2,y1+3); ctx.lineTo(x2-ux*hl*0.5+2, y2-uy*hl*0.5+3); ctx.stroke();
+      ctx.strokeStyle='rgba(0,0,0,0.4)'; ctx.lineWidth=lw+3; ctx.lineCap='round';
+      ctx.beginPath(); ctx.moveTo(x1+2,y1+3); ctx.lineTo(x2+2, y2+3); ctx.stroke();
       ctx.restore();
-      // Main line
+      // Main line — goes all the way to tip
       ctx.strokeStyle=col; ctx.lineWidth=lw; ctx.lineCap='round';
-      ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2-ux*hl*0.5, y2-uy*hl*0.5); ctx.stroke();
-      // Shadow arrowhead
-      ctx.save();
-      ctx.fillStyle='rgba(0,0,0,0.45)';
-      ctx.beginPath();
-      ctx.moveTo(x2+2,y2+3);
-      ctx.lineTo(x2-ux*hl-uy*hl*0.42+2, y2-uy*hl+ux*hl*0.42+3);
-      ctx.lineTo(x2-ux*hl+uy*hl*0.42+2, y2-uy*hl-ux*hl*0.42+3);
-      ctx.closePath(); ctx.fill();
-      ctx.restore();
-      // Main arrowhead
+      ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2, y2); ctx.stroke();
+      // Small static arrowhead (2D screen-space triangle, always same size)
+      const headLen = 10, headW = 5;
       ctx.fillStyle=col;
       ctx.beginPath();
-      ctx.moveTo(x2,y2);
-      ctx.lineTo(x2-ux*hl-uy*hl*0.42, y2-uy*hl+ux*hl*0.42);
-      ctx.lineTo(x2-ux*hl+uy*hl*0.42, y2-uy*hl-ux*hl*0.42);
+      ctx.moveTo(x2, y2);
+      ctx.lineTo(x2 - ux*headLen - uy*headW, y2 - uy*headLen + ux*headW);
+      ctx.lineTo(x2 - ux*headLen + uy*headW, y2 - uy*headLen - ux*headW);
       ctx.closePath(); ctx.fill();
     }
 
@@ -632,88 +624,77 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
   function initEntropyAxis() {
     const canvas = document.getElementById('entropy-axis-canvas');
     if (!canvas) return;
-    const W = canvas.offsetWidth || 600, H = 190;
+    const W = canvas.offsetWidth || 500;
+    // Taller on mobile to give labels room
+    const H = W < 400 ? 260 : 200;
     canvas.width = W; canvas.height = H;
     const ctx = canvas.getContext('2d');
     ctx.fillStyle = C.bg;
     ctx.fillRect(0, 0, W, H);
 
-    const pad = 60, midY = H / 2;
-    const axisY = midY + 10;
+    const pad = Math.max(20, W * 0.06);
+    const axisY = Math.floor(H / 2);
+    const axLen = W - pad * 2;
 
-    // Gradient bar under axis
+    // Gradient bar
     const grad = ctx.createLinearGradient(pad, 0, W - pad, 0);
-    grad.addColorStop(0,   'rgba(102,102,153,0.5)');   // rigid / depression blue-grey
-    grad.addColorStop(0.45,'rgba(60,80,120,0.3)');     // normal range
-    grad.addColorStop(0.55,'rgba(60,80,120,0.3)');     // normal range
-    grad.addColorStop(1,   'rgba(255,68,68,0.5)');     // entropic / psychedelic red
+    grad.addColorStop(0,   'rgba(102,102,153,0.5)');
+    grad.addColorStop(0.45,'rgba(60,80,120,0.3)');
+    grad.addColorStop(0.55,'rgba(60,80,120,0.3)');
+    grad.addColorStop(1,   'rgba(255,68,68,0.5)');
     ctx.fillStyle = grad;
-    ctx.fillRect(pad, axisY - 8, W - pad * 2, 16);
+    ctx.fillRect(pad, axisY - 7, axLen, 14);
 
-    // Main axis line (white)
-    ctx.strokeStyle = 'rgba(255,255,255,0.85)';
-    ctx.lineWidth = 2;
+    // Axis line
+    ctx.strokeStyle = 'rgba(255,255,255,0.85)'; ctx.lineWidth = 2;
     ctx.beginPath(); ctx.moveTo(pad, axisY); ctx.lineTo(W - pad, axisY); ctx.stroke();
 
-    // Arrowheads at both ends
-    const ah = 7;
-    ctx.fillStyle = 'rgba(255,255,255,0.85)';
-    // Right arrow
+    // Arrowheads
+    const ah = 7; ctx.fillStyle = 'rgba(255,255,255,0.85)';
     ctx.beginPath(); ctx.moveTo(W-pad,axisY); ctx.lineTo(W-pad-ah,axisY-ah/2); ctx.lineTo(W-pad-ah,axisY+ah/2); ctx.closePath(); ctx.fill();
-    // Left arrow
     ctx.beginPath(); ctx.moveTo(pad,axisY); ctx.lineTo(pad+ah,axisY-ah/2); ctx.lineTo(pad+ah,axisY+ah/2); ctx.closePath(); ctx.fill();
 
-    // Tick marks and labels for key states
+    // All four labels above or below, well spaced
     const states = [
       { x: 0.08, label: 'Depression', sub: 'rigid, stuck',    color: '#7777aa', above: true  },
-      { x: 0.50, label: 'Sober',      sub: 'waking baseline', color: 'rgba(255,255,255,0.8)', above: false },
+      { x: 0.50, label: 'Sober',      sub: 'baseline',        color: 'rgba(255,255,255,0.85)', above: false },
       { x: 0.78, label: 'LSD',        sub: 'high entropy',    color: '#ff8844', above: true  },
       { x: 1.00, label: 'Psychosis',  sub: 'no filter',       color: '#ff4444', above: false },
     ];
 
-    const axLen = W - pad * 2;
+    const fontSize = W < 400 ? 9 : 10;
     states.forEach(s => {
       const x = pad + s.x * axLen;
-      const above = s.above !== undefined ? s.above : (s.x < 0.5);
+      const above = s.above;
+      const spread = W < 400 ? 28 : 22;
 
-      // Tick
+      // Tick + dot
       ctx.strokeStyle = s.color; ctx.lineWidth = 1.5;
-      ctx.beginPath(); ctx.moveTo(x, axisY - 6); ctx.lineTo(x, axisY + 6); ctx.stroke();
-
-      // Dot
+      ctx.beginPath(); ctx.moveTo(x, axisY-6); ctx.lineTo(x, axisY+6); ctx.stroke();
       ctx.fillStyle = s.color;
       ctx.beginPath(); ctx.arc(x, axisY, 4, 0, Math.PI*2); ctx.fill();
 
-      // Label
-      ctx.font = 'bold 10px monospace';
-      ctx.fillStyle = s.color;
-      ctx.textAlign = 'center';
-      const labelY = above ? axisY - 22 : axisY + 22;
-      ctx.fillText(s.label, x, labelY);
-
-      if (s.sub) {
-        ctx.font = '8px monospace';
-        ctx.fillStyle = 'rgba(255,255,255,0.45)';
-        ctx.fillText(s.sub, x, above ? labelY - 11 : labelY + 11);
-      }
-
-      // Connector line to dot
-      ctx.strokeStyle = s.color; ctx.lineWidth = 0.75;
-      ctx.setLineDash([2,3]);
-      ctx.beginPath();
-      ctx.moveTo(x, above ? axisY - 8 : axisY + 8);
-      ctx.lineTo(x, above ? labelY + 3 : labelY - 3);
-      ctx.stroke();
+      // Connector
+      const labelY = above ? axisY - spread : axisY + spread;
+      ctx.strokeStyle = s.color; ctx.lineWidth = 0.75; ctx.setLineDash([2,3]);
+      ctx.beginPath(); ctx.moveTo(x, above ? axisY-8 : axisY+8); ctx.lineTo(x, above ? labelY+4 : labelY-4); ctx.stroke();
       ctx.setLineDash([]);
+
+      // Label
+      ctx.font = `bold ${fontSize}px monospace`; ctx.fillStyle = s.color; ctx.textAlign = 'center';
+      ctx.fillText(s.label, x, labelY);
+      if (s.sub) {
+        ctx.font = `${fontSize-1}px monospace`; ctx.fillStyle = 'rgba(255,255,255,0.45)';
+        ctx.fillText(s.sub, x, above ? labelY - (fontSize+1) : labelY + (fontSize+1));
+      }
     });
 
-    // Axis label
-    ctx.font = '10px monospace';
-    ctx.fillStyle = 'rgba(255,255,255,0.5)';
-    ctx.textAlign = 'left';
-    ctx.fillText('Rigid (low entropy)', pad, H - 6);
-    ctx.textAlign = 'right';
-    ctx.fillText('Entropic (high entropy)', W - pad, H - 6);
+    // End labels — only if enough space
+    if (W >= 320) {
+      ctx.font = `${fontSize-1}px monospace`; ctx.fillStyle = 'rgba(255,255,255,0.4)';
+      ctx.textAlign = 'left';  ctx.fillText('← Rigid', pad, H - 4);
+      ctx.textAlign = 'right'; ctx.fillText('Entropic →', W - pad, H - 4);
+    }
   }
 
 
