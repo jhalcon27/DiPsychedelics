@@ -52,7 +52,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
 <h2>The full 3D space</h2>
 
-<p>With three axes, every substance becomes a vector with three components: (Alertness, Engagement, Entropy). The direction of the vector tells you what it does. The length tells you how much.</p>
+<p>With three axes, every substance becomes a vector with three components: (Alertness, Engagement, Entropy). The origin point (0, 0, 0) is baseline sobriety — alert enough for ordinary life, engaged with the world at a normal level, brain activity neither especially rigid nor especially chaotic. The direction of each vector tells you what a substance does. The length tells you how much.</p>
 
 
 
@@ -553,7 +553,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
   function initEntropyAxis() {
     const canvas = document.getElementById('entropy-axis-canvas');
     if (!canvas) return;
-    const W = canvas.offsetWidth || 600, H = 160;
+    const W = canvas.offsetWidth || 600, H = 190;
     canvas.width = W; canvas.height = H;
     const ctx = canvas.getContext('2d');
     ctx.fillStyle = C.bg;
@@ -586,20 +586,16 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
     // Tick marks and labels for key states
     const states = [
-      { x: 0.0,  label: 'Coma',        sub: '',              color: '#666699' },
-      { x: 0.12, label: 'Depression',  sub: 'rigid loops',   color: '#7777aa' },
-      { x: 0.30, label: 'OCD',         sub: 'stuck patterns',color: '#8888bb' },
-      { x: 0.50, label: 'Normal',      sub: 'waking life',   color: 'rgba(255,255,255,0.7)' },
-      { x: 0.68, label: 'Meditation',  sub: 'ordered clarity',color: '#aaddff' },
-      { x: 0.80, label: 'Cannabis',    sub: 'loose patterns', color: '#88ff88' },
-      { x: 0.90, label: 'LSD / Psilo.', sub: 'anarchic',     color: '#ff8844' },
-      { x: 1.0,  label: 'Psychosis',   sub: 'no filter',     color: '#ff4444' },
+      { x: 0.08, label: 'Depression', sub: 'rigid, stuck',    color: '#7777aa', above: true  },
+      { x: 0.50, label: 'Sober',      sub: 'waking baseline', color: 'rgba(255,255,255,0.8)', above: false },
+      { x: 0.78, label: 'LSD',        sub: 'high entropy',    color: '#ff8844', above: true  },
+      { x: 1.00, label: 'Psychosis',  sub: 'no filter',       color: '#ff4444', above: false },
     ];
 
     const axLen = W - pad * 2;
     states.forEach(s => {
       const x = pad + s.x * axLen;
-      const above = s.x < 0.5; // labels alternate above/below
+      const above = s.above !== undefined ? s.above : (s.x < 0.5);
 
       // Tick
       ctx.strokeStyle = s.color; ctx.lineWidth = 1.5;
@@ -646,7 +642,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
   function initTrajectory() {
     // [alert, engage, entropy, label]
     const points = [
-      [0.0,  0.0,  0.0,  'T+0 Baseline'],
+      [0.0,  0.0,  0.0,  'T+0 Sober'],
       [0.3,  0.3,  0.2,  'T+1h Come-up'],
       [0.7,  0.6,  0.6,  'T+2h'],
       [0.85, 0.80, 0.95, 'T+3h Peak'],
@@ -654,7 +650,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       [0.60, 0.55, 0.60, 'T+6h'],
       [0.40, 0.40, 0.35, 'T+8h Comedown'],
       [0.15, 0.20, 0.15, 'T+10h'],
-      [0.05, 0.05, 0.05, 'T+12h Return'],
+      [0.02, 0.02, 0.02, 'T+12h Sober'],
     ];
     const el = document.getElementById('traj-container');
     const W = el ? el.offsetWidth - 48 : 600;
