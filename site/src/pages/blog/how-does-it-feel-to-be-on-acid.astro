@@ -2,9 +2,9 @@
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 ---
 <ArticleLayout
-  title="How does it feel to be on acid?"
+  title="What is it like to be on acid?"
   subtitle="A vector model of conscious states"
-  description="A framework for mapping altered states of consciousness using three axes: alertness, engagement, and neural entropy. Each substance is a vector. LSD pushes into territory ordinary waking life never reaches."
+  description="A framework for mapping altered states of consciousness using three axes: alertness, engagement, and neural entropy. Each substance is a vector. Psychedelics push into territory ordinary waking life never reaches."
   image="/images/placeholder.jpg"
   date="2026-04-16"
   readTime="14 min read"
@@ -16,7 +16,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
 <p>You already have a working model of altered states in your head. You know what coffee does at 7am: sharper, faster, more present. You know what a beer does on a Friday evening: edges soften, urgency drops, thinking slows to something more pleasant. You know the difference between lying half-asleep and properly falling under. And if you have had a vivid dream, you know that "asleep" is not the same as "absent", the mind can be intensely active while the body is completely still.</p>
 
-<p>These are not just feelings. They are positions in a space. Once you start mapping them, the structure becomes clear, and it becomes possible to ask: where exactly does a psychedelic (taken within legal frameworks) sit in that space? And why does it feel like nothing else?</p>
+<p>These feelings can be described as positions in a space defined by variables of our awareness. Once you start mapping them, the structure becomes clear, and it becomes possible to ask: where exactly does a psychedelic (taken within legal frameworks) sit in that space? And why does it feel like nothing else?</p>
 
 <p>What follows is a framework. The neuroscience supports it. The goal is a coordinate system precise enough to place every conscious state, including the ones that resist description, into a shared map.</p>
 
@@ -467,7 +467,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       }
     }
 
-    function loop() { ry += 0.004; drawScene(); requestAnimationFrame(loop); }
+    function loop() { ry += 0.0015; drawScene(); requestAnimationFrame(loop); }
     loop();
   }
 
@@ -592,8 +592,8 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
     }
 
     draw();
-    ry += 0.003;
-    requestAnimationFrame(function loop() { ry += 0.003; draw(); requestAnimationFrame(loop); });
+    ry += 0.001;
+    requestAnimationFrame(function loop() { ry += 0.001; draw(); requestAnimationFrame(loop); });
 
     canvas.addEventListener('mousedown', e => { dragging=true; lastX=e.clientX; lastY=e.clientY; });
     canvas.addEventListener('touchstart', e => { dragging=true; lastX=e.touches[0].clientX; lastY=e.touches[0].clientY; });
