@@ -112,7 +112,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
     <div class="substance-desc">Variable alertness, low engagement, extreme rigidity. The brain trapped in its own predictive loops, unable to update. This is the clinical significance of the entropy axis: depression and psychedelics are opposites on it, which partly explains why psilocybin therapy works.</div>
   </div>
 
-  <div class="substance-card glass-card" style="border-color: #ff4444; box-shadow: 0 0 20px rgba(255,68,68,0.3);">
+  <div class="substance-card glass-card">
     <div class="substance-header" style="color:#ff4444">LSD / Psilocybin</div>
     <canvas class="substance-canvas" data-vec="0.85,0.8,0.95" data-color="#ff4444"></canvas>
     <div class="substance-desc">Maximum entropy, high alertness, high engagement. The vector points into a region of state-space that no other substance and no ordinary mental state reaches. Fully awake, fully engaged, and the structure of experience itself destabilized. This is the combination that produces everything described below.</div>
@@ -347,9 +347,35 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
     const cx = W / 2, cy = H / 2, scale = Math.min(W, H) * 0.32;
 
+    function drawCubeLines() {
+      const corners = [
+        [-1,-1,-1],[1,-1,-1],[1,1,-1],[-1,1,-1],
+        [-1,-1, 1],[1,-1, 1],[1,1, 1],[-1,1, 1],
+      ];
+      const edges = [
+        [0,1],[1,2],[2,3],[3,0],
+        [4,5],[5,6],[6,7],[7,4],
+        [0,4],[1,5],[2,6],[3,7],
+      ];
+      ctx.save();
+      ctx.strokeStyle = 'rgba(255,255,255,0.10)';
+      ctx.lineWidth = 0.75;
+      ctx.setLineDash([3, 5]);
+      edges.forEach(([a, b]) => {
+        const ca = corners[a], cb = corners[b];
+        const pa = project3D(ca[0]*0.95, ca[1]*0.95, ca[2]*0.95, cx, cy, scale, rx, ry);
+        const pb = project3D(cb[0]*0.95, cb[1]*0.95, cb[2]*0.95, cx, cy, scale, rx, ry);
+        ctx.beginPath(); ctx.moveTo(pa.sx, pa.sy); ctx.lineTo(pb.sx, pb.sy); ctx.stroke();
+      });
+      ctx.setLineDash([]);
+      ctx.restore();
+    }
+
     function drawScene() {
       ctx.fillStyle = C.bg;
       ctx.fillRect(0, 0, W, H);
+
+      drawCubeLines();
 
       // Draw axes — white, solid
       const axisCol = 'rgba(255,255,255,0.85)';
@@ -461,8 +487,24 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       const dx=x2-x1, dy=y2-y1, len=Math.sqrt(dx*dx+dy*dy);
       if (len<2) return;
       const ux=dx/len, uy=dy/len, hl=lw*2.5+4;
+      // Shadow pass (offset, dark, thicker)
+      ctx.save();
+      ctx.strokeStyle='rgba(0,0,0,0.45)'; ctx.lineWidth=lw+4; ctx.lineCap='round';
+      ctx.beginPath(); ctx.moveTo(x1+2,y1+3); ctx.lineTo(x2-ux*hl*0.5+2, y2-uy*hl*0.5+3); ctx.stroke();
+      ctx.restore();
+      // Main line
       ctx.strokeStyle=col; ctx.lineWidth=lw; ctx.lineCap='round';
       ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2-ux*hl*0.5, y2-uy*hl*0.5); ctx.stroke();
+      // Shadow arrowhead
+      ctx.save();
+      ctx.fillStyle='rgba(0,0,0,0.45)';
+      ctx.beginPath();
+      ctx.moveTo(x2+2,y2+3);
+      ctx.lineTo(x2-ux*hl-uy*hl*0.42+2, y2-uy*hl+ux*hl*0.42+3);
+      ctx.lineTo(x2-ux*hl+uy*hl*0.42+2, y2-uy*hl-ux*hl*0.42+3);
+      ctx.closePath(); ctx.fill();
+      ctx.restore();
+      // Main arrowhead
       ctx.fillStyle=col;
       ctx.beginPath();
       ctx.moveTo(x2,y2);
@@ -471,9 +513,36 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       ctx.closePath(); ctx.fill();
     }
 
+    function drawCube() {
+      // 12 edges of a unit cube from -1 to +1 on each axis
+      const corners = [
+        [-1,-1,-1],[1,-1,-1],[1,1,-1],[-1,1,-1],
+        [-1,-1, 1],[1,-1, 1],[1,1, 1],[-1,1, 1],
+      ];
+      const edges = [
+        [0,1],[1,2],[2,3],[3,0], // back face
+        [4,5],[5,6],[6,7],[7,4], // front face
+        [0,4],[1,5],[2,6],[3,7], // connecting edges
+      ];
+      ctx.save();
+      ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+      ctx.lineWidth = 0.75;
+      ctx.setLineDash([3, 5]);
+      edges.forEach(([a, b]) => {
+        const ca = corners[a], cb = corners[b];
+        const pa = proj(ca[0]*0.95, ca[1]*0.95, ca[2]*0.95);
+        const pb = proj(cb[0]*0.95, cb[1]*0.95, cb[2]*0.95);
+        ctx.beginPath(); ctx.moveTo(pa.sx, pa.sy); ctx.lineTo(pb.sx, pb.sy); ctx.stroke();
+      });
+      ctx.setLineDash([]);
+      ctx.restore();
+    }
+
     function draw() {
       ctx.fillStyle = C.bg;
       ctx.fillRect(0,0,W,H);
+
+      drawCube();
 
       // Full axes: positive (white solid) and negative (white dashed)
       const axes = [
