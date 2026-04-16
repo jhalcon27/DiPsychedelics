@@ -31,7 +31,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 <div class="viz-container glass-card" id="viz2d-container">
   <div class="viz-title">2D State Space: Alertness × Engagement</div>
   <svg id="viz2d" width="100%" viewBox="0 0 500 400" style="display:block;"></svg>
-  <div class="viz-caption">Each arrow shows the direction and magnitude a substance moves your conscious state from baseline (origin). Hover for details.</div>
+  <div class="viz-caption">Each arrow shows the direction a substance tends to move your conscious state from baseline. These effects are highly variable depending on dose, set, and setting, and differ significantly from person to person. Treat the vectors as indicative, not prescriptive.</div>
 </div>
 
 <h2>Why two dimensions are not enough</h2>
@@ -312,7 +312,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       const dx = ex - cx, dy = ey - cy;
       const len = Math.sqrt(dx*dx + dy*dy);
       const ux = dx/len, uy = dy/len;
-      const headLen = 13;
+      const headLen = 20;
       const lx = ex + ux * 12, ly = ey + uy * 12;
       html += `
         <line x1="${cx}" y1="${cy}" x2="${ex - ux*headLen*0.5}" y2="${ey - uy*headLen*0.5}"
@@ -504,7 +504,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       ctx.strokeStyle=col; ctx.lineWidth=lw; ctx.lineCap='round';
       ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2, y2); ctx.stroke();
       // Small static arrowhead (2D screen-space triangle, always same size)
-      const headLen = 16, headW = 8;
+      const headLen = 24, headW = 12;
       ctx.fillStyle=col;
       ctx.beginPath();
       ctx.moveTo(x2, y2);
