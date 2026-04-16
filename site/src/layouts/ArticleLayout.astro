@@ -179,23 +179,38 @@ const prefix = lang === 'en' ? '' : `/${lang}`;
             <!-- Share -->
             <div class="glass-card rounded-lg p-5">
               <h3 class="text-cyber-text font-semibold text-sm uppercase tracking-widest mb-4">{t.article.share}</h3>
-              <div class="flex gap-3">
+              <div class="flex flex-col gap-2">
                 <a
                   href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(Astro.url.href)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="flex-1 btn-cyber text-xs py-2 px-3 justify-center"
+                  class="btn-cyber text-xs py-2 px-3 justify-center"
                 >
-                  {t.article.twitter}
+                  𝕏 &nbsp;Twitter / X
                 </a>
                 <a
-                  href="https://instagram.com/strugen"
+                  href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(Astro.url.href)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="flex-1 btn-cyber text-xs py-2 px-3 justify-center"
+                  class="btn-cyber text-xs py-2 px-3 justify-center"
                 >
-                  {t.article.instagram}
+                  Facebook
                 </a>
+                <a
+                  href={`https://wa.me/?text=${encodeURIComponent(title + ' ' + Astro.url.href)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-cyber text-xs py-2 px-3 justify-center"
+                >
+                  WhatsApp
+                </a>
+                <button
+                  id="copy-link-btn"
+                  class="btn-cyber text-xs py-2 px-3 justify-center w-full"
+                  data-url={Astro.url.href}
+                >
+                  Copy link
+                </button>
               </div>
             </div>
           </div>
@@ -246,6 +261,21 @@ const prefix = lang === 'en' ? '' : `/${lang}`;
       </a>
     </div>
   </section>
+
+  <!-- Copy link script -->
+  <script>
+    const copyBtn = document.getElementById('copy-link-btn');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        const url = copyBtn.getAttribute('data-url') || window.location.href;
+        navigator.clipboard.writeText(url).then(() => {
+          const orig = copyBtn.textContent;
+          copyBtn.textContent = 'Copied!';
+          setTimeout(() => { copyBtn.textContent = orig; }, 2000);
+        });
+      });
+    }
+  </script>
 
   <!-- Reading progress script -->
   <script>
