@@ -26,7 +26,7 @@ export const zh: TranslationObj = {
     home: '首页',
     blog: '博客',
     author: '作者',
-    futuristRole: '企业未来学家',
+    futuristRole: '未来的学者（学徒）',
     getInTouch: '联系我们',
     topics: '主题',
     share: '分享',

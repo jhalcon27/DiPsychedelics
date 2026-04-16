@@ -26,7 +26,7 @@ export const ja: TranslationObj = {
     home: 'ホーム',
     blog: 'ブログ',
     author: '著者',
-    futuristRole: 'コーポレート・フューチャリスト',
+    futuristRole: '未来的学者の卵',
     getInTouch: 'お問い合わせ',
     topics: 'トピック',
     share: 'シェア',

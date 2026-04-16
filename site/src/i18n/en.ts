@@ -24,7 +24,7 @@ export const en = {
     home: 'Home',
     blog: 'Blog',
     author: 'Author',
-    futuristRole: 'Corporate Futurist',
+    futuristRole: 'Wannabe Futurist',
     getInTouch: 'Get in Touch',
     topics: 'Topics',
     share: 'Share',
