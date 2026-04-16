@@ -451,12 +451,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
           ctx.beginPath(); ctx.arc(p.sx,p.sy,4,0,Math.PI*2); ctx.fill();
           if (pt[3]) {
             ctx.font = '9px monospace'; ctx.fillStyle = C.white;
-            // Draw text with a small dark background for readability
             const txt = pt[3];
-            const tw = ctx.measureText(txt).width;
-            ctx.fillStyle = 'rgba(0,0,0,0.6)';
-            ctx.fillRect(p.sx+4, p.sy-12, tw+4, 13);
-            ctx.fillStyle = C.white;
             ctx.fillText(txt, p.sx+6, p.sy-2);
           }
         });
@@ -776,14 +771,14 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
     // [alert, engage, entropy, label]
     const points = [
       [0.0,  0.0,  0.0,  'T+0 Sober'],
-      [0.2,  0.3,  0.2,  'T+1h Come-up'],
-      [0.45, 0.6,  0.6,  'T+2h'],
+      [0.2,  0.3,  0.6,  'T+1h Come-up'],
+      [0.45, 0.6,  0.9,  'T+2h'],
       [0.60, 0.80, 0.95, 'T+3h Peak'],
-      [0.55, 0.70, 0.80, 'T+5h Plateau'],
-      [0.45, 0.55, 0.60, 'T+6h'],
-      [0.30, 0.40, 0.35, 'T+8h Comedown'],
-      [0.10, 0.20, 0.15, 'T+10h'],
-      [0.01, 0.02, 0.02, 'T+12h Sober'],
+      [0.55, 0.70, 0.93, 'T+5h Plateau'],
+      [0.45, 0.55, 0.85, 'T+6h'],
+      [0.30, 0.40, 0.50, 'T+8h Comedown'],
+      [0.15, 0.25, 0.25, 'T+10h'],
+      [0.01, 0.05, 0.05, 'T+12h Sober'],
     ];
     const el = document.getElementById('traj-container');
     const W = el ? el.offsetWidth - 48 : 600;
