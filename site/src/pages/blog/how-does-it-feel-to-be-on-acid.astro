@@ -16,7 +16,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
 <p>You already have a working model of altered states in your head. You know what coffee does at 7am: sharper, faster, more present. You know what a beer does on a Friday evening: edges soften, urgency drops, thinking slows to something more pleasant. You know the difference between lying half-asleep and properly falling under. And if you have had a vivid dream, you know that "asleep" is not the same as "absent", the mind can be intensely active while the body is completely still.</p>
 
-<p>These are not just feelings. They are positions in a space. Once you start mapping them, the structure becomes clear, and it becomes possible to ask: where exactly does acid sit in that space? And why does it feel like nothing else?</p>
+<p>These are not just feelings. They are positions in a space. Once you start mapping them, the structure becomes clear, and it becomes possible to ask: where exactly does a psychedelic (taken within legal frameworks) sit in that space? And why does it feel like nothing else?</p>
 
 <p>What follows is a framework. The neuroscience supports it. The goal is a coordinate system precise enough to place every conscious state, including the ones that resist description, into a shared map.</p>
 
@@ -120,9 +120,9 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
 </div>
 
-<h2>What LSD specifically does</h2>
+<h2>What it actually feels like</h2>
 
-<p>The vector description tells you where you end up. It does not capture the experience of moving there, or what it is like to inhabit that coordinate.</p>
+<p>The vector description tells you where you end up. It does not capture the experience of moving there, or what it is like to inhabit that coordinate. What follows is based on personal experience with psychedelics taken in controlled settings.</p>
 
 <p><strong>Time distortion.</strong> The engagement axis turns recursive. You become engaged with your own engagement. Each moment of attention contains metadata about attention itself. A minute can feel architecturally complex, layered, far longer than a minute. This is not time slowing down in any straightforward sense. It is time gaining texture.</p>
 
@@ -130,13 +130,21 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
 <p><strong>Geometric visuals and synesthesia.</strong> When the entropy axis peaks, the brain's perceptual filters relax. The visual cortex generates structure from noise. Fractals, geometric patterns, color overlays on surfaces that do not have them. Simultaneously, the separations between sensory modalities weaken: sounds acquire visual qualities, emotions have spatial textures, music becomes architecture. The axes bleed into each other.</p>
 
-<p><strong>The trajectory.</strong> An acid experience is not static. It traces a path through the 3D space over twelve hours. The visualization below shows this arc.</p>
+<p><strong>The trajectory.</strong> The experience is not static. It traces a path through the 3D space over twelve hours. The visualization below shows this arc.</p>
 
 <div class="viz-container glass-card" id="traj-container">
   <div class="viz-title">LSD Trajectory Through State Space (T+0 to T+12h)</div>
   <canvas id="traj-canvas" style="width:100%;display:block;"></canvas>
   <div class="viz-caption">The path from baseline through come-up, peak, plateau, and comedown. Drag to rotate.</div>
 </div>
+
+<h2>This framework is not complete</h2>
+
+<p>Three axes is a starting point. The space of conscious experience almost certainly has more dimensions than this. Valence (how good or bad an experience feels) is not captured here, for instance. Nor is the geometry of visual experience, the degree of self-referential thinking, or the sense of meaning and significance that psychedelics often amplify without necessarily moving alertness or engagement much.</p>
+
+<p>The <a href="https://www.qualiaresearchinstitute.org/" target="_blank" rel="noopener">Qualia Research Institute</a> has developed a more comprehensive framework for mapping conscious states, including parameters like symmetry of experience, valence, and what they call the "geometry of qualia." Their work is worth exploring if you want to go deeper. A useful starting point is Andrés Gómez Emilsson's writing on <a href="https://qualiacomputing.com/2020/05/03/the-symmetry-theory-of-valence-2020-presentation/" target="_blank" rel="noopener">the symmetry theory of valence</a>, which tries to explain why some states feel good and others do not in terms of the mathematical structure of neural patterns.</p>
+
+<p>The three-axis model here trades completeness for clarity. It is designed to answer one specific question: why does a psychedelic feel so categorically different from everything else you have experienced? The entropy axis does most of that work.</p>
 
 <h2>Why this framework matters</h2>
 
@@ -358,9 +366,9 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
         [0,4],[1,5],[2,6],[3,7],
       ];
       ctx.save();
-      ctx.strokeStyle = 'rgba(255,255,255,0.10)';
+      ctx.strokeStyle = 'rgba(255,255,255,0.20)';
       ctx.lineWidth = 0.75;
-      ctx.setLineDash([3, 5]);
+      ctx.setLineDash([4, 4]);
       edges.forEach(([a, b]) => {
         const ca = corners[a], cb = corners[b];
         const pa = project3D(ca[0]*0.95, ca[1]*0.95, ca[2]*0.95, cx, cy, scale, rx, ry);
@@ -525,9 +533,9 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
         [0,4],[1,5],[2,6],[3,7], // connecting edges
       ];
       ctx.save();
-      ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+      ctx.strokeStyle = 'rgba(255,255,255,0.25)';
       ctx.lineWidth = 0.75;
-      ctx.setLineDash([3, 5]);
+      ctx.setLineDash([4, 4]);
       edges.forEach(([a, b]) => {
         const ca = corners[a], cb = corners[b];
         const pa = proj(ca[0]*0.95, ca[1]*0.95, ca[2]*0.95);
