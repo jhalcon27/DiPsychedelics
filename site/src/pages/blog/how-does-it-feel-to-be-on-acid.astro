@@ -458,7 +458,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       }
     }
 
-    function loop() { ry += 0.0015; drawScene(); requestAnimationFrame(loop); }
+    function loop() { ry += 0.0004; drawScene(); requestAnimationFrame(loop); }
     loop();
   }
 
@@ -660,8 +660,8 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
     }
 
     draw();
-    ry += 0.001;
-    requestAnimationFrame(function loop() { ry += 0.001; draw(); requestAnimationFrame(loop); });
+    ry += 0.0004;
+    requestAnimationFrame(function loop() { ry += 0.0004; draw(); requestAnimationFrame(loop); });
 
     canvas.addEventListener('mousedown', e => { dragging=true; lastX=e.clientX; lastY=e.clientY; });
     canvas.addEventListener('touchstart', e => { dragging=true; lastX=e.touches[0].clientX; lastY=e.touches[0].clientY; });
