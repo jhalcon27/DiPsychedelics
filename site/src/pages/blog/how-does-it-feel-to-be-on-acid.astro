@@ -312,7 +312,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       const dx = ex - cx, dy = ey - cy;
       const len = Math.sqrt(dx*dx + dy*dy);
       const ux = dx/len, uy = dy/len;
-      const headLen = 10;
+      const headLen = 13;
       const lx = ex + ux * 12, ly = ey + uy * 12;
       html += `
         <line x1="${cx}" y1="${cy}" x2="${ex - ux*headLen*0.5}" y2="${ey - uy*headLen*0.5}"
@@ -504,7 +504,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       ctx.strokeStyle=col; ctx.lineWidth=lw; ctx.lineCap='round';
       ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2, y2); ctx.stroke();
       // Small static arrowhead (2D screen-space triangle, always same size)
-      const headLen = 12, headW = 6;
+      const headLen = 16, headW = 8;
       ctx.fillStyle=col;
       ctx.beginPath();
       ctx.moveTo(x2, y2);
