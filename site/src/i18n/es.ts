@@ -26,7 +26,7 @@ export const es: TranslationObj = {
     home: 'Inicio',
     blog: 'Blog',
     author: 'Autor',
-    futuristRole: 'Futurista aspirante',
+    futuristRole: 'Wannabe futurist',
     getInTouch: 'Contactar',
     topics: 'Temas',
     share: 'Compartir',
