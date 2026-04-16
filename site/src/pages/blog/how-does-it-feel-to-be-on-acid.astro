@@ -142,7 +142,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
 <p>Three axes is a starting point. The space of conscious experience almost certainly has more dimensions than this. Valence (how good or bad an experience feels) is not captured here, for instance. Nor is the geometry of visual experience, the degree of self-referential thinking, or the sense of meaning and significance that psychedelics often amplify without necessarily moving alertness or engagement much.</p>
 
-<p>The <a href="https://www.qualiaresearchinstitute.org/" target="_blank" rel="noopener">Qualia Research Institute</a> has developed a more comprehensive framework for mapping conscious states, including parameters like symmetry of experience, valence, and what they call the "geometry of qualia." Their work is worth exploring if you want to go deeper. A useful starting point is Andrés Gómez Emilsson's writing on <a href="https://qri.org/blog/symmetry-theory-of-valence-2020" target="_blank" rel="noopener">the symmetry theory of valence</a>, which tries to explain why some states feel good and others do not in terms of the mathematical structure of neural patterns.</p>
+<p>The <a href="https://www.qualiaresearchinstitute.org/" target="_blank" rel="noopener">Qualia Research Institute</a> has developed a more comprehensive framework for mapping conscious states, including parameters like symmetry of experience, valence, and what they call the "geometry of qualia." Their work is worth exploring if you want to go deeper. A useful starting point is Andrés Gómez Emilsson's writing on <a href="https://qualiacomputing.com/2020/12/17/the-symmetry-theory-of-valence-2020-presentation/" target="_blank" rel="noopener">the symmetry theory of valence</a>, which tries to explain why some states feel good and others do not in terms of the mathematical structure of neural patterns.</p>
 
 <p>The three-axis model here trades completeness for clarity. It is designed to answer one specific question: why does a psychedelic feel so categorically different from everything else you have experienced? The entropy axis does most of that work.</p>
 
@@ -285,7 +285,13 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       { label: 'Coffee',   alert:  0.80, engage:  0.40, color: '#ffe066' },
       { label: 'Nicotine', alert:  0.50, engage:  0.40, color: '#c8f0c8' },
       { label: 'Alcohol',  alert: -0.60, engage: -0.50, color: '#aaddff' },
-    ];
+      { label: 'Cannabis', alert: -0.10, engage: -0.20, color: '#88ff88' },
+      { label: 'MDMA',     alert:  0.70, engage:  0.90, color: '#ff88cc' },
+      { label: 'Ketamine', alert: -0.50, engage: -0.70, color: '#cc88ff' },
+      { label: 'Meditation', alert: 0.60, engage: 0.70, color: '#ffffff' },
+      { label: 'Depression', alert: -0.10, engage: -0.60, color: '#666699' },
+      { label: 'LSD',      alert:  0.85, engage:  0.80, color: '#ff4444' },
+    ].slice(0, 15);
 
     let html = `
       <defs>
@@ -312,14 +318,14 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       const dx = ex - cx, dy = ey - cy;
       const len = Math.sqrt(dx*dx + dy*dy);
       const ux = dx/len, uy = dy/len;
-      const headLen = 20;
-      const lx = ex + ux * 12, ly = ey + uy * 12;
+      const headLen = 15;
+      const lx = ex + ux * 10, ly = ey + uy * 10;
       html += `
         <line x1="${cx}" y1="${cy}" x2="${ex - ux*headLen*0.5}" y2="${ey - uy*headLen*0.5}"
-              stroke="${s.color}" stroke-width="3" stroke-linecap="round"/>
-        <polygon points="${ex},${ey} ${ex - ux*headLen - uy*headLen*0.45},${ey - uy*headLen + ux*headLen*0.45} ${ex - ux*headLen + uy*headLen*0.45},${ey - uy*headLen - ux*headLen*0.45}"
+              stroke="${s.color}" stroke-width="2.5" stroke-linecap="round"/>
+        <polygon points="${ex},${ey} ${ex - ux*headLen - uy*headLen*0.35},${ey - uy*headLen + ux*headLen*0.35} ${ex - ux*headLen + ux*headLen*0.35},${ey - uy*headLen - ux*headLen*0.35}"
                  fill="${s.color}"/>
-        <text x="${lx}" y="${ly+4}" font-size="10" font-family="monospace" fill="${s.color}" text-anchor="${s.engage > 0 ? 'start' : 'end'}">${s.label}</text>
+        <text x="${lx}" y="${ly+4}" font-size="9" font-family="monospace" fill="${s.color}" text-anchor="${s.engage > 0 ? 'start' : 'end'}">${s.label}</text>
       `;
     });
 
@@ -504,7 +510,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       ctx.strokeStyle=col; ctx.lineWidth=lw; ctx.lineCap='round';
       ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2, y2); ctx.stroke();
       // Small static arrowhead (2D screen-space triangle, always same size)
-      const headLen = 24, headW = 12;
+      const headLen = 20, headW = 6;
       ctx.fillStyle=col;
       ctx.beginPath();
       ctx.moveTo(x2, y2);
