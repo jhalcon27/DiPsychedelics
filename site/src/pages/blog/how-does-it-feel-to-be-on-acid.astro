@@ -491,26 +491,80 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       return { sx: cx + x1 * scale, sy: cy - y2 * scale };
     }
 
-    function drawArrow3D(x1,y1, x2,y2, col, lw) {
-      const dx=x2-x1, dy=y2-y1, len=Math.sqrt(dx*dx+dy*dy);
-      if (len<2) return;
-      const ux=dx/len, uy=dy/len, hl=lw*1.8+3;
-      // Shadow pass
-      ctx.save();
-      ctx.strokeStyle='rgba(0,0,0,0.4)'; ctx.lineWidth=lw+3; ctx.lineCap='round';
-      ctx.beginPath(); ctx.moveTo(x1+2,y1+3); ctx.lineTo(x2+2, y2+3); ctx.stroke();
-      ctx.restore();
-      // Main line — goes all the way to tip
-      ctx.strokeStyle=col; ctx.lineWidth=lw; ctx.lineCap='round';
-      ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2, y2); ctx.stroke();
-      // Small static arrowhead (2D screen-space triangle, always same size)
-      const headLen = 20, headW = 6;
-      ctx.fillStyle=col;
-      ctx.beginPath();
-      ctx.moveTo(x2, y2);
-      ctx.lineTo(x2 - ux*headLen - uy*headW, y2 - uy*headLen + ux*headW);
-      ctx.lineTo(x2 - ux*headLen + uy*headW, y2 - uy*headLen - ux*headW);
-      ctx.closePath(); ctx.fill();
+    function drawArrow3D(x1, y1, z1, x2, y2, z2, col, lw) {
+      // We need to draw a 3D arrow from (x1,y1,z1) to (x2,y2,z2)
+      // For simplicity in this JS-canvas approach, we will use 
+      // multiple projected lines to create a 'thick' 3D-feeling stem 
+      // and a 3D pyramid head.
+
+      const steps = 4; // 4 faces for the stem (prism)
+      const stemR = 0.02; // radius of stem
+      const headR = 0.08; // radius of head base
+      const headL = 0.15; // length of head
+
+      // Vector direction
+      const dx = x2 - x1, dy = y2 - y1, dz = z2 - z1;
+      const len = Math.sqrt(dx*dx + dy*dy + dz*dz);
+      if (len < 0.05) return;
+
+      const ux = dx/len, uy = dy/len, uz = dz/len;
+
+      // Find two vectors orthogonal to the arrow direction for the cross-section
+      let vx = 0, vy = 1, vz = 0;
+      if (Math.abs(uy) > 0.9) { vx = 1; vy = 0; }
+      // v = u x v_initial
+      const wx = uy*vz - uz*vy, wy = uz*vx - ux*vz, wz = ux*vy - uy*vx;
+      const wlen = Math.sqrt(wx*wx + wy*wy + wz*wz);
+      const nx = wx/wlen, ny = wy/wlen, nz = wz/wlen;
+      // m = u x n
+      const mx = uy*nz - uz*ny, my = uz*nx - ux*nz, mz = ux*ny - uy*nx;
+
+      // Draw Stem (4 faces)
+      const headStart = len - headL;
+      for (let i = 0; i < steps; i++) {
+        const a1 = (i / steps) * Math.PI * 2;
+        const a2 = ((i + 1) / steps) * Math.PI * 2;
+
+        const p1 = proj(x1 + (mx*Math.cos(a1) + nx*Math.sin(a1)) * stemR, 
+                        y1 + (my*Math.cos(a1) + ny*Math.sin(a1)) * stemR, 
+                        z1 + (mz*Math.cos(a1) + nz*Math.sin(a1)) * stemR);
+        const p2 = proj(x1 + (mx*Math.cos(a2) + nx*Math.sin(a2)) * stemR, 
+                        y1 + (my*Math.cos(a2) + ny*Math.sin(a2)) * stemR, 
+                        z1 + (mz*Math.cos(a2) + nz*Math.sin(a2)) * stemR);
+        const p3 = proj(x1 + ux*headStart + (mx*Math.cos(a2) + nx*Math.sin(a2)) * stemR, 
+                        y1 + uy*headStart + (my*Math.cos(a2) + ny*Math.sin(a2)) * stemR, 
+                        z1 + uz*headStart + (mz*Math.cos(a2) + nz*Math.sin(a2)) * stemR);
+        const p4 = proj(x1 + ux*headStart + (mx*Math.cos(a1) + nx*Math.sin(a1)) * stemR, 
+                        y1 + uy*headStart + (my*Math.cos(a1) + ny*Math.sin(a1)) * stemR, 
+                        z1 + uz*headStart + (mz*Math.cos(a1) + nz*Math.sin(a1)) * stemR);
+
+        // Simple shading based on face normal
+        const shade = 0.7 + 0.3 * Math.cos(a1 + ry);
+        ctx.fillStyle = col;
+        ctx.globalAlpha = shade;
+        ctx.beginPath(); ctx.moveTo(p1.sx, p1.sy); ctx.lineTo(p2.sx, p2.sy); ctx.lineTo(p3.sx, p3.sy); ctx.lineTo(p4.sx, p4.sy); ctx.closePath(); ctx.fill();
+        ctx.globalAlpha = 1.0;
+      }
+
+      // Draw Head (4 faces)
+      const tip = proj(x2, y2, z2);
+      for (let i = 0; i < steps; i++) {
+        const a1 = (i / steps) * Math.PI * 2;
+        const a2 = ((i + 1) / steps) * Math.PI * 2;
+
+        const p1 = proj(x1 + ux*headStart + (mx*Math.cos(a1) + nx*Math.sin(a1)) * headR, 
+                        y1 + uy*headStart + (my*Math.cos(a1) + ny*Math.sin(a1)) * headR, 
+                        z1 + uz*headStart + (mz*Math.cos(a1) + nz*Math.sin(a1)) * headR);
+        const p2 = proj(x1 + ux*headStart + (mx*Math.cos(a2) + nx*Math.sin(a2)) * headR, 
+                        y1 + uy*headStart + (my*Math.cos(a2) + ny*Math.sin(a2)) * headR, 
+                        z1 + uz*headStart + (mz*Math.cos(a2) + nz*Math.sin(a2)) * headR);
+
+        const shade = 0.5 + 0.5 * Math.cos(a1 + ry);
+        ctx.fillStyle = col;
+        ctx.globalAlpha = shade;
+        ctx.beginPath(); ctx.moveTo(p1.sx, p1.sy); ctx.lineTo(p2.sx, p2.sy); ctx.lineTo(tip.sx, tip.sy); ctx.closePath(); ctx.fill();
+        ctx.globalAlpha = 1.0;
+      }
     }
 
     function drawCube() {
@@ -586,8 +640,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       ctx.beginPath(); ctx.arc(o.sx,o.sy,3,0,Math.PI*2); ctx.fill();
 
       // The substance vector — thick
-      const ep = proj(engage, alert, entropy);
-      drawArrow3D(o.sx, o.sy, ep.sx, ep.sy, color, 6);
+      drawArrow3D(0, 0, 0, engage, alert, entropy, color, 6);
 
     }
 
