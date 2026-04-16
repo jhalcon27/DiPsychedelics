@@ -57,55 +57,55 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 <div class="substance-grid">
 
   <div class="substance-card glass-card">
-    <div class="substance-header" style="color:#ffe066">☕ Coffee / Caffeine</div>
+    <div class="substance-header" style="color:#ffe066">Coffee / Caffeine</div>
     <canvas class="substance-canvas" data-vec="0.8,0.4,0.05" data-color="#ffe066"></canvas>
     <div class="substance-desc">Strong alertness, mild engagement boost, negligible entropy effect. Adenosine antagonism lifts the brake on arousal. Nothing strange happens to the structure of experience — it just runs faster.</div>
   </div>
 
   <div class="substance-card glass-card">
-    <div class="substance-header" style="color:#c8f0c8">🚬 Nicotine</div>
+    <div class="substance-header" style="color:#c8f0c8">Nicotine</div>
     <canvas class="substance-canvas" data-vec="0.5,0.4,0.0" data-color="#c8f0c8"></canvas>
     <div class="substance-desc">Similar to caffeine but milder and shorter. Moderate alertness, mild engagement. Entropy essentially unchanged. Primarily a cholinergic and dopaminergic effect on attention circuits.</div>
   </div>
 
   <div class="substance-card glass-card">
-    <div class="substance-header" style="color:#aaddff">🍺 Alcohol</div>
+    <div class="substance-header" style="color:#aaddff">Alcohol</div>
     <canvas class="substance-canvas" data-vec="-0.6,-0.5,0.15" data-color="#aaddff"></canvas>
     <div class="substance-desc">GABA-ergic sedation. Alertness and engagement both drop. A small entropy increase at low doses (loosened inhibition) then suppression as dose increases. The vector points down and inward.</div>
   </div>
 
   <div class="substance-card glass-card">
-    <div class="substance-header" style="color:#88ff88">🌿 Cannabis</div>
+    <div class="substance-header" style="color:#88ff88">Cannabis</div>
     <canvas class="substance-canvas" data-vec="-0.1,-0.2,0.6" data-color="#88ff88"></canvas>
     <div class="substance-desc">Variable alertness, mild disengagement, notable entropy increase. The CB1 agonism loosens associative constraints, producing the characteristic pattern-finding, paranoia, and unusual connections. The entropy component dominates.</div>
   </div>
 
   <div class="substance-card glass-card">
-    <div class="substance-header" style="color:#ff88cc">💊 MDMA</div>
+    <div class="substance-header" style="color:#ff88cc">MDMA</div>
     <canvas class="substance-canvas" data-vec="0.7,0.9,0.3" data-color="#ff88cc"></canvas>
     <div class="substance-desc">High alertness, very high engagement, moderate entropy. The serotonin and dopamine flood produces intense pro-social engagement. The entropy is present but structured, which is why MDMA feels warm and connected rather than destabilizing.</div>
   </div>
 
   <div class="substance-card glass-card">
-    <div class="substance-header" style="color:#cc88ff">🔮 Ketamine</div>
+    <div class="substance-header" style="color:#cc88ff">Ketamine</div>
     <canvas class="substance-canvas" data-vec="-0.5,-0.7,0.5" data-color="#cc88ff"></canvas>
     <div class="substance-desc">NMDA antagonism produces dissociation: alertness and engagement both drop sharply while entropy increases. You are detached from the world but internally the signal is chaotic. The k-hole is the extreme of this vector.</div>
   </div>
 
   <div class="substance-card glass-card">
-    <div class="substance-header" style="color:#ffffff">🧘 Deep Meditation (Jhana)</div>
+    <div class="substance-header" style="color:#ffffff">Deep Meditation (Jhana)</div>
     <canvas class="substance-canvas" data-vec="0.6,0.7,-0.8" data-color="#ffffff"></canvas>
     <div class="substance-desc">High alertness, high engagement, strongly negative entropy — the most ordered state the brain can voluntarily produce. This is the opposite pole from psychedelics on the entropy axis, achieved through sustained top-down regulation, not chemical suppression.</div>
   </div>
 
   <div class="substance-card glass-card">
-    <div class="substance-header" style="color:#666699">😔 Depression</div>
+    <div class="substance-header" style="color:#666699">Depression</div>
     <canvas class="substance-canvas" data-vec="-0.1,-0.6,-0.9" data-color="#666699"></canvas>
     <div class="substance-desc">Variable alertness, low engagement, extreme rigidity. The brain trapped in its own predictive loops, unable to update. This is the clinical significance of the entropy axis: depression and psychedelics are opposites on it, which partly explains why psilocybin therapy works.</div>
   </div>
 
   <div class="substance-card glass-card" style="border-color: #ff4444; box-shadow: 0 0 20px rgba(255,68,68,0.3);">
-    <div class="substance-header" style="color:#ff4444">⚡ LSD / Psilocybin</div>
+    <div class="substance-header" style="color:#ff4444">LSD / Psilocybin</div>
     <canvas class="substance-canvas" data-vec="0.85,0.8,0.95" data-color="#ff4444"></canvas>
     <div class="substance-desc">Maximum entropy, high alertness, high engagement. The vector points into a region of state-space that no other substance and no ordinary mental state reaches. Fully awake, fully engaged, and the structure of experience itself destabilized. This is the combination that produces everything described below.</div>
   </div>
@@ -282,14 +282,17 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
           <path d="M0,0 L6,3 L0,6 Z" fill="${s.color}"/>
         </marker>`).join('')}
       </defs>
-      <!-- grid -->
-      <line x1="20" y1="${cy}" x2="${W-20}" y2="${cy}" stroke="#222244" stroke-width="1"/>
-      <line x1="${cx}" y1="20" x2="${cx}" y2="${H-20}" stroke="#222244" stroke-width="1"/>
+      <!-- white axes -->
+      <line x1="20" y1="${cy}" x2="${W-24}" y2="${cy}" stroke="rgba(255,255,255,0.85)" stroke-width="2"/>
+      <line x1="${cx}" y1="${H-20}" x2="${cx}" y2="24" stroke="rgba(255,255,255,0.85)" stroke-width="2"/>
+      <!-- axis arrowheads -->
+      <polygon points="${W-20},${cy} ${W-28},${cy-5} ${W-28},${cy+5}" fill="rgba(255,255,255,0.85)"/>
+      <polygon points="${cx},20 ${cx-5},28 ${cx+5},28" fill="rgba(255,255,255,0.85)"/>
       <!-- axis labels -->
-      <text x="${W-15}" y="${cy-6}" font-size="10" font-family="monospace" fill="${C.muted}" text-anchor="end">Engaged →</text>
-      <text x="15"     y="${cy-6}" font-size="10" font-family="monospace" fill="${C.muted}" text-anchor="start">← Disengaged</text>
-      <text x="${cx}"  y="14"      font-size="10" font-family="monospace" fill="${C.muted}" text-anchor="middle">↑ Alert</text>
-      <text x="${cx}"  y="${H-4}"  font-size="10" font-family="monospace" fill="${C.muted}" text-anchor="middle">↓ Sedated</text>
+      <text x="${W-22}" y="${cy-9}" font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="end">Engaged →</text>
+      <text x="22"     y="${cy-9}" font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="start">← Disengaged</text>
+      <text x="${cx}"  y="16"      font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="middle">↑ Alert</text>
+      <text x="${cx}"  y="${H-4}"  font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="middle">↓ Sedated</text>
     `;
 
     substances.forEach((s, i) => {
@@ -345,31 +348,40 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       ctx.fillStyle = C.bg;
       ctx.fillRect(0, 0, W, H);
 
-      // Draw axes
+      // Draw axes — white, solid
+      const axisCol = 'rgba(255,255,255,0.85)';
       const axDefs = [
-        { v: [1,0,0], label: 'Engage →',  color: '#334466' },
-        { v: [0,1,0], label: 'Alert ↑',   color: '#334466' },
-        { v: [0,0,1], label: 'Entropy →', color: '#334466' },
+        { v: [1,0,0], label: 'Engage →' },
+        { v: [0,1,0], label: 'Alert ↑'  },
+        { v: [0,0,1], label: 'Entropy →'},
       ];
       axDefs.forEach(ax => {
         const o = project3D(0,0,0, cx, cy, scale, rx, ry);
-        const e = project3D(ax.v[0]*1.1, ax.v[1]*1.1, ax.v[2]*1.1, cx, cy, scale, rx, ry);
+        const e = project3D(ax.v[0]*1.15, ax.v[1]*1.15, ax.v[2]*1.15, cx, cy, scale, rx, ry);
         ctx.save();
-        ctx.strokeStyle = ax.color;
-        ctx.lineWidth = 1;
-        ctx.setLineDash([3,5]);
+        ctx.strokeStyle = axisCol; ctx.lineWidth = 2;
         ctx.beginPath(); ctx.moveTo(o.sx, o.sy); ctx.lineTo(e.sx, e.sy); ctx.stroke();
-        ctx.setLineDash([]);
-        ctx.font = '10px monospace'; ctx.fillStyle = C.muted;
-        ctx.fillText(ax.label, e.sx + 4, e.sy + 4);
+        // arrowhead
+        const dx=e.sx-o.sx, dy=e.sy-o.sy, len=Math.sqrt(dx*dx+dy*dy);
+        if (len>0) {
+          const ux=dx/len,uy=dy/len,ah=8;
+          ctx.fillStyle=axisCol;
+          ctx.beginPath();
+          ctx.moveTo(e.sx,e.sy);
+          ctx.lineTo(e.sx-ux*ah-uy*ah*0.4, e.sy-uy*ah+ux*ah*0.4);
+          ctx.lineTo(e.sx-ux*ah+uy*ah*0.4, e.sy-uy*ah-ux*ah*0.4);
+          ctx.closePath(); ctx.fill();
+        }
+        ctx.font = '11px monospace'; ctx.fillStyle = 'rgba(255,255,255,0.8)';
+        ctx.fillText(ax.label, e.sx + 5, e.sy + 4);
         ctx.restore();
       });
 
-      // Draw negative axes (dashed, dimmer)
+      // Negative axes dashed
       [[-1,0,0],[0,-1,0],[0,0,-1]].forEach(v => {
         const o = project3D(0,0,0, cx,cy,scale,rx,ry);
         const e = project3D(v[0]*0.9,v[1]*0.9,v[2]*0.9, cx,cy,scale,rx,ry);
-        ctx.save(); ctx.strokeStyle='#222233'; ctx.lineWidth=1; ctx.setLineDash([2,6]);
+        ctx.save(); ctx.strokeStyle='rgba(255,255,255,0.2)'; ctx.lineWidth=1; ctx.setLineDash([2,6]);
         ctx.beginPath(); ctx.moveTo(o.sx,o.sy); ctx.lineTo(e.sx,e.sy); ctx.stroke();
         ctx.setLineDash([]); ctx.restore();
       });
@@ -422,61 +434,72 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
     loop();
   }
 
-  // ─── Per-substance mini canvases ──────────────────────────────────
+  // Per-substance mini canvases: 2D plane (Engage x Alert) + thick vector
   function initSubstanceCanvases() {
     document.querySelectorAll('.substance-canvas').forEach(canvas => {
       const raw = canvas.getAttribute('data-vec').split(',').map(Number);
+      // raw = [engage, alert, entropy]
       const color = canvas.getAttribute('data-color');
-      const W = canvas.offsetWidth || 260, H = 160;
+      const W = canvas.offsetWidth || 260, H = 200;
       canvas.width = W; canvas.height = H;
       const ctx = canvas.getContext('2d');
-
-      // Axes: X=Engagement, Y=Alertness, Z=Entropy — show as 2D bar chart for clarity
-      const axes = ['Alert', 'Engage', 'Entropy'];
-      const vals = [raw[1], raw[0], raw[2]];
-      const barW = Math.floor(W * 0.18);
-      const gap = Math.floor((W - barW * 3) / 4);
-      const midY = H / 2;
-      const maxH = H * 0.38;
+      const cx = W / 2, cy = H / 2;
+      const scale = Math.min(W, H) * 0.36;
+      const axCol = 'rgba(255,255,255,0.85)';
 
       ctx.fillStyle = C.bg;
       ctx.fillRect(0, 0, W, H);
 
-      // Baseline
-      ctx.strokeStyle = '#333355'; ctx.lineWidth = 1;
-      ctx.beginPath(); ctx.moveTo(10, midY); ctx.lineTo(W-10, midY); ctx.stroke();
+      // White axes
+      ctx.strokeStyle = axCol; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(14, cy); ctx.lineTo(W-14, cy); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(cx, H-14); ctx.lineTo(cx, 14); ctx.stroke();
 
-      // Bars + arrows
-      axes.forEach((label, i) => {
-        const bx = gap + i * (barW + gap) + Math.floor(barW/2);
-        const v = vals[i];
-        const bh = v * maxH;
-        const top = midY - bh;
+      // Axis arrowheads
+      ctx.fillStyle = axCol;
+      const ah = 6;
+      ctx.beginPath(); ctx.moveTo(W-10,cy); ctx.lineTo(W-10-ah,cy-ah/2); ctx.lineTo(W-10-ah,cy+ah/2); ctx.closePath(); ctx.fill();
+      ctx.beginPath(); ctx.moveTo(cx,10); ctx.lineTo(cx-ah/2,10+ah); ctx.lineTo(cx+ah/2,10+ah); ctx.closePath(); ctx.fill();
 
-        // Bar
-        ctx.fillStyle = color + '33';
-        ctx.fillRect(bx - barW/2, Math.min(midY, top), barW, Math.abs(bh));
+      // Axis labels
+      ctx.font = '9px monospace'; ctx.fillStyle = axCol;
+      ctx.textAlign = 'right'; ctx.fillText('Engage ->', W - 4, cy - 6);
+      ctx.textAlign = 'left';  ctx.fillText('<- Dis', 4, cy - 6);
+      ctx.textAlign = 'center';
+      ctx.fillText('Alert ^', cx, 10);
+      ctx.fillText('Sedate v', cx, H - 2);
 
-        // Arrow from baseline
-        if (Math.abs(bh) > 4) {
-          drawArrow(ctx, bx, midY, bx, top, color, 5, null);
-        }
+      // Entropy label bottom right
+      const entStr = raw[2] >= 0
+        ? 'Entropy: +' + raw[2].toFixed(2)
+        : 'Rigidity: ' + raw[2].toFixed(2);
+      ctx.font = 'bold 9px monospace';
+      ctx.fillStyle = color;
+      ctx.textAlign = 'right';
+      ctx.fillText(entStr, W - 6, H - 5);
 
-        // Value label
-        ctx.font = 'bold 11px monospace';
+      // Thick vector arrow from origin
+      const ex = cx + raw[0] * scale;
+      const ey = cy - raw[1] * scale;
+      const dx = ex - cx, dy = ey - cy;
+      const len = Math.sqrt(dx*dx + dy*dy);
+      if (len > 3) {
+        const ux = dx/len, uy = dy/len, hlen = 14;
+        ctx.strokeStyle = color; ctx.lineWidth = 6; ctx.lineCap = 'round';
+        ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(ex - ux*hlen*0.5, ey - uy*hlen*0.5); ctx.stroke();
         ctx.fillStyle = color;
-        ctx.textAlign = 'center';
-        const vLabel = (v >= 0 ? '+' : '') + v.toFixed(2);
-        ctx.fillText(vLabel, bx, top - (bh > 0 ? 10 : -18));
+        ctx.beginPath();
+        ctx.moveTo(ex, ey);
+        ctx.lineTo(ex - ux*hlen - uy*hlen*0.45, ey - uy*hlen + ux*hlen*0.45);
+        ctx.lineTo(ex - ux*hlen + uy*hlen*0.45, ey - uy*hlen - ux*hlen*0.45);
+        ctx.closePath(); ctx.fill();
+      }
 
-        // Axis label
-        ctx.font = '10px monospace';
-        ctx.fillStyle = C.muted;
-        ctx.fillText(label, bx, H - 6);
-      });
+      // Origin dot
+      ctx.fillStyle = 'rgba(255,255,255,0.4)';
+      ctx.beginPath(); ctx.arc(cx, cy, 3, 0, Math.PI*2); ctx.fill();
     });
   }
-
   // ─── LSD Trajectory ───────────────────────────────────────────────
   function initTrajectory() {
     // [alert, engage, entropy, label]
