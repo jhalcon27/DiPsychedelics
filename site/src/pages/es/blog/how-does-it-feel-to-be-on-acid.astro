@@ -281,9 +281,9 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
     const scale = 140;
 
     const substances = [
-      { label: 'Café',   alert:  0.80, engage:  0.40, color: '#ffe066' },
-      { label: 'Nicotina', alert:  0.50, engage:  0.40, color: '#c8f0c8' },
-      { label: 'Alcohol (según dosis)',  alert: -0.60, engage: -0.50, color: '#aaddff' },
+      { label: 'Café',   alert:  0.80, investigacion:  0.40, color: '#ffe066' },
+      { label: 'Nicotina', alert:  0.50, investigacion:  0.40, color: '#c8f0c8' },
+      { label: 'Alcohol (dependiendo de la dosis)',  alert: -0.60, investigacion: -0.50, color: '#aaddff' },
     ];
 
     let html = `
@@ -306,7 +306,7 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
     `;
 
     substances.forEach((s, i) => {
-      const ex = cx + s.engage * scale;
+      const ex = cx + s.investigacion * scale;
       const ey = cy - s.alert * scale;
       const dx = ex - cx, dy = ey - cy;
       const len = Math.sqrt(dx*dx + dy*dy);
@@ -318,7 +318,7 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
               stroke="${s.color}" stroke-width="4" stroke-linecap="round"/>
         <polygon points="${ex},${ey} ${ex - ux*headLen - uy*headLen*0.45},${ey - uy*headLen + ux*headLen*0.45} ${ex - ux*headLen + uy*headLen*0.45},${ey - uy*headLen - ux*headLen*0.45}"
                  fill="${s.color}"/>
-        <text x="${lx}" y="${ly+4}" font-size="11" font-family="monospace" fill="${s.color}" text-anchor="${s.engage > 0 ? 'start' : 'end'}">${s.label}</text>
+        <text x="${lx}" y="${ly+4}" font-size="11" font-family="monospace" fill="${s.color}" text-anchor="${s.investigacion > 0 ? 'start' : 'end'}">${s.label}</text>
       `;
     });
 
