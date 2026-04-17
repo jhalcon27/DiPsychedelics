@@ -25,12 +25,12 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 
 <p>Comienza con la dimensión más básica: qué tan despierto estás. Llámalo <strong>Alerta</strong>, que va desde totalmente sedado en un extremo hasta la máxima alerta en el otro. El sueño profundo está cerca de un extremo. Un café fuerte a las 6 de la mañana está cerca del otro. La anestesia va aún más lejos.</p>
 
-<p>El segundo eje es el <strong>Compromiso</strong>: cuánto está tu mente orientada activamente hacia algo. Puedes estar técnicamente despierto pero mentalmente ausente, desplazándote por la pantalla sin ver, presente en cuerpo pero en ninguna parte en particular. Eso es un bajo compromiso. Los <a href="https://en.wikipedia.org/wiki/Flow_(psychology)" target="_blank" rel="noopener">estados de flujo</a>, los sueños vívidos, las conversaciones intensas, todos se sitúan en el extremo alto.</p>
+<p>El segundo eje es el <strong>Inmersión</strong>: cuánto está tu mente orientada activamente hacia algo. Puedes estar técnicamente despierto pero mentalmente ausente, desplazándote por la pantalla sin ver, presente en cuerpo pero en ninguna parte en particular. Eso es un bajo compromiso. Los <a href="https://en.wikipedia.org/wiki/Flow_(psychology)" target="_blank" rel="noopener">estados de flow</a>, los sueños vívidos, las conversaciones intensas, todos se sitúan en el extremo alto.</p>
 
 <p>Juntos, estos dos ejes te dan un mapa 2D. Las sustancias que ya conoces aterrizan en lugares predecibles. El café te empuja hacia arriba y hacia la derecha. El alcohol te tira hacia abajo y hacia la izquierda. Una pastilla para dormir te lleva aún más abajo. El gráfico a continuación muestra algunos de estos, trazados como vectores desde la base. La dirección de cada flecha es la dirección hacia la que la sustancia te mueve. La longitud es aproximadamente cuánto.</p>
 
 <div class="viz-container glass-card" id="viz2d-container">
-  <div class="viz-title">Espacio de estado 2D: Alerta × Compromiso</div>
+  <div class="viz-title">Espacio de estado 2D: Alerta × Inmersión</div>
   <svg id="viz2d" width="100%" viewBox="0 0 600 400" style="display:block;"></svg>
   <div class="viz-caption">Cada flecha muestra la dirección en la que una sustancia tiende a mover tu estado de consciencia desde la base. Estos efectos son altamente variables según la dosis, el entorno y la situación, y difieren significativamente de persona a persona. Trata los vectores como indicativos, no prescriptivos.</div>
 </div>
@@ -55,7 +55,7 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 
 <h2>El espacio 3D completo</h2>
 
-<p>Con tres ejes, cada sustancia se convierte en un vector con tres componentes: (Alerta, Compromiso, Entropía). El punto de origen (0, 0, 0) es la sobriedad base: lo suficientemente alerta para la vida ordinaria, comprometido con el mundo a un nivel normal, con una actividad cerebral ni especialmente rígida ni especialmente caótica. La dirección de cada vector te dice lo que hace una sustancia. La longitud te dice cuánto.</p>
+<p>Con tres ejes, cada sustancia se convierte en un vector con tres componentes: (Alerta, Inmersión, Entropía). El punto de origen (0, 0, 0) es la sobriedad base: lo suficientemente alerta para la vida ordinaria, comprometido con el mundo a un nivel normal, con una actividad cerebral ni especialmente rígida ni especialmente caótica. La dirección de cada vector te dice lo que hace una sustancia. La longitud te dice cuánto.</p>
 
 <h2>Una sustancia a la vez</h2>
 
@@ -300,7 +300,7 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
       <polygon points="${cx},20 ${cx-5},28 ${cx+5},28" fill="rgba(255,255,255,0.85)"/>
       <!-- axis labels -->
       <text x="${W-42}" y="${cy-9}" font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="end">Comprometido →</text>
-      <text x="42"     y="${cy-9}" font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="start">← Descomprometido</text>
+      <text x="42"     y="${cy-9}" font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="start">← Desconexión</text>
       <text x="${cx}"  y="16"      font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="middle">↑ Alerta</text>
       <text x="${cx}"  y="${H-4}"  font-size="11" font-family="monospace" fill="rgba(255,255,255,0.85)" text-anchor="middle">↓ Sedado</text>
     `;
@@ -410,7 +410,7 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
       // Draw positive axes only
       const axisCol = 'rgba(255,255,255,0.85)';
       const axDefs = [
-        { v: [1,0,0], label: 'Comprometer →' },
+        { v: [1,0,0], label: 'Inmersión →' },
         { v: [0,1,0], label: 'Alerta ↑'  },
         { v: [0,0,1], label: 'Entropía →'},
       ];
@@ -618,7 +618,7 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
         [0,1,0], [0,-1,0],
         [0,0,1], [0,0,-1],
       ];
-      const axLabels = ['Compromiso', null, 'Alerta', null, 'Entropía', null];
+      const axLabels = ['Inmersión', null, 'Alerta', null, 'Entropía', null];
       axes.forEach((v, i) => {
         const o = proj(0,0,0);
         const e = proj(v[0]*1.1, v[1]*1.1, v[2]*1.1);
